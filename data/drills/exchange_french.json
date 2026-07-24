@@ -1,0 +1,31 @@
+{
+  "name": "Exchange French (White)",
+  "orientation": "white",
+  "intro": "You are White. Your job: reach the Exchange setup — exd5, Nf3, Bd3, O-O, Re1 — then play the plans (Bg5, c3+Qc2, Nd2-f1-g3).",
+  "lines": [
+    {
+      "line": "e4 e6 d4 d5 exd5 exd5 Nf3 Bd6 Bd3 Ne7 O-O O-O Re1 Bg4 c3 Qd7 Nbd2 Ng6 Qc2",
+      "notes": {
+        "1": "French Defense. Your cue: play d4, then trade on d5 next move.",
+        "3": "Exchange structure reached — open e-file, symmetric pawns. Your kind of game.",
+        "7": "The ...Bg4 pin. Calmly prepare: c3, Qc2, and h3 when useful.",
+        "9": "Book almost done — from here it's plans, not moves: Qc2 battery at h7, knight to f1-g3."
+      }
+    },
+    {
+      "line": "e4 e6 d4 d5 exd5 exd5 Nf3 Nf6 Bd3 Bd6 O-O O-O Re1 Bg4 Bg5 c6 Nbd2 Nbd7 c3 Qc7",
+      "notes": {
+        "4": "With ...Nf6 the knight can be pinned later — remember Bg5.",
+        "8": "Mirror pins: your Bg5 answers their Bg4. Keep developing.",
+        "10": "Book done. Middlegame plans: Qc2, h3 asking the bishop, rook to e-file."
+      }
+    },
+    {
+      "line": "e4 e6 d4 d5 exd5 exd5 Nf3 Bg4 Be2 Bd6 O-O Ne7 Re1 O-O h3 Bh5 Bg5",
+      "notes": {
+        "4": "Early ...Bg4 pin: break it with Be2 first, castle, then h3.",
+        "8": "If the bishop retreats to h5, g4+Ne5 is always in the air. Book done."
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+ "name": "Nimzowitsch Defense \u2014 White",
+ "user_color": "white",
+ "intro": "Built from 6 of your games as white (you score 75%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "e4 Nc6 d4 d5 e5 h6 Nc3 a6 Bf4 Bf5 h3 Nb4 Rc1 Qd7 a3 Nc6 Bd3 O-O-O Nf3",
+   "notes": {
+    "1": "You've faced this 5 times (scoring 70%).",
+    "2": "You've faced this 3 times (scoring 83%)."
+   }
+  },
+  {
+   "line": "e4 Nc6 d4 d5 e5 f6 Nf3 fxe5 dxe5 h6 Bd3 Qd7 c4 e6 cxd5",
+   "notes": {
+    "1": "You've faced this 5 times (scoring 70%).",
+    "2": "You've faced this 3 times (scoring 83%).",
+    "6": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 Nc6 d4 Nf6 e5 Nd5 c4 Nb6 d5 Nxe5 c5 Nbc4 Qb3 b5 f4",
+   "notes": {
+    "1": "You've faced this 5 times (scoring 70%).",
+    "5": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 Nc6 d4 e5 d5 Nce7 Nf3 Ng6 Be2 Nf6 h4 Bc5 h5 Nf4 Bxf4",
+   "notes": {
+    "1": "You've faced this 5 times (scoring 70%).",
+    "6": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 d6 d4 e5 dxe5 Nc6 exd6 Bxd6 Bd3 Nf6 Nc3 Qe7 h3 Bf5 Bg5",
+   "notes": {
+    "4": "Beyond your games \u2014 engine line from here."
+   }
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "name": "Pirc Defense \u2014 Black",
+ "user_color": "black",
+ "intro": "Built from 3 of your games as black (you score 0%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "d4 Nf6 Nc3 d5 Bf4 Bf5 e3 e6 Bd3 c6 Bxf5 exf5 Qd3 g6",
+   "notes": {
+    "1": "You've faced this 3 times (scoring 0%).",
+    "2": "You've faced this 3 times (scoring 0%).",
+    "3": "Beyond your games \u2014 engine line from here."
+   }
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "name": "Van't Kruijs Opening \u2014 Black",
+ "user_color": "black",
+ "intro": "Built from 4 of your games as black (you score 62%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "e3 e5 b3 d5 Bb2 Bd6 Nf3 Qe7 d3 Nf6 Nbd2 O-O e4 Rd8",
+   "notes": {
+    "1": "You've faced this 4 times (scoring 62%).",
+    "5": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e3 e5 c4 Nf6 a3 c5 Nc3 d5 cxd5 Nxd5 Nf3 Nc6 Qc2 Be7",
+   "notes": {
+    "1": "You've faced this 4 times (scoring 62%).",
+    "4": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e3 e5 Bc4 d5 Bb3 Nf6 c4 d4 exd4 exd4 d3 Bd6 Nf3 O-O",
+   "notes": {
+    "1": "You've faced this 4 times (scoring 62%).",
+    "5": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e3 e5 Qe2 Nf6 Nf3 e4 Ng5 h6 Nh3 d5 Nf4 Bd6 Nc3 Bxf4 exf4 O-O",
+   "notes": {
+    "1": "You've faced this 4 times (scoring 62%)."
+   }
+  }
+ ]
+}

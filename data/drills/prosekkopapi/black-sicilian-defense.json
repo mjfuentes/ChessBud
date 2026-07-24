@@ -1,0 +1,51 @@
+{
+ "name": "Sicilian Defense \u2014 Black",
+ "user_color": "black",
+ "intro": "Built from 7 of your games as black (you score 21%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "e4 c5 Nc3 d6 g3 Nf6 Bg2 e6 d3 Nc6 f4 Be7 a4 d5",
+   "notes": {
+    "1": "You've faced this 7 times (scoring 21%).",
+    "2": "You've faced this 3 times (scoring 0%).",
+    "6": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 c5 Nc3 d6 d3 Nf6 Be2 e6 Nf3 Be7 Be3 a6 a3 b5 O-O Bb7 b4 Nbd7 bxc5 dxc5",
+   "notes": {
+    "1": "You've faced this 7 times (scoring 21%).",
+    "2": "You've faced this 3 times (scoring 0%)."
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 d6 Bc4 Nf6 O-O Nxe4 Re1 Nf6 d4 d5 Bf1 cxd4",
+   "notes": {
+    "1": "You've faced this 7 times (scoring 21%).",
+    "2": "You've faced this 3 times (scoring 50%).",
+    "5": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 d6 Bc4 Nf6 d3 e6 O-O Be7 h3 a6 a4 O-O Ba2 b5 axb5 axb5 b4 cxb4",
+   "notes": {
+    "1": "You've faced this 7 times (scoring 21%).",
+    "2": "You've faced this 3 times (scoring 50%)."
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 d6 Bb5+ Nc6 h3 a6 Bxc6+ bxc6 d3 e5 O-O Be7",
+   "notes": {
+    "1": "You've faced this 7 times (scoring 21%).",
+    "2": "You've faced this 3 times (scoring 50%).",
+    "7": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 c5 c3 e5 d4 cxd4 cxd4 exd4 Qxd4 Nc6 Qc4 Nf6 Nc3 d5",
+   "notes": {
+    "1": "You've faced this 7 times (scoring 21%)."
+   }
+  }
+ ]
+}

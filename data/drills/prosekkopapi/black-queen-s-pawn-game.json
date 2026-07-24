@@ -1,0 +1,71 @@
+{
+ "name": "Queen's Pawn Game \u2014 Black",
+ "user_color": "black",
+ "intro": "Built from 20 of your games as black (you score 48%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "d4 d5 Bf4 Nf6 e3 e6 c3 Bd6 Nf3 O-O Bd3 c5 Ne5 Qc7",
+   "notes": {
+    "1": "You've faced this 19 times (scoring 45%).",
+    "2": "You've faced this 7 times (scoring 29%).",
+    "3": "You've faced this 3 times (scoring 67%).",
+    "7": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "d4 d5 Bf4 Nf6 e3 e6 c3 Bd6 Bg3 O-O Nf3 b6 Nbd2 c5 Bxd6 Qxd6 dxc5 bxc5 Nc4 Qc7",
+   "notes": {
+    "1": "You've faced this 19 times (scoring 45%).",
+    "2": "You've faced this 7 times (scoring 29%).",
+    "3": "You've faced this 3 times (scoring 67%)."
+   }
+  },
+  {
+   "line": "d4 d5 Bf4 Nf6 Nf3 Bf5 e3 e6 c3 Be7 Bd3 Bxd3 Qxd3 O-O",
+   "notes": {
+    "1": "You've faced this 19 times (scoring 45%).",
+    "2": "You've faced this 7 times (scoring 29%).",
+    "7": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 Nf6 Bg5 e6 Bxf6 Qxf6 e3 c5 Bb5+ Nd7 c4 cxd4",
+   "notes": {
+    "1": "You've faced this 19 times (scoring 45%).",
+    "2": "You've faced this 4 times (scoring 88%).",
+    "6": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 Nf6 Bf4 e6 e3 Bd6 Be5 Nc6 Bb5 Bd7 Bxc6 Bxc6",
+   "notes": {
+    "1": "You've faced this 19 times (scoring 45%).",
+    "2": "You've faced this 4 times (scoring 88%)."
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 Nf6 e3 e6 Bd3 Bb4+ Bd2 a5 O-O O-O a3 Bd6 c4 c5 Nc3 cxd4 Nxd4 e5",
+   "notes": {
+    "1": "You've faced this 19 times (scoring 45%).",
+    "2": "You've faced this 4 times (scoring 88%)."
+   }
+  },
+  {
+   "line": "d4 d5 e3 Nf6 h3 Bf5 Nf3 Nc6 c4 e6 c5 Be7 Bb5 O-O",
+   "notes": {
+    "1": "You've faced this 19 times (scoring 45%)."
+   }
+  },
+  {
+   "line": "d4 d5 e3 Nf6 Nf3 e6 c4 Be7 cxd5 exd5 Nc3 Bf5 Nh4 Bg4",
+   "notes": {
+    "1": "You've faced this 19 times (scoring 45%).",
+    "6": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "Nf3 Nf6 d4 d5 Nc3 Nc6 Bf4 a6 e3 e6 Ne5 Nxe5 dxe5 Nd7 Qg4 h5",
+   "notes": {}
+  }
+ ]
+}

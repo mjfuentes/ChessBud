@@ -1,0 +1,129 @@
+{
+ "name": "King's Indian Defense \u2014 Black",
+ "user_color": "black",
+ "intro": "Built from 16 of your games as black (you score 56%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 d5 c6 O-O cxd5 cxd5 a6 Be3 b5",
+   "notes": {
+    "1": "You've faced this 16 times (scoring 56%).",
+    "2": "You've faced this 15 times (scoring 53%).",
+    "3": "You've faced this 12 times (scoring 50%).",
+    "4": "You've faced this 10 times (scoring 50%).",
+    "5": "You've faced this 6 times (scoring 50%).",
+    "6": "You've faced this 4 times (scoring 50%).",
+    "7": "You've faced this 4 times (scoring 50%).",
+    "8": "You've faced this 4 times (scoring 50%).",
+    "9": "You've faced this 4 times (scoring 50%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 d5 c6 O-O cxd5 cxd5 a6 Bd3 b5",
+   "notes": {
+    "1": "You've faced this 16 times (scoring 56%).",
+    "2": "You've faced this 15 times (scoring 53%).",
+    "3": "You've faced this 12 times (scoring 50%).",
+    "4": "You've faced this 10 times (scoring 50%).",
+    "5": "You've faced this 6 times (scoring 50%).",
+    "6": "You've faced this 4 times (scoring 50%).",
+    "7": "You've faced this 4 times (scoring 50%).",
+    "8": "You've faced this 4 times (scoring 50%).",
+    "9": "You've faced this 4 times (scoring 50%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O d5 e6 Bd3 exd5 cxd5 Re8 O-O Bg4 h3 Bxf3",
+   "notes": {
+    "1": "You've faced this 16 times (scoring 56%).",
+    "2": "You've faced this 15 times (scoring 53%).",
+    "3": "You've faced this 12 times (scoring 50%).",
+    "4": "You've faced this 10 times (scoring 50%).",
+    "5": "You've faced this 6 times (scoring 50%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Bd3 e5 d5 c6 Bg5 Qb6 Qd2 Na6",
+   "notes": {
+    "1": "You've faced this 16 times (scoring 56%).",
+    "2": "You've faced this 15 times (scoring 53%).",
+    "3": "You've faced this 12 times (scoring 50%).",
+    "4": "You've faced this 10 times (scoring 50%).",
+    "5": "You've faced this 6 times (scoring 50%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 h3 O-O Be3 c5 d5 e6 Qd2 exd5 exd5 Re8 O-O-O b5",
+   "notes": {
+    "1": "You've faced this 16 times (scoring 56%).",
+    "2": "You've faced this 15 times (scoring 53%).",
+    "3": "You've faced this 12 times (scoring 50%).",
+    "4": "You've faced this 10 times (scoring 50%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 h3 O-O Nf3 e5 d5 Nbd7 Bd3 a6 O-O Nc5 Bc2 Ne8",
+   "notes": {
+    "1": "You've faced this 16 times (scoring 56%).",
+    "2": "You've faced this 15 times (scoring 53%).",
+    "3": "You've faced this 12 times (scoring 50%).",
+    "4": "You've faced this 10 times (scoring 50%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f4 O-O e5 dxe5 fxe5 Nfd7 Nf3 c5",
+   "notes": {
+    "1": "You've faced this 16 times (scoring 56%).",
+    "2": "You've faced this 15 times (scoring 53%).",
+    "3": "You've faced this 12 times (scoring 50%).",
+    "4": "You've faced this 10 times (scoring 50%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Bg5 h6 Bh4 g5 Bg3 O-O h4 g4",
+   "notes": {
+    "1": "You've faced this 16 times (scoring 56%).",
+    "2": "You've faced this 15 times (scoring 53%).",
+    "3": "You've faced this 12 times (scoring 50%).",
+    "4": "You've faced this 10 times (scoring 50%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 Nf3 O-O b3 d5 c5 Ne4 Bb2 Bg4 h3 Bxf3 exf3 Nxc3 Bxc3 e5",
+   "notes": {
+    "1": "You've faced this 16 times (scoring 56%).",
+    "2": "You've faced this 15 times (scoring 53%).",
+    "3": "You've faced this 12 times (scoring 50%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 Nf3 O-O e4 d6 Bg5 h6 Bh4 g5 Nxg5 hxg5 Bxg5 Nh7 Be3 c5",
+   "notes": {
+    "1": "You've faced this 16 times (scoring 56%).",
+    "2": "You've faced this 15 times (scoring 53%).",
+    "3": "You've faced this 12 times (scoring 50%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nf3 Bg7 g3 O-O Bg2 d6 O-O Bg4 Nc3 Qd7 e4 Bh3 Re1 Bxg2 Kxg2 Nc6",
+   "notes": {
+    "1": "You've faced this 16 times (scoring 56%).",
+    "2": "You've faced this 15 times (scoring 53%).",
+    "3": "You've faced this 3 times (scoring 67%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nf3 Bg7 Nc3 O-O e4 d6 Be2 e5 dxe5 dxe5 Qxd8 Rxd8 Nxe5 Nxe4 Nxf7",
+   "notes": {
+    "1": "You've faced this 16 times (scoring 56%).",
+    "2": "You've faced this 15 times (scoring 53%).",
+    "3": "You've faced this 3 times (scoring 67%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 g6 c4 Bg7 Nc3 O-O e4 d6 Bg5 h6 Be3 e5 dxe5 dxe5 Nxe5 Nxe4 Qxd8 Rxd8",
+   "notes": {
+    "1": "You've faced this 16 times (scoring 56%)."
+   }
+  }
+ ]
+}

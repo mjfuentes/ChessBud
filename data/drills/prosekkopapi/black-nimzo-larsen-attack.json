@@ -1,0 +1,15 @@
+{
+ "name": "Nimzo-Larsen Attack \u2014 Black",
+ "user_color": "black",
+ "intro": "Built from 2 of your games as black (you score 100%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "b3 e5 Bb2 Nc6 g3 d5 Bg2 Nf6 d3 Be6 Nd2 Qd7 e3 O-O-O Ngf3 Bd6 O-O Bh3 c4 Bxg2",
+   "notes": {}
+  },
+  {
+   "line": "b3 e5 Bb2 Nc6 e4 d5 d3 dxe4 dxe4 Qxd1+ Kxd1 Nf6 Bd3 Bc5 f3 Be6",
+   "notes": {}
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "name": "King's Gambit \u2014 Black",
+ "user_color": "black",
+ "intro": "Built from 3 of your games as black (you score 67%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "e4 e5 f4 exf4 Bc4 Qh4+ Kf1 d5 Bxd5 g5 Nf3 Qh5 Nc3 Ne7",
+   "notes": {
+    "1": "You've faced this 3 times (scoring 67%).",
+    "2": "You've faced this 3 times (scoring 67%).",
+    "3": "Beyond your games \u2014 engine line from here."
+   }
+  }
+ ]
+}

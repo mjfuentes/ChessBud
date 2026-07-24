@@ -1,0 +1,47 @@
+{
+ "name": "Queen's Gambit Declined \u2014 Black",
+ "user_color": "black",
+ "intro": "Built from 7 of your games as black (you score 64%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 Bxf6 Bxf6 e3 O-O Nf3 a6 Bd3 dxc4",
+   "notes": {
+    "1": "You've faced this 7 times (scoring 64%).",
+    "2": "You've faced this 7 times (scoring 64%).",
+    "3": "You've faced this 3 times (scoring 50%)."
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 Nf6 cxd5 Nxd5 e4 Nxc3 bxc3 c5 Rb1 Be7",
+   "notes": {
+    "1": "You've faced this 7 times (scoring 64%).",
+    "2": "You've faced this 7 times (scoring 64%).",
+    "3": "You've faced this 3 times (scoring 50%).",
+    "7": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nf3 Nf6 Nc3 Bb4 Bg5 h6 Bh4 dxc4 a3 Bxc3+",
+   "notes": {
+    "1": "You've faced this 7 times (scoring 64%).",
+    "2": "You've faced this 7 times (scoring 64%).",
+    "7": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nf3 Nf6 Bg5 h6 Bxf6 Qxf6 c5 b6 cxb6 axb6",
+   "notes": {
+    "1": "You've faced this 7 times (scoring 64%).",
+    "2": "You've faced this 7 times (scoring 64%).",
+    "7": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 cxd5 exd5 Bf4 Nf6 Nf3 Bd6 Bxd6 Qxd6 Nc3 a6 e3 O-O Bd3 Re8 Qc2 Nc6",
+   "notes": {
+    "1": "You've faced this 7 times (scoring 64%).",
+    "2": "You've faced this 7 times (scoring 64%)."
+   }
+  }
+ ]
+}

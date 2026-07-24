@@ -1,0 +1,40 @@
+{
+ "name": "Modern Defense \u2014 White",
+ "user_color": "white",
+ "intro": "Built from 5 of your games as white (you score 60%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "e4 g6 d4 Bg7 Nf3 d6 Bc4 Bg4 Bxf7+ Kxf7 Ng5+ Ke8 Qxg4 Bxd4 Qe6",
+   "notes": {
+    "1": "You've faced this 5 times (scoring 60%).",
+    "2": "You've faced this 5 times (scoring 60%).",
+    "3": "You've faced this 3 times (scoring 67%).",
+    "5": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 g6 d4 Bg7 Nf3 d6 Bc4 a6 a4 e6 Nc3 Ne7 O-O O-O Bg5 h6 Be3 b6 Qd2 Kh7",
+   "notes": {
+    "1": "You've faced this 5 times (scoring 60%).",
+    "2": "You've faced this 5 times (scoring 60%).",
+    "3": "You've faced this 3 times (scoring 67%)."
+   }
+  },
+  {
+   "line": "e4 g6 d4 Bg7 Nf3 d6 Bc4 Nf6 Qe2 Nc6 e5 dxe5 dxe5 Ng4 Bb5",
+   "notes": {
+    "1": "You've faced this 5 times (scoring 60%).",
+    "2": "You've faced this 5 times (scoring 60%).",
+    "3": "You've faced this 3 times (scoring 67%).",
+    "5": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 g6 d4 Bg7 Nf3 e6 Bd3 Ne7 O-O h6 Be3 O-O Qd2 Kh7 Nc3 f6 Rad1 d5 exd5 exd5",
+   "notes": {
+    "1": "You've faced this 5 times (scoring 60%).",
+    "2": "You've faced this 5 times (scoring 60%)."
+   }
+  }
+ ]
+}

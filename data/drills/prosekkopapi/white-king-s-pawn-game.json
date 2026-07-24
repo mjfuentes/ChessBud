@@ -1,0 +1,13 @@
+{
+ "name": "King's Pawn Game \u2014 White",
+ "user_color": "white",
+ "intro": "Built from 2 of your games as white (you score 100%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "e4 e5 Nf3 Qf6 Bc4 Bc5 Nc3 Ne7 O-O O-O d4 exd4 Bg5 Qg6 Na4",
+   "notes": {
+    "4": "Beyond your games \u2014 engine line from here."
+   }
+  }
+ ]
+}

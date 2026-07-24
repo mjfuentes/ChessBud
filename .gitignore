@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+nohup.out
+reports/
+
+# runtime state — changes on every session
+data/activity_log.jsonl
+data/puzzle_progress.json
+data/puzzles_live.json

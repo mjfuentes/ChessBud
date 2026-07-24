@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChessBuddy</title>
+  <link rel="stylesheet" href="vendor/chessground.base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="home" class="home" hidden>
+    <header>
+      <div class="home-brand">Chess<span>Buddy</span></div>
+      <div class="home-sub" id="home-sub">blitz coaching</div>
+    </header>
+
+    <section class="home-replay" id="home-replay">
+      <div class="mode-title">Blunder replay</div>
+      <div class="mode-desc" id="replay-desc">Loading…</div>
+      <div class="bar"><div class="bar-fill" id="replay-bar"></div></div>
+    </section>
+
+    <section class="home-replay" id="home-practice">
+      <div class="mode-title">Opening practice</div>
+      <div class="mode-desc" id="practice-desc">Loading…</div>
+      <div class="bar"><div class="bar-fill" id="practice-bar"></div></div>
+    </section>
+
+    <section>
+      <div class="openings-grid">
+        <div>
+          <h2>Your repertoire — as White</h2>
+          <ol class="openings" id="home-white"></ol>
+        </div>
+        <div>
+          <h2>As Black</h2>
+          <ol class="openings" id="home-black"></ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <main class="layout" id="game" hidden>
+    <section class="board-wrap">
+      <div id="evalbar" class="evalbar"><div id="evalfill" class="evalfill"></div></div>
+      <div class="board-col">
+        <div id="captured-top" class="captured"></div>
+        <div id="board" class="board"></div>
+        <div id="captured-bottom" class="captured"></div>
+      </div>
+    </section>
+    <aside class="panel">
+      <div class="brand" id="brand-link">Chess<span>Buddy</span></div>
+      <nav class="topnav">
+        <button id="nav-home">Home</button>
+        <button id="nav-practice">Opening practice</button>
+        <button id="nav-blunders">Blunder replay</button>
+      </nav>
+      <h1 id="drill-name">Opening Practice</h1>
+      <div id="status" class="status"></div>
+      <div id="context" class="context" hidden></div>
+      <div id="message" class="message note"></div>
+      <div id="puzzle-actions" class="puzzle-actions" hidden>
+        <button id="retry">Retry</button>
+        <button id="next">Next puzzle</button>
+      </div>
+      <h2>Moves</h2>
+      <ol id="moves" class="moves"></ol>
+      <div class="hints">
+        <b>H</b> home · <b>N</b> new practice game · <b>B</b> blunder replay ·
+        <b>←→</b> review · <b>U</b> undo · <b>F</b> flip · <b>M</b> sound ·
+        click a move to jump · right-click to draw
+      </div>
+    </aside>
+  </main>
+  <script src="sound.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+{
+ "drills": [
+  {
+   "id": "prosekkopapi/white-italian-game",
+   "family": "Italian Game",
+   "color": "white",
+   "games": 127,
+   "score_pct": 54.3,
+   "lines": 63
+  },
+  {
+   "id": "prosekkopapi/black-italian-game",
+   "family": "Italian Game",
+   "color": "black",
+   "games": 61,
+   "score_pct": 68.9,
+   "lines": 25
+  },
+  {
+   "id": "prosekkopapi/white-sicilian-defense",
+   "family": "Sicilian Defense",
+   "color": "white",
+   "games": 50,
+   "score_pct": 57.0,
+   "lines": 23
+  },
+  {
+   "id": "prosekkopapi/white-caro-kann-defense",
+   "family": "Caro-Kann Defense",
+   "color": "white",
+   "games": 50,
+   "score_pct": 53.0,
+   "lines": 18
+  },
+  {
+   "id": "prosekkopapi/black-scotch-game",
+   "family": "Scotch Game",
+   "color": "black",
+   "games": 33,
+   "score_pct": 59.1,
+   "lines": 17
+  },
+  {
+   "id": "prosekkopapi/black-indian-defense",
+   "family": "Indian Defense",
+   "color": "black",
+   "games": 31,
+   "score_pct": 43.5,
+   "lines": 15
+  },
+  {
+   "id": "prosekkopapi/white-scandinavian-defense",
+   "family": "Scandinavian Defense",
+   "color": "white",
+   "games": 23,
+   "score_pct": 67.4,
+   "lines": 14
+  },
+  {
+   "id": "prosekkopapi/black-bishop-s-opening",
+   "family": "Bishop's Opening",
+   "color": "black",
+   "games": 22,
+   "score_pct": 34.1,
+   "lines": 14
+  },
+  {
+   "id": "prosekkopapi/black-ruy-lopez",
+   "family": "Ruy Lopez",
+   "color": "black",
+   "games": 21,
+   "score_pct": 31.0,
+   "lines": 9
+  },
+  {
+   "id": "prosekkopapi/black-queen-s-pawn-game",
+   "family": "Queen's Pawn Game",
+   "color": "black",
+   "games": 20,
+   "score_pct": 47.5,
+   "lines": 9
+  },
+  {
+   "id": "prosekkopapi/white-philidor-defense",
+   "family": "Philidor Defense",
+   "color": "white",
+   "games": 19,
+   "score_pct": 57.9,
+   "lines": 5
+  },
+  {
+   "id": "prosekkopapi/white-french-defense",
+   "family": "French Defense",
+   "color": "white",
+   "games": 19,
+   "score_pct": 57.9,
+   "lines": 10
+  },
+  {
+   "id": "prosekkopapi/black-vienna-game",
+   "family": "Vienna Game",
+   "color": "black",
+   "games": 17,
+   "score_pct": 52.9,
+   "lines": 5
+  },
+  {
+   "id": "prosekkopapi/black-king-s-indian-defense",
+   "family": "King's Indian Defense",
+   "color": "black",
+   "games": 16,
+   "score_pct": 56.2,
+   "lines": 13
+  },
+  {
+   "id": "prosekkopapi/black-four-knights-game",
+   "family": "Four Knights Game",
+   "color": "black",
+   "games": 15,
+   "score_pct": 40.0,
+   "lines": 10
+  },
+  {
+   "id": "prosekkopapi/black-ponziani-opening",
+   "family": "Ponziani Opening",
+   "color": "black",
+   "games": 13,
+   "score_pct": 53.8,
+   "lines": 7
+  },
+  {
+   "id": "prosekkopapi/white-petrov-s-defense",
+   "family": "Petrov's Defense",
+   "color": "white",
+   "games": 11,
+   "score_pct": 72.7,
+   "lines": 6
+  },
+  {
+   "id": "prosekkopapi/white-pirc-defense",
+   "family": "Pirc Defense",
+   "color": "white",
+   "games": 9,
+   "score_pct": 27.8,
+   "lines": 4
+  },
+  {
+   "id": "prosekkopapi/black-king-s-gambit-accepted",
+   "family": "King's Gambit Accepted",
+   "color": "black",
+   "games": 7,
+   "score_pct": 57.1,
+   "lines": 3
+  },
+  {
+   "id": "prosekkopapi/black-english-opening",
+   "family": "English Opening",
+   "color": "black",
+   "games": 7,
+   "score_pct": 35.7,
+   "lines": 3
+  },
+  {
+   "id": "prosekkopapi/black-queen-s-gambit-declined",
+   "family": "Queen's Gambit Declined",
+   "color": "black",
+   "games": 7,
+   "score_pct": 64.3,
+   "lines": 5
+  },
+  {
+   "id": "prosekkopapi/black-sicilian-defense",
+   "family": "Sicilian Defense",
+   "color": "black",
+   "games": 7,
+   "score_pct": 21.4,
+   "lines": 6
+  },
+  {
+   "id": "prosekkopapi/black-king-s-pawn-game",
+   "family": "King's Pawn Game",
+   "color": "black",
+   "games": 6,
+   "score_pct": 33.3,
+   "lines": 6
+  },
+  {
+   "id": "prosekkopapi/white-nimzowitsch-defense",
+   "family": "Nimzowitsch Defense",
+   "color": "white",
+   "games": 6,
+   "score_pct": 75.0,
+   "lines": 5
+  },
+  {
+   "id": "prosekkopapi/white-modern-defense",
+   "family": "Modern Defense",
+   "color": "white",
+   "games": 5,
+   "score_pct": 60.0,
+   "lines": 4
+  },
+  {
+   "id": "prosekkopapi/black-van-t-kruijs-opening",
+   "family": "Van't Kruijs Opening",
+   "color": "black",
+   "games": 4,
+   "score_pct": 62.5,
+   "lines": 4
+  },
+  {
+   "id": "prosekkopapi/black-zukertort-opening",
+   "family": "Zukertort Opening",
+   "color": "black",
+   "games": 4,
+   "score_pct": 75.0,
+   "lines": 2
+  },
+  {
+   "id": "prosekkopapi/white-scotch-game",
+   "family": "Scotch Game",
+   "color": "white",
+   "games": 4,
+   "score_pct": 0.0,
+   "lines": 4
+  },
+  {
+   "id": "prosekkopapi/black-king-s-gambit",
+   "family": "King's Gambit",
+   "color": "black",
+   "games": 3,
+   "score_pct": 66.7,
+   "lines": 1
+  },
+  {
+   "id": "prosekkopapi/black-bird-opening",
+   "family": "Bird Opening",
+   "color": "black",
+   "games": 3,
+   "score_pct": 66.7,
+   "lines": 1
+  },
+  {
+   "id": "prosekkopapi/white-owen-defense",
+   "family": "Owen Defense",
+   "color": "white",
+   "games": 3,
+   "score_pct": 50.0,
+   "lines": 2
+  },
+  {
+   "id": "prosekkopapi/black-pirc-defense",
+   "family": "Pirc Defense",
+   "color": "black",
+   "games": 3,
+   "score_pct": 0.0,
+   "lines": 1
+  },
+  {
+   "id": "prosekkopapi/black-center-game",
+   "family": "Center Game",
+   "color": "black",
+   "games": 3,
+   "score_pct": 33.3,
+   "lines": 3
+  },
+  {
+   "id": "prosekkopapi/black-trompowsky-attack",
+   "family": "Trompowsky Attack",
+   "color": "black",
+   "games": 3,
+   "score_pct": 66.7,
+   "lines": 2
+  },
+  {
+   "id": "prosekkopapi/black-london-system",
+   "family": "London System",
+   "color": "black",
+   "games": 3,
+   "score_pct": 33.3,
+   "lines": 3
+  },
+  {
+   "id": "prosekkopapi/white-ruy-lopez",
+   "family": "Ruy Lopez",
+   "color": "white",
+   "games": 2,
+   "score_pct": 25.0,
+   "lines": 2
+  },
+  {
+   "id": "prosekkopapi/black-danish-gambit",
+   "family": "Danish Gambit",
+   "color": "black",
+   "games": 2,
+   "score_pct": 0.0,
+   "lines": 1
+  },
+  {
+   "id": "prosekkopapi/black-three-knights-opening",
+   "family": "Three Knights Opening",
+   "color": "black",
+   "games": 2,
+   "score_pct": 100.0,
+   "lines": 1
+  },
+  {
+   "id": "prosekkopapi/white-king-s-pawn-game",
+   "family": "King's Pawn Game",
+   "color": "white",
+   "games": 2,
+   "score_pct": 100.0,
+   "lines": 1
+  },
+  {
+   "id": "prosekkopapi/black-king-s-knight-opening",
+   "family": "King's Knight Opening",
+   "color": "black",
+   "games": 2,
+   "score_pct": 50.0,
+   "lines": 2
+  },
+  {
+   "id": "prosekkopapi/black-east-indian-defense",
+   "family": "East Indian Defense",
+   "color": "black",
+   "games": 2,
+   "score_pct": 50.0,
+   "lines": 2
+  },
+  {
+   "id": "prosekkopapi/white-rat-defense",
+   "family": "Rat Defense",
+   "color": "white",
+   "games": 2,
+   "score_pct": 0.0,
+   "lines": 2
+  },
+  {
+   "id": "prosekkopapi/black-nimzo-larsen-attack",
+   "family": "Nimzo-Larsen Attack",
+   "color": "black",
+   "games": 2,
+   "score_pct": 100.0,
+   "lines": 2
+  }
+ ]
+}

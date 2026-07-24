@@ -1,0 +1,178 @@
+{
+ "name": "Scotch Game \u2014 Black",
+ "user_color": "black",
+ "intro": "Built from 33 of your games as black (you score 59%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qf6 Nxc6 dxc6 Nc3 Bc5 Qe2 Bd4",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 22 times (scoring 66%).",
+    "5": "You've faced this 8 times (scoring 56%).",
+    "6": "You've faced this 4 times (scoring 62%)."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qf6 Nxc6 dxc6 Nc3 Bc5 f3 Qh4+ g3 Qe7 Bd3 Nf6 Qe2 O-O",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 22 times (scoring 66%).",
+    "5": "You've faced this 8 times (scoring 56%).",
+    "6": "You've faced this 4 times (scoring 62%)."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qf6 Nxc6 dxc6 Nc3 Bc5 Qd2 Ne7 Bc4 b5 Bd3 O-O O-O Ng6",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 22 times (scoring 66%).",
+    "5": "You've faced this 8 times (scoring 56%).",
+    "6": "You've faced this 4 times (scoring 62%)."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qf6 Nxc6 dxc6 Be3 Qxb2 Bd4 Qb4+",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 22 times (scoring 66%).",
+    "5": "You've faced this 8 times (scoring 56%).",
+    "7": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qf6 Nxc6 dxc6 Bc4 Be6 Qe2 Bxc4",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 22 times (scoring 66%).",
+    "5": "You've faced this 8 times (scoring 56%).",
+    "7": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qf6 Be3 Bc5 c3 Nge7 g3 h5",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 22 times (scoring 66%).",
+    "5": "You've faced this 7 times (scoring 100%).",
+    "6": "You've faced this 4 times (scoring 100%)."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qf6 Be3 Bc5 c3 Nge7 Bd3 Nxd4",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 22 times (scoring 66%).",
+    "5": "You've faced this 7 times (scoring 100%).",
+    "6": "You've faced this 4 times (scoring 100%)."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qf6 Be3 Bc5 Nf5 Bxe3 Nxe3 Qxb2 Nd2 Nf6 Ndc4 Qc3+ Ke2",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 22 times (scoring 66%).",
+    "5": "You've faced this 7 times (scoring 100%)."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qf6 Be3 Bc5 Nb5 Bxe3 fxe3 Qh4+",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 22 times (scoring 66%).",
+    "5": "You've faced this 7 times (scoring 100%)."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qf6 Nb5 Bc5 Qe2 Kd8 N5c3 Nge7",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 22 times (scoring 66%).",
+    "6": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qf6 c3 Bc5 Be3 Nge7 b4 Bb6",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 22 times (scoring 66%)."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Bb4+ c3 dxc3 bxc3 Ba5 O-O Bb6",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 4 times (scoring 0%).",
+    "5": "You've faced this 4 times (scoring 0%).",
+    "6": "You've faced this 3 times (scoring 0%)."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Bb4+ c3 dxc3 O-O Nf6 e5 d5",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 4 times (scoring 0%).",
+    "5": "You've faced this 4 times (scoring 0%).",
+    "7": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 c3 d5 exd5 Qxd5 cxd4 Bg4 Be2 Bb4+",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%).",
+    "4": "You've faced this 3 times (scoring 67%).",
+    "5": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Ng5 Bb4+ c3 dxc3 Nxc3 Nf6 Bc4 O-O O-O Bxc3",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "3": "You've faced this 31 times (scoring 60%)."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 e5 d5 exf6 dxc4 Qe2+ Be6 fxg7 Bxg7 Bg5 Bf6 h4 Qe7",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%)."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 Nxd4 Nxe4 O-O d5 Bb5 Bd7",
+   "notes": {
+    "1": "You've faced this 33 times (scoring 59%).",
+    "2": "You've faced this 33 times (scoring 59%).",
+    "6": "Beyond your games \u2014 engine line from here."
+   }
+  }
+ ]
+}

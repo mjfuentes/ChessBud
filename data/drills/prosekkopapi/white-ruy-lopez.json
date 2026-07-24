@@ -1,0 +1,17 @@
+{
+ "name": "Ruy Lopez \u2014 White",
+ "user_color": "white",
+ "intro": "Built from 2 of your games as white (you score 25%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Bc5 d3 b5 Bb3 Nd4 Nxe5 Nxb3 axb3 Qf6 Nf3 Bb7 O-O h6",
+   "notes": {}
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Qf6 Nc3 Nd4 Nxd4 exd4 Nd5 Qd8 Qh5 Bd6 e5",
+   "notes": {
+    "5": "Beyond your games \u2014 engine line from here."
+   }
+  }
+ ]
+}

@@ -1,0 +1,119 @@
+{
+ "name": "Indian Defense \u2014 Black",
+ "user_color": "black",
+ "intro": "Built from 31 of your games as black (you score 44%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "d4 Nf6 Nc3 d5 Bf4 Bf5 e3 e6 Bd3 c6 Bxf5 exf5 Qd3 g6",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%).",
+    "2": "You've faced this 12 times (scoring 58%).",
+    "3": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "d4 Nf6 Bf4 g6 e3 Bg7 c3 O-O Bc4 d5 Bb3 Nh5 Bg3 Nxg3",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%).",
+    "2": "You've faced this 9 times (scoring 39%).",
+    "3": "You've faced this 5 times (scoring 20%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 Bf4 g6 e3 Bg7 c3 O-O Nd2 Nh5 Bg3 Nxg3 hxg3 d6",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%).",
+    "2": "You've faced this 9 times (scoring 39%).",
+    "3": "You've faced this 5 times (scoring 20%).",
+    "7": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "d4 Nf6 Bf4 g6 e3 Bg7 Be2 d5 h3 O-O Nf3 Re8 Nc3 c6 a3 Nfd7 g4 e5 Bg5 f6",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%).",
+    "2": "You've faced this 9 times (scoring 39%).",
+    "3": "You've faced this 5 times (scoring 20%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 Bf4 g6 e3 Bg7 a3 O-O Nc3 d6 h3 Nc6 Nf3 Re8 Be2 b6 Qd2 Bb7 O-O-O a6",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%).",
+    "2": "You've faced this 9 times (scoring 39%).",
+    "3": "You've faced this 5 times (scoring 20%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 Bf4 g6 Nc3 d5 e3 Bg7 Nb5 Na6 Nc3 Nb8 Nb5 Na6",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%).",
+    "2": "You've faced this 9 times (scoring 39%).",
+    "4": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 d5 Bg7 Nf3 c6 dxc6 bxc6 g3 Ba6 Qa4 O-O",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%).",
+    "2": "You've faced this 3 times (scoring 0%).",
+    "5": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 e3 Bg7 Nf3 d5 Be2 dxc4 Bxc4 O-O O-O a6 a3 b5 Bb3 Bb7 Ne5 c5",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%).",
+    "2": "You've faced this 3 times (scoring 0%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Bg5 Bg7 Nf3 Ne4 Bd2 c5 Nc3 Nxd2 Qxd2 cxd4",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%).",
+    "2": "You've faced this 3 times (scoring 0%).",
+    "5": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "d4 Nf6 e3 g6 Bd3 Bg7 f4 d5 Nf3 c5 c3 O-O O-O Qc7",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%).",
+    "2": "You've faced this 3 times (scoring 0%).",
+    "6": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "d4 Nf6 e3 g6 Nf3 Bg7 Bd3 d6 Nbd2 Nc6 c3 O-O O-O e5",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%).",
+    "2": "You've faced this 3 times (scoring 0%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 g6 e3 Bg7 Bd3 d6 c3 O-O Nbd2 Re8 O-O e5 dxe5 dxe5 Bc2 Nbd7",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 g6 g3 Bg7 Bg2 d5 O-O Nc6 Nc3 Bg4 Re1 Bxf3",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%)."
+   }
+  },
+  {
+   "line": "d4 Nf6 h3 d5 f3 Nc6 g4 e5 e3 Be6 Bg2 h5 g5 Ng8",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%).",
+    "5": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "d4 Nf6 a3 g6 h3 Bg7 Bd2 d6 Bc3 O-O Qd3 Nbd7 g4 e5 e3 exd4 exd4 Re8+ Be2 Ne4",
+   "notes": {
+    "1": "You've faced this 31 times (scoring 44%)."
+   }
+  }
+ ]
+}

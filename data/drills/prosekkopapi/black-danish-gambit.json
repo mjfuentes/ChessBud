@@ -1,0 +1,13 @@
+{
+ "name": "Danish Gambit \u2014 Black",
+ "user_color": "black",
+ "intro": "Built from 2 of your games as black (you score 0%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "e4 e5 d4 exd4 c3 Qe7 cxd4 Qxe4+ Be3 Nf6 Nc3 Bb4 Nf3 Nd5",
+   "notes": {
+    "4": "Beyond your games \u2014 engine line from here."
+   }
+  }
+ ]
+}

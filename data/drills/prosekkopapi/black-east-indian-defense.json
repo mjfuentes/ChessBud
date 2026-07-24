@@ -1,0 +1,15 @@
+{
+ "name": "East Indian Defense \u2014 Black",
+ "user_color": "black",
+ "intro": "Built from 2 of your games as black (you score 50%). Play your prepared moves.",
+ "lines": [
+  {
+   "line": "d4 Nf6 Nf3 g6 b3 d5 Bb2 Bg7 Nbd2 O-O e3 Nc6 a3 e5",
+   "notes": {}
+  },
+  {
+   "line": "d4 Nf6 Nf3 g6 g4 Nxg4 Ng5 Bg7 Na3 Nf6 b3 d5 Nb1 Nc6 e3",
+   "notes": {}
+  }
+ ]
+}
