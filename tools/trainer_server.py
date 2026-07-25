@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import random
 import threading
 import time
@@ -31,6 +32,14 @@ PUZZLE_FILES = {
 }
 LIVE_MISTAKES_FILE = ROOT / "data" / "puzzles_live.json"
 OPENING_CHECK_PLIES = 24
+# Every run starts from move 1, so the baseline a run's drift is measured
+# against is fixed: the initial position, ~+0.3 for White. Black's job in the
+# opening is to equalise from -0.3, not to be equal — hence the sign flip.
+START_CP = 30
+# a run fails if it gives up this much from the starting eval, or if it ends
+# below the floor in absolute terms (mirrored in web/app.js)
+DRIFT_FAIL_CP = -75
+FLOOR_CP = -100
 PROGRESS_FILE = ROOT / "data" / "puzzle_progress.json"
 PUZZLE_TOLERANCE_CP = 60
 PRACTICE_TOLERANCE_CP = 80
@@ -41,6 +50,27 @@ BOOK_BLUNDER_CP = 150
 # (scoring) attempt of the current appearance.
 progress_lock = threading.Lock()
 pending_first_attempt: set[str] = set()
+last_served: dict[tuple, str] = {}  # position -> book reply served last time
+recent_paths: list[tuple[str, set]] = []  # (game_id, epds served) for last N games
+RECENT_GAMES = 6
+RECENT_PENALTY = 0.3
+
+
+def note_recent(game_id: str | None, epd: str) -> None:
+    if not game_id:
+        return
+    for gid, epds in recent_paths:
+        if gid == game_id:
+            epds.add(epd)
+            return
+    recent_paths.append((game_id, {epd}))
+    del recent_paths[:-RECENT_GAMES]
+
+
+def recency_factor(epd: str, game_id: str | None) -> float:
+    """Compounding penalty for territory visited in recent games."""
+    seen = sum(1 for gid, epds in recent_paths if gid != game_id and epd in epds)
+    return RECENT_PENALTY ** seen
 
 ACTIVITY_LOG = ROOT / "data" / "activity_log.jsonl"
 log_lock = threading.Lock()
@@ -66,6 +96,32 @@ def save_progress(progress: dict) -> None:
     tmp.rename(PROGRESS_FILE)
 
 
+def article(word: str) -> str:
+    return "an" if word[:1].upper() in "AEIOU" else "a"
+
+
+def note_rank(note: str | None) -> int:
+    """Lower is better: stats from real games beat generic notes beat
+    'beyond your games' claims (which are only true for one line, not
+    necessarily for the position)."""
+    if note and "faced this" in note:
+        return 0
+    if note and "Beyond your games" not in note:
+        return 1
+    if note is None:
+        return 2
+    return 3
+
+
+def add_reply(bucket: list, san: str, note: str | None) -> None:
+    for i, (existing_san, existing_note) in enumerate(bucket):
+        if existing_san == san:
+            if note_rank(note) < note_rank(existing_note):
+                bucket[i] = (san, note)
+            return
+    bucket.append((san, note))
+
+
 class Drill:
     """Indexes drill lines by move history for expected-move and reply lookup."""
 
@@ -77,6 +133,14 @@ class Drill:
         self.replies: dict[tuple, list[tuple[str, str | None]]] = {}
         for variation in spec["lines"]:
             self._index_line(variation)
+        self.family = self.name.split(" — ")[0].strip()
+        # Histories from which a drill line still reaches this drill's opening.
+        # Outside these, the opponent has taken the game somewhere the family
+        # can never happen (a Petrov in an Italian drill), so there is nothing
+        # to steer back to and the book guard must stay quiet.
+        self.on_family: set[tuple] = set()
+        for variation in spec["lines"]:
+            self._index_family(variation)
 
     def _index_line(self, variation: dict) -> None:
         board = chess.Board()
@@ -88,14 +152,30 @@ class Drill:
                 self.expected.setdefault(key, set()).add(san)
             else:
                 note = notes.get(str(ply // 2 + 1))
-                entry = (san, note)
-                if entry not in self.replies.setdefault(key, []):
-                    self.replies[key].append(entry)
+                add_reply(self.replies.setdefault(key, []), san, note)
             try:
                 board.push_san(san)
             except ValueError:
                 return
             history.append(san)
+
+    def _index_family(self, variation: dict) -> None:
+        """Mark every prefix of a line that goes on to reach this family."""
+        book = eco_book()
+        board = chess.Board()
+        history: list[str] = []
+        prefixes: list[tuple] = [()]
+        for san in variation["line"].split():
+            try:
+                board.push_san(san)
+            except ValueError:
+                return
+            history.append(san)
+            prefixes.append(tuple(history))
+            entry = book.get(board.epd())
+            if entry and entry[1].split(":")[0].strip() == self.family:
+                # everything up to here was still on the way to the family
+                self.on_family.update(prefixes)
 
 
 def load_drills(user: str) -> dict[str, Drill]:
@@ -121,6 +201,8 @@ class MistakeIndex:
         self.last_build = 0.0
         self.epd_to_fen: dict[str, str] = {}
         self.paths: dict[str, set[str]] = {}
+        self.downstream: dict[str, set[str]] = {}
+        self.position_stats: dict[str, list[float]] = {}  # epd -> [games, points]
 
     def _pgn_path(self) -> Path:
         p = ROOT / "data" / "users" / self.user / "games.pgn"
@@ -146,24 +228,54 @@ class MistakeIndex:
             self.epd_to_fen[epd] = p["fen"]
             if p.get("path_epds"):
                 self.paths[epd] = set(p["path_epds"])
-        if not self.epd_to_fen or not gp.exists():
-            return self
-        with open(gp, encoding="utf-8", errors="replace") as fh:
-            while (game := chess.pgn.read_game(fh)) is not None:
-                board = chess.Board()
-                trail = [board.epd()]
-                for i, mv in enumerate(game.mainline_moves()):
-                    if i >= 26:
-                        break
-                    try:
-                        board.push(mv)
-                    except (ValueError, AssertionError):
-                        break
-                    epd = board.epd()
-                    trail.append(epd)
-                    if epd in self.epd_to_fen and epd not in self.paths:
-                        self.paths[epd] = set(trail)
+        self.position_stats = {}
+        result_score = {"1-0": 1.0, "0-1": 0.0, "1/2-1/2": 0.5}
+        if gp.exists():
+            with open(gp, encoding="utf-8", errors="replace") as fh:
+                while (game := chess.pgn.read_game(fh)) is not None:
+                    headers = game.headers
+                    if headers.get("White", "").lower() == self.user.lower():
+                        user_white = True
+                    elif headers.get("Black", "").lower() == self.user.lower():
+                        user_white = False
+                    else:
+                        continue
+                    white_score = result_score.get(headers.get("Result"))
+                    pts = None if white_score is None else (
+                        white_score if user_white else 1.0 - white_score
+                    )
+                    board = chess.Board()
+                    trail = [board.epd()]
+                    for i, mv in enumerate(game.mainline_moves()):
+                        if i >= 26:
+                            break
+                        try:
+                            board.push(mv)
+                        except (ValueError, AssertionError):
+                            break
+                        epd = board.epd()
+                        trail.append(epd)
+                        if pts is not None:
+                            entry = self.position_stats.setdefault(epd, [0, 0.0])
+                            entry[0] += 1
+                            entry[1] += pts
+                        if epd in self.epd_to_fen and epd not in self.paths:
+                            self.paths[epd] = set(trail)
+        # reverse index: position -> mistakes reachable through it
+        self.downstream = {}
+        for m_epd, fen in self.epd_to_fen.items():
+            for e in self.paths.get(m_epd, {m_epd}):
+                self.downstream.setdefault(e, set()).add(fen)
         return self
+
+    def downstream_counts(self, progress: dict) -> dict[str, int]:
+        """Position -> how many still-unfixed mistakes lie through it."""
+        counts: dict[str, int] = {}
+        for epd, fens in self.downstream.items():
+            n = sum(1 for f in fens if not progress.get(f, {}).get("solved"))
+            if n:
+                counts[epd] = n
+        return counts
 
     def hot_epds(self, progress: dict) -> set[str]:
         """Every position on the road to a not-yet-fixed mistake."""
@@ -248,9 +360,8 @@ def add_practice_repertoires(drills: dict[str, Drill], user: str) -> None:
                 merged.expected.setdefault(key, set()).update(sans)
             for key, entries in d.replies.items():
                 bucket = merged.replies.setdefault(key, [])
-                for entry in entries:
-                    if entry not in bucket:
-                        bucket.append(entry)
+                for san, note in entries:
+                    add_reply(bucket, san, note)
         if count:
             drills[f"practice:{color_name}"] = merged
 
@@ -291,6 +402,37 @@ class EngineWrapper:
             result = self.engine.play(board, chess.engine.Limit(time=0.35))
         return result.move
 
+    def analyse_top2(
+        self, board: chess.Board, color: chess.Color, movetime: float = 0.35
+    ) -> tuple[int, int | None, list[chess.Move]]:
+        """Best eval, second-best eval, and the best line (mover's POV)."""
+        with self._lock:
+            infos = self.engine.analyse(
+                board, chess.engine.Limit(time=movetime), multipv=2
+            )
+        def cp(info):
+            return max(-1000, min(1000, info["score"].pov(color).score(mate_score=1000)))
+        second = cp(infos[1]) if len(infos) > 1 else None
+        return cp(infos[0]), second, list(infos[0].get("pv", []))
+
+
+def expected_points(cp: int) -> float:
+    """Win-probability equivalent of an eval — the scale chess.com's move
+    classification works on."""
+    return 1.0 / (1.0 + math.exp(-cp / 400.0))
+
+
+def classify_loss(loss: float) -> str:
+    if loss < 0.02:
+        return "excellent"
+    if loss < 0.05:
+        return "good"
+    if loss < 0.10:
+        return "inaccuracy"
+    if loss < 0.20:
+        return "mistake"
+    return "blunder"
+
     def quit(self) -> None:
         if self._engine is not None:
             self._engine.quit()
@@ -325,24 +467,46 @@ def opponent_reply(
     history: list[str],
     drill: Drill | None,
     engine: EngineWrapper,
-    hot: set[str] | None = None,
+    hot: dict[str, int] | None = None,
     strong: EngineWrapper | None = None,
+    game_id: str | None = None,
+    fail_next: dict[str, int] | None = None,
 ) -> dict:
+    fail_next = fail_next or {}
     if drill is not None:
-        book = drill.replies.get(tuple(history))
+        book = list(drill.replies.get(tuple(history)) or [])
+        # unredeemed failed lines continue as extra candidates, even past book
+        book_sans = {s for s, _ in book}
+        book += [(san, None) for san in fail_next if san not in book_sans]
         if book:
-            preferred, rest = [], []
+            # weighted draw: branches holding more unfixed mistakes or failed
+            # lines are likelier, but never certain — and the reply served
+            # last time here is penalized so lines don't repeat back-to-back
+            key = tuple(history)
+            pool = []
             for san, note in book:
                 probe = board.copy()
                 try:
                     probe.push(probe.parse_san(san))
                 except ValueError:
                     continue
-                (preferred if hot and probe.epd() in hot else rest).append((san, note))
-            random.shuffle(preferred)
-            random.shuffle(rest)
+                epd = probe.epd()
+                # one unit per target: an unfixed real-game mistake and an
+                # unredeemed failed practice line weigh exactly the same
+                base = (hot.get(epd, 0) if hot else 0) + fail_next.get(san, 0) + 1.0
+                weight = base * recency_factor(epd, game_id)
+                if last_served.get(key) == san:
+                    weight *= 0.2
+                pool.append((san, note, weight))
+            order = []
+            remaining = pool[:]
+            while remaining:
+                pick = random.choices(
+                    range(len(remaining)), weights=[w for _, _, w in remaining]
+                )[0]
+                order.append(remaining.pop(pick))
             best_cp = None
-            for san, note in preferred + rest:
+            for san, note, _ in order:
                 # sanity-check book moves at full strength: real opponents
                 # blunder, but serving their blunders teaches nothing
                 if strong is not None:
@@ -356,13 +520,226 @@ def opponent_reply(
                         continue
                 move = board.parse_san(san)
                 board.push(move)
+                last_served[key] = san
+                note_recent(game_id, board.epd())
                 return {"reply_san": san, "reply_uci": move.uci(), "source": "book", "note": note}
     # out of book in the opening: reply at full strength so the line is real
     replier = strong if strong is not None and len(history) < OPENING_CHECK_PLIES else engine
     move = replier.best_move(board)
     san = board.san(move)
     board.push(move)
+    note_recent(game_id, board.epd())
     return {"reply_san": san, "reply_uci": move.uci(), "source": "engine", "note": None}
+
+
+_profile_cache: dict = {"ts": 0.0, "data": None}
+
+
+def fetch_profile(user: str) -> dict | None:
+    """Current chess.com ratings, cached for 30 minutes; fail-soft offline."""
+    now = time.time()
+    if now - _profile_cache["ts"] < 1800:
+        return _profile_cache["data"]
+    try:
+        import urllib.request
+        req = urllib.request.Request(
+            f"https://api.chess.com/pub/player/{user}/stats",
+            headers={"User-Agent": "chesscoach-local-trainer/1.0"},
+        )
+        with urllib.request.urlopen(req, timeout=4) as res:
+            raw = json.load(res)
+        data = {}
+        for key, label in (("chess_blitz", "blitz"), ("chess_rapid", "rapid")):
+            s = raw.get(key)
+            if not s:
+                continue
+            record = s.get("record", {})
+            data[label] = {
+                "rating": s.get("last", {}).get("rating"),
+                "best": s.get("best", {}).get("rating"),
+                "wins": record.get("win"),
+                "losses": record.get("loss"),
+                "draws": record.get("draw"),
+            }
+        _profile_cache.update(ts=now, data=data)
+    except Exception:
+        _profile_cache["ts"] = now  # don't retry on every request while offline
+    return _profile_cache["data"]
+
+
+_log_cache: dict = {"sig": None, "data": None}
+
+
+def analyze_practice_log() -> dict:
+    sig = ACTIVITY_LOG.stat().st_size if ACTIVITY_LOG.exists() else 0
+    if _log_cache["sig"] == sig and _log_cache["data"] is not None:
+        return _log_cache["data"]
+    starts: dict[str, dict] = {}
+    moves_by_game: dict[str, list] = {}
+    fixed = bounces = total_moves = 0
+    if ACTIVITY_LOG.exists():
+        with open(ACTIVITY_LOG, encoding="utf-8") as fh:
+            for line in fh:
+                try:
+                    e = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                kind = e.get("kind")
+                if kind == "game_start" and e.get("game"):
+                    starts[e["game"]] = e
+                elif kind == "move" and e.get("game"):
+                    moves_by_game.setdefault(e["game"], []).append(e)
+                    if e.get("rejected"):
+                        bounces += 1
+                    else:
+                        total_moves += 1
+                    if e.get("fixed"):
+                        fixed += 1
+    results: dict[str, dict] = {}
+    order: list[str] = []
+    for gid, moves in moves_by_game.items():
+        moves.sort(key=lambda x: x.get("ts", 0))
+        start = starts.get(gid, {})
+        orientation = start.get("orientation", "white")
+        sans = list(start.get("pre_moves") or [])
+        game_bounces = 0
+        verdict = None
+        for e in moves:
+            if e.get("rejected"):
+                game_bounces += 1
+                continue
+            sans.append(e["san"])
+            if e.get("reply"):
+                sans.append(e["reply"])
+            cp_e = e.get("eval_cp")
+            if verdict is None and cp_e is not None:
+                user_cp = cp_e if orientation == "white" else -cp_e
+                baseline = START_CP if orientation == "white" else -START_CP
+                if user_cp < FLOOR_CP:
+                    verdict = False  # early fail: position already lost
+                elif e.get("ply", 0) >= 18:
+                    verdict = (
+                        game_bounces == 0
+                        and user_cp >= FLOOR_CP
+                        and user_cp - baseline > DRIFT_FAIL_CP
+                    )
+        op = opening_name(sans)
+        results[gid] = {
+            "verdict": verdict,
+            "orientation": orientation,
+            "family": op["name"].split(":")[0].strip() if op else "Other",
+            "sans": sans,
+        }
+        order.append(gid)
+
+    # a failure is redeemed when the SAME line is later passed clean —
+    # whether it reappeared by steering, focus, or chance
+    superseded: set[str] = set()
+    for i, fid in enumerate(order):
+        f = results[fid]
+        if f["verdict"] is not False:
+            continue
+        key = f["sans"][:20]
+        for pid in order[i + 1:]:
+            p = results[pid]
+            if p["verdict"] and p["sans"][:20] == key:
+                superseded.add(fid)
+                break
+
+    data = {
+        "starts": starts,
+        "results": results,
+        "order": order,
+        "superseded": superseded,
+        "totals": {"moves": total_moves, "bounces": bounces, "fixed": fixed},
+    }
+    _log_cache.update(sig=sig, data=data)
+    return data
+
+
+def failed_lines(color_name: str, family: str | None = None) -> list[tuple[str, dict]]:
+    """Unredeemed failed opening runs, oldest first."""
+    a = analyze_practice_log()
+    return [
+        (gid, a["results"][gid])
+        for gid in a["order"]
+        if a["results"][gid]["verdict"] is False
+        and gid not in a["superseded"]
+        and a["results"][gid]["orientation"] == color_name
+        and (family is None or a["results"][gid]["family"] == family)
+    ]
+
+
+def failed_next_moves(drill: Drill, drill_id: str, history: list[str]) -> dict[str, int]:
+    """For each unredeemed failed line passing through this position, the
+    move it continues with — served as extra-weight steering options."""
+    color_name = "white" if drill.user_color == chess.WHITE else "black"
+    focused = bool(drill_id) and not drill_id.startswith("practice:")
+    out: dict[str, int] = {}
+    for _, res in failed_lines(color_name, drill.family if focused else None):
+        sans = res["sans"]
+        if len(sans) > len(history) and sans[: len(history)] == history:
+            nxt = sans[len(history)]
+            out[nxt] = out.get(nxt, 0) + 1
+    return out
+
+
+def training_summary() -> dict:
+    analysis = analyze_practice_log()
+    results = analysis["results"]
+    order = analysis["order"]
+    superseded = analysis["superseded"]
+    total_moves = analysis["totals"]["moves"]
+    bounces = analysis["totals"]["bounces"]
+    fixed = analysis["totals"]["fixed"]
+    if not results:
+        return {}
+
+    passes = completed = 0
+    per_opening: dict[tuple, dict] = {}
+    for gid in order:
+        if gid in superseded:
+            continue
+        res = results[gid]
+        entry = per_opening.setdefault(
+            (res["orientation"], res["family"]),
+            {"color": res["orientation"], "family": res["family"], "games": 0,
+             "passes": 0, "completed": 0, "recent": []},
+        )
+        entry["games"] += 1
+        if res["verdict"] is not None:
+            completed += 1
+            entry["completed"] += 1
+            entry["recent"] = (entry["recent"] + [bool(res["verdict"])])[-5:]
+            if res["verdict"]:
+                passes += 1
+                entry["passes"] += 1
+    openings = sorted(per_opening.values(), key=lambda e: -e["games"])
+    return {
+        "games": len(results),
+        "moves": total_moves,
+        "bounces": bounces,
+        "fixed": fixed,
+        "passes": passes,
+        "completed": completed,
+        "openings": openings,
+    }
+
+
+def handle_hint(payload: dict, analysis: EngineWrapper, mistake_index: MistakeIndex) -> dict:
+    board = chess.Board(payload["fen"])
+    cp, pv = analysis.analyse(board, board.turn, movetime=0.6)
+    if not pv:
+        return {"error": "no move available"}
+    move = pv[0]
+    san = board.san(move)
+    if payload.get("practice"):
+        # asking for help at a known mistake position blocks the 'fixed' credit
+        fen_key = mistake_index.get().epd_to_fen.get(board.epd())
+        if fen_key:
+            record_mistake_result(fen_key, False)
+    log_event("hint", fen=payload["fen"], san=san, mode=payload.get("mode"))
+    return {"san": san, "uci": move.uci(), "eval_cp": cp}
 
 
 def handle_drills(drills: dict[str, Drill], user: str) -> dict:
@@ -393,13 +770,140 @@ def handle_drills(drills: dict[str, Drill], user: str) -> dict:
         puzzles = load_puzzles(set_name)
         solved = sum(1 for p in puzzles if progress.get(p["fen"], {}).get("solved"))
         sets[set_name] = {"total": len(puzzles), "solved": solved}
-    return {"drills": entries, "user": user, "puzzles": sets}
+    training = training_summary()
+    name_to_id = {d.name: did for did, d in drills.items() if did.startswith(f"{user}/")}
+    for e in training.get("openings", []):
+        e["drill_id"] = name_to_id.get(f"{e['family']} — {e['color'].capitalize()}")
+    return {
+        "drills": entries,
+        "user": user,
+        "puzzles": sets,
+        "training": training,
+        "profile": fetch_profile(user),
+    }
 
 
-def practice_hot_epds(mistake_index: MistakeIndex) -> set[str]:
+def freshen_note(mistake_index: MistakeIndex, board: chess.Board, reply: dict) -> None:
+    """Replace line-baked notes with the truth about the reached position."""
+    if reply.get("source") != "book":
+        return
+    stats = mistake_index.get().position_stats.get(board.epd())
+    n = int(stats[0]) if stats else 0
+    if n >= 2:
+        reply["note"] = f"You've faced this {n} times (scoring {100.0 * stats[1] / n:.0f}%)."
+    elif reply.get("note") and "faced this" in reply["note"]:
+        reply["note"] = None
+    elif reply.get("note") and "Beyond your games" in reply["note"] and n >= 1:
+        reply["note"] = None
+
+
+classify_lock = threading.Lock()
+classify_cache: dict[str, dict] = {}
+
+
+def compute_move_classes(fen: str, analysis: EngineWrapper) -> dict:
+    """Classify every legal move in one multipv sweep; cached per position so
+    the client can badge instantly and handle_move can skip its probes."""
+    with classify_lock:
+        cached = classify_cache.get(fen)
+    if cached:
+        return cached
+    board = chess.Board(fen)
+    color = board.turn
+    n = board.legal_moves.count()
+    if n == 0:
+        return {"moves": {}, "best_uci": None, "best_cp": 0, "second_cp": None, "best_pv": []}
+    with analysis._lock:
+        infos = analysis.engine.analyse(
+            board, chess.engine.Limit(time=1.0), multipv=max(2, n)
+        )
+    def cp(info):
+        return max(-1000, min(1000, info["score"].pov(color).score(mate_score=1000)))
+    best_cp = cp(infos[0])
+    second_cp = cp(infos[1]) if len(infos) > 1 else None
+    best_uci = infos[0]["pv"][0].uci()
+    only_move = second_cp is not None and (
+        expected_points(best_cp) - expected_points(second_cp) >= 0.10
+    )
+    moves = {}
+    for info in infos:
+        if not info.get("pv"):
+            continue
+        uci = info["pv"][0].uci()
+        loss = expected_points(best_cp) - expected_points(cp(info))
+        if uci == best_uci:
+            cls = "great" if only_move else "best"
+        else:
+            cls = classify_loss(loss)
+        moves[uci] = {"class": cls, "loss": round(loss, 4)}
+    table = {
+        "moves": moves,
+        "best_uci": best_uci,
+        "best_cp": best_cp,
+        "second_cp": second_cp,
+        "best_pv": [m.uci() for m in infos[0]["pv"][:6]],
+    }
+    with classify_lock:
+        classify_cache[fen] = table
+        while len(classify_cache) > 12:
+            classify_cache.pop(next(iter(classify_cache)))
+    return table
+
+
+def handle_classify(payload: dict, analysis: EngineWrapper) -> dict:
+    table = compute_move_classes(payload["fen"], analysis)
+    return {"moves": {u: v["class"] for u, v in table["moves"].items()}}
+
+
+def probe_move(
+    board: chess.Board, move: chess.Move, analysis: EngineWrapper, fen: str
+) -> tuple[str, float, int, list[chess.Move]]:
+    """(class, win-probability loss, best eval, best line) for a move.
+
+    Served from the prefetched classification table when it's warm, so the
+    common path costs no engine time."""
+    mover = board.turn
+    with classify_lock:
+        table = classify_cache.get(fen)
+    if table and move.uci() in table["moves"]:
+        entry = table["moves"][move.uci()]
+        return (
+            entry["class"],
+            entry["loss"],
+            table["best_cp"],
+            [chess.Move.from_uci(u) for u in table["best_pv"]],
+        )
+    best_cp, second_cp, best_pv = analysis.analyse_top2(board, mover)
+    if best_pv and move == best_pv[0]:
+        only_move = second_cp is not None and (
+            expected_points(best_cp) - expected_points(second_cp) >= 0.10
+        )
+        return ("great" if only_move else "best", 0.0, best_cp, best_pv)
+    board.push(move)
+    after_cp = analysis.eval_cp(board, mover, movetime=0.35)
+    board.pop()
+    loss = expected_points(best_cp) - expected_points(after_cp)
+    return (classify_loss(loss), loss, best_cp, best_pv)
+
+
+def expected_ucis(drill: Drill | None, history: list[str], board: chess.Board) -> list[str]:
+    """Book moves for the side to move, as UCIs — lets the client badge
+    book moves instantly without waiting for the server."""
+    if drill is None:
+        return []
+    out = []
+    for san in drill.expected.get(tuple(history)) or []:
+        try:
+            out.append(board.parse_san(san).uci())
+        except ValueError:
+            continue
+    return out
+
+
+def practice_targets(mistake_index: MistakeIndex) -> dict[str, int]:
     with progress_lock:
         progress = load_progress()
-    return mistake_index.get().hot_epds(progress)
+    return mistake_index.get().downstream_counts(progress)
 
 
 def handle_new(
@@ -408,15 +912,42 @@ def handle_new(
     drill_id = payload.get("drill", "")
     if payload.get("practice"):
         options = [k for k in drills if k.startswith("practice:")]
-        drill_id = random.choice(options) if options else ""
+        if options:
+            # weight color choice by where the unfixed mistakes are
+            with progress_lock:
+                prog = load_progress()
+            unfixed = {"white": 1, "black": 1}
+            mi = mistake_index.get()
+            for fen in mi.epd_to_fen.values():
+                if not prog.get(fen, {}).get("solved"):
+                    side = "white" if fen.split(" ")[1] == "w" else "black"
+                    unfixed[side] += 1
+            weights = [unfixed[k.split(":")[1]] for k in options]
+            drill_id = random.choices(options, weights=weights)[0]
     drill = drills.get(drill_id)
     board = chess.Board(payload["fen"]) if payload.get("fen") else chess.Board()
     intro = drill.intro if drill else "Free play — you move for the side to play."
     start_fen = board.fen()
     pre_moves = []
+    game_id = f"g{int(time.time() * 1000):x}{random.randrange(16 ** 4):04x}"
+    script = payload.get("script") or []
     if drill is not None and board.turn != drill.user_color:
-        reply = opponent_reply(board, [], drill, engine, practice_hot_epds(mistake_index))
-        # (root position is always in book for generated repertoires)
+        reply = None
+        if script:
+            try:
+                mv = board.parse_san(script[0])
+                san = board.san(mv)
+                board.push(mv)
+                reply = {"reply_san": san, "reply_uci": mv.uci(), "source": "repeat", "note": None}
+            except ValueError:
+                reply = None
+        if reply is None:
+            reply = opponent_reply(
+                board, [], drill, engine, practice_targets(mistake_index),
+                game_id=game_id,
+                fail_next=failed_next_moves(drill, drill_id, []),
+            )
+        freshen_note(mistake_index, board, reply)
         pre_moves.append(
             {
                 "san": reply["reply_san"],
@@ -425,18 +956,21 @@ def handle_new(
                 "note": reply.get("note"),
             }
         )
-    game_id = f"g{int(time.time() * 1000):x}{random.randrange(16 ** 4):04x}"
     log_event(
         "game_start",
         game=game_id,
         drill=drill_id or None,
         orientation="black" if drill and drill.user_color == chess.BLACK else "white",
         pre_moves=[m["san"] for m in pre_moves],
+        repeat_of=payload.get("repeat_of"),
     )
     return {
         **game_state(board),
         "message": intro,
         "game_id": game_id,
+        "script": script or None,
+        "book_ucis": expected_ucis(drill, [m["san"] for m in pre_moves], board),
+        "opening": opening_name([m["san"] for m in pre_moves]),
         "drill_id": drill_id if drill else None,
         "drill_name": drill.name if drill else None,
         "orientation": "black" if drill and drill.user_color == chess.BLACK else "white",
@@ -465,42 +999,67 @@ def handle_move(
     prep_note = None
     mistake_fen = None
     in_prep = None
+    move_class = None
+    move_loss = 0.0
+    move_verified = False  # the move was the engine's own pick — can't lose ground
     if drill is not None:
         mistake_fen = mistake_index.get().epd_to_fen.get(board.epd())
         expected = drill.expected.get(tuple(history))
         in_prep = bool(expected) and user_san in expected
+        focused = not str(payload.get("drill", "")).startswith("practice:")
+        # only steer while the drill's opening is still reachable from here —
+        # once the opponent has left it for good there is no course to hold
+        if focused and expected and not in_prep and tuple(history) in drill.on_family:
+            # enforce until the position IS this opening (ECO family). A
+            # non-book move is still fine if it lands in the family itself.
+            def fam(sans):
+                op = opening_name(sans)
+                return op["name"].split(":")[0].strip() if op else None
+            if fam(history) != drill.family and fam(history + [user_san]) != drill.family:
+                prep = " or ".join(sorted(expected))
+                log_event(
+                    "move", game=payload.get("game"), drill=payload.get("drill"),
+                    fen=payload["fen"], san=user_san, uci=move.uci(),
+                    ply=len(history), rejected=True, redirect=True,
+                )
+                return {
+                    **game_state(board),
+                    "rejected": True,
+                    "redirect": True,
+                    "warning": (
+                        f"Not {article(drill.family)} {drill.family} yet — "
+                        f"play {prep} to stay on course."
+                    ),
+                }
         in_opening = len(history) < OPENING_CHECK_PLIES
-        if not in_prep and (expected or mistake_fen or in_opening):
+        if in_prep or expected or mistake_fen or in_opening:
             prep = " or ".join(sorted(expected)) if expected else None
-            mover = board.turn
-            best_cp, best_pv = analysis.analyse(board, mover, movetime=0.35)
-            board.push(move)
-            after_cp = analysis.eval_cp(board, mover, movetime=0.35)
-            board.pop()
-            if best_cp - after_cp > PRACTICE_TOLERANCE_CP:
-                warning = f"{user_san} gives ground here — try again."
-                if prep:
-                    warning += f" (Your prep: {prep}.)"
+            # book moves are measured like any other: the drill lines are built
+            # from your own games, so the prep itself can be the leak. The badge
+            # stays "book" unless the move is genuinely bad.
+            probe_class, move_loss, best_cp, best_pv = probe_move(
+                board, move, analysis, payload["fen"]
+            )
+            move_verified = probe_class in ("best", "great")
+            move_class = probe_class
+            if in_prep and probe_class not in ("mistake", "blunder"):
+                move_class = "book"
+            # every move plays — the eval bar is the judge. Bad moves are
+            # still captured as exercises and steer future practice.
+            if in_opening and move_class in ("mistake", "blunder"):
                 if mistake_fen:
                     record_mistake_result(mistake_fen, False)
-                    warning += " You went wrong here in a real game too."
-                elif in_opening and best_pv:
+                    prep_note = "This spot has cost you in a real game too."
+                elif best_pv:
                     record_live_mistake(
                         payload["fen"], user_san, board.san(best_pv[0]),
                         best_pv[0].uci(), best_cp, history,
                     )
                     record_mistake_result(payload["fen"], False)
-                    warning += " Saved as a new exercise — it will come back."
-                log_event(
-                    "move", game=payload.get("game"), drill=payload.get("drill"),
-                    fen=payload["fen"], san=user_san, uci=move.uci(),
-                    ply=len(history), rejected=True, mistake=bool(mistake_fen),
-                )
-                return {**game_state(board), "rejected": True, "warning": warning}
-            if prep:
-                prep_note = f"{user_san} is playable. Your prep was {prep}."
+            if prep and not in_prep:
+                prep_note = ((prep_note + " ") if prep_note else "") + f"Book here: {prep}."
     fixed_now = False
-    if mistake_fen:
+    if mistake_fen and move_class not in ("inaccuracy", "mistake", "blunder"):
         fixed_now = record_mistake_result(mistake_fen, True)
         if fixed_now:
             prep_note = ((prep_note + " ") if prep_note else "") + \
@@ -514,7 +1073,7 @@ def handle_move(
             "move", game=payload.get("game"), drill=payload.get("drill"),
             fen=payload["fen"], san=user_san, uci=move.uci(), ply=len(history) - 1,
             rejected=False, prep=in_prep, mistake=bool(mistake_fen),
-            fixed=fixed_now, game_over=True,
+            fixed=fixed_now, game_over=True, move_class=move_class,
         )
         return {
             **game_state(board),
@@ -522,12 +1081,76 @@ def handle_move(
             "fen_after_user": fen_after_user,
             "history": history,
             "prep_note": prep_note,
+            "move_class": move_class,
         }
 
-    hot = practice_hot_epds(mistake_index) if drill is not None else None
-    reply = opponent_reply(
-        board, history, drill, engine, hot, strong=analysis if drill is not None else None
-    )
+    if drill is not None:
+        user_moves = (
+            (len(history) + 1) // 2 if drill.user_color == chess.WHITE
+            else len(history) // 2
+        )
+        if user_moves == 10:
+            # the run ends on the user's 10th move — no engine reply yet
+            eval_cp = analysis.eval_cp(board, chess.WHITE, movetime=0.3)
+            log_event(
+                "move", game=payload.get("game"), drill=payload.get("drill"),
+                fen=payload["fen"], san=user_san, uci=move.uci(),
+                ply=len(history) - 1, rejected=False, prep=in_prep,
+                mistake=bool(mistake_fen), fixed=fixed_now,
+                eval_cp=eval_cp, move_class=move_class,
+            )
+            op = opening_name(history)
+            family_record = None
+            if op:
+                fam = op["name"].split(":")[0].strip()
+                color_name = "white" if drill.user_color == chess.WHITE else "black"
+                for o in training_summary().get("openings", []):
+                    if o["family"] == fam and o["color"] == color_name:
+                        family_record = o
+                        break
+            return {
+                **game_state(board),
+                "user_san": user_san,
+                "fen_after_user": fen_after_user,
+                "history": history,
+                "prep_note": prep_note,
+                "move_class": move_class,
+                "loss": round(move_loss, 4),
+                "move_verified": move_verified,
+                "opening": op,
+                "eval_cp": eval_cp,
+                "opening_complete": True,
+                "family_record": family_record,
+            }
+
+    scripted = payload.get("script") or []
+    reply = None
+    if (
+        drill is not None
+        and len(scripted) > len(history)
+        and scripted[: len(history)] == history
+    ):
+        try:
+            mv = board.parse_san(scripted[len(history)])
+            san = board.san(mv)
+            board.push(mv)
+            reply = {"reply_san": san, "reply_uci": mv.uci(), "source": "repeat", "note": None}
+        except ValueError:
+            reply = None
+    if reply is None:
+        hot = practice_targets(mistake_index) if drill is not None else None
+        fail_next = (
+            failed_next_moves(drill, str(payload.get("drill", "")), history)
+            if drill is not None else None
+        )
+        reply = opponent_reply(
+            board, history, drill, engine, hot,
+            strong=analysis if drill is not None else None,
+            game_id=payload.get("game"),
+            fail_next=fail_next,
+        )
+    if drill is not None:
+        freshen_note(mistake_index, board, reply)
     history.append(reply["reply_san"])
     eval_cp = analysis.eval_cp(board, chess.WHITE, movetime=0.3)
     log_event(
@@ -535,6 +1158,7 @@ def handle_move(
         fen=payload["fen"], san=user_san, uci=move.uci(), ply=len(history) - 2,
         rejected=False, prep=in_prep, mistake=bool(mistake_fen), fixed=fixed_now,
         reply=reply["reply_san"], source=reply["source"], eval_cp=eval_cp,
+        move_class=move_class,
     )
     return {
         **game_state(board),
@@ -542,9 +1166,76 @@ def handle_move(
         "fen_after_user": fen_after_user,
         "history": history,
         "prep_note": prep_note,
+        "move_class": move_class,
+        "loss": round(move_loss, 4),
+        "move_verified": move_verified,
+        "book_ucis": expected_ucis(drill, history, board),
+        "opening": opening_name(history) if drill is not None else None,
         "eval_cp": eval_cp,
         **reply,
     }
+
+
+def handle_reply(
+    payload: dict,
+    drills: dict[str, Drill],
+    engine: EngineWrapper,
+    analysis: EngineWrapper,
+    mistake_index: MistakeIndex,
+) -> dict:
+    """Opponent moves without a user move — used after Play On at a verdict."""
+    drill = drills.get(payload.get("drill", ""))
+    board = chess.Board(payload["fen"])
+    history = list(payload.get("history", []))
+    hot = practice_targets(mistake_index) if drill is not None else None
+    fail_next = (
+        failed_next_moves(drill, str(payload.get("drill", "")), history)
+        if drill is not None else None
+    )
+    reply = opponent_reply(
+        board, history, drill, engine, hot,
+        strong=analysis if drill is not None else None,
+        game_id=payload.get("game"),
+        fail_next=fail_next,
+    )
+    if drill is not None:
+        freshen_note(mistake_index, board, reply)
+    history.append(reply["reply_san"])
+    return {
+        **game_state(board),
+        "history": history,
+        "eval_cp": analysis.eval_cp(board, chess.WHITE, movetime=0.3),
+        "book_ucis": expected_ucis(drill, history, board),
+        "opening": opening_name(history) if drill is not None else None,
+        **reply,
+    }
+
+
+_eco_book: dict | None = None
+
+
+def eco_book() -> dict:
+    global _eco_book
+    if _eco_book is None:
+        from opening_report import load_eco_book
+        _eco_book = load_eco_book(ROOT / "data")
+    return _eco_book
+
+
+def opening_name(history: list[str]) -> dict | None:
+    """Deepest ECO classification reached by the game so far."""
+    book = eco_book()
+    board = chess.Board()
+    hit = None
+    for san in history[:24]:
+        try:
+            board.push_san(san)
+        except ValueError:
+            break
+        entry = book.get(board.epd())
+        if entry:
+            hit = {"eco": entry[0], "name": entry[1]}
+    return hit
 
 
 def pretty_date(pgn_date: str) -> str:
@@ -736,13 +1427,14 @@ def handle_puzzle_attempt(payload: dict, analysis: EngineWrapper) -> dict:
         best_line = pv_line(board_before, trim_to_forcing(board_before, best_pv, analysis.engine))
     board_orig = chess.Board(p["fen"])
     original_line = pv_line(board_orig, [board_orig.parse_san(p["played_san"])])
+    hinted = bool(payload.get("hinted"))
     with progress_lock:
         first_attempt = p["fen"] in pending_first_attempt
         if first_attempt:
             pending_first_attempt.discard(p["fen"])
             progress = load_progress()
             entry = progress.get(p["fen"], {"solved": False, "misses": 0})
-            if correct:
+            if correct and not hinted:
                 entry = {**entry, "solved": True}
             else:
                 entry = {**entry, "misses": entry.get("misses", 0) + 1}
@@ -783,6 +1475,11 @@ def make_handler(
         def log_message(self, *args):  # silence request logging
             pass
 
+        def end_headers(self):
+            # dev server: never let the browser serve stale app files
+            self.send_header("Cache-Control", "no-cache")
+            super().end_headers()
+
         def do_POST(self):
             length = int(self.headers.get("Content-Length", 0))
             try:
@@ -790,10 +1487,16 @@ def make_handler(
                 drills = drill_cache.get()
                 if self.path == "/api/drills":
                     body = handle_drills(drills, user)
+                elif self.path == "/api/classify":
+                    body = handle_classify(payload, analysis)
                 elif self.path == "/api/new":
                     body = handle_new(payload, drills, engine, mistake_index)
                 elif self.path == "/api/move":
                     body = handle_move(payload, drills, engine, analysis, mistake_index)
+                elif self.path == "/api/reply":
+                    body = handle_reply(payload, drills, engine, analysis, mistake_index)
+                elif self.path == "/api/hint":
+                    body = handle_hint(payload, analysis, mistake_index)
                 elif self.path == "/api/puzzle/next":
                     body = handle_puzzle_next(payload)
                 elif self.path == "/api/puzzle/attempt":

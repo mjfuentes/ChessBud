@@ -10,18 +10,24 @@ const Sound = (() => {
     bad: 'sounds/Error.mp3',
   }
   const buffers = {}
+  const lastAttempt = {}
   let muted = false
   // Create the context up front (suspended until the first user gesture) so
   // samples decode eagerly — otherwise early moves fall back to synth beeps.
   const ctx = new (window.AudioContext || window.webkitAudioContext)()
 
-  Object.entries(FILES).forEach(([name, url]) => {
-    fetch(url)
+  function loadOne(name) {
+    if (buffers[name]) return
+    const now = Date.now()
+    if (lastAttempt[name] && now - lastAttempt[name] < 3000) return
+    lastAttempt[name] = now
+    fetch(FILES[name])
       .then((res) => (res.ok ? res.arrayBuffer() : Promise.reject(new Error(res.status))))
       .then((ab) => ctx.decodeAudioData(ab))
       .then((buf) => { buffers[name] = buf })
-      .catch(() => { /* missing sample -> synth fallback */ })
-  })
+      .catch(() => { /* retried on a later play */ })
+  }
+  Object.keys(FILES).forEach(loadOne)
 
   function ensure() {
     if (ctx.state === 'suspended') ctx.resume()
@@ -30,7 +36,10 @@ const Sound = (() => {
 
   function playBuffer(name, vol) {
     const c = ensure()
-    if (!buffers[name]) return false
+    if (!buffers[name]) {
+      loadOne(name) // heal: a failed load (e.g. server was restarting) retries
+      return false
+    }
     const src = c.createBufferSource()
     src.buffer = buffers[name]
     const gain = c.createGain()

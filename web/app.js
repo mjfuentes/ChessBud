@@ -8,6 +8,15 @@ const initialState = {
   ucis: [], // UCI per ply, aligned with positions[1:]
   sans: [], // SAN per ply, aligned with ucis (drives check/mate marking)
   viewPly: 0, // which position is displayed; < positions.length-1 means reviewing
+  tipPly: null, // real game tip when a teaching variation extends positions past it
+  badge: null, // { ply, square, cls } — move-quality badge on the last user move
+  classCounts: {}, // per-class tallies, scored by FIRST attempt per move slot
+  accSum: 0, // sum of per-move accuracy percentages
+  accCount: 0,
+  userColor: 'w', // side the user plays — NOT the board orientation
+  prevUserCp: 0, // eval (user POV) before the current move slot
+  scoredFen: null, // slot already scored by a bounce or hint at this position
+  bookUcis: [], // book moves for the current turn — instant book badges
   overlay: null, // engine's move [from, to], shown as a green arrow (puzzle feedback)
   evalCp: 0, // engine eval of the live position, white's perspective
   flipped: false,
@@ -17,9 +26,13 @@ const initialState = {
   drill: null,
   gameId: null,
   bounces: 0,
+  bounceFen: null,
+  bounceTries: 0,
   openingDone: false,
+  hintUsed: false, // a hint during the graded opening voids the pass
   undoStack: [],
   mode: 'drill',
+  script: null, // opponent line to replay (Repeat button)
   puzzle: null,
   puzzleSet: 'blunders',
   seen: [],
@@ -33,6 +46,10 @@ function setState(patch) {
   state = { ...state, ...patch }
   render()
 }
+
+// evals arrive from white's perspective; flip by the side the user is playing.
+// Board orientation must not be used here — F flips the board mid-run.
+const userCp = (cp) => (state.userColor === 'b' ? -(cp ?? 0) : (cp ?? 0))
 
 async function api(path, body) {
   const res = await fetch(path, { method: 'POST', body: JSON.stringify(body) })
@@ -106,8 +123,51 @@ function applyMoveToFen(fen, uci) {
   return [rows.join('/'), turn, parts[2] || '-', '-', '0', parts[5] || '1'].join(' ')
 }
 
+// Is the side to move in check? Enough chess logic for instant sound cues;
+// the server remains the authority on everything else.
+function isCheckFen(fen) {
+  const pieces = parseFen(fen)
+  const turn = fen.split(' ')[1]
+  const kingCh = turn === 'w' ? 'K' : 'k'
+  const kingSq = Object.keys(pieces).find((s) => pieces[s] === kingCh)
+  if (!kingSq) return false
+  const isEnemy = (ch) => (turn === 'w' ? ch === ch.toLowerCase() : ch === ch.toUpperCase())
+  const file = kingSq.charCodeAt(0) - 97
+  const rank = Number(kingSq[1])
+  const at = (df, dr) => {
+    const nf = file + df
+    const nr = rank + dr
+    if (nf < 0 || nf > 7 || nr < 1 || nr > 8) return undefined // off board
+    return pieces['abcdefgh'[nf] + nr] || null // null = empty square
+  }
+  const KNIGHT = [[1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1], [-2, 1], [-1, 2]]
+  for (const [df, dr] of KNIGHT) {
+    const p = at(df, dr)
+    if (p && isEnemy(p) && p.toLowerCase() === 'n') return true
+  }
+  const pawnDr = turn === 'w' ? 1 : -1
+  for (const df of [-1, 1]) {
+    const p = at(df, pawnDr)
+    if (p && isEnemy(p) && p.toLowerCase() === 'p') return true
+  }
+  for (const [df, dr] of [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]]) {
+    const p = at(df, dr)
+    if (p && isEnemy(p) && p.toLowerCase() === 'k') return true
+    const wanted = df === 0 || dr === 0 ? 'rq' : 'bq'
+    for (let step = 1; step < 8; step += 1) {
+      const q = at(df * step, dr * step)
+      if (q === undefined) break
+      if (q) {
+        if (isEnemy(q) && wanted.includes(q.toLowerCase())) return true
+        break
+      }
+    }
+  }
+  return false
+}
+
 function atTip() {
-  return state.viewPly >= state.positions.length - 1
+  return state.viewPly === (state.tipPly ?? state.positions.length - 1)
 }
 
 function displayFen() {
@@ -117,6 +177,101 @@ function displayFen() {
 function kingSquare(pieces, color) {
   const glyph = color === 'w' ? 'K' : 'k'
   return Object.keys(pieces).find((sq) => pieces[sq] === glyph)
+}
+
+const winProb = (cp) => 1 / (1 + Math.exp(-cp / 400))
+// lichess-style move accuracy from a win-probability loss (0..1). Note this
+// scale is deliberately flat — a whole pawn is only ~8 points of win
+// probability — so it grades MOVES, not the opening. Drift does that.
+const moveAccuracy = (loss) => Math.max(0, Math.min(100,
+  103.1668 * Math.exp(-0.04354 * loss * 100) - 3.1669))
+const classifyLoss = (loss) => (loss < 0.02 ? 'excellent'
+  : loss < 0.05 ? 'good' : loss < 0.1 ? 'inaccuracy' : loss < 0.2 ? 'mistake' : 'blunder')
+
+// mirrored in tools/trainer_server.py. Runs start from move 1, so the drift
+// baseline is fixed: +0.3 for White, -0.3 for Black (Black's job out of the
+// opening is to equalise, not to already be equal).
+const START_CP = 30
+const DRIFT_FAIL_CP = -75
+const FLOOR_CP = -100
+
+const pawns = (cp) => (Math.abs(cp) / 100).toFixed(1)
+const signedPawns = (cp) => `${cp < 0 ? '−' : '+'}${pawns(cp)}`
+
+// The single source of truth for how a run is described. The modal and the
+// panel banner both render exactly this — they must never disagree. Plain
+// coach language: no "drift", no pawn arithmetic.
+function verdictCopy({ passed, lost, hintUsed, bounces, drift, userColor }) {
+  const them = userColor === 'b' ? 'White' : 'Black'
+  if (passed) {
+    return {
+      title: 'Opening passed',
+      reason: drift >= 25 ? 'you came out of the opening better'
+        : drift > -25 ? 'you came out of the opening equal'
+          : 'you came out of the opening fine',
+    }
+  }
+  return {
+    title: 'Room to improve',
+    reason: lost ? 'the position got away from you'
+      : hintUsed ? 'you needed a hint'
+        : bounces > 0 ? `${bounces} correction${bounces > 1 ? 's' : ''} needed`
+          : drift <= -150 ? `${them} came out clearly better`
+            : drift <= DRIFT_FAIL_CP ? `${them} got the better position`
+              : 'you finished a little worse',
+  }
+}
+
+// The eval players actually read — where the position stood when the opening
+// ended. The starting eval is a constant, so it isn't worth showing.
+function renderDrift(el, drift, endCp) {
+  const num = document.createElement('div')
+  num.className = `drift-num ${drift <= DRIFT_FAIL_CP ? 'loss' : 'gain'}`
+  num.textContent = signedPawns(endCp)
+  const label = document.createElement('span')
+  label.textContent = 'out of the opening'
+  num.append(label)
+  el.replaceChildren(num)
+}
+
+const BADGE_COLORS = {
+  book: '#a88b5a',
+  best: '#81b64c',
+  great: '#5c8bb0',
+  excellent: '#96bc4b',
+  good: '#95a86e',
+  inaccuracy: '#f0c15c',
+  mistake: '#e58f2a',
+  blunder: '#ca3431',
+}
+
+function badgeSvg(cls) {
+  const color = BADGE_COLORS[cls]
+  if (!color) return null
+  const symbols = {
+    book: '<g transform="translate(82,18.5)"><path fill="#fff" d="M0,-3.8'
+      + ' C-2.4,-5.6 -6.2,-6.1 -8.3,-5.5 L-8.3,4.4 C-6.2,3.8 -2.4,4.2 0,6'
+      + ' C2.4,4.2 6.2,3.8 8.3,4.4 L8.3,-5.5 C6.2,-6.1 2.4,-5.6 0,-3.8 Z"/>'
+      + '<line x1="0" y1="-3.6" x2="0" y2="5.6" stroke="#a88b5a" stroke-width="1.4"/></g>',
+    best: '<g transform="translate(82,18)" fill="#fff"><polygon points="0,-9 2.4,-3.2'
+      + ' 8.6,-2.8 3.8,1.2 5.3,7.3 0,4 -5.3,7.3 -3.8,1.2 -8.6,-2.8 -2.4,-3.2"/></g>',
+    great: '<text x="82" y="25" font-size="20" font-weight="bold" text-anchor="middle"'
+      + ' fill="#fff" font-family="sans-serif">!</text>',
+    excellent: '<g transform="translate(75.4,11.4) scale(0.55)" fill="#fff">'
+      + '<path d="M4 10 h4 v12 H4 z M10 22 h8.5 c1.5 0 2.6 -1 2.9 -2.4 l1.6 -7'
+      + ' c.4 -1.8 -1 -3.6 -2.9 -3.6 h-5 l1 -4.2 c.3 -1.5 -.7 -2.8 -2.2 -2.8'
+      + ' -.8 0 -1.5 .4 -1.9 1.1 L10 8.5 Z"/></g>',
+    good: '<path d="M76 18 l4.5 4.5 l9 -9" stroke="#fff" stroke-width="3.5" fill="none"'
+      + ' stroke-linecap="round"/>',
+    inaccuracy: '<text x="82" y="24" font-size="15" font-weight="bold" text-anchor="middle"'
+      + ' fill="#fff" font-family="sans-serif">?!</text>',
+    mistake: '<text x="82" y="25" font-size="18" font-weight="bold" text-anchor="middle"'
+      + ' fill="#fff" font-family="sans-serif">?</text>',
+    blunder: '<text x="82" y="24" font-size="14" font-weight="bold" text-anchor="middle"'
+      + ' fill="#fff" font-family="sans-serif">??</text>',
+  }
+  return `<circle cx="82" cy="18" r="15" fill="${color}" stroke="#fff" stroke-width="2"/>`
+    + symbols[cls]
 }
 
 function highlightSquares() {
@@ -209,6 +364,13 @@ function render() {
     },
   })
   const shapes = []
+  if (
+    state.badge
+    && (state.viewPly === state.badge.ply || state.viewPly === state.badge.ply + 1)
+  ) {
+    const html = badgeSvg(state.badge.cls)
+    if (html) shapes.push({ orig: state.badge.square, customSvg: { html } })
+  }
   if (state.overlay) shapes.push({ orig: state.overlay[0], dest: state.overlay[1], brush: 'green' })
   if (isMate) {
     const mated = kingSquare(parseFen(fen), turn)
@@ -254,6 +416,7 @@ function render() {
   document.getElementById('evalbar').style.transform = state.flipped ? 'rotate(180deg)' : ''
 
   const nav = {
+    'nav-home': false,
     'nav-practice': state.mode === 'drill',
     'nav-blunders': state.mode === 'puzzle',
   }
@@ -265,6 +428,17 @@ function showMessage(text, kind = 'note') {
   const el = document.getElementById('message')
   el.textContent = text || ''
   el.className = `message ${kind}`
+}
+
+function showOpening(op) {
+  const el = document.getElementById('opening-name')
+  if (!op) { el.replaceChildren(); return }
+  el.textContent = op.name
+}
+
+function setActionLabels(left, right) {
+  document.getElementById('retry').textContent = left
+  document.getElementById('next').textContent = right
 }
 
 function showContext(ctx) {
@@ -405,7 +579,8 @@ function onUserMove(orig, dest, captured) {
   const mover = pieces[orig]
   let uci = orig + dest
   if (mover?.toLowerCase() === 'p' && (dest[1] === '8' || dest[1] === '1')) uci += 'q'
-  if (captured || isCaptureGuess(fenBefore, uci)) Sound.capture()
+  if (isCheckFen(applyMoveToFen(fenBefore, uci))) Sound.check()
+  else if (captured || isCaptureGuess(fenBefore, uci)) Sound.capture()
   else Sound.move()
   if (state.mode === 'puzzle') attemptPuzzle(uci)
   else submitMove(uci)
@@ -419,6 +594,7 @@ async function submitMove(uci) {
     positions: state.positions,
     ucis: state.ucis,
     sans: state.sans,
+    bookUcis: state.bookUcis,
   }
   // optimistic: the board already shows the move; align our review track now
   setState({
@@ -426,52 +602,180 @@ async function submitMove(uci) {
     ucis: [...snapshot.ucis, uci],
     sans: [...snapshot.sans, ''],
     viewPly: snapshot.positions.length,
+    tipPly: null,
     history: [...snapshot.history, '…'],
     legal: [],
     overlay: null,
     check: false,
+    badge: (() => {
+      const cls = state.bookUcis.includes(uci)
+        ? 'book'
+        : classTable.fen === snapshot.fen ? classTable.moves[uci] : null
+      return cls
+        ? { ply: snapshot.positions.length, square: uci.slice(2, 4), cls }
+        : state.badge
+    })(),
   })
 
   let data
   try {
     data = await api('/api/move', {
-      fen: snapshot.fen, history: snapshot.history, move: uci, drill: state.drill, game: state.gameId,
+      fen: snapshot.fen,
+      history: snapshot.history,
+      move: uci,
+      drill: state.drill,
+      game: state.gameId,
+      script: state.script || undefined,
+      tries: state.bounceFen === snapshot.fen ? state.bounceTries : 0,
     })
   } catch (err) {
     data = { error: `Server error: ${err.message}` }
   }
   if (data.error || data.rejected) {
-    if (data.rejected) Sound.bad()
-    showMessage(data.warning || data.error, 'bad')
-    setState({
-      ...snapshot,
-      viewPly: snapshot.positions.length - 1,
-      overlay: null,
+    const realBounce = data.rejected && !data.redirect
+    if (realBounce) Sound.bad()
+    if (data.rejected && state.mode === 'drill') {
+      setActionLabels('Repeat', 'Next')
+      setPuzzleActions(true)
+    }
+    const bounceState = {
       gameOver: false,
-      bounces: state.bounces + (data.rejected ? 1 : 0),
-    })
+      bounces: state.bounces + (realBounce ? 1 : 0),
+      bounceFen: realBounce ? snapshot.fen : state.bounceFen,
+      bounceTries: realBounce
+        ? (state.bounceFen === snapshot.fen ? state.bounceTries : 0) + 1
+        : state.bounceTries,
+    }
+    // the first attempt at a slot is what gets scored — even when rejected
+    if (
+      realBounce && state.mode === 'drill' && !state.openingDone
+      && data.move_class && state.scoredFen !== snapshot.fen
+    ) {
+      bounceState.classCounts = {
+        ...state.classCounts,
+        [data.move_class]: (state.classCounts[data.move_class] || 0) + 1,
+      }
+      bounceState.accSum = state.accSum + moveAccuracy(data.loss || 0.1)
+      bounceState.accCount = state.accCount + 1
+      bounceState.scoredFen = snapshot.fen
+    }
+    const tipIdx = snapshot.positions.length - 1
+    if (data.best_line?.length) {
+      // teaching line: append to the game track so it's clickable and
+      // walkable with arrows; moves stay locked to the real game tip
+      const line = data.best_line
+      const track = {
+        positions: [...snapshot.positions, ...line.map((m) => m.fen)],
+        ucis: [...snapshot.ucis, ...line.map((m) => m.uci)],
+        sans: [...snapshot.sans, ...line.map((m) => m.san)],
+      }
+      const el = document.getElementById('message')
+      el.className = 'message bad'
+      el.replaceChildren(document.createTextNode(`${data.warning || data.error}\n\nBest here: `))
+      el.append(lineSpans(line, track))
+      setState({
+        ...snapshot,
+        ...track,
+        viewPly: tipIdx,
+        tipPly: tipIdx,
+        overlay: [line[0].uci.slice(0, 2), line[0].uci.slice(2, 4)],
+        ...bounceState,
+      })
+    } else {
+      showMessage(data.warning || data.error, 'bad')
+      setState({
+        ...snapshot,
+        viewPly: tipIdx,
+        tipPly: null,
+        overlay: null,
+        ...bounceState,
+      })
+    }
     return
   }
 
-  if (/[+#]/.test(data.user_san)) Sound.check()
+  if (data.opening) showOpening(data.opening)
   const lines = []
   let kind = 'note'
   let openingDone = state.openingDone
-  if (state.mode === 'drill' && !openingDone && data.history.length >= 20) {
-    openingDone = true
-    const userEval = state.flipped ? -(data.eval_cp ?? 0) : (data.eval_cp ?? 0)
-    const passed = state.bounces === 0 && userEval >= -100
-    if (passed) {
-      kind = 'good'
-      lines.push('Opening passed — 10 moves, sound position. Playing on.')
-      setTimeout(Sound.good, 250)
-    } else {
-      kind = 'bad'
-      const why = state.bounces > 0
-        ? `${state.bounces} bounce${state.bounces > 1 ? 's' : ''} on the way`
-        : 'the position is already worse'
-      lines.push(`Opening done, but not a clean pass — ${why}. Press N to run another.`)
+  // slots already scored by an earlier bounce or hint don't score again
+  const slotScored = state.scoredFen === snapshot.fen
+  const curUserCp = userCp(data.eval_cp)
+  let slotClass = data.move_class
+  let accSum = state.accSum
+  let accCount = state.accCount
+  if (data.move_class && !slotScored) {
+    // the truth of a move is the eval after the reply: if the position
+    // dropped clearly more than the classification saw, the drop wins.
+    // Only moves the engine itself picked are exempt (they can't lose
+    // ground); a noise margin keeps shallow-eval wobble from flipping badges.
+    const realized = Math.max(0, winProb(state.prevUserCp) - winProb(curUserCp))
+    let slotLoss = data.loss || 0
+    if (!data.move_verified && realized > slotLoss + 0.03) {
+      slotLoss = realized
+      slotClass = classifyLoss(realized)
     }
+    accSum += moveAccuracy(slotLoss)
+    accCount += 1
+  }
+  const classCounts = slotClass && !slotScored
+    ? { ...state.classCounts, [slotClass]: (state.classCounts[slotClass] || 0) + 1 }
+    : state.classCounts
+  const userEval = userCp(data.eval_cp)
+  const lostNow = state.mode === 'drill' && !openingDone && !data.opening_complete
+    && data.eval_cp != null && userEval < FLOOR_CP
+  const verdictNow = state.mode === 'drill' && !openingDone
+    && (data.opening_complete || lostNow)
+  if (verdictNow) {
+    openingDone = true
+    // what the run is judged on: how far the position moved from where the
+    // opening started, not the absolute eval and not per-move accuracy
+    const baseline = state.userColor === 'b' ? -START_CP : START_CP
+    const drift = userEval - baseline
+    const passed = !lostNow && state.bounces === 0 && !state.hintUsed
+      && userEval >= FLOOR_CP && drift > DRIFT_FAIL_CP
+    const accuracy = accCount ? Math.round(accSum / accCount) : 100
+    const { title: vTitle, reason } = verdictCopy({
+      passed, lost: lostNow, hintUsed: state.hintUsed, bounces: state.bounces,
+      drift, userColor: state.userColor,
+    })
+    kind = passed ? 'good' : 'bad'
+    const banner = document.getElementById('verdict')
+    banner.hidden = false
+    banner.className = `verdict ${passed ? 'pass' : 'fail'}`
+    banner.textContent = `${passed ? '✓ ' : ''}${vTitle} — ${reason}`
+    const title = document.getElementById('verdict-title')
+    title.className = `verdict-title ${passed ? 'pass' : 'fail'}`
+    title.textContent = vTitle
+    document.getElementById('verdict-reason').textContent = reason
+    renderDrift(document.getElementById('verdict-drift'), drift, userEval)
+    const ORDER = ['best', 'great', 'excellent', 'good', 'inaccuracy',
+      'mistake', 'blunder', 'hinted', 'book']
+    const EXTRA_COLORS = { mistake: '#e58f2a', blunder: '#ca3431', hinted: '#8a8f84' }
+    const accEl = document.createElement('span')
+    const accB = document.createElement('b')
+    accB.textContent = `${accuracy}%`
+    accEl.append(accB, ' move accuracy')
+    const stats = ORDER
+      .filter((c) => classCounts[c])
+      .map((c) => {
+        const el = document.createElement('span')
+        const b = document.createElement('b')
+        b.style.color = BADGE_COLORS[c] || EXTRA_COLORS[c] || 'inherit'
+        b.textContent = classCounts[c]
+        el.append(b, ` ${c}`)
+        return el
+      })
+    document.getElementById('verdict-stats').replaceChildren(accEl, ...stats)
+    const fam = data.family_record
+    document.getElementById('verdict-family').textContent = fam
+      ? `${fam.family}: ${fam.passes}/${fam.completed} runs passed`
+      : ''
+    document.getElementById('verdict-modal').hidden = false
+  }
+  if (verdictNow || (data.game_over && state.mode === 'drill')) {
+    setActionLabels('Repeat', 'Next')
+    setPuzzleActions(true)
   }
   if (data.prep_note) lines.push(data.prep_note)
   if (data.note) lines.push(data.note)
@@ -501,8 +805,21 @@ async function submitMove(uci) {
     gameOver: data.game_over,
     result: data.result,
     openingDone,
+    classCounts,
+    accSum,
+    accCount,
+    prevUserCp: curUserCp,
+    scoredFen: null,
+    bookUcis: data.book_ucis || [],
+    badge: slotClass
+      ? { ply: snapshot.positions.length, square: uci.slice(2, 4), cls: slotClass }
+      : null,
+    bounceFen: null,
+    bounceTries: 0,
+    tipPly: null,
     undoStack: [...state.undoStack, snapshot],
   })
+  if (data.reply_uci && !data.game_over) prefetchClasses(data.fen)
 }
 
 async function nextPuzzle(setName) {
@@ -521,9 +838,14 @@ async function nextPuzzle(setName) {
   }
   document.getElementById('drill-name').textContent =
     `${label} · ${data.solved_count}/${data.total} solved`
+  hintedPuzzleId = null
+  document.getElementById('verdict').hidden = true
+  hideVerdictModal()
   showContext(data.context)
+  showOpening(null)
   showMessage('')
-  setPuzzleActions(false)
+  setActionLabels('Retry', 'Next puzzle')
+  setPuzzleActions(true)
   setState({
     ...initialState,
     mode: 'puzzle',
@@ -535,6 +857,7 @@ async function nextPuzzle(setName) {
     ucis: data.last_uci ? [data.last_uci] : [],
     sans: data.last_san ? [data.last_san] : [],
     viewPly: 0,
+    userColor: data.orientation === 'black' ? 'b' : 'w',
     flipped: data.orientation === 'black',
     check: data.check,
     evalCp: data.eval_cp,
@@ -557,7 +880,11 @@ async function attemptPuzzle(uci) {
 
   let data
   try {
-    data = await api('/api/puzzle/attempt', { id: state.puzzle.id, move: uci })
+    data = await api('/api/puzzle/attempt', {
+      id: state.puzzle.id,
+      move: uci,
+      hinted: hintedPuzzleId === state.puzzle.id,
+    })
   } catch (err) {
     data = { error: `Server error: ${err.message}` }
   }
@@ -573,7 +900,6 @@ async function attemptPuzzle(uci) {
     return
   }
 
-  if (/[+#]/.test(data.played_san)) Sound.check()
   setTimeout(data.correct ? Sound.good : Sound.bad, 150)
   showAttemptFeedback(data)
   setPuzzleActions(true)
@@ -592,7 +918,49 @@ async function attemptPuzzle(uci) {
   })
 }
 
+let hintedPuzzleId = null
+let classTable = { fen: null, moves: {} }
+
+async function prefetchClasses(fen) {
+  if (!fen) return
+  try {
+    const data = await api('/api/classify', { fen })
+    classTable = { fen, moves: data.moves || {} }
+  } catch { /* badges fall back to arriving with the move response */ }
+}
+
+async function showHint() {
+  if (!atTip() || state.gameOver || !state.fen) return
+  const data = await api('/api/hint', {
+    fen: displayFen(),
+    practice: state.mode === 'drill',
+    mode: state.mode,
+  })
+  if (data.error) return
+  if (state.mode === 'puzzle' && state.puzzle) hintedPuzzleId = state.puzzle.id
+  const patch = { overlay: [data.uci.slice(0, 2), data.uci.slice(2, 4)] }
+  // a hinted slot scores as 'hinted' — the move played after it won't count
+  if (state.mode === 'drill' && !state.openingDone && state.scoredFen !== state.fen) {
+    patch.classCounts = {
+      ...state.classCounts,
+      hinted: (state.classCounts.hinted || 0) + 1,
+    }
+    patch.accSum = state.accSum + moveAccuracy(0.1)
+    patch.accCount = state.accCount + 1
+    patch.scoredFen = state.fen
+    patch.hintUsed = true
+  }
+  setState(patch)
+  showMessage(`Hint: ${data.san}`, 'note')
+}
+
+function repeatGame() {
+  if (state.mode !== 'drill' || !state.history.length) return
+  newGame({ drill: state.drill, script: state.history, repeat_of: state.gameId })
+}
+
 function retryPuzzle() {
+  if (state.mode === 'drill') { repeatGame(); return }
   if (!state.puzzle) return
   setPuzzleActions(false)
   showMessage('Same position — try again.', 'note')
@@ -611,6 +979,11 @@ function retryPuzzle() {
 function show(view) {
   document.getElementById('home').hidden = view !== 'home'
   document.getElementById('game').hidden = view !== 'game'
+  if (view === 'home') {
+    document.getElementById('nav-home').classList.add('active')
+    document.getElementById('nav-practice').classList.remove('active')
+    document.getElementById('nav-blunders').classList.remove('active')
+  }
   if (view === 'game') requestAnimationFrame(() => ground.redrawAll())
 }
 
@@ -618,6 +991,37 @@ async function showHome() {
   show('home')
   const data = await api('/api/drills', {})
   document.getElementById('home-sub').textContent = `${data.user} · blitz coaching`
+  const profile = data.profile || {}
+  document.getElementById('profile-stats').replaceChildren(
+    ...['blitz', 'rapid'].filter((k) => profile[k]).map((k) => {
+      const p = profile[k]
+      const row = document.createElement('div')
+      const label = document.createElement('span')
+      label.className = 'p-label'
+      label.textContent = k
+      const rating = document.createElement('span')
+      rating.className = 'p-rating'
+      rating.textContent = p.rating ?? '—'
+      const peak = document.createElement('span')
+      peak.className = 'p-rest'
+      peak.textContent = `peak ${p.best ?? '—'}`
+      row.append(label, rating, peak)
+      if ([p.wins, p.losses, p.draws].every((x) => x != null)) {
+        const mk = (cls, text) => {
+          const s = document.createElement('span')
+          s.className = cls
+          s.textContent = text
+          return s
+        }
+        row.append(
+          mk('p-w', `${p.wins}W`),
+          mk('p-l', `${p.losses}L`),
+          mk('p-d', `${p.draws}D`),
+        )
+      }
+      return row
+    }),
+  )
   const sets = data.puzzles || {}
   const blunders = sets.blunders || { total: 0, solved: 0 }
   document.getElementById('replay-desc').textContent = blunders.total
@@ -636,38 +1040,71 @@ async function showHome() {
   document.getElementById('practice-bar').style.width = mistakes.total
     ? `${(100 * mistakes.solved) / mistakes.total}%`
     : '0'
+  const t = data.training || {}
+  document.getElementById('practice-stats').textContent = t.games
+    ? `${t.games} games played · ${t.passes || 0}/${t.completed || 0} openings passed · `
+      + `${t.bounces || 0} moves bounced · ${t.fixed || 0} mistakes fixed`
+    : 'No practice games yet — click to play your first'
+
+  const practiced = new Map((t.openings || []).filter((o) => o.drill_id).map((o) => [o.drill_id, o]))
   for (const color of ['white', 'black']) {
-    const rows = prepared
+    const all = prepared
       .filter((d) => d.user_color === color)
       .sort((a, b) => (b.games || 0) - (a.games || 0))
+    const rows = all
       .map((d, i) => {
         const li = document.createElement('li')
         li.style.setProperty('--i', i)
         const name = document.createElement('span')
         name.className = 'o-name'
         name.textContent = d.name.replace(/ — (White|Black)$/, '')
+
         const meta = document.createElement('span')
         meta.className = 'o-meta'
         if (d.games) {
           const score = document.createElement('span')
           score.className = d.score_pct < 45 ? 'bad' : d.score_pct > 55 ? 'good' : ''
           score.textContent = `${Math.round(d.score_pct)}%`
-          meta.append(`${d.games} games · `, score)
+          meta.append(`${d.games}g `, score)
         }
-        li.append(name, meta)
+
+        const prac = document.createElement('span')
+        prac.className = 'o-meta o-prac'
+        const p = practiced.get(d.id)
+        if (p && p.completed) {
+          const recent = p.recent || []
+          const rate = recent.length
+            ? recent.filter(Boolean).length / recent.length
+            : p.passes / p.completed
+          const pass = document.createElement('span')
+          pass.className = rate >= 0.7 ? 'good' : rate < 0.4 ? 'bad' : ''
+          pass.textContent = `${p.passes}/${p.completed} passed`
+          prac.title = `lifetime: ${p.passes}/${p.completed} passed · `
+            + `last ${recent.length}: ${recent.filter(Boolean).length} passed (color = recent form)`
+          prac.append(pass)
+        } else {
+          prac.textContent = p ? 'unfinished' : '—'
+        }
+
+        li.append(name, meta, prac)
+        li.classList.add('pick')
+        li.addEventListener('click', () => newGame({ drill: d.id }))
         return li
       })
     document.getElementById(`home-${color}`).replaceChildren(...rows)
   }
 }
 
-async function newGame() {
+async function newGame(custom) {
   show('game')
-  const data = await api('/api/new', { practice: true })
+  const payload = custom && custom.drill ? custom : { practice: true }
+  const data = await api('/api/new', payload)
   document.getElementById('drill-name').textContent = data.drill_name || 'Opening Practice'
   showContext(null)
+  showOpening(data.opening)
   showMessage(data.message, 'note')
-  setPuzzleActions(false)
+  setActionLabels('Repeat', 'Next')
+  setPuzzleActions(true)
   const positions = [data.start_fen]
   const ucis = []
   const sans = []
@@ -678,10 +1115,13 @@ async function newGame() {
     sans.push(m.san)
     history.push(m.san)
   })
+  document.getElementById('verdict').hidden = true
+  hideVerdictModal()
   setState({
     ...initialState,
     drill: data.drill_id || null,
     gameId: data.game_id || null,
+    script: data.script || (custom && custom.script) || null,
     fen: data.fen,
     legal: data.legal,
     positions,
@@ -689,6 +1129,9 @@ async function newGame() {
     sans,
     history,
     viewPly: 0,
+    bookUcis: data.book_ucis || [],
+    userColor: data.orientation === 'black' ? 'b' : 'w',
+    prevUserCp: data.orientation === 'black' ? -START_CP : START_CP,
     flipped: data.orientation === 'black',
     check: data.check,
     evalCp: data.eval_cp ?? 0,
@@ -696,6 +1139,7 @@ async function newGame() {
     stats: state.stats,
   })
   if (positions.length > 1) setTimeout(() => jumpTo(positions.length - 1), 500)
+  prefetchClasses(data.fen)
 }
 
 function undo() {
@@ -705,6 +1149,8 @@ function undo() {
   setState({
     ...prev,
     viewPly: prev.positions.length - 1,
+    tipPly: null,
+    badge: null,
     undoStack: state.undoStack.slice(0, -1),
     overlay: null,
     gameOver: false,
@@ -714,10 +1160,15 @@ function undo() {
 const KEY_ACTIONS = {
   ArrowLeft: () => stepView(-1),
   ArrowRight: () => stepView(1),
-  Escape: () => showHome(),
+  Escape: () => {
+    const modal = document.getElementById('verdict-modal')
+    if (!modal.hidden) playOn()
+    else showHome()
+  },
   h: () => showHome(),
   n: () => newGame(),
   b: () => nextPuzzle('blunders'),
+  i: () => showHint(),
   r: () => retryPuzzle(),
   u: () => undo(),
   f: () => setState({ flipped: !state.flipped }),
@@ -732,12 +1183,60 @@ document.addEventListener('keydown', (e) => {
   action()
 })
 
+function hideVerdictModal() {
+  document.getElementById('verdict-modal').hidden = true
+}
+
+async function playOn() {
+  hideVerdictModal()
+  if (state.mode !== 'drill' || state.gameOver) return
+  // the run ended on the user's move — fetch the withheld engine reply
+  if (state.history.length % 2 === (state.userColor === 'b' ? 0 : 1)) {
+    const data = await api('/api/reply', {
+      fen: state.fen, history: state.history, drill: state.drill, game: state.gameId,
+    })
+    if (data.error || !data.reply_san) return
+    soundForSan(data.reply_san)
+    if (data.opening) showOpening(data.opening)
+    setState({
+      fen: data.fen,
+      legal: data.legal,
+      history: data.history,
+      positions: [...state.positions, data.fen],
+      ucis: [...state.ucis, data.reply_uci],
+      sans: [...state.sans, data.reply_san],
+      viewPly: state.positions.length,
+      check: data.check,
+      evalCp: data.eval_cp ?? state.evalCp,
+      bookUcis: data.book_ucis || [],
+    })
+    prefetchClasses(data.fen)
+  }
+}
+
+document.getElementById('v-repeat').addEventListener('click', () => { hideVerdictModal(); repeatGame() })
+document.getElementById('v-next').addEventListener('click', () => {
+  hideVerdictModal()
+  if (state.drill && !state.drill.startsWith('practice:')) newGame({ drill: state.drill })
+  else newGame()
+})
+document.getElementById('v-playon').addEventListener('click', () => { playOn() })
+document.getElementById('verdict-modal').addEventListener('click', (e) => {
+  if (e.target.id === 'verdict-modal') playOn()
+})
+
 document.getElementById('retry').addEventListener('click', retryPuzzle)
-document.getElementById('next').addEventListener('click', () => nextPuzzle())
+document.getElementById('next').addEventListener('click', () => {
+  if (state.mode !== 'drill') { nextPuzzle(); return }
+  // stay focused on a specific opening; random only in mixed practice
+  if (state.drill && !state.drill.startsWith('practice:')) newGame({ drill: state.drill })
+  else newGame()
+})
 document.getElementById('home-practice').addEventListener('click', () => newGame())
 document.getElementById('home-replay').addEventListener('click', () => nextPuzzle('blunders'))
 document.getElementById('brand-link').addEventListener('click', () => showHome())
 document.getElementById('nav-home').addEventListener('click', () => showHome())
+document.getElementById('hint').addEventListener('click', () => showHint())
 document.getElementById('nav-practice').addEventListener('click', () => newGame())
 document.getElementById('nav-blunders').addEventListener('click', () => nextPuzzle('blunders'))
 

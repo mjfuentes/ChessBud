@@ -3,44 +3,51 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ChessBuddy</title>
+  <title>ChessBud</title>
+  <link rel="icon" type="image/png" href="img/icon.png">
+  <link rel="apple-touch-icon" href="img/icon.png">
   <link rel="stylesheet" href="vendor/chessground.base.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <nav class="appbar">
+    <img class="brand" id="brand-link" src="img/wordmark.png" alt="ChessBud">
+    <button id="nav-home">Home</button>
+    <button id="nav-practice">Opening practice</button>
+    <button id="nav-blunders">Blunder replay</button>
+  </nav>
   <main id="home" class="home" hidden>
-    <header>
-      <div class="home-brand">Chess<span>Buddy</span></div>
-      <div class="home-sub" id="home-sub">blitz coaching</div>
-    </header>
+    <div class="home-col home-left">
+      <header>
+        <div class="home-sub" id="home-sub">blitz coaching</div>
+        <div class="profile-stats" id="profile-stats"></div>
+      </header>
+      <section class="home-replay" id="home-practice">
+        <div class="mode-title">Opening practice</div>
+        <div class="mode-desc" id="practice-desc">Loading…</div>
+        <div class="bar"><div class="bar-fill" id="practice-bar"></div></div>
+        <div class="home-stats" id="practice-stats"></div>
+      </section>
+      <section class="home-replay" id="home-replay">
+        <div class="mode-title">Blunder replay</div>
+        <div class="mode-desc" id="replay-desc">Loading…</div>
+        <div class="bar"><div class="bar-fill" id="replay-bar"></div></div>
+      </section>
+    </div>
 
-    <section class="home-replay" id="home-replay">
-      <div class="mode-title">Blunder replay</div>
-      <div class="mode-desc" id="replay-desc">Loading…</div>
-      <div class="bar"><div class="bar-fill" id="replay-bar"></div></div>
-    </section>
+    <div class="home-col">
+      <div class="mode-title">As White · real games · score · practice passed</div>
+      <ol class="openings" id="home-white"></ol>
+    </div>
 
-    <section class="home-replay" id="home-practice">
-      <div class="mode-title">Opening practice</div>
-      <div class="mode-desc" id="practice-desc">Loading…</div>
-      <div class="bar"><div class="bar-fill" id="practice-bar"></div></div>
-    </section>
-
-    <section>
-      <div class="openings-grid">
-        <div>
-          <h2>Your repertoire — as White</h2>
-          <ol class="openings" id="home-white"></ol>
-        </div>
-        <div>
-          <h2>As Black</h2>
-          <ol class="openings" id="home-black"></ol>
-        </div>
-      </div>
-    </section>
+    <div class="home-col">
+      <div class="mode-title">As Black</div>
+      <ol class="openings" id="home-black"></ol>
+    </div>
   </main>
 
-  <main class="layout" id="game" hidden>
+  <main class="game-view" id="game" hidden>
+    <div class="layout">
     <section class="board-wrap">
       <div id="evalbar" class="evalbar"><div id="evalfill" class="evalfill"></div></div>
       <div class="board-col">
@@ -50,13 +57,9 @@
       </div>
     </section>
     <aside class="panel">
-      <div class="brand" id="brand-link">Chess<span>Buddy</span></div>
-      <nav class="topnav">
-        <button id="nav-home">Home</button>
-        <button id="nav-practice">Opening practice</button>
-        <button id="nav-blunders">Blunder replay</button>
-      </nav>
       <h1 id="drill-name">Opening Practice</h1>
+      <div id="verdict" class="verdict" hidden></div>
+      <div id="opening-name" class="opening-name"></div>
       <div id="status" class="status"></div>
       <div id="context" class="context" hidden></div>
       <div id="message" class="message note"></div>
@@ -64,15 +67,33 @@
         <button id="retry">Retry</button>
         <button id="next">Next puzzle</button>
       </div>
+      <div class="panel-actions">
+        <button id="hint" class="hint-btn">Hint</button>
+      </div>
       <h2>Moves</h2>
       <ol id="moves" class="moves"></ol>
       <div class="hints">
         <b>H</b> home · <b>N</b> new practice game · <b>B</b> blunder replay ·
-        <b>←→</b> review · <b>U</b> undo · <b>F</b> flip · <b>M</b> sound ·
+        <b>←→</b> review · <b>I</b> hint · <b>U</b> undo · <b>F</b> flip · <b>M</b> sound ·
         click a move to jump · right-click to draw
       </div>
     </aside>
+    </div>
   </main>
+  <div id="verdict-modal" class="modal" hidden>
+    <div class="modal-card">
+      <div id="verdict-title" class="verdict-title"></div>
+      <div id="verdict-reason" class="verdict-reason"></div>
+      <div id="verdict-drift" class="verdict-drift"></div>
+      <div id="verdict-stats" class="verdict-stats"></div>
+      <div id="verdict-family" class="verdict-family"></div>
+      <div class="modal-actions">
+        <button id="v-repeat">Repeat</button>
+        <button id="v-next">Next</button>
+        <button id="v-playon">Play on</button>
+      </div>
+    </div>
+  </div>
   <script src="sound.js"></script>
   <script type="module" src="app.js"></script>
 </body>

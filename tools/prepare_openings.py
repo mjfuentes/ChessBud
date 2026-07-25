@@ -107,6 +107,25 @@ def collect_games(pgn_path: Path, user: str, book: dict):
     return grouped
 
 
+def reaches_family(sans: list[str], family: str, book: dict) -> bool:
+    """Does this line actually become the opening the drill is named after?
+
+    Games are bucketed by their deepest ECO name, so a handful transpose in
+    from elsewhere (a Petrov that later reaches an Italian position). Branching
+    on those produces lines that never touch the family, which the trainer then
+    has no way to steer back to."""
+    board = chess.Board()
+    for san in sans:
+        try:
+            board.push_san(san)
+        except ValueError:
+            return False
+        entry = book.get(board.epd())
+        if entry and entry[1].split(":")[0].strip() == family:
+            return True
+    return False
+
+
 def build_counters(games: list[tuple[list[str], float]]):
     moves: dict[tuple, Counter] = defaultdict(Counter)
     stats: dict[tuple, list[float]] = defaultdict(lambda: [0, 0.0])
@@ -212,7 +231,8 @@ def main() -> None:
             expand([], chess.Board(), is_user_turn, moves, stats, memo, {}, lines)
             spec_lines = [
                 {"line": " ".join(sans), "notes": notes}
-                for sans, notes in lines if len(sans) >= 6
+                for sans, notes in lines
+                if len(sans) >= 6 and reaches_family(sans, family, book)
             ]
             if not spec_lines:
                 continue
