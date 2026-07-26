@@ -9,3 +9,6 @@ reports/
 data/activity_log.jsonl
 data/puzzle_progress.json
 data/puzzles_live.json
+
+# ladder state — changes as you practice
+data/ladder.json

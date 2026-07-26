@@ -23,6 +23,8 @@ import chess
 import chess.engine
 import chess.pgn
 
+import ladder as ladder_mod
+
 ROOT = Path(__file__).resolve().parent.parent
 WEB_DIR = ROOT / "web"
 DRILL_DIR = ROOT / "data" / "drills"
@@ -41,6 +43,9 @@ START_CP = 30
 DRIFT_FAIL_CP = -75
 FLOOR_CP = -100
 PROGRESS_FILE = ROOT / "data" / "puzzle_progress.json"
+LADDER_FILE = ROOT / "data" / "ladder.json"
+ladder = ladder_mod.Ladder(LADDER_FILE)
+USER = "prosekkopapi"  # replaced by --user in main()
 PUZZLE_TOLERANCE_CP = 60
 PRACTICE_TOLERANCE_CP = 80
 BOOK_BLUNDER_CP = 150
@@ -131,6 +136,7 @@ class Drill:
         self.user_color = chess.WHITE if spec.get("user_color", "white") == "white" else chess.BLACK
         self.expected: dict[tuple, set[str]] = {}
         self.replies: dict[tuple, list[tuple[str, str | None]]] = {}
+        self.lines: list[list[str]] = [v["line"].split() for v in spec["lines"]]
         for variation in spec["lines"]:
             self._index_line(variation)
         self.family = self.name.split(" — ")[0].strip()
@@ -745,6 +751,46 @@ def training_summary() -> dict:
     }
 
 
+def ladder_target() -> int:
+    """Ceiling for every opening, from the live blitz rating."""
+    profile = fetch_profile(USER) or {}
+    return ladder_mod.target_depth((profile.get("blitz") or {}).get("rating"))
+
+
+def ladder_state(drill_id: str, drill: Drill) -> dict:
+    """Rung this opening currently sits on. Mixed practice has no book lines of
+    its own, so it simply runs at the rating target."""
+    target = ladder_target()
+    if not drill.lines:
+        return {"depth": target, "cleared": 0, "total": 0, "target": target,
+                "supported": 0, "at_ceiling": True}
+    return ladder.state(drill_id, drill.lines, drill.user_color == chess.WHITE, target)
+
+
+def run_depth(drill_id: str, drill: Drill | None) -> int:
+    """How many of the user's moves this run is graded over."""
+    if drill is None:
+        return ladder_target()
+    return ladder_state(drill_id, drill)["depth"]
+
+
+def seed_ladder_from_history(drills: dict[str, Drill]) -> None:
+    """First run only: start each opening where its practice log proves it."""
+    analysis = analyze_practice_log()
+    runs = []
+    for gid in analysis["order"]:
+        res = analysis["results"][gid]
+        if not res["verdict"]:
+            continue
+        drill_id = (analysis["starts"].get(gid) or {}).get("drill")
+        if not drill_id or drill_id.startswith("practice:"):
+            continue
+        runs.append((drill_id, res["sans"], res["orientation"] == "white"))
+    book = {did: d.lines for did, d in drills.items() if d.lines}
+    if ladder.seed(runs, book):
+        print(f"ladder seeded from {len(runs)} passed runs", flush=True)
+
+
 def hint_ucis(
     payload: dict, board: chess.Board, drill: Drill | None, analysis: EngineWrapper
 ) -> tuple[list[str], bool, int | None]:
@@ -808,6 +854,7 @@ def handle_drills(drills: dict[str, Drill], user: str) -> dict:
                 "games": s.get("games"),
                 "score_pct": s.get("score_pct"),
                 "lines": s.get("lines", len(d.expected)),
+                "ladder": ladder_state(drill_id, d),
             }
         )
     entries.sort(key=lambda e: (0 if "/" in e["id"] else 1, e["user_color"], e["name"]))
@@ -830,6 +877,28 @@ def handle_drills(drills: dict[str, Drill], user: str) -> dict:
         "training": training,
         "profile": fetch_profile(user),
     }
+
+
+def handle_result(payload: dict, drills: dict[str, Drill]) -> dict:
+    """The client reports a finished run; a pass ticks its line off the current
+    depth and may promote the opening to the next one."""
+    drill_id = str(payload.get("drill", ""))
+    drill = drills.get(drill_id)
+    if drill is None or not drill.lines:
+        return {"ladder": None}
+    history = list(payload.get("history") or [])
+    state = ladder_state(drill_id, drill)
+    if not payload.get("passed"):
+        log_event("run_result", drill=drill_id, game=payload.get("game"),
+                  passed=False, depth=state["depth"])
+        return {"ladder": state, "promoted": False}
+    result = ladder.record_pass(
+        drill_id, history, drill.lines,
+        drill.user_color == chess.WHITE, ladder_target(),
+    )
+    log_event("run_result", drill=drill_id, game=payload.get("game"), passed=True,
+              depth=state["depth"], promoted=result.get("promoted", False))
+    return {"ladder": result, "promoted": result.get("promoted", False)}
 
 
 def freshen_note(mistake_index: MistakeIndex, board: chess.Board, reply: dict) -> None:
@@ -1010,6 +1079,14 @@ def handle_new(
     pre_moves = []
     game_id = f"g{int(time.time() * 1000):x}{random.randrange(16 ** 4):04x}"
     script = payload.get("script") or []
+    if not script and drill is not None and drill.lines:
+        # steer into a line you have not yet cleared at this opening's depth,
+        # so climbing the ladder is a matter of playing, not hunting
+        target_line = ladder.next_line(
+            drill_id, drill.lines, drill.user_color == chess.WHITE, ladder_target()
+        )
+        if target_line:
+            script = target_line
     if drill is not None and board.turn != drill.user_color:
         reply = None
         if script:
@@ -1056,6 +1133,7 @@ def handle_new(
         "start_fen": start_fen,
         "pre_moves": pre_moves,
         "eval_cp": 0,
+        "ladder": ladder_state(drill_id, drill) if drill is not None else None,
     }
 
 
@@ -1168,8 +1246,9 @@ def handle_move(
             (len(history) + 1) // 2 if drill.user_color == chess.WHITE
             else len(history) // 2
         )
-        if user_moves == 10:
-            # the run ends on the user's 10th move — no engine reply yet
+        graded_depth = run_depth(str(payload.get("drill", "")), drill)
+        if user_moves == graded_depth:
+            # the run ends on the user's last graded move — no engine reply yet
             eval_cp = analysis.eval_cp(board, chess.WHITE, movetime=0.3)
             log_event(
                 "move", game=payload.get("game"), drill=payload.get("drill"),
@@ -1200,6 +1279,8 @@ def handle_move(
                 "eval_cp": eval_cp,
                 "opening_complete": True,
                 "family_record": family_record,
+                "ladder": ladder_state(str(payload.get("drill", "")), drill)
+                if drill is not None else None,
             }
 
     scripted = payload.get("script") or []
@@ -1574,6 +1655,8 @@ def make_handler(
                     body = handle_move(payload, drills, engine, analysis, mistake_index)
                 elif self.path == "/api/reply":
                     body = handle_reply(payload, drills, engine, analysis, mistake_index)
+                elif self.path == "/api/result":
+                    body = handle_result(payload, drills)
                 elif self.path == "/api/hint":
                     body = handle_hint(payload, drills, analysis, mistake_index)
                 elif self.path == "/api/puzzle/next":
@@ -1602,7 +1685,10 @@ def main() -> None:
     parser.add_argument("--user", default="prosekkopapi")
     args = parser.parse_args()
 
+    global USER
+    USER = args.user
     drill_cache = DrillCache(args.user)
+    seed_ladder_from_history(drill_cache.get())
     engine = EngineWrapper(args.elo)
     analysis = EngineWrapper(None)
     mistake_index = MistakeIndex(args.user)

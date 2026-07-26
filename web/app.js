@@ -238,6 +238,34 @@ function verdictCopy({ passed, lost, hintUsed, bounces, drift, userColor }) {
   }
 }
 
+const ladderText = (l) => `depth ${l.depth} · ${l.cleared}/${l.total} lines cleared`
+
+// Tell the server how the run went so the ladder can tick this line off, then
+// show where the opening stands. Failing to report must not break the verdict.
+async function reportResult(passed, before, history) {
+  const el = document.getElementById('verdict-ladder')
+  el.className = 'verdict-ladder'
+  if (!state.drill || !before || !before.total) { el.textContent = ''; return }
+  el.textContent = ladderText(before)
+  let data
+  try {
+    data = await api('/api/result', {
+      drill: state.drill, game: state.gameId, history: history || state.history, passed,
+    })
+  } catch (err) {
+    console.error('Could not record the run:', err)
+    return
+  }
+  const after = data.ladder
+  if (!after || !after.total) return
+  if (data.promoted) {
+    el.className = 'verdict-ladder promoted'
+    el.textContent = `Depth ${after.depth} unlocked — ${after.total} lines to clear`
+  } else {
+    el.textContent = ladderText(after)
+  }
+}
+
 // The eval players actually read — where the position stood when the opening
 // ended. The starting eval is a constant, so it isn't worth showing.
 function renderDrift(el, drift, endCp) {
@@ -792,6 +820,7 @@ async function submitMove(uci) {
     document.getElementById('verdict-family').textContent = fam
       ? `${fam.family}: ${fam.passes}/${fam.completed} runs passed`
       : ''
+    reportResult(passed, data.ladder, data.history)
     document.getElementById('verdict-modal').hidden = false
   }
   if (verdictNow || (data.game_over && state.mode === 'drill')) {
@@ -1104,20 +1133,21 @@ async function showHome() {
 
         const prac = document.createElement('span')
         prac.className = 'o-meta o-prac'
-        const p = practiced.get(d.id)
-        if (p && p.completed) {
-          const recent = p.recent || []
-          const rate = recent.length
-            ? recent.filter(Boolean).length / recent.length
-            : p.passes / p.completed
-          const pass = document.createElement('span')
-          pass.className = rate >= 0.7 ? 'good' : rate < 0.4 ? 'bad' : ''
-          pass.textContent = `${p.passes}/${p.completed} passed`
-          prac.title = `lifetime: ${p.passes}/${p.completed} passed · `
-            + `last ${recent.length}: ${recent.filter(Boolean).length} passed (color = recent form)`
-          prac.append(pass)
+        const L = d.ladder
+        if (L && L.total) {
+          const depth = document.createElement('b')
+          depth.className = L.at_ceiling ? 'good' : ''
+          depth.textContent = `d${L.depth}`
+          const bar = document.createElement('span')
+          bar.className = 'o-rungs'
+          bar.style.setProperty('--filled', `${Math.round(100 * L.cleared / L.total)}%`)
+          prac.append(depth, ` ${L.cleared}/${L.total}`, bar)
+          prac.title = `depth ${L.depth} of ${L.target} (rating target)`
+            + `${L.at_ceiling ? ' — at your ceiling' : ''}\n`
+            + `${L.cleared} of ${L.total} lines cleared at this depth`
+            + `${L.supported ? ` · book supports depth ${L.supported}` : ''}`
         } else {
-          prac.textContent = p ? 'unfinished' : '—'
+          prac.textContent = '—'
         }
 
         li.append(name, meta, prac)

@@ -2,37 +2,26 @@
 
 Design notes that aren't implemented yet. Keep short; delete once shipped.
 
-## Progressive opening depth ("survive to the middlegame")
+## Follow-ups to the depth ladder (shipped — see tools/ladder.py)
 
-Right now every practice run is graded over a fixed **10 user moves**
-(`user_moves == 10` in `handle_move`, `OPENING_CHECK_PLIES = 24` for the
-mistake-capture window). One length for everyone, forever.
+- **The book is the ceiling.** Drill lines run 14–20 plies, so depth 10 (19
+  plies) is supported by only a handful of lines per opening and depth 11+ by
+  almost none. `deepest_supported()` caps each opening accordingly, which means
+  hitting 1100 will not actually unlock depth 11 until `prepare_openings.py` is
+  re-run with a longer engine tail (`TARGET_DEPTH`, currently 14).
+- **Hints aren't attributable.** Hint events log `fen`/`san`/`mode` but no
+  `game`, so a hint voids a pass only in the live client — reload or historical
+  analysis and it is invisible. Needed before the ladder can be honest about
+  hinted passes.
+- **Verdict copy** could name the depth ("survived 6 of 6") now that the graded
+  length varies per opening.
+- **Demotion** is unimplemented: an opening never drops a rung, however badly it
+  goes. Worth considering once there is data on whether ladders stall.
 
-Instead, make the graded depth a **level** the user climbs:
+## Priority ordering (designed, not built)
 
-| level | user moves | intent |
-|---|---|---|
-| Beginner | 3–4 | just the move order — do you know the first branch? |
-| Intermediate | 10 | current behaviour — through the structural decisions |
-| Advanced | 15 | out of the opening entirely, into the early middlegame |
-
-The framing is "how long can you survive against the engine before the
-middlegame". Past ~15 moves everyone at this rating gets destroyed anyway, so
-15 is the natural ceiling — the goal is reaching a playable middlegame, not
-outplaying Stockfish.
-
-Open questions:
-
-- **Per opening, or global?** Probably per opening — you can be advanced in the
-  Italian and a beginner in the Pirc. The repertoire column on the home screen
-  would show a level per line.
-- **Promotion rule.** Something like: pass N runs clean at the current level and
-  the next one unlocks. Needs to survive the drift-based verdict (a beginner run
-  is 3 moves of book, so drift will almost always be ~0 — the level ladder may
-  need its own pass rule at short depths).
-- **Drill data.** Lines in `data/drills/` are ~14–20 plies, so advanced (15 user
-  moves = 30 plies) will run past the book on most lines and hand off to the
-  engine earlier than intended. `prepare_openings.py` would need to extend the
-  engine tail for advanced levels.
-- **Verdict copy** should name the level ("survived 10 of 10" reads better than
-  "opening passed" once depth is variable).
+Which opening to serve next should mix frequency with weakness: `√(share of
+your real games) × (1 − depth/target)`. The square root keeps rare-but-real
+defences (Pirc, 9 games) in rotation against common ones (Italian, 127) —
+you do not choose which defence the opponent plays, so coverage matters more
+than raw frequency.
