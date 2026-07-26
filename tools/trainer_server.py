@@ -366,6 +366,11 @@ def add_practice_repertoires(drills: dict[str, Drill], user: str) -> None:
             drills[f"practice:{color_name}"] = merged
 
 
+def pov_cp(info: dict, color: chess.Color) -> int:
+    """An analysis line's eval in centipawns, from `color`'s point of view."""
+    return max(-1000, min(1000, info["score"].pov(color).score(mate_score=1000)))
+
+
 class EngineWrapper:
     """One Stockfish process, serialized — SimpleEngine is not thread-safe
     and the HTTP server is threaded."""
@@ -394,8 +399,7 @@ class EngineWrapper:
     ) -> tuple[int, list[chess.Move]]:
         with self._lock:
             info = self.engine.analyse(board, chess.engine.Limit(time=movetime))
-        cp = max(-1000, min(1000, info["score"].pov(color).score(mate_score=1000)))
-        return cp, list(info.get("pv", []))
+        return pov_cp(info, color), list(info.get("pv", []))
 
     def best_move(self, board: chess.Board) -> chess.Move:
         with self._lock:
@@ -410,10 +414,25 @@ class EngineWrapper:
             infos = self.engine.analyse(
                 board, chess.engine.Limit(time=movetime), multipv=2
             )
-        def cp(info):
-            return max(-1000, min(1000, info["score"].pov(color).score(mate_score=1000)))
-        second = cp(infos[1]) if len(infos) > 1 else None
-        return cp(infos[0]), second, list(infos[0].get("pv", []))
+        second = pov_cp(infos[1], color) if len(infos) > 1 else None
+        return pov_cp(infos[0], color), second, list(infos[0].get("pv", []))
+
+    def analyse_multipv(
+        self, board: chess.Board, color: chess.Color, count: int, movetime: float
+    ) -> list[tuple[str, int, list[str]]]:
+        """(root uci, eval, line) per candidate, best first, in `color`'s POV.
+
+        The time limit is for the whole search, so it is split across the
+        lines — asking for fewer candidates buys depth on each of them."""
+        with self._lock:
+            infos = self.engine.analyse(
+                board, chess.engine.Limit(time=movetime), multipv=max(2, count)
+            )
+        return [
+            (info["pv"][0].uci(), pov_cp(info, color), [m.uci() for m in info["pv"][:6]])
+            for info in infos
+            if info.get("pv")
+        ]
 
 
 def expected_points(cp: int) -> float:
@@ -726,20 +745,50 @@ def training_summary() -> dict:
     }
 
 
-def handle_hint(payload: dict, analysis: EngineWrapper, mistake_index: MistakeIndex) -> dict:
+def hint_ucis(
+    payload: dict, board: chess.Board, drill: Drill | None, analysis: EngineWrapper
+) -> tuple[list[str], bool, int | None]:
+    """(moves to show, whether they are book, best eval) for a hint.
+
+    Inside the drill's own book the answer is the prep, not the engine's pick:
+    the course guard is about to bounce anything else, so hinting the engine
+    there would be telling you to play a move the trainer refuses."""
+    book = expected_ucis(drill, list(payload.get("history", [])), board)
+    if book and len(book) == 1:
+        return book, True, None
+    # read the table the badges come from, so the move you are told to play is
+    # the move that earns the star — and so every equally good move is offered
+    table = compute_move_classes(payload["fen"], analysis)
+    if book:  # strongest prep first
+        ranked = sorted(book, key=lambda u: table["moves"].get(u, {}).get("loss", 1.0))
+        return ranked[:HINT_MOVES], True, table["best_cp"]
+    return table["best_ucis"][:HINT_MOVES], False, table["best_cp"]
+
+
+def handle_hint(
+    payload: dict,
+    drills: dict[str, Drill],
+    analysis: EngineWrapper,
+    mistake_index: MistakeIndex,
+) -> dict:
     board = chess.Board(payload["fen"])
-    cp, pv = analysis.analyse(board, board.turn, movetime=0.6)
-    if not pv:
+    drill = drills.get(payload.get("drill", ""))
+    ucis, book, eval_cp = hint_ucis(payload, board, drill, analysis)
+    if not ucis:
         return {"error": "no move available"}
-    move = pv[0]
-    san = board.san(move)
+    moves = [
+        {"uci": uci, "san": board.san(chess.Move.from_uci(uci))} for uci in ucis
+    ]
     if payload.get("practice"):
         # asking for help at a known mistake position blocks the 'fixed' credit
         fen_key = mistake_index.get().epd_to_fen.get(board.epd())
         if fen_key:
             record_mistake_result(fen_key, False)
-    log_event("hint", fen=payload["fen"], san=san, mode=payload.get("mode"))
-    return {"san": san, "uci": move.uci(), "eval_cp": cp}
+    log_event(
+        "hint", fen=payload["fen"], san=moves[0]["san"], book=book,
+        alts=len(moves) - 1, mode=payload.get("mode"),
+    )
+    return {"moves": moves, "book": book, "eval_cp": eval_cp}
 
 
 def handle_drills(drills: dict[str, Drill], user: str) -> dict:
@@ -800,10 +849,34 @@ def freshen_note(mistake_index: MistakeIndex, board: chess.Board, reply: dict) -
 classify_lock = threading.Lock()
 classify_cache: dict[str, dict] = {}
 
+# A move within this much win probability of the engine's pick is the same
+# move as far as a player is concerned: it earns the star too, and the hint
+# offers the whole set rather than pretending there is one answer.
+TIE_LOSS = 0.005
+# How many moves get the deep look. Only the top of the list is ever visible
+# as a star or a hint; everything below it just needs to be sorted into
+# inaccuracy / mistake / blunder, which takes no depth at all.
+CANDIDATE_PVS = 5
+CANDIDATE_TIME = 0.7
+SWEEP_TIME = 0.35
+# a hint naming more than a few moves stops being a hint
+HINT_MOVES = 3
+
+
+def empty_class_table() -> dict:
+    return {"moves": {}, "best_uci": None, "best_ucis": [], "best_cp": 0,
+            "second_cp": None, "best_pv": []}
+
 
 def compute_move_classes(fen: str, analysis: EngineWrapper) -> dict:
-    """Classify every legal move in one multipv sweep; cached per position so
-    the client can badge instantly and handle_move can skip its probes."""
+    """Classify every legal move, cached per position so the client can badge
+    instantly, handle_move can skip its probes, and the hint can answer from
+    the same numbers the badges come from.
+
+    Two passes, because a flat multipv sweep over every root move runs ~6 plies
+    shallower than a normal search and reorders the top of the list by a couple
+    of centipawns — which is exactly what used to make the hint recommend a
+    move the badge then refused to call best."""
     with classify_lock:
         cached = classify_cache.get(fen)
     if cached:
@@ -812,36 +885,40 @@ def compute_move_classes(fen: str, analysis: EngineWrapper) -> dict:
     color = board.turn
     n = board.legal_moves.count()
     if n == 0:
-        return {"moves": {}, "best_uci": None, "best_cp": 0, "second_cp": None, "best_pv": []}
-    with analysis._lock:
-        infos = analysis.engine.analyse(
-            board, chess.engine.Limit(time=1.0), multipv=max(2, n)
-        )
-    def cp(info):
-        return max(-1000, min(1000, info["score"].pov(color).score(mate_score=1000)))
-    best_cp = cp(infos[0])
-    second_cp = cp(infos[1]) if len(infos) > 1 else None
-    best_uci = infos[0]["pv"][0].uci()
+        return empty_class_table()
+    top = analysis.analyse_multipv(board, color, min(CANDIDATE_PVS, n), CANDIDATE_TIME)
+    if not top:
+        return empty_class_table()
+    scored = {uci: cp for uci, cp, _pv in top}
+    if n > len(top):
+        # by the deeper search these moves are all worse than the weakest
+        # candidate, so clamp them there — shallow noise can't promote a move
+        # past one that was actually searched
+        floor_cp = top[-1][1]
+        for uci, cp, _pv in analysis.analyse_multipv(board, color, n, SWEEP_TIME):
+            scored.setdefault(uci, min(cp, floor_cp))
+    best_uci, best_cp, best_pv = top[0]
+    second_cp = top[1][1] if len(top) > 1 else None
     only_move = second_cp is not None and (
         expected_points(best_cp) - expected_points(second_cp) >= 0.10
     )
     moves = {}
-    for info in infos:
-        if not info.get("pv"):
-            continue
-        uci = info["pv"][0].uci()
-        loss = expected_points(best_cp) - expected_points(cp(info))
-        if uci == best_uci:
-            cls = "great" if only_move else "best"
-        else:
-            cls = classify_loss(loss)
+    for uci, cp in scored.items():
+        loss = expected_points(best_cp) - expected_points(cp)
+        cls = ("great" if only_move else "best") if loss <= TIE_LOSS \
+            else classify_loss(loss)
         moves[uci] = {"class": cls, "loss": round(loss, 4)}
     table = {
         "moves": moves,
         "best_uci": best_uci,
+        # every equal-best move, strongest first — what the hint offers
+        "best_ucis": sorted(
+            (u for u, m in moves.items() if m["loss"] <= TIE_LOSS),
+            key=lambda u: scored[u], reverse=True,
+        ),
         "best_cp": best_cp,
         "second_cp": second_cp,
-        "best_pv": [m.uci() for m in infos[0]["pv"][:6]],
+        "best_pv": best_pv,
     }
     with classify_lock:
         classify_cache[fen] = table
@@ -874,15 +951,17 @@ def probe_move(
             [chess.Move.from_uci(u) for u in table["best_pv"]],
         )
     best_cp, second_cp, best_pv = analysis.analyse_top2(board, mover)
+    only_move = second_cp is not None and (
+        expected_points(best_cp) - expected_points(second_cp) >= 0.10
+    )
     if best_pv and move == best_pv[0]:
-        only_move = second_cp is not None and (
-            expected_points(best_cp) - expected_points(second_cp) >= 0.10
-        )
         return ("great" if only_move else "best", 0.0, best_cp, best_pv)
     board.push(move)
     after_cp = analysis.eval_cp(board, mover, movetime=0.35)
     board.pop()
     loss = expected_points(best_cp) - expected_points(after_cp)
+    if loss <= TIE_LOSS:
+        return ("great" if only_move else "best", loss, best_cp, best_pv)
     return (classify_loss(loss), loss, best_cp, best_pv)
 
 
@@ -1496,7 +1575,7 @@ def make_handler(
                 elif self.path == "/api/reply":
                     body = handle_reply(payload, drills, engine, analysis, mistake_index)
                 elif self.path == "/api/hint":
-                    body = handle_hint(payload, analysis, mistake_index)
+                    body = handle_hint(payload, drills, analysis, mistake_index)
                 elif self.path == "/api/puzzle/next":
                     body = handle_puzzle_next(payload)
                 elif self.path == "/api/puzzle/attempt":

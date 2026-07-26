@@ -17,7 +17,7 @@ const initialState = {
   prevUserCp: 0, // eval (user POV) before the current move slot
   scoredFen: null, // slot already scored by a bounce or hint at this position
   bookUcis: [], // book moves for the current turn — instant book badges
-  overlay: null, // engine's move [from, to], shown as a green arrow (puzzle feedback)
+  overlay: null, // engine's moves as ucis, best first — green arrows on the board
   evalCp: 0, // engine eval of the live position, white's perspective
   flipped: false,
   check: false,
@@ -172,6 +172,22 @@ function atTip() {
 
 function displayFen() {
   return state.positions[state.viewPly] || state.fen
+}
+
+// Arrows are chessground's (lichess's own renderer) — what made them ugly was
+// the default palette under the stylesheet's blanket 0.6 dim. Opacity now
+// lives on the brush. Amber for anything the user draws, green reserved for
+// the engine so its suggestion never reads as your own annotation.
+const BRUSHES = {
+  green: { key: 'g', color: '#f0a02f', opacity: 0.9, lineWidth: 11 },
+  red: { key: 'r', color: '#d0453e', opacity: 0.9, lineWidth: 11 },
+  blue: { key: 'b', color: '#4a90d9', opacity: 0.9, lineWidth: 11 },
+  yellow: { key: 'y', color: '#e6c33c', opacity: 0.9, lineWidth: 11 },
+  best: { key: 'bm', color: '#81b64c', opacity: 0.95, lineWidth: 12 },
+  // equally good alternatives — same green, quieter, so the first arrow still
+  // reads as the answer and the rest as "these are fine too"
+  alt: { key: 'al', color: '#81b64c', opacity: 0.5, lineWidth: 9 },
+  mated: { key: 'mt', color: '#ca3431', opacity: 0.95, lineWidth: 12 },
 }
 
 function kingSquare(pieces, color) {
@@ -371,10 +387,15 @@ function render() {
     const html = badgeSvg(state.badge.cls)
     if (html) shapes.push({ orig: state.badge.square, customSvg: { html } })
   }
-  if (state.overlay) shapes.push({ orig: state.overlay[0], dest: state.overlay[1], brush: 'green' })
+  const arrows = state.overlay || []
+  arrows.forEach((uci, i) => shapes.push({
+    orig: uci.slice(0, 2),
+    dest: uci.slice(2, 4),
+    brush: i === 0 ? 'best' : 'alt',
+  }))
   if (isMate) {
     const mated = kingSquare(parseFen(fen), turn)
-    if (mated) shapes.push({ orig: mated, brush: 'red' })
+    if (mated) shapes.push({ orig: mated, brush: 'mated' })
   }
   ground.setAutoShapes(shapes)
   renderCaptured(parseFen(fen))
@@ -678,7 +699,7 @@ async function submitMove(uci) {
         ...track,
         viewPly: tipIdx,
         tipPly: tipIdx,
-        overlay: [line[0].uci.slice(0, 2), line[0].uci.slice(2, 4)],
+        overlay: [line[0].uci],
         ...bounceState,
       })
     } else {
@@ -909,9 +930,7 @@ async function attemptPuzzle(uci) {
     sans: [...track.sans, data.played_san],
     viewPly: track.positions.length,
     evalCp: data.eval_cp,
-    overlay: data.correct
-      ? null
-      : [data.best_uci.slice(0, 2), data.best_uci.slice(2, 4)],
+    overlay: data.correct ? null : [data.best_uci],
     stats: data.correct
       ? { ...state.stats, right: state.stats.right + 1 }
       : { ...state.stats, wrong: state.stats.wrong + 1 },
@@ -929,16 +948,31 @@ async function prefetchClasses(fen) {
   } catch { /* badges fall back to arriving with the move response */ }
 }
 
+// The engine rarely has one answer. Saying so is the lesson: a position with
+// three equal moves is a choice, not a puzzle with a hidden solution. Inside
+// the book it isn't a choice at all — that's the move being drilled.
+function hintText(sans, book) {
+  const label = book ? 'Book here' : 'Hint'
+  if (sans.length === 1) return `${label}: ${sans[0]}`
+  const list = `${sans.slice(0, -1).join(', ')} or ${sans[sans.length - 1]}`
+  return book ? `${label}: ${list}.` : `${label}: ${list} — all equally good here.`
+}
+
 async function showHint() {
   if (!atTip() || state.gameOver || !state.fen) return
+  const inDrill = state.mode === 'drill'
   const data = await api('/api/hint', {
     fen: displayFen(),
-    practice: state.mode === 'drill',
+    practice: inDrill,
     mode: state.mode,
+    // the drill's own book outranks the engine — without this the hint
+    // suggests moves the course guard then bounces
+    drill: inDrill ? state.drill : undefined,
+    history: inDrill ? state.history : undefined,
   })
-  if (data.error) return
+  if (data.error || !data.moves?.length) return
   if (state.mode === 'puzzle' && state.puzzle) hintedPuzzleId = state.puzzle.id
-  const patch = { overlay: [data.uci.slice(0, 2), data.uci.slice(2, 4)] }
+  const patch = { overlay: data.moves.map((m) => m.uci) }
   // a hinted slot scores as 'hinted' — the move played after it won't count
   if (state.mode === 'drill' && !state.openingDone && state.scoredFen !== state.fen) {
     patch.classCounts = {
@@ -951,7 +985,7 @@ async function showHint() {
     patch.hintUsed = true
   }
   setState(patch)
-  showMessage(`Hint: ${data.san}`, 'note')
+  showMessage(hintText(data.moves.map((m) => m.san), data.book), 'note')
 }
 
 function repeatGame() {
@@ -1245,7 +1279,7 @@ ground = Chessground(document.getElementById('board'), {
   animation: { duration: 180 },
   movable: { free: false, showDests: true },
   draggable: { showGhost: true },
-  drawable: { enabled: true },
+  drawable: { enabled: true, brushes: BRUSHES },
   events: { move: onUserMove },
 })
 
