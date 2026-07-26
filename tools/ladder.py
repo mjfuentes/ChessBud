@@ -12,6 +12,7 @@ State lives in data/ladder.json and is keyed by drill id.
 from __future__ import annotations
 
 import json
+import random
 import threading
 from pathlib import Path
 
@@ -148,8 +149,10 @@ class Ladder:
         before = self.state(drill_id, lines, is_white, target)
         depth = before["depth"]
         key = line_key(history, depth, is_white)
-        if key is None:
-            return {**before, "promoted": False}
+        if key is None or key not in lines_at_depth(lines, depth, is_white):
+            # the opponent ended up somewhere the book does not cover at this
+            # depth, so there is no line to tick off
+            return {**before, "promoted": False, "off_book": True}
         with self._lock:
             self._load()
             entry = self._state.setdefault(drill_id, {"depth": depth, "cleared": {}})
@@ -186,4 +189,6 @@ class Ladder:
                 candidates.append(sans)
         if not candidates:
             return None
-        return max(candidates, key=len)
+        # rotate through what is left rather than always serving the longest —
+        # a line you keep failing would otherwise be the only thing you ever see
+        return random.choice(candidates)

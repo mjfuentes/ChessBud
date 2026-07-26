@@ -1302,11 +1302,11 @@ def handle_move(
 
     scripted = payload.get("script") or []
     reply = None
-    if (
-        drill is not None
-        and len(scripted) > len(history)
-        and scripted[: len(history)] == history
-    ):
+    if drill is not None and len(scripted) > len(history):
+        # Follow the scripted line by position, not by exact history match. A
+        # line IS the opponent's sequence — which sound move you chose to meet
+        # it is your business — so your own deviation must not knock the
+        # opponent off the line you are trying to clear. Only illegality does.
         try:
             mv = board.parse_san(scripted[len(history)])
             san = board.san(mv)
