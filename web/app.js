@@ -217,7 +217,7 @@ const signedPawns = (cp) => `${cp < 0 ? '−' : '+'}${pawns(cp)}`
 // The single source of truth for how a run is described. The modal and the
 // panel banner both render exactly this — they must never disagree. Plain
 // coach language: no "drift", no pawn arithmetic.
-function verdictCopy({ passed, lost, hintUsed, bounces, drift, userColor }) {
+function verdictCopy({ passed, lost, hintUsed, bounces, drift, userColor, flaws }) {
   const them = userColor === 'b' ? 'White' : 'Black'
   if (passed) {
     return {
@@ -227,14 +227,19 @@ function verdictCopy({ passed, lost, hintUsed, bounces, drift, userColor }) {
           : 'you came out of the opening fine',
     }
   }
+  const inacc = flaws?.inaccuracy || 0
   return {
     title: 'Room to improve',
     reason: lost ? 'the position got away from you'
       : hintUsed ? 'you needed a hint'
         : bounces > 0 ? `${bounces} correction${bounces > 1 ? 's' : ''} needed`
-          : drift <= -150 ? `${them} came out clearly better`
-            : drift <= DRIFT_FAIL_CP ? `${them} got the better position`
-              : 'you finished a little worse',
+          : flaws?.blunder ? 'a blunder slipped through'
+            : flaws?.mistake ? 'a mistake slipped through'
+              : inacc ? (inacc === 1 ? 'an inaccuracy slipped through'
+                : `${inacc} inaccuracies slipped through`)
+                : drift <= -150 ? `${them} came out clearly better`
+                  : drift <= DRIFT_FAIL_CP ? `${them} got the better position`
+                    : 'you finished a little worse',
   }
 }
 
@@ -781,12 +786,20 @@ async function submitMove(uci) {
     // opening started, not the absolute eval and not per-move accuracy
     const baseline = state.userColor === 'b' ? -START_CP : START_CP
     const drift = userEval - baseline
-    const passed = !lostNow && state.bounces === 0 && !state.hintUsed
+    // a line isn't learned until it's clean: any move that came out below
+    // "good" — including one reclassified once the reply landed — fails the run
+    const flaws = {
+      inaccuracy: classCounts.inaccuracy || 0,
+      mistake: classCounts.mistake || 0,
+      blunder: classCounts.blunder || 0,
+    }
+    const flawed = flaws.inaccuracy + flaws.mistake + flaws.blunder > 0
+    const passed = !lostNow && state.bounces === 0 && !state.hintUsed && !flawed
       && userEval >= FLOOR_CP && drift > DRIFT_FAIL_CP
     const accuracy = accCount ? Math.round(accSum / accCount) : 100
     const { title: vTitle, reason } = verdictCopy({
       passed, lost: lostNow, hintUsed: state.hintUsed, bounces: state.bounces,
-      drift, userColor: state.userColor,
+      drift, userColor: state.userColor, flaws,
     })
     kind = passed ? 'good' : 'bad'
     const banner = document.getElementById('verdict')

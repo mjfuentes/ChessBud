@@ -601,6 +601,7 @@ def analyze_practice_log() -> dict:
         return _log_cache["data"]
     starts: dict[str, dict] = {}
     moves_by_game: dict[str, list] = {}
+    reported: dict[str, bool] = {}  # verdicts the client sent at the end of a run
     fixed = bounces = total_moves = 0
     if ACTIVITY_LOG.exists():
         with open(ACTIVITY_LOG, encoding="utf-8") as fh:
@@ -612,6 +613,8 @@ def analyze_practice_log() -> dict:
                 kind = e.get("kind")
                 if kind == "game_start" and e.get("game"):
                     starts[e["game"]] = e
+                elif kind == "run_result" and e.get("game"):
+                    reported[e["game"]] = bool(e.get("passed"))
                 elif kind == "move" and e.get("game"):
                     moves_by_game.setdefault(e["game"], []).append(e)
                     if e.get("rejected"):
@@ -628,6 +631,7 @@ def analyze_practice_log() -> dict:
         orientation = start.get("orientation", "white")
         sans = list(start.get("pre_moves") or [])
         game_bounces = 0
+        flawed = False
         verdict = None
         for e in moves:
             if e.get("rejected"):
@@ -636,6 +640,8 @@ def analyze_practice_log() -> dict:
             sans.append(e["san"])
             if e.get("reply"):
                 sans.append(e["reply"])
+            if e.get("move_class") in ("inaccuracy", "mistake", "blunder"):
+                flawed = True
             cp_e = e.get("eval_cp")
             if verdict is None and cp_e is not None:
                 user_cp = cp_e if orientation == "white" else -cp_e
@@ -645,9 +651,15 @@ def analyze_practice_log() -> dict:
                 elif e.get("ply", 0) >= 18:
                     verdict = (
                         game_bounces == 0
+                        and not flawed
                         and user_cp >= FLOOR_CP
                         and user_cp - baseline > DRIFT_FAIL_CP
                     )
+        # the client saw the whole run — including moves reclassified once the
+        # reply landed — so its verdict wins. The replay above only covers runs
+        # logged before /api/result existed, and assumes the old depth of 10.
+        if gid in reported:
+            verdict = reported[gid]
         op = opening_name(sans)
         results[gid] = {
             "verdict": verdict,
@@ -884,11 +896,16 @@ def handle_result(payload: dict, drills: dict[str, Drill]) -> dict:
     depth and may promote the opening to the next one."""
     drill_id = str(payload.get("drill", ""))
     drill = drills.get(drill_id)
+    passed = bool(payload.get("passed"))
+    # every finished run is logged, ladder or not — the home-screen stats read
+    # these verdicts rather than trying to recompute them
     if drill is None or not drill.lines:
+        log_event("run_result", drill=drill_id or None, game=payload.get("game"),
+                  passed=passed)
         return {"ladder": None}
     history = list(payload.get("history") or [])
     state = ladder_state(drill_id, drill)
-    if not payload.get("passed"):
+    if not passed:
         log_event("run_result", drill=drill_id, game=payload.get("game"),
                   passed=False, depth=state["depth"])
         return {"ladder": state, "promoted": False}
