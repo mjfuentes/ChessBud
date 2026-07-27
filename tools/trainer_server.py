@@ -782,6 +782,14 @@ def ladder_state(drill_id: str, drill: Drill) -> dict:
             "rungs": ladder.rungs(drill_id, drill.lines, is_white, state["depth"])}
 
 
+def ladder_trie(drill_id: str, drill: Drill) -> list[dict]:
+    if not drill.lines:
+        return []
+    is_white = drill.user_color == chess.WHITE
+    depth = ladder.state(drill_id, drill.lines, is_white, ladder_target())["depth"]
+    return ladder.trie(drill_id, drill.lines, is_white, depth)
+
+
 def run_depth(drill_id: str, drill: Drill | None) -> int:
     """How many of the user's moves this run is graded over."""
     if drill is None:
@@ -870,6 +878,7 @@ def handle_drills(drills: dict[str, Drill], user: str) -> dict:
                 "score_pct": s.get("score_pct"),
                 "lines": s.get("lines", len(d.expected)),
                 "ladder": ladder_state(drill_id, d),
+                "book": ladder_trie(drill_id, d),
             }
         )
     entries.sort(key=lambda e: (0 if "/" in e["id"] else 1, e["user_color"], e["name"]))

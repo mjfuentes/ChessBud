@@ -1,25 +1,29 @@
-// The repertoire drawn as what it actually is: a tree.
+// The repertoire drawn as an actual tree.
 //
-// Your drills branch on the opponent's replies, and a "line" is that reply
-// sequence — so nothing here is decorative. One trunk, two limbs (White leans
-// left, Black right, matching the lists either side). Each opening is a branch
-// whose LENGTH is its ladder depth and whose THICKNESS is how often you really
-// face it. Distance along a branch is the depth axis, so foliage sits at the
-// rung it was earned on and the bare buds at the tip are what is left to clear.
+// Nothing here is invented: your book already branches every time the opponent
+// has a choice, so each fork on screen is a fork in your preparation and each
+// leaf is a line you cleared. The drawing follows three rules borrowed from
+// real trees, which is what makes it read as botanical rather than as a chart:
 //
-// Layout is deterministic — seeded entirely by the data — so your tree keeps
-// its silhouette between visits and you notice when a branch has grown.
+//   * Leonardo's rule — a limb's cross-section equals the sum of its children's,
+//     so width decays as 1/sqrt(n) at every fork and the taper is never uniform.
+//   * Branches are filled ribbons, not strokes. SVG strokes cannot taper, and a
+//     constant-width line is the single thing that makes a tree look like wire.
+//   * Phototropism — every branch bends a little toward the light, so no two
+//     children leave a fork at mirrored angles.
+//
+// Jitter is hashed from the move itself, never random: your tree keeps its
+// silhouette between visits, and a branch that changed shape really did change.
 
-const VIEW = { w: 620, h: 660 }
-const TRUNK_X = VIEW.w / 2
-const TRUNK_BASE = VIEW.h - 28
-const TRUNK_TOP = VIEW.h - 250
+const VIEW = { w: 640, h: 680 }
+const GROUND = VIEW.h - 18
 const SVG_NS = 'http://www.w3.org/2000/svg'
 
-// a rung of depth is this many pixels of branch
-const PX_PER_DEPTH = 13
-const BRANCH_BASE = 26
-const MAX_BUDS_DRAWN = 9 // beyond this the tip reads as a cluster, not a count
+const TRUNK_LEN = 132
+const LIMB_DECAY = 0.80 // each generation is this fraction of its parent
+const MIN_SEG = 9
+const SPREAD = 46 // degrees a fork opens, before jitter
+const UPWARD = 0.22 // how strongly branches turn back toward vertical
 
 const el = (name, attrs = {}) => {
   const node = document.createElementNS(SVG_NS, name)
@@ -27,132 +31,153 @@ const el = (name, attrs = {}) => {
   return node
 }
 
-const rad = (deg) => (deg * Math.PI) / 180
+const rad = (d) => (d * Math.PI) / 180
 
-// Branches emerge at intervals along the limb and lift toward the vertical as
-// they climb, the way a real tree opens: heavy low limbs, fine high ones.
-function branchGeometry(index, count, isWhite) {
-  const t = count > 1 ? index / (count - 1) : 0.35
-  const dir = isWhite ? -1 : 1
-  const originX = TRUNK_X + dir * (10 + t * 26)
-  const originY = TRUNK_TOP - t * 250
-  // low branches reach out, high ones reach up; the alternation stops the fan
-  // from looking like a hand of cards
-  const spread = 62 - t * 34 + (index % 2 ? -7 : 7)
-  return { originX, originY, angle: dir * spread - 90 + (isWhite ? 0 : 0) }
+// deterministic per-node noise in [-1, 1]
+function hashNoise(seed) {
+  let h = 2166136261
+  for (let i = 0; i < seed.length; i += 1) {
+    h ^= seed.charCodeAt(i)
+    h = Math.imul(h, 16777619)
+  }
+  return ((h >>> 0) % 20011) / 10005.5 - 1
 }
 
-function budPositions(tipX, tipY, angle, n) {
-  const drawn = Math.min(n, MAX_BUDS_DRAWN)
-  const out = []
-  for (let i = 0; i < drawn; i += 1) {
-    const offset = drawn === 1 ? 0 : (i / (drawn - 1) - 0.5) * 54
-    const a = rad(angle + offset)
-    const reach = 7 + (i % 2 ? 4 : 0)
-    out.push([tipX + Math.cos(a) * reach, tipY + Math.sin(a) * reach])
-  }
-  return out
+// A tapered ribbon from a to b: two quadratic edges meeting at the tip, so the
+// limb narrows continuously and the curve carries a real bow.
+function ribbon(ax, ay, bx, by, w0, w1, bow) {
+  const dx = bx - ax
+  const dy = by - ay
+  const len = Math.hypot(dx, dy) || 1
+  const nx = -dy / len
+  const ny = dx / len
+  const mx = (ax + bx) / 2 + nx * bow
+  const my = (ay + by) / 2 + ny * bow
+  return `M ${(ax + nx * w0).toFixed(1)} ${(ay + ny * w0).toFixed(1)}`
+    + ` Q ${(mx + nx * w1).toFixed(1)} ${(my + ny * w1).toFixed(1)}`
+    + ` ${(bx + nx * w1).toFixed(1)} ${(by + ny * w1).toFixed(1)}`
+    + ` L ${(bx - nx * w1).toFixed(1)} ${(by - ny * w1).toFixed(1)}`
+    + ` Q ${(mx - nx * w1).toFixed(1)} ${(my - ny * w1).toFixed(1)}`
+    + ` ${(ax - nx * w0).toFixed(1)} ${(ay - ny * w0).toFixed(1)} Z`
 }
 
-function drawBranch(group, drill, geo, handlers) {
-  const L = drill.ladder
-  const length = BRANCH_BASE + L.depth * PX_PER_DEPTH
-  const a = rad(geo.angle)
-  const tipX = geo.originX + Math.cos(a) * length
-  const tipY = geo.originY + Math.sin(a) * length
-  // a gentle bow so branches read as grown rather than drafted
-  const bowX = (geo.originX + tipX) / 2 + Math.cos(a + rad(90)) * length * 0.09
-  const bowY = (geo.originY + tipY) / 2 + Math.sin(a + rad(90)) * length * 0.09
-  const width = 1 + Math.sqrt(drill.games || 1) * 0.42
-
-  const limb = el('path', {
-    d: `M ${geo.originX} ${geo.originY} Q ${bowX} ${bowY} ${tipX} ${tipY}`,
-    class: 'tw-limb',
-    'stroke-width': width.toFixed(2),
-  })
-  group.append(limb)
-
-  // foliage from rungs already cleared, placed at the depth it was earned
-  for (const rung of L.rungs || []) {
-    if (!rung.cleared) continue
-    const at = (BRANCH_BASE + rung.depth * PX_PER_DEPTH) / length
-    const px = geo.originX + Math.cos(a) * length * at
-    const py = geo.originY + Math.sin(a) * length * at
-    const isTip = rung.depth === L.depth
-    for (const [x, y] of budPositions(px, py, geo.angle, rung.cleared)) {
-      group.append(el('circle', {
-        cx: x.toFixed(1), cy: y.toFixed(1), r: isTip ? 3.1 : 2.4,
-        class: isTip ? 'tw-leaf tw-leaf-tip' : 'tw-leaf',
-      }))
-    }
-  }
-  // what is still to clear at the growing tip
-  const left = Math.max(0, L.total - L.cleared)
-  for (const [x, y] of budPositions(tipX, tipY, geo.angle, left)) {
-    group.append(el('circle', {
-      cx: x.toFixed(1), cy: y.toFixed(1), r: 2.6, class: 'tw-bud',
+// Leaves sit around the twig end on a golden-angle spiral — the arrangement
+// real foliage uses, and the reason a cluster never looks like a row of dots.
+function leafCluster(group, x, y, angle, n, cls, scale) {
+  const count = Math.min(n, 7)
+  for (let i = 0; i < count; i += 1) {
+    const spin = i * 137.5
+    const reach = (2.4 + i * 1.5) * scale
+    const a = rad(angle + Math.sin(rad(spin)) * 42)
+    group.append(el('ellipse', {
+      cx: (x + Math.cos(a) * reach).toFixed(1),
+      cy: (y + Math.sin(a) * reach).toFixed(1),
+      rx: (3.1 * scale).toFixed(1),
+      ry: (1.9 * scale).toFixed(1),
+      transform: `rotate(${(angle + Math.sin(rad(spin)) * 42 + 90).toFixed(0)} `
+        + `${(x + Math.cos(a) * reach).toFixed(1)} ${(y + Math.sin(a) * reach).toFixed(1)})`,
+      class: cls,
     }))
   }
-  if (L.at_ceiling) {
+}
+
+function grow(group, node, ctx, bounds) {
+  const noise = hashNoise(node.san + node.d)
+  const len = Math.max(MIN_SEG, ctx.len * LIMB_DECAY)
+  // pull back toward vertical as we climb, then scatter by the move's own hash
+  const toVertical = (-90 - ctx.angle) * UPWARD
+  const angle = ctx.angle + toVertical + noise * 13
+  const a = rad(angle)
+  const bx = ctx.x + Math.cos(a) * len
+  const by = ctx.y + Math.sin(a) * len
+  bounds.minX = Math.min(bounds.minX, bx)
+  bounds.maxX = Math.max(bounds.maxX, bx)
+  bounds.minY = Math.min(bounds.minY, by)
+  bounds.maxY = Math.max(bounds.maxY, by)
+  const kids = node.kids || []
+  // Leonardo: cross-section is conserved across a fork
+  const childW = ctx.w / Math.sqrt(Math.max(1, kids.length) + 0.6)
+
+  group.append(el('path', {
+    d: ribbon(ctx.x, ctx.y, bx, by, ctx.w, Math.max(0.45, childW), noise * len * 0.13),
+    class: 'tw-wood',
+  }))
+
+  if (node.on) {
+    leafCluster(group, bx, by, angle, 3, 'tw-leaf', Math.min(1.15, 0.55 + ctx.w * 0.3))
+  } else if (!kids.length) {
     group.append(el('circle', {
-      cx: tipX.toFixed(1), cy: tipY.toFixed(1), r: 1.6, class: 'tw-cap',
+      cx: bx.toFixed(1), cy: by.toFixed(1), r: 2.1, class: 'tw-bud',
     }))
   }
-  // a fat invisible target: buds are far too small to aim at
-  const hit = el('path', {
-    d: `M ${geo.originX} ${geo.originY} Q ${bowX} ${bowY} ${tipX} ${tipY}`,
-    class: 'tw-hit',
-    'stroke-width': Math.max(18, width + 14),
+
+  const spread = SPREAD / Math.max(1, Math.pow(kids.length, 0.55))
+  kids.forEach((kid, i) => {
+    const offset = kids.length === 1
+      ? noise * 9
+      : (i / (kids.length - 1) - 0.5) * spread * kids.length * 0.8
+    grow(group, kid, {
+      x: bx, y: by, angle: angle + offset, len, w: childW,
+    }, bounds)
   })
-  hit.addEventListener('pointerenter', () => handlers.onEnter(drill.id))
-  hit.addEventListener('pointerleave', () => handlers.onLeave(drill.id))
-  hit.addEventListener('click', () => handlers.onPick(drill.id))
-  group.append(hit)
-  return { tipX, tipY }
 }
 
 export function renderTree(host, drills, handlers) {
+  const bounds = { minX: VIEW.w / 2, maxX: VIEW.w / 2, minY: GROUND, maxY: GROUND }
   const svg = el('svg', {
-    viewBox: `0 0 ${VIEW.w} ${VIEW.h}`,
     class: 'tw-svg',
     role: 'img',
-    'aria-label': 'Your repertoire as a tree: branch length is depth, '
-      + 'foliage is lines you have cleared.',
+    'aria-label': 'Your repertoire as a tree. Every fork is a choice your '
+      + 'opponents make; every leaf is a line you have cleared.',
   })
 
+  const sides = [
+    { white: true, dir: -1, list: [] },
+    { white: false, dir: 1, list: [] },
+  ]
+  for (const side of sides) {
+    side.list = drills
+      .filter((d) => (d.user_color === 'white') === side.white && d.book?.length)
+      .sort((a, b) => (b.games || 0) - (a.games || 0))
+  }
+
+  const trunkTop = GROUND - TRUNK_LEN
   svg.append(el('path', {
-    d: `M ${TRUNK_X - 9} ${TRUNK_BASE} Q ${TRUNK_X - 3} ${(TRUNK_BASE + TRUNK_TOP) / 2}`
-      + ` ${TRUNK_X - 2.5} ${TRUNK_TOP - 60}`,
-    class: 'tw-trunk',
-  }))
-  svg.append(el('path', {
-    d: `M ${TRUNK_X + 9} ${TRUNK_BASE} Q ${TRUNK_X + 3} ${(TRUNK_BASE + TRUNK_TOP) / 2}`
-      + ` ${TRUNK_X + 2.5} ${TRUNK_TOP - 60}`,
-    class: 'tw-trunk',
-  }))
-  svg.append(el('path', {
-    d: `M ${TRUNK_X - 2.5} ${TRUNK_TOP - 60} C ${TRUNK_X - 26} ${TRUNK_TOP - 150}`
-      + ` ${TRUNK_X - 30} ${TRUNK_TOP - 190} ${TRUNK_X - 34} ${TRUNK_TOP - 250}`,
-    class: 'tw-limb tw-limb-main',
-  }))
-  svg.append(el('path', {
-    d: `M ${TRUNK_X + 2.5} ${TRUNK_TOP - 60} C ${TRUNK_X + 26} ${TRUNK_TOP - 150}`
-      + ` ${TRUNK_X + 30} ${TRUNK_TOP - 190} ${TRUNK_X + 34} ${TRUNK_TOP - 250}`,
-    class: 'tw-limb tw-limb-main',
+    d: ribbon(VIEW.w / 2, GROUND, VIEW.w / 2 - 3, trunkTop, 13, 8, 4),
+    class: 'tw-wood tw-trunk',
   }))
 
   const groups = new Map()
-  for (const isWhite of [true, false]) {
-    const side = drills
-      .filter((d) => (d.user_color === 'white') === isWhite && d.ladder?.total)
-      .sort((a, b) => (b.games || 0) - (a.games || 0))
-    side.forEach((drill, i) => {
+  for (const side of sides) {
+    // limbs leave the trunk at intervals, heaviest lowest, like a real crown
+    side.list.forEach((drill, i) => {
+      const t = side.list.length > 1 ? i / (side.list.length - 1) : 0.3
       const group = el('g', { class: 'tw-branch', 'data-id': drill.id })
-      drawBranch(group, drill, branchGeometry(i, side.length, isWhite), handlers)
+      const baseW = 1.1 + Math.sqrt(drill.games || 1) * 0.5
+      const originY = trunkTop + 26 - t * 34
+      const originX = VIEW.w / 2 - 3 + side.dir * 4
+      const angle = -90 + side.dir * (74 - t * 40)
+      const root = { san: drill.id, d: 0, on: false, kids: drill.book }
+      grow(group, root, {
+        x: originX, y: originY, angle,
+        len: TRUNK_LEN * (0.52 + Math.min(0.35, (drill.games || 1) / 260)),
+        w: baseW,
+      }, bounds)
+      group.addEventListener('pointerenter', () => handlers.onEnter(drill.id))
+      group.addEventListener('pointerleave', () => handlers.onLeave(drill.id))
+      group.addEventListener('click', () => handlers.onPick(drill.id))
       svg.append(group)
       groups.set(drill.id, group)
     })
   }
+  // fit the frame to what actually grew, so no twig is ever clipped and the
+  // crown fills the space it is given whatever shape the repertoire takes
+  const pad = 22
+  const x = bounds.minX - pad
+  const y = bounds.minY - pad
+  svg.setAttribute('viewBox', `${x.toFixed(0)} ${y.toFixed(0)} `
+    + `${(bounds.maxX - bounds.minX + pad * 2).toFixed(0)} `
+    + `${(GROUND - bounds.minY + pad * 2).toFixed(0)}`)
   host.replaceChildren(svg)
   return groups
 }

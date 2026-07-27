@@ -176,6 +176,40 @@ class Ladder:
             out.append({"depth": d, "cleared": len(done), "total": len(total)})
         return out
 
+    def trie(
+        self, drill_id: str, lines: list[list[str]], is_white: bool, depth: int
+    ) -> list[dict]:
+        """The book as a nested tree of the opponent's choices.
+
+        Every fork here is a real fork in your preparation, and a node's key is
+        the line identity at its own depth — so a node knows whether you have
+        cleared it. This is what the home screen draws: the branching is the
+        data, not decoration.
+        """
+        with self._lock:
+            self._load()
+            cleared = self._state.get(drill_id, {}).get("cleared", {})
+        done = {int(d): set(keys) for d, keys in cleared.items()}
+        roots: list[dict] = []
+        index: dict[str, dict] = {}
+        for d in range(1, depth + 1):
+            for sans in lines:
+                key = line_key(sans, d, is_white)
+                if key is None or key in index:
+                    continue
+                moves = key.split()
+                node = {
+                    "san": moves[-1] if moves else "",
+                    "d": d,
+                    "on": key in done.get(d, set()),
+                    "kids": [],
+                }
+                index[key] = node
+                parent_key = " ".join(moves[:-1])
+                parent = index.get(parent_key) if moves[:-1] else None
+                (parent["kids"] if parent else roots).append(node)
+        return roots
+
     def record_pass(
         self, drill_id: str, history: list[str], lines: list[list[str]],
         is_white: bool, target: int,
