@@ -42,6 +42,9 @@ START_CP = 30
 # below the floor in absolute terms (mirrored in web/app.js)
 DRIFT_FAIL_CP = -75
 FLOOR_CP = -100
+# how much win probability a scripted reply may give up once you have left the
+# line it was written for, before the opponent abandons the script and plays
+SCRIPT_MAX_LOSS = 0.06
 PROGRESS_FILE = ROOT / "data" / "puzzle_progress.json"
 LADDER_FILE = ROOT / "data" / "ladder.json"
 ladder = ladder_mod.Ladder(LADDER_FILE)
@@ -1315,17 +1318,26 @@ def handle_move(
     scripted = payload.get("script") or []
     reply = None
     if drill is not None and len(scripted) > len(history):
-        # Follow the scripted line by position, not by exact history match. A
-        # line IS the opponent's sequence — which sound move you chose to meet
-        # it is your business — so your own deviation must not knock the
-        # opponent off the line you are trying to clear. Only illegality does.
+        # Follow the scripted line by position rather than by exact history
+        # match, so your own choice of a sound alternative does not knock the
+        # opponent off the line you are trying to clear.
+        #
+        # But a scripted move was chosen for the position the line expected. If
+        # you left that line, replaying it blind hands you material — O-O into
+        # a fork, Qg6 en prise. Off-script, the move only stands if it is still
+        # sound here; otherwise the opponent thinks for itself.
         try:
             mv = board.parse_san(scripted[len(history)])
+        except ValueError:
+            mv = None
+        if mv is not None and scripted[: len(history)] != history:
+            _, loss, _, _ = probe_move(board, mv, analysis, board.fen())
+            if loss > SCRIPT_MAX_LOSS:
+                mv = None
+        if mv is not None:
             san = board.san(mv)
             board.push(mv)
             reply = {"reply_san": san, "reply_uci": mv.uci(), "source": "repeat", "note": None}
-        except ValueError:
-            reply = None
     if reply is None:
         hot = practice_targets(mistake_index) if drill is not None else None
         fail_next = (
