@@ -4,7 +4,7 @@
  "intro": "Built from 9 of your games as white (you score 28%). Play your prepared moves.",
  "lines": [
   {
-   "line": "e4 d6 d4 Nf6 Nc3 g6 Bg5 Bg7 Qd2 h6 Bh4 O-O O-O-O c6 Nge2",
+   "line": "e4 d6 d4 Nf6 Nc3 g6 Bg5 Bg7 Qd2 h6 Bf4 a6 Nf3 g5 Be3 Ng4 O-O-O e6 h3 Nxe3 Qxe3 Bd7 d5 exd5 exd5+",
    "notes": {
     "1": "You've faced this 9 times (scoring 28%).",
     "2": "You've faced this 7 times (scoring 36%).",
@@ -13,7 +13,7 @@
    }
   },
   {
-   "line": "e4 d6 d4 Nf6 Nc3 g6 Bg5 c6 Qd2 b5 a3 a5 Bxf6 exf6 d5",
+   "line": "e4 d6 d4 Nf6 Nc3 g6 Bg5 c6 Qd2 b5 a3 a5 Bxf6 exf6 d5 b4 axb4 Bg7 Bc4 Bb7 b5 c5 Nf3 Nd7 Na4",
    "notes": {
     "1": "You've faced this 9 times (scoring 28%).",
     "2": "You've faced this 7 times (scoring 36%).",
@@ -22,15 +22,17 @@
    }
   },
   {
-   "line": "e4 d6 d4 g6 Nf3 Bg7 Bc4 Nc6 O-O Na5 Bd3 c5 dxc5 dxc5 Bb5+ Nc6 Qxd8+ Kxd8 Rd1+ Kc7",
+   "line": "e4 d6 d4 g6 Nf3 Bg7 Bc4 Nc6 O-O Na5 Bd3 c5 dxc5 dxc5 Bb5+ Nc6 Qxd8+ Kxd8 Rd1+ Kc7 Nc3 Bg4 Bf4+ e5 Nd5+",
    "notes": {
-    "1": "You've faced this 9 times (scoring 28%)."
+    "1": "You've faced this 9 times (scoring 28%).",
+    "11": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 d6 d4 g6 Nf3 c6 Be2 Bg7 O-O Nf6 Nc3 O-O Bg5 Qc7 Qd2 Rd8 a4",
+   "line": "e4 d6 d4 g6 Nf3 c6 Be2 Bg7 O-O Nf6 Nc3 O-O Bg5 Qc7 Qd2 Rd8 a4 Bg4 h3 Bxf3 Bxf3 Nbd7 Rfd1 Rdc8 b3",
    "notes": {
-    "1": "You've faced this 9 times (scoring 28%)."
+    "1": "You've faced this 9 times (scoring 28%).",
+    "9": "Beyond your games \u2014 engine line from here."
    }
   }
  ]

@@ -4,14 +4,15 @@
  "intro": "Built from 3 of your games as black (you score 67%). Play your prepared moves.",
  "lines": [
   {
-   "line": "d4 Nf6 Bg5 h6 Bh4 g5 Bg3 Bg7 Nf3 d5 e3 Ne4 Nbd2 Nxg3 hxg3 c5",
+   "line": "d4 Nf6 Bg5 h6 Bh4 g5 Bg3 Bg7 Nf3 d5 e3 Ne4 Nbd2 Nxg3 hxg3 c5 c3 Qb6 Qc2 Nc6 Be2 cxd4 exd4 g4",
    "notes": {
     "1": "You've faced this 3 times (scoring 67%).",
-    "2": "You've faced this 3 times (scoring 67%)."
+    "2": "You've faced this 3 times (scoring 67%).",
+    "9": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "d4 Nf6 Bg5 h6 Bxf6 exf6 g3 d5 e3 c6 Nd2 Nd7 Ne2 h5",
+   "line": "d4 Nf6 Bg5 h6 Bxf6 exf6 g3 d5 e3 Nd7 Bg2 Nb6 Nd2 c6 Ne2 h5 h4 Bg4 b3 Qd7 c4 Bb4 Qc2 O-O",
    "notes": {
     "1": "You've faced this 3 times (scoring 67%).",
     "2": "You've faced this 3 times (scoring 67%).",

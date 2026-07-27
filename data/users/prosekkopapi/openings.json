@@ -6,7 +6,7 @@
    "color": "white",
    "games": 127,
    "score_pct": 54.3,
-   "lines": 63
+   "lines": 64
   },
   {
    "id": "prosekkopapi/black-italian-game",
@@ -14,7 +14,7 @@
    "color": "black",
    "games": 61,
    "score_pct": 68.9,
-   "lines": 25
+   "lines": 21
   },
   {
    "id": "prosekkopapi/white-sicilian-defense",
@@ -247,14 +247,6 @@
    "games": 3,
    "score_pct": 50.0,
    "lines": 2
-  },
-  {
-   "id": "prosekkopapi/black-pirc-defense",
-   "family": "Pirc Defense",
-   "color": "black",
-   "games": 3,
-   "score_pct": 0.0,
-   "lines": 1
   },
   {
    "id": "prosekkopapi/black-center-game",

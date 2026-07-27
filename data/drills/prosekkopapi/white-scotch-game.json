@@ -4,7 +4,7 @@
  "intro": "Built from 4 of your games as white (you score 0%). Play your prepared moves.",
  "lines": [
   {
-   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 e5 Ng4 O-O Be7 Re1 d6 exd6",
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 e5 Ng4 O-O Be7 Re1 d6 exd6 cxd6 Nxd4 O-O h3 d5 Nxc6 bxc6 hxg4 dxc4 Qf3",
    "notes": {
     "1": "You've faced this 4 times (scoring 0%).",
     "2": "You've faced this 4 times (scoring 0%).",
@@ -12,7 +12,7 @@
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 e5 d5 Bb5 Ne4 Nxd4 Bd7 Bxc6",
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 e5 d5 Bb5 Ne4 Nxd4 Bc5 Be3 O-O Nxc6 bxc6 Bxc5 Nxc5 Bxc6 Rb8 Qxd5 Qe7 O-O",
    "notes": {
     "1": "You've faced this 4 times (scoring 0%).",
     "2": "You've faced this 4 times (scoring 0%).",
@@ -20,10 +20,19 @@
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Bc4 Be7 d4 exd4 Nxd4 Ne5 Be2 Nf6 f4 Ng6 e5 Nd5 O-O d6 Bb5+",
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 d4 exd4 Ng5 Nh6 Nxf7 Nxf7 Bxf7+ Kxf7 Qh5+ g6 Qxc5 d5 O-O dxe4 c3 Qd6 Qxd6 cxd6 cxd4",
    "notes": {
     "1": "You've faced this 4 times (scoring 0%).",
-    "2": "You've faced this 4 times (scoring 0%)."
+    "2": "You've faced this 4 times (scoring 0%).",
+    "6": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Be7 d4 exd4 Nxd4 Ne5 Be2 Nf6 f4 Ng6 e5 Nd5 O-O d6 Bb5+ Bd7 e6 Bxb5 exf7+ Kxf7 Nxb5",
+   "notes": {
+    "1": "You've faced this 4 times (scoring 0%).",
+    "2": "You've faced this 4 times (scoring 0%).",
+    "10": "Beyond your games \u2014 engine line from here."
    }
   }
  ]

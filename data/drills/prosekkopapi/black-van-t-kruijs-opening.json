@@ -4,30 +4,30 @@
  "intro": "Built from 4 of your games as black (you score 62%). Play your prepared moves.",
  "lines": [
   {
-   "line": "e3 e5 b3 d5 Bb2 Bd6 Nf3 Qe7 d3 Nf6 Nbd2 O-O e4 Rd8",
+   "line": "e3 e5 b3 d5 Bb2 Bd6 Nf3 Qe7 d4 e4 Nfd2 f5 c4 c6 Qc1 f4 exf4 Nh6 g3 Be6 Ba3 O-O Bg2 Na6",
    "notes": {
     "1": "You've faced this 4 times (scoring 62%).",
     "5": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e3 e5 c4 Nf6 a3 c5 Nc3 d5 cxd5 Nxd5 Nf3 Nc6 Qc2 Be7",
-   "notes": {
-    "1": "You've faced this 4 times (scoring 62%).",
-    "4": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e3 e5 Bc4 d5 Bb3 Nf6 c4 d4 exd4 exd4 d3 Bd6 Nf3 O-O",
-   "notes": {
-    "1": "You've faced this 4 times (scoring 62%).",
-    "5": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e3 e5 Qe2 Nf6 Nf3 e4 Ng5 h6 Nh3 d5 Nf4 Bd6 Nc3 Bxf4 exf4 O-O",
+   "line": "e3 e5 c4 Nf6 a3 Bc5 Nc3 O-O b4 Be7 Bb2 d6 h3 c6 g4 h6 Qc2 d5 cxd5 cxd5 Bg2 d4 exd4 exd4 Ne4 Nc6",
    "notes": {
     "1": "You've faced this 4 times (scoring 62%)."
+   }
+  },
+  {
+   "line": "e3 e5 Bc4 d5 Bb3 Nf6 c4 d4 Nf3 Bd6 d3 O-O O-O c5 exd4 exd4 Bg5 Bf5 Nh4 Be6 f4 Be7 Re1 Bg4",
+   "notes": {
+    "1": "You've faced this 4 times (scoring 62%).",
+    "5": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e3 e5 Qe2 Nf6 Nf3 e4 Ng5 h6 Nh3 d5 Nf4 Bd6 Nc3 Bxf4 exf4 O-O d4 exd3 Qxd3 Nc6 Ne2 Re8 f3 Nb4",
+   "notes": {
+    "1": "You've faced this 4 times (scoring 62%).",
+    "9": "Beyond your games \u2014 engine line from here."
    }
   }
  ]

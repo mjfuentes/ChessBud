@@ -4,7 +4,7 @@
  "intro": "Built from 17 of your games as black (you score 53%). Play your prepared moves.",
  "lines": [
   {
-   "line": "e4 e5 Nc3 Nf6 f4 d5 fxe5 Nxe4 Qf3 Nxc3 bxc3 c5 Bb5+ Nc6",
+   "line": "e4 e5 Nc3 Nf6 f4 d5 fxe5 Nxe4 Qf3 Nxc3 bxc3 c5 Bb5+ Nc6 Qg3 Qb6 a4 Be6 Ne2 h5 h4 O-O-O d4 cxd4",
    "notes": {
     "1": "You've faced this 17 times (scoring 53%).",
     "2": "You've faced this 16 times (scoring 56%).",
@@ -14,16 +14,17 @@
    }
   },
   {
-   "line": "e4 e5 Nc3 Nf6 f4 d5 fxe5 Nxe4 Nxe4 dxe4 d3 Nc6 d4 Qxd4",
+   "line": "e4 e5 Nc3 Nf6 f4 d5 fxe5 Nxe4 Nxe4 dxe4 d3 Nc6 d4 Qxd4 Qxd4 Nxd4 Kd1 Bd7 Ne2 Nc6 Ng3 O-O-O Bf4 Bc5",
    "notes": {
     "1": "You've faced this 17 times (scoring 53%).",
     "2": "You've faced this 16 times (scoring 56%).",
     "3": "You've faced this 10 times (scoring 50%).",
-    "4": "You've faced this 3 times (scoring 67%)."
+    "4": "You've faced this 3 times (scoring 67%).",
+    "8": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 e5 Nc3 Nf6 Be2 d5 exd5 Nxd5 Nf3 Nxc3 bxc3 e4 Nd4 c5",
+   "line": "e4 e5 Nc3 Nf6 Be2 d5 exd5 Nxd5 Nf3 Nxc3 bxc3 e4 Nd4 c5 Nb3 Qc7 d4 exd3 cxd3 Bd6 h3 Nc6 O-O O-O",
    "notes": {
     "1": "You've faced this 17 times (scoring 53%).",
     "2": "You've faced this 16 times (scoring 56%).",
@@ -31,17 +32,18 @@
    }
   },
   {
-   "line": "e4 e5 Nc3 Nf6 Bc4 c6 f4 d5 exd5 e4 dxc6 Nxc6 d3 Bg4",
+   "line": "e4 e5 Nc3 Nf6 Bc4 Nxe4 Qh5 Nd6 Qxe5+ Qe7 Qxe7+ Bxe7 Be2 Nf5 Nf3 Nc6 Nd5 Bd8 c3 a5 Nf4 h5 d4 Nce7",
    "notes": {
     "1": "You've faced this 17 times (scoring 53%).",
     "2": "You've faced this 16 times (scoring 56%).",
-    "6": "Beyond your games \u2014 engine line from here."
+    "4": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 e5 Bc4 Nf6 Nc3 Bc5 Nf3 d6 Ng5 O-O d3 c6 O-O d5 exd5 cxd5 Bb3 Nc6 Qf3 Nd4",
+   "line": "e4 e5 Bc4 Nf6 Nc3 Bc5 Nf3 d6 Ng5 O-O d3 c6 O-O d5 exd5 cxd5 Bb3 Nc6 Qf3 Nd4 Qg3 h6 Nf3 Bd6",
    "notes": {
-    "1": "You've faced this 17 times (scoring 53%)."
+    "1": "You've faced this 17 times (scoring 53%).",
+    "12": "Beyond your games \u2014 engine line from here."
    }
   }
  ]

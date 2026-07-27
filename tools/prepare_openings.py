@@ -31,8 +31,11 @@ from blunder_scan import user_color
 from opening_report import load_eco_book, classify
 
 ROOT = Path(__file__).resolve().parent.parent
-MAX_PLIES = 20
-TARGET_DEPTH = 14
+# The ladder grades up to 15 of the user's moves (30 plies), and a rung is only
+# a real test if several lines still exist at it. Lines that stop at 14 plies
+# made every depth past 7 collapse to a handful of engine tails.
+MAX_PLIES = 26
+TARGET_DEPTH = 24
 MIN_FAMILY_GAMES = 2
 MAX_BRANCHES = 8
 MAX_LINES_PER_DRILL = 150

@@ -4,7 +4,7 @@
  "intro": "Built from 3 of your games as black (you score 67%). Play your prepared moves.",
  "lines": [
   {
-   "line": "e4 e5 f4 exf4 Bc4 Qh4+ Kf1 d5 Bxd5 g5 Nf3 Qh5 Nc3 Ne7",
+   "line": "e4 e5 f4 exf4 Bc4 Nc6 d4 Qh4+ Kf1 d6 Nf3 Bg4 Nxh4 Bxd1 Nc3 Bxc2 Bxf4 Nf6 Rc1 Nxd4 Be3 c5 Nf3 Rc8",
    "notes": {
     "1": "You've faced this 3 times (scoring 67%).",
     "2": "You've faced this 3 times (scoring 67%).",

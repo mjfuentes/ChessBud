@@ -4,7 +4,7 @@
  "intro": "Built from 50 of your games as white (you score 57%). Play your prepared moves.",
  "lines": [
   {
-   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 e6 d5 exd5 exd5 Ne5 Nc3 Bb4 Nf3",
+   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 e6 d5 exd5 exd5 Ne5 Nf3 Bb4+ Nc3 Qe7 Be2 Nxf3+ gxf3 Qe5 O-O Nf6 f4 Qe7 Re1",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
     "2": "You've faced this 12 times (scoring 67%).",
@@ -16,7 +16,7 @@
    }
   },
   {
-   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 e6 d5 Ne5 f4 Ng6 Nc3 Bb4 dxe6 fxe6 Nf3 Nf6 Bd3 O-O",
+   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 e6 d5 Ne5 f4 Ng6 Nc3 Bb4 dxe6 fxe6 Nf3 Nf6 Bd3 O-O O-O Qb6+ Kh1 Bc5",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
     "2": "You've faced this 12 times (scoring 67%).",
@@ -43,7 +43,7 @@
    }
   },
   {
-   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 e5 d5 Nd4 Nf3 Bc5 Nxe5 Qe7 Nd3",
+   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 e5 d5 Nd4 Nf3 Bc5 Nxe5 Qe7 Nd3 Bb6 Nc3 Nf6 f3 d6 Nf2 a6 Ne2 Nxe2 Bxe2",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
     "2": "You've faced this 12 times (scoring 67%).",
@@ -52,7 +52,7 @@
    }
   },
   {
-   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 g6 d5 Nb8 Qd4 Nf6 e5 Ng8 Nf3",
+   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 g6 d5 Nb8 Qd4 Nf6 e5 Ng8 Nf3 Bg7 Qa4 Kf8 Be2 d6 exd6 Qxd6 O-O Na6 Nc3",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
     "2": "You've faced this 12 times (scoring 67%).",
@@ -61,7 +61,7 @@
    }
   },
   {
-   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 a6 Nf3 e6 d5 Bb4+ Nc3 Nce7 Qd4",
+   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 a6 Nf3 e6 d5 Bb4+ Nc3 Nce7 Qd4 Bxc3+ Qxc3 Nf6 d6 Nc6 Bd3 b5 Qc5 O-O O-O",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
     "2": "You've faced this 12 times (scoring 67%).",
@@ -70,14 +70,25 @@
    }
   },
   {
-   "line": "e4 c5 c3 Nc6 d4 e6 d5 Ne5 f4 Ng6 d6 Qb6 e5 f6 Nf3 Qc6 Bd3 b5 O-O Bb7",
+   "line": "e4 c5 c3 Nc6 d4 e6 d5 Ne5 f4 Ng6 d6 Qb6 e5 f6 Nf3 Qc6 Bd3 b5 O-O Bb7 Re1 a6 a4 Qb6 Be3",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 12 times (scoring 67%)."
+    "2": "You've faced this 12 times (scoring 67%).",
+    "11": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 c5 c3 d6 d4 cxd4 cxd4 Nc6 d5 Ne5 f4 Ng6 Nf3 e6 Nc3 Nf6 dxe6",
+   "line": "e4 c5 c3 d6 d4 cxd4 cxd4 Nc6 d5 Ne5 f4 Ng6 Nf3 e6 Nc3 Nf6 Bb5+ Bd7 dxe6 fxe6 Nd4 Bxb5 Ncxb5 d5 Qb3",
+   "notes": {
+    "1": "You've faced this 49 times (scoring 58%).",
+    "2": "You've faced this 6 times (scoring 50%).",
+    "3": "You've faced this 5 times (scoring 40%).",
+    "4": "You've faced this 3 times (scoring 33%).",
+    "9": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 c5 c3 d6 d4 cxd4 cxd4 Nc6 d5 Nb8 Nc3 g6 Be3 Bg7 Bd4 Nf6 f4 O-O Nf3 Bg4 h3 Bxf3 Qxf3 Nbd7 O-O-O",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
     "2": "You've faced this 6 times (scoring 50%).",
@@ -86,47 +97,42 @@
    }
   },
   {
-   "line": "e4 c5 c3 d6 d4 cxd4 cxd4 Nc6 d5 Nb8 Nc3 g6 Be3 Bg7 Bd4 Nf6 f4 O-O Nf3 Bg4",
+   "line": "e4 c5 c3 d6 d4 cxd4 cxd4 e6 Nf3 Nc6 Bb5 Bd7 O-O Be7 Nc3 Nf6 e5 dxe5 dxe5 Ng4 Qe2 a6 Ba4 b5 Bb3",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
     "2": "You've faced this 6 times (scoring 50%).",
     "3": "You've faced this 5 times (scoring 40%).",
-    "4": "You've faced this 3 times (scoring 33%)."
+    "11": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 c5 c3 d6 d4 cxd4 cxd4 e6 Nf3 Nc6 Bb5 Bd7 O-O Be7 Nc3 Nf6 e5 dxe5 dxe5 Ng4",
+   "line": "e4 c5 c3 d6 d4 cxd4 cxd4 Nf6 Nc3 e6 Nf3 Be7 Be2 O-O O-O Nc6 a3 Bd7 d5 Na5 Be3 Rc8 Nd2 h6 Rc1",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
     "2": "You've faced this 6 times (scoring 50%).",
-    "3": "You've faced this 5 times (scoring 40%)."
+    "3": "You've faced this 5 times (scoring 40%).",
+    "10": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 c5 c3 d6 d4 cxd4 cxd4 Nf6 Nc3 e6 Nf3 Be7 Be2 O-O O-O Nc6 a3 Bd7 b4 Qc7",
+   "line": "e4 c5 c3 d6 d4 Nc6 d5 Ne5 f4 Ng6 Nf3 e6 dxe6 fxe6 Bd3 Nf6 O-O Be7 e5 dxe5 Nxe5 O-O Nxg6 hxg6 Qe2",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
     "2": "You've faced this 6 times (scoring 50%).",
-    "3": "You've faced this 5 times (scoring 40%)."
+    "10": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 c5 c3 d6 d4 Nc6 d5 Ne5 f4 Ng6 Nf3 e6 dxe6 fxe6 Bd3 Nf6 O-O Be7 e5",
-   "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 6 times (scoring 50%)."
-   }
-  },
-  {
-   "line": "e4 c5 c3 d5 exd5 Qxd5 d4 cxd4 cxd4 Nc6 Nf3 Bg4 Nc3 Bxf3 Nxd5 Bxd1 Nc7+ Kd8 Nxa8 Bh5",
+   "line": "e4 c5 c3 d5 exd5 Qxd5 d4 cxd4 cxd4 Nc6 Nf3 Bg4 Nc3 Bxf3 Nxd5 Bxd1 Nc7+ Kd8 Nxa8 Bh5 f3 e6 Bf4 Nge7 Bg3",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
     "2": "You've faced this 3 times (scoring 33%).",
-    "3": "You've faced this 3 times (scoring 33%)."
+    "3": "You've faced this 3 times (scoring 33%).",
+    "11": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 c5 c3 d5 exd5 Qxd5 d4 Nf6 Nf3 e6 Bb5+ Nc6 O-O cxd4 c4",
+   "line": "e4 c5 c3 d5 exd5 Qxd5 d4 Nf6 Nf3 e6 Bb5+ Nc6 c4 Qd6 O-O cxd4 Nxd4 Bd7 Nxc6 Bxc6 Nc3 Rc8 Qe2 Be7 Rd1",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
     "2": "You've faced this 3 times (scoring 33%).",
@@ -135,7 +141,7 @@
    }
   },
   {
-   "line": "e4 c5 c3 d5 exd5 Qxd5 d4 Nc6 Nf3 Bg4 dxc5 Qxd1+ Kxd1 e6 b4",
+   "line": "e4 c5 c3 d5 exd5 Qxd5 d4 Nc6 Nf3 Bg4 dxc5 Qxd1+ Kxd1 O-O-O+ Ke1 e6 b4 Be7 a3 Bxf3 gxf3 Bf6 Ra2 Nge7 Rc2",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
     "2": "You've faced this 3 times (scoring 33%).",
@@ -144,25 +150,28 @@
    }
   },
   {
-   "line": "e4 c5 c3 e5 Nf3 Nc6 Bb5 d6 d4 a6 Bxc6+ bxc6 dxe5 Bg4 exd6 Qxd6 Qxd6 Bxd6 Be3",
+   "line": "e4 c5 c3 e5 Nf3 Nc6 Bb5 d6 d4 a6 Bxc6+ bxc6 dxe5 Bg4 exd6 Qxd6 Qxd6 Bxd6 Be3 Bc7 Bxc5 Nf6 Nbd2 Bf4 h3",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%)."
+    "1": "You've faced this 49 times (scoring 58%).",
+    "10": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 c5 c3 e5 Nf3 d6 d4 cxd4 cxd4 exd4 Nxd4 Nc6 Bb5 Bd7 Nc3 Nxd4 Qxd4 Bxb5 Nxb5 Nf6",
+   "line": "e4 c5 c3 e5 Nf3 d6 d4 cxd4 cxd4 exd4 Nxd4 Nc6 Bb5 Bd7 Nc3 Nxd4 Qxd4 Bxb5 Nxb5 Nf6 Qa4 Qd7 Nc7+ Kd8 Qxd7+",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%)."
+    "1": "You've faced this 49 times (scoring 58%).",
+    "11": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 c5 c3 Nf6 e5 Nd5 Nf3 Nc6 d4 cxd4 cxd4 d6 Bc4 Nb6 Bb3 dxe5 d5 Nb4 Nc3 Bg4",
+   "line": "e4 c5 c3 Nf6 e5 Nd5 Nf3 Nc6 d4 cxd4 cxd4 d6 Bc4 Nb6 Bb3 dxe5 d5 Nb4 Nc3 Bg4 h3 Bxf3 Qxf3 g6 Bg5",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%)."
+    "1": "You've faced this 49 times (scoring 58%).",
+    "11": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 c5 c3 a6 d4 cxd4 cxd4 Nc6 Nf3 d6 Bc4 Nf6 Nc3 e6 Bd3",
+   "line": "e4 c5 c3 a6 d4 cxd4 cxd4 Nc6 Nf3 d6 Bc4 Nf6 Nc3 e6 Bd3 Be7 O-O O-O Bf4 Nxd4 Nxd4 e5 Be3 exd4 Bxd4",
    "notes": {
     "1": "You've faced this 49 times (scoring 58%).",
     "7": "Beyond your games \u2014 engine line from here."
@@ -175,14 +184,17 @@
    }
   },
   {
-   "line": "e4 c5 c3 e6 d4 cxd4 cxd4 d5 exd5 exd5 Nf3 Nf6 Bd3 Nc6 Nc3 Bg4 Be3 Be7 h3 Bh5",
+   "line": "e4 c5 c3 e6 d4 cxd4 cxd4 d5 exd5 exd5 Nf3 Nf6 Bd3 Nc6 Nc3 Bg4 Be3 Be7 h3 Bh5 g4 Bg6 Ne5 O-O a3",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%)."
+    "1": "You've faced this 49 times (scoring 58%).",
+    "12": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 e6 Nf3 c5 c3 Nc6 d4 cxd4 cxd4 Qb6 d5 exd5 exd5 Nb4 a3 Na6 Nc3 Nf6 Bc4",
-   "notes": {}
+   "line": "e4 e6 Nf3 c5 c3 Nc6 d4 cxd4 cxd4 Qb6 d5 exd5 exd5 Nb4 a3 Na6 Nc3 Nf6 b4 Be7 Be3 Qd6 Qd2 Qb8 Nd4",
+   "notes": {
+    "10": "Beyond your games \u2014 engine line from here."
+   }
   }
  ]
 }

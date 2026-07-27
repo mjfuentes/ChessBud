@@ -4,7 +4,16 @@
  "intro": "Built from 11 of your games as white (you score 73%). Play your prepared moves.",
  "lines": [
   {
-   "line": "e4 e5 Nf3 Nf6 d4 Nxe4 dxe5 d5 exd6 Nxd6 Nc3 Bg4 Be2 Nc6 O-O h5 h3 Bxf3 Bxf3 Qd7",
+   "line": "e4 e5 Nf3 Nf6 d4 Nxe4 dxe5 d5 exd6 Nxd6 Nc3 Bg4 Be2 Nc6 O-O h5 h3 Bxf3 Bxf3 Qd7 Re1+ Be7 Bg5 f6 Bxh5+",
+   "notes": {
+    "1": "You've faced this 11 times (scoring 73%).",
+    "2": "You've faced this 11 times (scoring 73%).",
+    "3": "You've faced this 4 times (scoring 100%).",
+    "12": "Beyond your games \u2014 engine line from here."
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nf6 d4 Nxe4 dxe5 d5 exd6 Bxd6 Bc4 Bb4+ Bd2 Bxd2+ Nbxd2 Nxd2 Qxd2 Qxd2+ Nxd2 O-O O-O-O Nc6 h3 a6 Nb3",
    "notes": {
     "1": "You've faced this 11 times (scoring 73%).",
     "2": "You've faced this 11 times (scoring 73%).",
@@ -12,7 +21,7 @@
    }
   },
   {
-   "line": "e4 e5 Nf3 Nf6 d4 Nxe4 dxe5 d5 exd6 Bxd6 Bc4 Bb4+ Bd2 Bxd2+ Nbxd2 Nxd2 Qxd2 Qxd2+ Nxd2 O-O",
+   "line": "e4 e5 Nf3 Nf6 d4 Nxe4 dxe5 Nc5 Bc4 Be7 O-O O-O Nc3 Re8 b4 Ne6 a3 a6 Nd5 c6 Nxe7+ Qxe7 Bb2 b5 Ba2 h6",
    "notes": {
     "1": "You've faced this 11 times (scoring 73%).",
     "2": "You've faced this 11 times (scoring 73%).",
@@ -20,15 +29,7 @@
    }
   },
   {
-   "line": "e4 e5 Nf3 Nf6 d4 Nxe4 dxe5 Nc5 Bc4 Be7 O-O O-O Nc3 Re8 b4 Ne6 a3 a6 Nd5 c6",
-   "notes": {
-    "1": "You've faced this 11 times (scoring 73%).",
-    "2": "You've faced this 11 times (scoring 73%).",
-    "3": "You've faced this 4 times (scoring 100%)."
-   }
-  },
-  {
-   "line": "e4 e5 Nf3 Nf6 d4 Nc6 d5 Nb8 Nxe5 Qe7 Nd3 Qxe4+ Be2 Qxg2 Bf3",
+   "line": "e4 e5 Nf3 Nf6 d4 Nc6 d5 Nb8 Nxe5 Qe7 Nd3 Qxe4+ Be2 Qxg2 Bf3 Qh3 Nc3 d6 Rg1 Qd7 Bg5 Qe7+ Kd2 h6 Be3",
    "notes": {
     "1": "You've faced this 11 times (scoring 73%).",
     "2": "You've faced this 11 times (scoring 73%).",
@@ -36,7 +37,7 @@
    }
   },
   {
-   "line": "e4 e5 Nf3 Nf6 d4 Nc6 d5 Nd4 Nxe5 d6 Nc4 c5 c3 Nb5 a4",
+   "line": "e4 e5 Nf3 Nf6 d4 Nc6 d5 Nd4 Nxe5 d6 Nc4 c5 c3 Nb5 Bd3 Nc7 a4 Be7 O-O O-O Bf4 g6 Nbd2 b6 h3",
    "notes": {
     "1": "You've faced this 11 times (scoring 73%).",
     "2": "You've faced this 11 times (scoring 73%).",
@@ -44,11 +45,11 @@
    }
   },
   {
-   "line": "e4 e5 Nf3 Nf6 d4 exd4 e5 Qe7 Be2 Ne4 Qxd4 d5 Qxd5 Nc5 Bg5",
+   "line": "e4 e5 Nf3 Nf6 d4 exd4 e5 Qe7 Be2 Ne4 O-O d5 exd6 Qxd6 Re1 Be7 Qxd4 Qxd4 Nxd4 Nc5 Bf3 Kf8 Nc3 c6 Be3",
    "notes": {
     "1": "You've faced this 11 times (scoring 73%).",
     "2": "You've faced this 11 times (scoring 73%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "6": "Beyond your games \u2014 engine line from here."
    }
   }
  ]

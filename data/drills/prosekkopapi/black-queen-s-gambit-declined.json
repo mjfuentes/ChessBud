@@ -4,15 +4,16 @@
  "intro": "Built from 7 of your games as black (you score 64%). Play your prepared moves.",
  "lines": [
   {
-   "line": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 Bxf6 Bxf6 e3 O-O Nf3 a6 Bd3 dxc4",
+   "line": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 Bxf6 Bxf6 e3 O-O Nf3 a6 Bd3 dxc4 Bxc4 Nd7 a4 c5 O-O cxd4 exd4 g6",
    "notes": {
     "1": "You've faced this 7 times (scoring 64%).",
     "2": "You've faced this 7 times (scoring 64%).",
-    "3": "You've faced this 3 times (scoring 50%)."
+    "3": "You've faced this 3 times (scoring 50%).",
+    "9": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "d4 d5 c4 e6 Nc3 Nf6 cxd5 Nxd5 e4 Nxc3 bxc3 c5 Rb1 Be7",
+   "line": "d4 d5 c4 e6 Nc3 Nf6 cxd5 Nxd5 e4 Nxc3 bxc3 c5 Nf3 cxd4 cxd4 Bb4+ Bd2 Bxd2+ Qxd2 O-O Bc4 Nd7 O-O Nf6",
    "notes": {
     "1": "You've faced this 7 times (scoring 64%).",
     "2": "You've faced this 7 times (scoring 64%).",
@@ -21,7 +22,7 @@
    }
   },
   {
-   "line": "d4 d5 c4 e6 Nf3 Nf6 Nc3 Bb4 Bg5 h6 Bh4 dxc4 a3 Bxc3+",
+   "line": "d4 d5 c4 e6 Nf3 Nf6 Nc3 Bb4 Bg5 h6 Bh4 dxc4 Bxf6 Qxf6 Qa4+ Nc6 a3 Bxc3+ bxc3 O-O e3 Rd8 Qxc4 Bd7",
    "notes": {
     "1": "You've faced this 7 times (scoring 64%).",
     "2": "You've faced this 7 times (scoring 64%).",
@@ -29,7 +30,7 @@
    }
   },
   {
-   "line": "d4 d5 c4 e6 Nf3 Nf6 Bg5 h6 Bxf6 Qxf6 c5 b6 cxb6 axb6",
+   "line": "d4 d5 c4 e6 Nf3 Nf6 Bg5 h6 Bxf6 Qxf6 c5 b6 cxb6 axb6 Nc3 Bb4 e3 O-O Bd3 Bxc3+ bxc3 Nd7 O-O Bb7",
    "notes": {
     "1": "You've faced this 7 times (scoring 64%).",
     "2": "You've faced this 7 times (scoring 64%).",
@@ -37,10 +38,11 @@
    }
   },
   {
-   "line": "d4 d5 c4 e6 cxd5 exd5 Bf4 Nf6 Nf3 Bd6 Bxd6 Qxd6 Nc3 a6 e3 O-O Bd3 Re8 Qc2 Nc6",
+   "line": "d4 d5 c4 e6 cxd5 exd5 Bf4 Nf6 Nf3 Bd6 Bxd6 Qxd6 Nc3 a6 e3 O-O Bd3 Re8 Qc2 Nc6 a3 Bg4 O-O Bxf3",
    "notes": {
     "1": "You've faced this 7 times (scoring 64%).",
-    "2": "You've faced this 7 times (scoring 64%)."
+    "2": "You've faced this 7 times (scoring 64%).",
+    "12": "Beyond your games \u2014 engine line from here."
    }
   }
  ]

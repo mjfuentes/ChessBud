@@ -4,21 +4,23 @@
  "intro": "Built from 3 of your games as black (you score 33%). Play your prepared moves.",
  "lines": [
   {
-   "line": "d4 Nf6 Bf4 g6 e3 Bg7 Nf3 Nh5 Bg3 Nxg3 hxg3 d5 Bd3 Bg4 Rh4 h5 Nbd2 c5",
+   "line": "d4 Nf6 Bf4 g6 e3 Bg7 Nf3 Nh5 Bg3 Nxg3 hxg3 d5 Bd3 Bg4 Rh4 h5 Nbd2 c5 c3 Nd7 Be2 O-O Kf1 cxd4",
    "notes": {
     "1": "You've faced this 3 times (scoring 33%).",
-    "2": "You've faced this 3 times (scoring 33%)."
+    "2": "You've faced this 3 times (scoring 33%).",
+    "10": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "d4 Nf6 Bf4 g6 e3 Bg7 Nf3 Nh5 Be5 f6 Bg3 Nxg3 hxg3 c6",
+   "line": "d4 Nf6 Bf4 g6 e3 Bg7 Nf3 Nh5 Be5 f6 Bg3 Nxg3 hxg3 c6 c4 d6 Nc3 f5 Qd2 e5 e4 fxe4 Nxe4 d5",
    "notes": {
     "1": "You've faced this 3 times (scoring 33%).",
-    "2": "You've faced this 3 times (scoring 33%)."
+    "2": "You've faced this 3 times (scoring 33%).",
+    "8": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "d4 Nf6 Bf4 g6 Nf3 Bg7 e3 O-O Bd3 d5 O-O Nh5 Bg5 c5",
+   "line": "d4 Nf6 Bf4 g6 Nf3 Bg7 e3 O-O Bd3 d5 O-O c5 c3 Nc6 h3 Nd7 Nbd2 e5 dxe5 Ndxe5 Nxe5 Nxe5 Be2 Nc6",
    "notes": {
     "1": "You've faced this 3 times (scoring 33%).",
     "2": "You've faced this 3 times (scoring 33%).",

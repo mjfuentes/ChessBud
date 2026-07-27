@@ -4,14 +4,15 @@
  "intro": "Built from 6 of your games as white (you score 75%). Play your prepared moves.",
  "lines": [
   {
-   "line": "e4 Nc6 d4 d5 e5 h6 Nc3 a6 Bf4 Bf5 h3 Nb4 Rc1 Qd7 a3 Nc6 Bd3 O-O-O Nf3",
+   "line": "e4 Nc6 d4 d5 e5 h6 Nc3 a6 Nce2 Bf5 Ng3 Bh7 c3 e6 Be2 Nb8 Nf3 c5 Nh5 Be4 O-O Nc6 Be3 g6 Nf4",
    "notes": {
     "1": "You've faced this 5 times (scoring 70%).",
-    "2": "You've faced this 3 times (scoring 83%)."
+    "2": "You've faced this 3 times (scoring 83%).",
+    "5": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 Nc6 d4 d5 e5 f6 Nf3 fxe5 dxe5 h6 Bd3 Qd7 c4 e6 cxd5",
+   "line": "e4 Nc6 d4 d5 e5 f6 Nf3 fxe5 dxe5 h6 Bd3 Qd7 c4 e6 cxd5 Bb4+ Nc3 exd5 Bg6+ Kf8 O-O Nge7 Bc2 Kf7 Na4",
    "notes": {
     "1": "You've faced this 5 times (scoring 70%).",
     "2": "You've faced this 3 times (scoring 83%).",
@@ -19,21 +20,21 @@
    }
   },
   {
-   "line": "e4 Nc6 d4 Nf6 e5 Nd5 c4 Nb6 d5 Nxe5 c5 Nbc4 Qb3 b5 f4",
+   "line": "e4 Nc6 d4 Nf6 e5 Nd5 c4 Nb6 d5 Nxe5 c5 Nxd5 Qxd5 Nc6 Nf3 e6 Qc4 Be7 Be3 O-O Be2 d5 cxd6 cxd6 Nc3",
    "notes": {
     "1": "You've faced this 5 times (scoring 70%).",
     "5": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 Nc6 d4 e5 d5 Nce7 Nf3 Ng6 Be2 Nf6 h4 Bc5 h5 Nf4 Bxf4",
+   "line": "e4 Nc6 d4 e5 d5 Nce7 Nf3 Ng6 Be2 Nf6 h4 Bc5 h5 Nf4 Bxf4 exf4 Nc3 d6 Qd2 O-O Qxf4 Ng4 O-O a6 Rad1",
    "notes": {
     "1": "You've faced this 5 times (scoring 70%).",
     "6": "Beyond your games \u2014 engine line from here."
    }
   },
   {
-   "line": "e4 d6 d4 e5 dxe5 Nc6 exd6 Bxd6 Bd3 Nf6 Nc3 Qe7 h3 Bf5 Bg5",
+   "line": "e4 d6 d4 e5 dxe5 Nc6 exd6 Bxd6 Bd3 Nf6 Nc3 Qe7 Qe2 Bb4 a3 Nd4 Qe3 Bc5 Qf4 h6 Nge2 Nxe2 Bxe2 g5 Qd2",
    "notes": {
     "4": "Beyond your games \u2014 engine line from here."
    }
