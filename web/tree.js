@@ -85,6 +85,15 @@ function ribbon(ax, ay, bx, by, w0, w1, bow) {
 function mergeForest(drills) {
   const roots = new Map()
   const add = (level, path, node, drill) => {
+    // A White drill's first rung has no opponent move yet, so its trie root is
+    // a placeholder with no san. Left in, every White opening merges onto that
+    // one stem — 333 games of weight — and it draws as a second trunk. Hoist
+    // its children instead, so White gets a limb per reply exactly as Black
+    // gets one per first move.
+    if (!node.san) {
+      for (const kid of node.kids || []) add(level, kid.san, kid, drill)
+      return null
+    }
     const key = `${drill.user_color}|${path}`
     let slot = level.get(node.san)
     if (!slot) {
@@ -157,12 +166,17 @@ function drawBook(wood, canopy, nodes, path, color, geo) {
   for (const node of nodes) {
     const here = `${path} ${node.san}`.trim()
     const g = geo.get(`${color}|${here}`)
-    if (!g) continue
+    const kids = node.kids || []
+    // the hoisted placeholder has no geometry of its own; keep walking through
+    // it rather than dropping the branch it carries
+    if (!g) {
+      drawBook(wood, canopy, kids, here, color, geo)
+      continue
+    }
     wood.append(el('path', {
       d: ribbon(g.x0, g.y0, g.x1, g.y1, g.w0, g.w1, g.noise * g.len * 0.13),
       class: g.shared ? 'tw-wood tw-shared' : 'tw-wood',
     }))
-    const kids = node.kids || []
     if (node.on) {
       placeLeaf(canopy, g, 'tw-leaf', Math.min(1.25, 0.6 + g.w0 * 0.32))
     } else if (!kids.length) {
@@ -231,7 +245,10 @@ export function renderTree(host, drills, handlers) {
         y: trunkTop + 18 - rise,
         angle,
         len: TRUNK_LEN * (0.46 + Math.min(0.3, share * 1.2)),
-        w: 2.4 + Math.min(6.5, share * 22),
+        // never as thick as the trunk it leaves (half-width 7 at the top), or
+        // a heavy limb — 214 of your games as Black answer 1.e4 — reads as a
+        // second trunk rather than as a branch
+        w: 2.4 + Math.min(3.2, share * 22),
         taper: 0.72,
       },
       geo, bounds,
