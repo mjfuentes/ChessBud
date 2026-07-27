@@ -81,30 +81,21 @@ const LEAF_UNIT = 847.2 // base-to-tip length in the path's own units
 
 // Leaves sit around the twig end on a golden-angle spiral — the arrangement
 // real foliage uses, and the reason a cluster never looks like a row of dots.
-function leafCluster(group, x, y, angle, n, cls, scale) {
-  const count = Math.min(n, 7)
-  for (let i = 0; i < count; i += 1) {
-    const spin = i * 137.5
-    const lean = Math.sin(rad(spin)) * 46
-    const a = rad(angle + lean)
-    // the stem sits a little back down the twig, so a cluster gathers rather
-    // than radiating from one point
-    const back = i * 1.1 * scale
-    const px = x - Math.cos(a) * back
-    const py = y - Math.sin(a) * back
-    // this blade is symmetric, so mirroring it would change nothing — variety
-    // has to come from size and lean instead
-    const blade = (8 + (i % 3) * 1.7) * scale // rendered base-to-tip, in px
-    const s = blade / LEAF_UNIT
-    group.append(el('use', {
-      href: '#cb-leaf',
-      class: cls,
-      transform: `translate(${px.toFixed(1)} ${py.toFixed(1)})`
-        + ` rotate(${(angle + lean - LEAF_AXIS).toFixed(0)})`
-        + ` scale(${s.toFixed(5)})`
-        + ` translate(${-LEAF_STEM_X} ${-LEAF_STEM_Y})`,
-    }))
-  }
+// One cleared line, one leaf. Stacking three blades on a single twig end made
+// them overlap into a scalloped blob that read as a tulip, not as the artwork —
+// and it inflated the foliage threefold over what was actually earned.
+function placeLeaf(group, x, y, angle, cls, scale, noise) {
+  const lean = noise * 34
+  const blade = (11 + noise * 2.5) * scale // rendered base-to-tip, in px
+  const s = blade / LEAF_UNIT
+  group.append(el('use', {
+    href: '#cb-leaf',
+    class: cls,
+    transform: `translate(${x.toFixed(1)} ${y.toFixed(1)})`
+      + ` rotate(${(angle + lean - LEAF_AXIS).toFixed(0)})`
+      + ` scale(${s.toFixed(5)})`
+      + ` translate(${-LEAF_STEM_X} ${-LEAF_STEM_Y})`,
+  }))
 }
 
 function grow(group, canopy, node, ctx, bounds) {
@@ -132,10 +123,17 @@ function grow(group, canopy, node, ctx, bounds) {
   // foliage goes to the canopy layer, never inline with the wood: a leaf
   // painted under the next branch's limb is what stops this reading as a tree
   if (node.on) {
-    leafCluster(canopy, bx, by, angle, 3, 'tw-leaf', Math.min(1.15, 0.55 + ctx.w * 0.3))
+    placeLeaf(canopy, bx, by, angle, 'tw-leaf',
+      Math.min(1.25, 0.6 + ctx.w * 0.32), noise)
   } else if (!kids.length) {
-    canopy.append(el('circle', {
-      cx: bx.toFixed(1), cy: by.toFixed(1), r: 2.1, class: 'tw-bud',
+    // an unopened bud: the same blade, barely out of the twig
+    canopy.append(el('use', {
+      href: '#cb-leaf',
+      class: 'tw-bud',
+      transform: `translate(${bx.toFixed(1)} ${by.toFixed(1)})`
+        + ` rotate(${(angle + noise * 20 - LEAF_AXIS).toFixed(0)})`
+        + ` scale(${(3.4 / LEAF_UNIT).toFixed(5)})`
+        + ` translate(${-LEAF_STEM_X} ${-LEAF_STEM_Y})`,
     }))
   }
 
