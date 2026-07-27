@@ -1178,7 +1178,9 @@ function focusOpening(id, drills, branches, rows) {
   const name = document.getElementById('cap-name')
   const detail = document.getElementById('cap-detail')
   document.getElementById('tree').classList.toggle('focused', Boolean(id))
-  for (const [key, group] of branches) group.classList.toggle('lit', key === id)
+  for (const [key, parts] of branches) {
+    for (const g of parts) g.classList.toggle('lit', key === id)
+  }
   for (const [key, row] of rows) row.classList.toggle('lit', key === id)
   if (!id) {
     name.textContent = 'Your repertoire'

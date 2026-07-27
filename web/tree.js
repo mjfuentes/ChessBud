@@ -96,7 +96,7 @@ function leafCluster(group, x, y, angle, n, cls, scale) {
   }
 }
 
-function grow(group, node, ctx, bounds) {
+function grow(group, canopy, node, ctx, bounds) {
   const noise = hashNoise(node.san + node.d)
   const len = Math.max(MIN_SEG, ctx.len * LIMB_DECAY)
   // pull back toward vertical as we climb, then scatter by the move's own hash
@@ -118,10 +118,12 @@ function grow(group, node, ctx, bounds) {
     class: 'tw-wood',
   }))
 
+  // foliage goes to the canopy layer, never inline with the wood: a leaf
+  // painted under the next branch's limb is what stops this reading as a tree
   if (node.on) {
-    leafCluster(group, bx, by, angle, 3, 'tw-leaf', Math.min(1.15, 0.55 + ctx.w * 0.3))
+    leafCluster(canopy, bx, by, angle, 3, 'tw-leaf', Math.min(1.15, 0.55 + ctx.w * 0.3))
   } else if (!kids.length) {
-    group.append(el('circle', {
+    canopy.append(el('circle', {
       cx: bx.toFixed(1), cy: by.toFixed(1), r: 2.1, class: 'tw-bud',
     }))
   }
@@ -131,7 +133,7 @@ function grow(group, node, ctx, bounds) {
     const offset = kids.length === 1
       ? noise * 9
       : (i / (kids.length - 1) - 0.5) * spread * kids.length * 0.8
-    grow(group, kid, {
+    grow(group, canopy, kid, {
       x: bx, y: by, angle: angle + offset, len, w: childW,
     }, bounds)
   })
@@ -167,28 +169,35 @@ export function renderTree(host, drills, handlers) {
   }))
 
   const groups = new Map()
+  const canopies = []
   for (const side of sides) {
     // limbs leave the trunk at intervals, heaviest lowest, like a real crown
     side.list.forEach((drill, i) => {
       const t = side.list.length > 1 ? i / (side.list.length - 1) : 0.3
       const group = el('g', { class: 'tw-branch', 'data-id': drill.id })
+      const canopy = el('g', { class: 'tw-branch', 'data-id': drill.id })
       const baseW = 1.1 + Math.sqrt(drill.games || 1) * 0.5
       const originY = trunkTop + 26 - t * 34
       const originX = VIEW.w / 2 - 3 + side.dir * 4
       const angle = -90 + side.dir * (74 - t * 40)
       const root = { san: drill.id, d: 0, on: false, kids: drill.book }
-      grow(group, root, {
+      grow(group, canopy, root, {
         x: originX, y: originY, angle,
         len: TRUNK_LEN * (0.52 + Math.min(0.35, (drill.games || 1) / 260)),
         w: baseW,
       }, bounds)
-      group.addEventListener('pointerenter', () => handlers.onEnter(drill.id))
-      group.addEventListener('pointerleave', () => handlers.onLeave(drill.id))
-      group.addEventListener('click', () => handlers.onPick(drill.id))
+      for (const g of [group, canopy]) {
+        g.addEventListener('pointerenter', () => handlers.onEnter(drill.id))
+        g.addEventListener('pointerleave', () => handlers.onLeave(drill.id))
+        g.addEventListener('click', () => handlers.onPick(drill.id))
+      }
       svg.append(group)
-      groups.set(drill.id, group)
+      canopies.push([drill.id, canopy])
+      groups.set(drill.id, [group, canopy])
     })
   }
+  // every leaf in the tree sits above every limb in the tree
+  for (const [, canopy] of canopies) svg.append(canopy)
   // fit the frame to what actually grew, so no twig is ever clipped and the
   // crown fills the space it is given whatever shape the repertoire takes
   const pad = 22
