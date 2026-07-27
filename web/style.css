@@ -99,6 +99,9 @@ main { flex: 1; min-height: 0; }
 .canopy-figure.focused .tw-branch.lit { opacity: 1; }
 .tw-branch { transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1); }
 .tw-branch.lit .tw-wood { fill: oklch(0.62 0.05 85); }
+/* wood several openings grow on stays neutral when one of them is hovered —
+   the 1.e4 limb is not the Sicilian's to light up */
+.tw-branch.lit .tw-wood.tw-shared { fill: oklch(0.47 0.024 95); }
 .tw-branch.lit .tw-leaf { fill: oklch(0.85 0.17 138); }
 .tw-branch.lit .tw-bud { stroke: var(--amber); }
 

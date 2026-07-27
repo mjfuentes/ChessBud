@@ -128,6 +128,9 @@ function layout(level, ctx, geo, bounds) {
     const w1 = Math.max(0.4, ctx.w * Math.sqrt(node.weight / total) * (ctx.taper || 0.88))
     geo.set(node.key, {
       x0: ctx.x, y0: ctx.y, x1: bx, y1: by, w0: ctx.w, w1, angle, noise, len,
+      // wood more than one opening grows on — it belongs to all of them, so
+      // hovering any single opening must not claim it
+      shared: node.ids.size > 1,
     })
     bounds.minX = Math.min(bounds.minX, bx)
     bounds.maxX = Math.max(bounds.maxX, bx)
@@ -157,7 +160,7 @@ function drawBook(wood, canopy, nodes, path, color, geo) {
     if (!g) continue
     wood.append(el('path', {
       d: ribbon(g.x0, g.y0, g.x1, g.y1, g.w0, g.w1, g.noise * g.len * 0.13),
-      class: 'tw-wood',
+      class: g.shared ? 'tw-wood tw-shared' : 'tw-wood',
     }))
     const kids = node.kids || []
     if (node.on) {
