@@ -61,22 +61,37 @@ function ribbon(ax, ay, bx, by, w0, w1, bow) {
     + ` ${(ax - nx * w0).toFixed(1)} ${(ay - ny * w0).toFixed(1)} Z`
 }
 
+// A real leaf blade rather than an ellipse. Path from Lucide (ISC licence,
+// https://lucide.dev) — its natural axis runs from the base at (11,20) to the
+// tip at (19,2), i.e. -66 degrees, which is the offset applied when orienting
+// one along a twig. Defined once and instanced with <use>, so 400 leaves cost
+// about as much as 400 circles did.
+const LEAF_PATH = 'M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 '
+  + '0 5.5-4.78 10-10 10Z'
+const LEAF_AXIS = -66
+const LEAF_CX = 15.4
+const LEAF_CY = 11
+
 // Leaves sit around the twig end on a golden-angle spiral — the arrangement
 // real foliage uses, and the reason a cluster never looks like a row of dots.
 function leafCluster(group, x, y, angle, n, cls, scale) {
   const count = Math.min(n, 7)
   for (let i = 0; i < count; i += 1) {
     const spin = i * 137.5
+    const lean = Math.sin(rad(spin)) * 42
+    const a = rad(angle + lean)
     const reach = (2.4 + i * 1.5) * scale
-    const a = rad(angle + Math.sin(rad(spin)) * 42)
-    group.append(el('ellipse', {
-      cx: (x + Math.cos(a) * reach).toFixed(1),
-      cy: (y + Math.sin(a) * reach).toFixed(1),
-      rx: (3.1 * scale).toFixed(1),
-      ry: (1.9 * scale).toFixed(1),
-      transform: `rotate(${(angle + Math.sin(rad(spin)) * 42 + 90).toFixed(0)} `
-        + `${(x + Math.cos(a) * reach).toFixed(1)} ${(y + Math.sin(a) * reach).toFixed(1)})`,
+    const px = x + Math.cos(a) * reach
+    const py = y + Math.sin(a) * reach
+    const s = (0.19 + (i % 3) * 0.015) * scale * 2.4
+    const flip = i % 2 ? -1 : 1
+    group.append(el('use', {
+      href: '#cb-leaf',
       class: cls,
+      transform: `translate(${px.toFixed(1)} ${py.toFixed(1)})`
+        + ` rotate(${(angle + lean - LEAF_AXIS).toFixed(0)})`
+        + ` scale(${(s * flip).toFixed(3)} ${s.toFixed(3)})`
+        + ` translate(${-LEAF_CX} ${-LEAF_CY})`,
     }))
   }
 }
@@ -130,6 +145,10 @@ export function renderTree(host, drills, handlers) {
     'aria-label': 'Your repertoire as a tree. Every fork is a choice your '
       + 'opponents make; every leaf is a line you have cleared.',
   })
+
+  const defs = el('defs')
+  defs.append(el('path', { id: 'cb-leaf', d: LEAF_PATH }))
+  svg.append(defs)
 
   const sides = [
     { white: true, dir: -1, list: [] },
