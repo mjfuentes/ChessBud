@@ -61,24 +61,23 @@ function ribbon(ax, ay, bx, by, w0, w1, bow) {
     + ` ${(ax - nx * w0).toFixed(1)} ${(ay - ny * w0).toFixed(1)} Z`
 }
 
-// The leaf silhouette, traced from the artwork in Downloads/leaf-spring-icon
-// (EPS -> PDF -> SVG, outline path only; the two shading layers are dropped
-// since none of that detail survives at this size). Defined once in <defs> and
-// instanced with <use>, so 400 leaves cost about what 400 circles did.
+// The leaf silhouette (blade only) from green-leaves-svgrepo-com.svg — the
+// source file's other three paths are outline and vein detail that carries no
+// information at this size. Defined once in <defs> and instanced with <use>,
+// so 400 leaves cost about what 400 circles did.
 //
-// Orientation matters more than the shape here. In its own coordinates the
-// stem sits at (270, 1980) and the tip at (1901, 141) — an axis of -48.4
-// degrees, and a natural length of 2457 units. Leaves are anchored at the STEM
-// so they radiate from where they meet the twig, the way a leaf actually joins
-// a branch, rather than pivoting about their middle.
-const LEAF_PATH = 'M 1901 141 C 1660 342 1305 299 1004 385 C 685 477 427 732 '
-  + '304 1037 C 245 1185 216 1342 215 1501 C 214 1664 267 1820 270 1980 C 384 '
-  + '1870 561 1873 718 1856 C 1096 1815 1497 1604 1705 1278 C 1914 948 1916 '
-  + '532 1901 141'
-const LEAF_AXIS = -48.4
-const LEAF_STEM_X = 270
-const LEAF_STEM_Y = 1980
-const LEAF_UNIT = 2457 // stem-to-tip length in the path's own units
+// Orientation is what makes foliage sit right. This blade is symmetric about
+// x=509.6, with its rounded base at (509.6, 866.3), its point at (509.6, 19.1)
+// and a length of 847.2 units — so it grows straight up, an axis of -90
+// degrees, and every leaf is turned by (twig angle + 90) to lie along its
+// twig. Leaves anchor at the BASE so they radiate from where they meet the
+// wood rather than pivoting about their middle.
+const LEAF_PATH = 'M776.5 569.4c0 210.6-119.5 296.9-266.9 296.9s-267-86.3-267'
+  + '-296.9 267-550.3 267-550.3 266.9 339.7 266.9 550.3z'
+const LEAF_AXIS = -90
+const LEAF_STEM_X = 509.6
+const LEAF_STEM_Y = 866.3
+const LEAF_UNIT = 847.2 // base-to-tip length in the path's own units
 
 // Leaves sit around the twig end on a golden-angle spiral — the arrangement
 // real foliage uses, and the reason a cluster never looks like a row of dots.
@@ -93,15 +92,16 @@ function leafCluster(group, x, y, angle, n, cls, scale) {
     const back = i * 1.1 * scale
     const px = x - Math.cos(a) * back
     const py = y - Math.sin(a) * back
-    const blade = (7.5 + (i % 3) * 1.6) * scale // rendered stem-to-tip, in px
+    // this blade is symmetric, so mirroring it would change nothing — variety
+    // has to come from size and lean instead
+    const blade = (8 + (i % 3) * 1.7) * scale // rendered base-to-tip, in px
     const s = blade / LEAF_UNIT
-    const flip = i % 2 ? -1 : 1
     group.append(el('use', {
       href: '#cb-leaf',
       class: cls,
       transform: `translate(${px.toFixed(1)} ${py.toFixed(1)})`
         + ` rotate(${(angle + lean - LEAF_AXIS).toFixed(0)})`
-        + ` scale(${(s * flip).toFixed(5)} ${s.toFixed(5)})`
+        + ` scale(${s.toFixed(5)})`
         + ` translate(${-LEAF_STEM_X} ${-LEAF_STEM_Y})`,
     }))
   }
