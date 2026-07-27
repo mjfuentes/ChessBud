@@ -125,14 +125,14 @@ function layout(level, ctx, geo, bounds) {
     // ...and a limb narrows as it runs even where it does not fork, or a chain
     // of single children keeps its full width and ends in a blunt stub
     const total = kids.reduce((s, k) => s + k.weight, 0) || 1
-    const w1 = Math.max(0.4, ctx.w * Math.sqrt(node.weight / total) * 0.88)
+    const w1 = Math.max(0.4, ctx.w * Math.sqrt(node.weight / total) * (ctx.taper || 0.88))
     geo.set(node.key, {
       x0: ctx.x, y0: ctx.y, x1: bx, y1: by, w0: ctx.w, w1, angle, noise, len,
     })
     bounds.minX = Math.min(bounds.minX, bx)
     bounds.maxX = Math.max(bounds.maxX, bx)
     bounds.minY = Math.min(bounds.minY, by)
-    layout(node.kids, { x: bx, y: by, angle, len, w: w1 }, geo, bounds)
+    layout(node.kids, { x: bx, y: by, angle, len, w: w1, taper: 0.88 }, geo, bounds)
   })
 }
 
@@ -216,14 +216,20 @@ export function renderTree(host, drills, handlers) {
     const angle = ARC_FROM + (ARC_TO - ARC_FROM) * t
     // limbs leave the trunk over its whole upper length, not from one point
     const rise = Math.sin(rad(180 * t)) * 34
+    // Width is a limb's SHARE of the repertoire, not its raw size: an
+    // unbounded sqrt(games) turned the 1.e4 limb — which merges every defence
+    // you meet — into a plank wider than the trunk. The first segment also
+    // tapers hardest, since that is where the most wood is shed.
+    const share = limb.weight / total
     layout(
       new Map([[limb.san, limb]]),
       {
         x: VIEW.w / 2,
         y: trunkTop + 18 - rise,
         angle,
-        len: TRUNK_LEN * (0.5 + Math.min(0.4, limb.weight / total * 1.8)),
-        w: 2 + Math.sqrt(limb.weight) * 0.6,
+        len: TRUNK_LEN * (0.46 + Math.min(0.3, share * 1.2)),
+        w: 2.4 + Math.min(6.5, share * 22),
+        taper: 0.72,
       },
       geo, bounds,
     )
