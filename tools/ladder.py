@@ -52,6 +52,22 @@ def lines_at_depth(lines: list[list[str]], depth: int, user_is_white: bool) -> s
     return {k for k in keys if k is not None}
 
 
+def earned_depth(entry: dict, lines: list[list[str]], is_white: bool) -> int:
+    """The rung promotion would leave an opening on: the deepest one whose
+    every book line is cleared, plus one."""
+    cleared = entry.get("cleared", {})
+    depth = MIN_DEPTH
+    for d in range(1, MAX_DEPTH + 1):
+        total = lines_at_depth(lines, d, is_white)
+        if not total:
+            break
+        done = [k for k in cleared.get(str(d), []) if k in total]
+        if len(done) < len(total):
+            return max(MIN_DEPTH, d)
+        depth = d + 1
+    return max(MIN_DEPTH, depth)
+
+
 def deepest_supported(lines: list[list[str]], user_is_white: bool) -> int:
     """How deep the drill data can honestly take you.
 
@@ -108,18 +124,22 @@ class Ladder:
         """Build initial state from practice history, once.
 
         `passed_runs` is (drill_id, history, user_is_white) for every run that
-        passed. An opening starts at the deepest level where a pass matched a
-        real book line — reaching move 10 down a line the book doesn't cover
-        proves nothing about that depth.
+        passed. Passes are credited to the rungs whose book lines they match,
+        and the starting depth is then the same thing promotion means: the
+        deepest rung where EVERY line is cleared, plus one. Seeding on "any
+        pass reached this far" instead put openings ten rungs up with two
+        leaves under them.
         """
         with self._lock:
             self._load()
             if self._state:
                 return False
+            colours: dict[str, bool] = {}
             for drill_id, history, is_white in passed_runs:
                 lines = book.get(drill_id)
                 if not lines:
                     continue
+                colours[drill_id] = is_white
                 entry = self._state.setdefault(drill_id, {"depth": MIN_DEPTH, "cleared": {}})
                 for depth in range(1, MAX_DEPTH + 1):
                     key = line_key(history, depth, is_white)
@@ -130,7 +150,10 @@ class Ladder:
                     bucket = entry["cleared"].setdefault(str(depth), [])
                     if key not in bucket:
                         bucket.append(key)
-                    entry["depth"] = max(entry["depth"], depth)
+            for drill_id, entry in self._state.items():
+                entry["depth"] = earned_depth(
+                    entry, book.get(drill_id) or [], colours.get(drill_id, True)
+                )
             self._save()
             return True
 
