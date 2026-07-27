@@ -17,31 +17,35 @@
     <button id="nav-blunders">Blunder replay</button>
   </nav>
   <main id="home" class="home" hidden>
-    <div class="home-col home-left">
-      <header>
-        <div class="home-sub" id="home-sub">blitz coaching</div>
-        <div class="profile-stats" id="profile-stats"></div>
-      </header>
-      <section class="home-replay" id="home-practice">
-        <div class="mode-title">Opening practice</div>
-        <div class="mode-desc" id="practice-desc">Loading…</div>
-        <div class="bar"><div class="bar-fill" id="practice-bar"></div></div>
-        <div class="home-stats" id="practice-stats"></div>
-      </section>
-      <section class="home-replay" id="home-replay">
-        <div class="mode-title">Blunder replay</div>
-        <div class="mode-desc" id="replay-desc">Loading…</div>
-        <div class="bar"><div class="bar-fill" id="replay-bar"></div></div>
-      </section>
-    </div>
-
-    <div class="home-col">
-      <div class="mode-title">As White · real games · score · practice passed</div>
+    <div class="home-col home-side">
+      <div class="side-head">As White</div>
       <ol class="openings" id="home-white"></ol>
     </div>
 
-    <div class="home-col">
-      <div class="mode-title">As Black</div>
+    <div class="home-canopy">
+      <div class="canopy-figure" id="tree"></div>
+      <figcaption class="canopy-caption" id="tree-caption">
+        <span class="cap-name" id="cap-name">Your repertoire</span>
+        <span class="cap-detail" id="cap-detail">
+          Branch length is how deep you have taken an opening; foliage is the
+          lines you have cleared. Hover a branch.
+        </span>
+      </figcaption>
+      <div class="canopy-modes">
+        <button class="mode-link" id="home-practice">
+          <span class="mode-title">Opening practice</span>
+          <span class="mode-desc" id="practice-desc">Loading…</span>
+        </button>
+        <button class="mode-link" id="home-replay">
+          <span class="mode-title">Blunder replay</span>
+          <span class="mode-desc" id="replay-desc">Loading…</span>
+        </button>
+        <div class="profile-stats" id="profile-stats"></div>
+      </div>
+    </div>
+
+    <div class="home-col home-side">
+      <div class="side-head">As Black</div>
       <ol class="openings" id="home-black"></ol>
     </div>
   </main>

@@ -53,11 +53,26 @@ def lines_at_depth(lines: list[list[str]], depth: int, user_is_white: bool) -> s
 
 
 def deepest_supported(lines: list[list[str]], user_is_white: bool) -> int:
-    """How deep the drill data can actually take you."""
-    for depth in range(MAX_DEPTH, 0, -1):
-        if lines_at_depth(lines, depth, user_is_white):
-            return depth
-    return 0
+    """How deep the drill data can honestly take you.
+
+    Not simply the longest line: a book thins out as it deepens, because most
+    lines end while a few carry an engine tail. A rung where only one or two
+    lines survive is easier than the rung below it, which makes the ladder run
+    backwards. So the ceiling is the deepest rung that still holds at least
+    half the widest coverage this opening ever offers.
+    """
+    counts = {}
+    for depth in range(1, MAX_DEPTH + 1):
+        n = len(lines_at_depth(lines, depth, user_is_white))
+        if n:
+            counts[depth] = n
+    if not counts:
+        return 0
+    floor = max(2, max(counts.values()) / 2)
+    honest = [d for d, n in counts.items() if n >= floor]
+    # a drill with a single line everywhere has no breadth to measure; let it
+    # run to the end of its book rather than pinning it at depth 1
+    return max(honest) if honest else max(counts)
 
 
 class Ladder:
@@ -140,6 +155,26 @@ class Ladder:
                 "supported": supported,
                 "at_ceiling": depth >= cap,
             }
+
+    def rungs(
+        self, drill_id: str, lines: list[list[str]], is_white: bool, depth: int
+    ) -> list[dict]:
+        """Cleared/total for every rung up to and including the current one.
+
+        The branch drawn on the home screen uses this as its depth axis: rungs
+        below the tip keep the foliage you earned there.
+        """
+        with self._lock:
+            self._load()
+            cleared = self._state.get(drill_id, {}).get("cleared", {})
+        out = []
+        for d in range(1, depth + 1):
+            total = lines_at_depth(lines, d, is_white)
+            if not total:
+                continue
+            done = [k for k in cleared.get(str(d), []) if k in total]
+            out.append({"depth": d, "cleared": len(done), "total": len(total)})
+        return out
 
     def record_pass(
         self, drill_id: str, history: list[str], lines: list[list[str]],

@@ -1,4 +1,5 @@
 import { Chessground } from './vendor/chessground.min.js'
+import { renderTree } from './tree.js'
 
 const initialState = {
   fen: null, // live position (the tip of the game)
@@ -1066,7 +1067,6 @@ function show(view) {
 async function showHome() {
   show('home')
   const data = await api('/api/drills', {})
-  document.getElementById('home-sub').textContent = `${data.user} · blitz coaching`
   const profile = data.profile || {}
   document.getElementById('profile-stats').replaceChildren(
     ...['blitz', 'rapid'].filter((k) => profile[k]).map((k) => {
@@ -1101,28 +1101,25 @@ async function showHome() {
   const sets = data.puzzles || {}
   const blunders = sets.blunders || { total: 0, solved: 0 }
   document.getElementById('replay-desc').textContent = blunders.total
-    ? `${blunders.solved} of ${blunders.total} blunders from your games solved — first try counts`
-    : 'Nothing mined yet — generation may still be running'
-  document.getElementById('replay-bar').style.width = blunders.total
-    ? `${(100 * blunders.solved) / blunders.total}%`
-    : '0'
+    ? `${blunders.solved} of ${blunders.total} solved`
+    : 'nothing mined yet'
 
   const prepared = data.drills.filter((d) => d.id.includes('/'))
-  const mistakes = sets.openings || { total: 0, solved: 0 }
+  const bloom = prepared.reduce((acc, d) => {
+    const L = d.ladder
+    if (!L?.total) return acc
+    return { cleared: acc.cleared + L.cleared, total: acc.total + L.total }
+  }, { cleared: 0, total: 0 })
   document.getElementById('practice-desc').textContent =
-    `${prepared.length} openings prepared — the opponent picks lines and steers into the `
-    + `${mistakes.total - mistakes.solved} past opening mistakes you haven't fixed yet `
-    + `(${mistakes.solved}/${mistakes.total} fixed)`
-  document.getElementById('practice-bar').style.width = mistakes.total
-    ? `${(100 * mistakes.solved) / mistakes.total}%`
-    : '0'
-  const t = data.training || {}
-  document.getElementById('practice-stats').textContent = t.games
-    ? `${t.games} games played · ${t.passes || 0}/${t.completed || 0} openings passed · `
-      + `${t.bounces || 0} moves bounced · ${t.fixed || 0} mistakes fixed`
-    : 'No practice games yet — click to play your first'
+    `${bloom.cleared} of ${bloom.total} lines cleared at your current depths`
 
-  const practiced = new Map((t.openings || []).filter((o) => o.drill_id).map((o) => [o.drill_id, o]))
+  const rowsById = new Map()
+  const branches = renderTree(document.getElementById('tree'), prepared, {
+    onEnter: (id) => focusOpening(id, prepared, branches, rowsById),
+    onLeave: () => focusOpening(null, prepared, branches, rowsById),
+    onPick: (id) => newGame({ drill: id }),
+  })
+
   for (const color of ['white', 'black']) {
     const all = prepared
       .filter((d) => d.user_color === color)
@@ -1166,10 +1163,38 @@ async function showHome() {
         li.append(name, meta, prac)
         li.classList.add('pick')
         li.addEventListener('click', () => newGame({ drill: d.id }))
+        li.addEventListener('pointerenter', () => focusOpening(d.id, prepared, branches, rowsById))
+        li.addEventListener('pointerleave', () => focusOpening(null, prepared, branches, rowsById))
+        rowsById.set(d.id, li)
         return li
       })
     document.getElementById(`home-${color}`).replaceChildren(...rows)
   }
+}
+
+// One opening at a time: the branch lifts, its row lifts, everything else
+// recedes, and the caption under the tree says what you are looking at.
+function focusOpening(id, drills, branches, rows) {
+  const name = document.getElementById('cap-name')
+  const detail = document.getElementById('cap-detail')
+  document.getElementById('tree').classList.toggle('focused', Boolean(id))
+  for (const [key, group] of branches) group.classList.toggle('lit', key === id)
+  for (const [key, row] of rows) row.classList.toggle('lit', key === id)
+  if (!id) {
+    name.textContent = 'Your repertoire'
+    detail.textContent = 'Branch length is how deep you have taken an opening; '
+      + 'foliage is the lines you have cleared. Hover a branch.'
+    return
+  }
+  const d = drills.find((x) => x.id === id)
+  if (!d) return
+  const L = d.ladder
+  name.textContent = d.name.replace(/ — (White|Black)$/, '')
+  const grown = (L.rungs || []).reduce((n, r) => n + r.cleared, 0)
+  detail.textContent = `depth ${L.depth} of ${L.supported || L.target}`
+    + ` · ${L.cleared} of ${L.total} lines cleared here`
+    + ` · ${grown} grown in total`
+    + (d.games ? ` · faced ${d.games} times` : '')
 }
 
 async function newGame(custom) {

@@ -775,8 +775,11 @@ def ladder_state(drill_id: str, drill: Drill) -> dict:
     target = ladder_target()
     if not drill.lines:
         return {"depth": target, "cleared": 0, "total": 0, "target": target,
-                "supported": 0, "at_ceiling": True}
-    return ladder.state(drill_id, drill.lines, drill.user_color == chess.WHITE, target)
+                "supported": 0, "at_ceiling": True, "rungs": []}
+    is_white = drill.user_color == chess.WHITE
+    state = ladder.state(drill_id, drill.lines, is_white, target)
+    return {**state,
+            "rungs": ladder.rungs(drill_id, drill.lines, is_white, state["depth"])}
 
 
 def run_depth(drill_id: str, drill: Drill | None) -> int:
