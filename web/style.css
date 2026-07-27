@@ -81,7 +81,8 @@ main { flex: 1; min-height: 0; }
   stroke: none;
   transition: fill 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-.tw-trunk { fill: oklch(0.42 0.028 90); }
+/* the trunk takes the same wood as the limbs so the join reads as continuous */
+.tw-trunk { fill: inherit; }
 .tw-branch { cursor: pointer; }
 
 /* opaque, and painted in the canopy layer above every limb — foliage that
