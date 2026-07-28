@@ -640,15 +640,17 @@ cg-board {
 .message.good { color: var(--good); }
 .message.bad { color: var(--bad); }
 
-/* the figures that open a run — label, count, context, result */
-.i-row {
+/* the figures that open a run — label, count, context, result. One grid for
+   every row (rows are display: contents) so the counts and the percentages
+   line up down the column; a grid per row sizes each one on its own. */
+.i-grid {
   display: grid;
-  grid-template-columns: 5.2em max-content 1fr max-content;
+  grid-template-columns: 5.4em max-content 1fr max-content;
   align-items: baseline;
-  gap: 0 8px;
+  gap: 3px 8px;
   font-variant-numeric: tabular-nums;
-  padding: 1px 0;
 }
+.i-row { display: contents; }
 .i-label {
   font-size: 0.66rem;
   font-weight: 700;
