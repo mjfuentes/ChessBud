@@ -244,29 +244,31 @@ function verdictCopy({ passed, lost, hintUsed, bounces, drift, userColor, flaws 
   }
 }
 
-const ladderText = (l) => `depth ${l.depth} · ${l.cleared}/${l.total} lines cleared`
+const ladderText = (l) => `${l.started} of ${l.lines} lines growing`
+  + ` · deepest ${l.deepest} moves`
 
-// Tell the server how the run went so the ladder can tick this line off, then
-// show where the opening stands. Failing to report must not break the verdict.
-async function reportResult(passed, before, history) {
+// Tell the server how the run went so the line it played can grow, then show
+// where the opening stands. Failing to report must not break the verdict.
+async function reportResult(passed, before, history, depth) {
   const el = document.getElementById('verdict-ladder')
   el.className = 'verdict-ladder'
-  if (!state.drill || !before || !before.total) { el.textContent = ''; return }
+  if (!state.drill || !before || !before.lines) { el.textContent = ''; return }
   el.textContent = ladderText(before)
   let data
   try {
     data = await api('/api/result', {
-      drill: state.drill, game: state.gameId, history: history || state.history, passed,
+      drill: state.drill, game: state.gameId, history: history || state.history,
+      passed, depth,
     })
   } catch (err) {
     console.error('Could not record the run:', err)
     return
   }
   const after = data.ladder
-  if (!after || !after.total) return
-  if (data.promoted) {
+  if (!after || !after.lines) return
+  if (data.grew) {
     el.className = 'verdict-ladder promoted'
-    el.textContent = `Depth ${after.depth} unlocked — ${after.total} lines to clear`
+    el.textContent = `This line grows to ${data.next} moves`
   } else {
     el.textContent = ladderText(after)
   }
@@ -834,7 +836,7 @@ async function submitMove(uci) {
     document.getElementById('verdict-family').textContent = fam
       ? `${fam.family}: ${fam.passes}/${fam.completed} runs passed`
       : ''
-    reportResult(passed, data.ladder, data.history)
+    reportResult(passed, data.ladder, data.history, data.depth)
     document.getElementById('verdict-modal').hidden = false
   }
   if (verdictNow || (data.game_over && state.mode === 'drill')) {
@@ -1108,11 +1110,15 @@ async function showHome() {
   const prepared = data.drills.filter((d) => d.id.includes('/'))
   const bloom = prepared.reduce((acc, d) => {
     const L = d.ladder
-    if (!L?.total) return acc
-    return { cleared: acc.cleared + L.cleared, total: acc.total + L.total }
-  }, { cleared: 0, total: 0 })
+    if (!L?.lines) return acc
+    return {
+      started: acc.started + L.started,
+      lines: acc.lines + L.lines,
+      deepest: Math.max(acc.deepest, L.deepest),
+    }
+  }, { started: 0, lines: 0, deepest: 0 })
   document.getElementById('practice-desc').textContent =
-    `${bloom.cleared} of ${bloom.total} lines cleared at your current depths`
+    `${bloom.started} of ${bloom.lines} lines growing · deepest ${bloom.deepest} moves`
 
   const rowsById = new Map()
   const branches = renderTree(document.getElementById('tree'), prepared, {
@@ -1145,18 +1151,17 @@ async function showHome() {
         const prac = document.createElement('span')
         prac.className = 'o-meta o-prac'
         const L = d.ladder
-        if (L && L.total) {
+        if (L && L.lines) {
           const depth = document.createElement('b')
-          depth.className = L.at_ceiling ? 'good' : ''
-          depth.textContent = `d${L.depth}`
+          depth.className = L.deepest >= 8 ? 'good' : ''
+          depth.textContent = L.deepest ? `${L.deepest} moves` : 'new'
           const bar = document.createElement('span')
           bar.className = 'o-rungs'
-          bar.style.setProperty('--filled', `${Math.round(100 * L.cleared / L.total)}%`)
-          prac.append(depth, ` ${L.cleared}/${L.total}`, bar)
-          prac.title = `depth ${L.depth} of ${L.target} (rating target)`
-            + `${L.at_ceiling ? ' — at your ceiling' : ''}\n`
-            + `${L.cleared} of ${L.total} lines cleared at this depth`
-            + `${L.supported ? ` · book supports depth ${L.supported}` : ''}`
+          bar.style.setProperty('--filled', `${Math.round(100 * L.started / L.lines)}%`)
+          prac.append(depth, ` · ${L.started}/${L.lines}`, bar)
+          prac.title = `${L.started} of ${L.lines} lines started\n`
+            + `deepest ${L.deepest} moves · ${L.average} on average\n`
+            + 'each line grows on its own — nothing is locked'
         } else {
           prac.textContent = '—'
         }
@@ -1193,10 +1198,8 @@ function focusOpening(id, drills, branches, rows) {
   if (!d) return
   const L = d.ladder
   name.textContent = d.name.replace(/ — (White|Black)$/, '')
-  const grown = (L.rungs || []).reduce((n, r) => n + r.cleared, 0)
-  detail.textContent = `depth ${L.depth} of ${L.supported || L.target}`
-    + ` · ${L.cleared} of ${L.total} lines cleared here`
-    + ` · ${grown} grown in total`
+  detail.textContent = `${L.started} of ${L.lines} lines growing`
+    + ` · deepest ${L.deepest} moves, ${L.average} on average`
     + (d.games ? ` · faced ${d.games} times` : '')
 }
 

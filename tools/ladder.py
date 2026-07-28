@@ -1,12 +1,15 @@
-"""Per-opening depth ladder.
+"""Per-line depth.
 
-Each opening carries its own depth — how many of your moves a run is graded
-over. Your blitz rating sets the ceiling (floor(rating/100)); an opening climbs
-toward it one move at a time, and only when you have cleared *every* book line
-at the current depth. Openings you have already proven start where you proved
-them; untouched ones start shallow, where success is reachable.
+Every line carries its own depth — how many of your moves you have played
+through it cleanly — and grows one move at a time as you clear it. Nothing is
+gated: an opening is not a level you unlock, it is a set of lines you have each
+taken as far as you have taken them. Decline a line and it simply stays where
+it is, waiting, while the ones you do play keep growing.
 
-State lives in data/ladder.json and is keyed by drill id.
+A line is identified by the opponent's moves, so meeting it with a different
+sound move of your own still counts as having played it.
+
+State lives in data/ladder.json, keyed by drill id: cleared line keys per depth.
 """
 
 from __future__ import annotations
@@ -16,16 +19,8 @@ import random
 import threading
 from pathlib import Path
 
-MIN_DEPTH = 4
+MIN_DEPTH = 3    # a fresh line starts here — enough to be a real test
 MAX_DEPTH = 15
-DEFAULT_TARGET = 10  # used when the rating is unknown (offline)
-
-
-def target_depth(rating: int | None) -> int:
-    """The ceiling every opening climbs toward: one move per 100 rating."""
-    if not rating:
-        return DEFAULT_TARGET
-    return max(MIN_DEPTH, min(MAX_DEPTH, rating // 100))
 
 
 def plies_at_depth(depth: int, user_is_white: bool) -> int:
@@ -34,11 +29,11 @@ def plies_at_depth(depth: int, user_is_white: bool) -> int:
 
 
 def line_key(history: list[str], depth: int, user_is_white: bool) -> str | None:
-    """Identity of a line: the moves the OPPONENT played, not your answers.
+    """Identity of a line at a given depth: the moves the OPPONENT played.
 
-    A line is the challenge you were set. Which good move you chose to meet it
-    is what the pass verdict already judges — keying on your moves too would
-    mean an equally sound alternative never ticked anything off.
+    Which sound move you chose to meet it is what the verdict already judges;
+    keying on your moves too would mean an equally good alternative never
+    ticked anything off.
     """
     n = plies_at_depth(depth, user_is_white)
     if len(history) < n:
@@ -46,53 +41,21 @@ def line_key(history: list[str], depth: int, user_is_white: bool) -> str | None:
     return " ".join(history[1:n:2] if user_is_white else history[0:n:2])
 
 
+def line_length(line: list[str], user_is_white: bool) -> int:
+    """The deepest rung this line's book moves can carry."""
+    for depth in range(MAX_DEPTH, 0, -1):
+        if len(line) >= plies_at_depth(depth, user_is_white):
+            return depth
+    return 0
+
+
 def lines_at_depth(lines: list[list[str]], depth: int, user_is_white: bool) -> set[str]:
-    """Every distinct challenge the book can pose at this depth."""
     keys = {line_key(sans, depth, user_is_white) for sans in lines}
     return {k for k in keys if k is not None}
 
 
-def earned_depth(entry: dict, lines: list[list[str]], is_white: bool) -> int:
-    """The rung promotion would leave an opening on: the deepest one whose
-    every book line is cleared, plus one."""
-    cleared = entry.get("cleared", {})
-    depth = MIN_DEPTH
-    for d in range(1, MAX_DEPTH + 1):
-        total = lines_at_depth(lines, d, is_white)
-        if not total:
-            break
-        done = [k for k in cleared.get(str(d), []) if k in total]
-        if len(done) < len(total):
-            return max(MIN_DEPTH, d)
-        depth = d + 1
-    return max(MIN_DEPTH, depth)
-
-
-def deepest_supported(lines: list[list[str]], user_is_white: bool) -> int:
-    """How deep the drill data can honestly take you.
-
-    Not simply the longest line: a book thins out as it deepens, because most
-    lines end while a few carry an engine tail. A rung where only one or two
-    lines survive is easier than the rung below it, which makes the ladder run
-    backwards. So the ceiling is the deepest rung that still holds at least
-    half the widest coverage this opening ever offers.
-    """
-    counts = {}
-    for depth in range(1, MAX_DEPTH + 1):
-        n = len(lines_at_depth(lines, depth, user_is_white))
-        if n:
-            counts[depth] = n
-    if not counts:
-        return 0
-    floor = max(2, max(counts.values()) / 2)
-    honest = [d for d, n in counts.items() if n >= floor]
-    # a drill with a single line everywhere has no breadth to measure; let it
-    # run to the end of its book rather than pinning it at depth 1
-    return max(honest) if honest else max(counts)
-
-
 class Ladder:
-    """Depth and cleared-line state per drill, persisted as JSON."""
+    """Cleared line keys per depth, persisted as JSON."""
 
     def __init__(self, path: Path):
         self.path = path
@@ -116,171 +79,123 @@ class Ladder:
         tmp.write_text(json.dumps(self._state, indent=1, sort_keys=True), encoding="utf-8")
         tmp.rename(self.path)
 
-    def seed(
-        self,
-        passed_runs: list[tuple[str, list[str], bool]],
-        book: dict[str, list[list[str]]],
-    ) -> bool:
-        """Build initial state from practice history, once.
-
-        `passed_runs` is (drill_id, history, user_is_white) for every run that
-        passed. Passes are credited to the rungs whose book lines they match,
-        and the starting depth is then the same thing promotion means: the
-        deepest rung where EVERY line is cleared, plus one. Seeding on "any
-        pass reached this far" instead put openings ten rungs up with two
-        leaves under them.
-        """
+    def has_state(self) -> bool:
         with self._lock:
             self._load()
-            if self._state:
-                return False
-            colours: dict[str, bool] = {}
-            for drill_id, history, is_white in passed_runs:
-                lines = book.get(drill_id)
-                if not lines:
-                    continue
-                colours[drill_id] = is_white
-                entry = self._state.setdefault(drill_id, {"depth": MIN_DEPTH, "cleared": {}})
-                for depth in range(1, MAX_DEPTH + 1):
-                    key = line_key(history, depth, is_white)
-                    if key is None:
-                        break
-                    if key not in lines_at_depth(lines, depth, is_white):
-                        continue
-                    bucket = entry["cleared"].setdefault(str(depth), [])
-                    if key not in bucket:
-                        bucket.append(key)
-            for drill_id, entry in self._state.items():
-                entry["depth"] = earned_depth(
-                    entry, book.get(drill_id) or [], colours.get(drill_id, True)
-                )
-            self._save()
-            return True
+            return bool(self._state)
 
-    def state(
-        self, drill_id: str, lines: list[list[str]], is_white: bool, target: int
+    def _cleared(self, drill_id: str) -> dict[str, set[str]]:
+        self._load()
+        raw = self._state.get(drill_id, {}).get("cleared", {})
+        return {d: set(keys) for d, keys in raw.items()}
+
+    def depth_of(
+        self, drill_id: str, line: list[str], is_white: bool, cleared=None
+    ) -> int:
+        """The rung this line is waiting on: the shallowest one not yet cleared.
+
+        Depth only ever advances one rung at a time, so a line you have never
+        touched opens at MIN_DEPTH and a line you have played to move 8 offers
+        move 9 next.
+        """
+        done = self._cleared(drill_id) if cleared is None else cleared
+        cap = line_length(line, is_white)
+        for depth in range(1, min(cap, MAX_DEPTH) + 1):
+            key = line_key(line, depth, is_white)
+            if key is None:
+                break
+            if key not in done.get(str(depth), set()):
+                return max(MIN_DEPTH, depth) if depth < MIN_DEPTH else depth
+        return min(cap, MAX_DEPTH) + 1 if cap else MIN_DEPTH
+
+    def summary(self, drill_id: str, lines: list[list[str]], is_white: bool) -> dict:
+        """What this opening looks like as a whole — for the list, not for
+        gating anything."""
+        with self._lock:
+            done = self._cleared(drill_id)
+            depths = [self.depth_of(drill_id, ln, is_white, done) for ln in lines]
+        grown = sum(len(v) for v in done.values())
+        started = sum(1 for d in depths if d > MIN_DEPTH)
+        return {
+            "lines": len(lines),
+            "started": started,
+            "grown": grown,
+            "deepest": max(depths, default=0) - 1,
+            "average": round(sum(d - 1 for d in depths) / len(depths), 1) if lines else 0,
+        }
+
+    def record_pass(
+        self, drill_id: str, history: list[str], is_white: bool, depth: int
     ) -> dict:
-        """Current rung for a drill, clamped to the rating target and to what
-        the drill data can support."""
-        with self._lock:
-            self._load()
-            entry = self._state.get(drill_id) or {"depth": MIN_DEPTH, "cleared": {}}
-            supported = deepest_supported(lines, is_white)
-            cap = min(target, supported) if supported else target
-            depth = max(1, min(entry.get("depth", MIN_DEPTH), cap))
-            total = lines_at_depth(lines, depth, is_white)
-            cleared = [k for k in entry.get("cleared", {}).get(str(depth), []) if k in total]
-            return {
-                "depth": depth,
-                "cleared": len(cleared),
-                "total": len(total),
-                "target": target,
-                "supported": supported,
-                "at_ceiling": depth >= cap,
-            }
+        """Mark a line cleared to `depth`.
 
-    def rungs(
-        self, drill_id: str, lines: list[list[str]], is_white: bool, depth: int
-    ) -> list[dict]:
-        """Cleared/total for every rung up to and including the current one.
-
-        The branch drawn on the home screen uses this as its depth axis: rungs
-        below the tip keep the foliage you earned there.
+        Every shallower rung is marked too: reaching move 8 cleanly means the
+        moves before it were played cleanly, and it keeps 'the shallowest rung
+        not yet cleared' honest as the line's depth.
         """
         with self._lock:
             self._load()
-            cleared = self._state.get(drill_id, {}).get("cleared", {})
-        out = []
-        for d in range(1, depth + 1):
-            total = lines_at_depth(lines, d, is_white)
-            if not total:
-                continue
-            done = [k for k in cleared.get(str(d), []) if k in total]
-            out.append({"depth": d, "cleared": len(done), "total": len(total)})
-        return out
+            entry = self._state.setdefault(drill_id, {"cleared": {}})
+            marked = []
+            for d in range(1, depth + 1):
+                key = line_key(history, d, is_white)
+                if key is None:
+                    break
+                bucket = entry["cleared"].setdefault(str(d), [])
+                if key not in bucket:
+                    bucket.append(key)
+                    marked.append(d)
+            self._save()
+        return {"depth": depth, "marked": marked, "next": depth + 1}
+
+    def next_line(
+        self, drill_id: str, lines: list[list[str]], is_white: bool
+    ) -> tuple[list[str] | None, int]:
+        """A line to play, and the rung it is waiting on.
+
+        Shallow lines come first so the repertoire broadens before it deepens,
+        but the choice stays random among equals — nothing is ever locked, and
+        a line you keep declining simply waits.
+        """
+        with self._lock:
+            done = self._cleared(drill_id)
+            scored = [
+                (ln, self.depth_of(drill_id, ln, is_white, done))
+                for ln in lines
+                if line_length(ln, is_white) >= MIN_DEPTH
+            ]
+        open_lines = [(ln, d) for ln, d in scored if d <= line_length(ln, is_white)]
+        if not open_lines:
+            return (random.choice(lines) if lines else None, MIN_DEPTH)
+        shallowest = min(d for _, d in open_lines)
+        pool = [(ln, d) for ln, d in open_lines if d == shallowest]
+        return random.choice(pool)
 
     def trie(
-        self, drill_id: str, lines: list[list[str]], is_white: bool, depth: int
+        self, drill_id: str, lines: list[list[str]], is_white: bool
     ) -> list[dict]:
-        """The book as a nested tree of the opponent's choices.
-
-        Every fork here is a real fork in your preparation, and a node's key is
-        the line identity at its own depth — so a node knows whether you have
-        cleared it. This is what the home screen draws: the branching is the
-        data, not decoration.
-        """
+        """The book as a nested tree of the opponent's choices, each line drawn
+        only as deep as you have taken it, plus the one rung it is offering
+        next. Every fork is a real fork in your preparation."""
         with self._lock:
-            self._load()
-            cleared = self._state.get(drill_id, {}).get("cleared", {})
-        done = {int(d): set(keys) for d, keys in cleared.items()}
+            done = self._cleared(drill_id)
         roots: list[dict] = []
         index: dict[str, dict] = {}
-        for d in range(1, depth + 1):
-            for sans in lines:
-                key = line_key(sans, d, is_white)
+        for line in lines:
+            reach = min(self.depth_of(drill_id, line, is_white, done),
+                        line_length(line, is_white))
+            for d in range(1, reach + 1):
+                key = line_key(line, d, is_white)
                 if key is None or key in index:
                     continue
                 moves = key.split()
                 node = {
                     "san": moves[-1] if moves else "",
                     "d": d,
-                    "on": key in done.get(d, set()),
+                    "on": key in done.get(str(d), set()),
                     "kids": [],
                 }
                 index[key] = node
-                parent_key = " ".join(moves[:-1])
-                parent = index.get(parent_key) if moves[:-1] else None
+                parent = index.get(" ".join(moves[:-1])) if moves[:-1] else None
                 (parent["kids"] if parent else roots).append(node)
         return roots
-
-    def record_pass(
-        self, drill_id: str, history: list[str], lines: list[list[str]],
-        is_white: bool, target: int,
-    ) -> dict:
-        """Tick off the line just passed; promote when the depth is complete."""
-        before = self.state(drill_id, lines, is_white, target)
-        depth = before["depth"]
-        key = line_key(history, depth, is_white)
-        if key is None or key not in lines_at_depth(lines, depth, is_white):
-            # the opponent ended up somewhere the book does not cover at this
-            # depth, so there is no line to tick off
-            return {**before, "promoted": False, "off_book": True}
-        with self._lock:
-            self._load()
-            entry = self._state.setdefault(drill_id, {"depth": depth, "cleared": {}})
-            entry["depth"] = depth
-            bucket = entry["cleared"].setdefault(str(depth), [])
-            if key not in bucket:
-                bucket.append(key)
-            total = lines_at_depth(lines, depth, is_white)
-            done = len([k for k in bucket if k in total])
-            supported = deepest_supported(lines, is_white)
-            cap = min(target, supported) if supported else target
-            promoted = done >= len(total) and depth < cap
-            if promoted:
-                entry["depth"] = depth + 1
-            self._save()
-        after = self.state(drill_id, lines, is_white, target)
-        return {**after, "promoted": promoted, "cleared_now": key}
-
-    def next_line(
-        self, drill_id: str, lines: list[list[str]], is_white: bool, target: int
-    ) -> list[str] | None:
-        """A full book line whose depth-key you have not cleared yet — what the
-        opponent should steer into next. Longest first, so the run has book
-        cover for the whole graded stretch."""
-        st = self.state(drill_id, lines, is_white, target)
-        depth = st["depth"]
-        with self._lock:
-            self._load()
-            done = set(self._state.get(drill_id, {}).get("cleared", {}).get(str(depth), []))
-        candidates = []
-        for sans in lines:
-            key = line_key(sans, depth, is_white)
-            if key is not None and key not in done:
-                candidates.append(sans)
-        if not candidates:
-            return None
-        # rotate through what is left rather than always serving the longest —
-        # a line you keep failing would otherwise be the only thing you ever see
-        return random.choice(candidates)

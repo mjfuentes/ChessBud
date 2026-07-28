@@ -766,55 +766,57 @@ def training_summary() -> dict:
     }
 
 
-def ladder_target() -> int:
-    """Ceiling for every opening, from the live blitz rating."""
-    profile = fetch_profile(USER) or {}
-    return ladder_mod.target_depth((profile.get("blitz") or {}).get("rating"))
+MIXED_DEPTH = 10  # mixed practice has no single line to grade, so it uses this
 
 
 def ladder_state(drill_id: str, drill: Drill) -> dict:
-    """Rung this opening currently sits on. Mixed practice has no book lines of
-    its own, so it simply runs at the rating target."""
-    target = ladder_target()
+    """How far this opening's lines have grown — for display only. Nothing here
+    gates anything: depth belongs to lines, not to openings."""
     if not drill.lines:
-        return {"depth": target, "cleared": 0, "total": 0, "target": target,
-                "supported": 0, "at_ceiling": True, "rungs": []}
-    is_white = drill.user_color == chess.WHITE
-    state = ladder.state(drill_id, drill.lines, is_white, target)
-    return {**state,
-            "rungs": ladder.rungs(drill_id, drill.lines, is_white, state["depth"])}
+        return {"lines": 0, "started": 0, "grown": 0, "deepest": 0, "average": 0}
+    return ladder.summary(drill_id, drill.lines, drill.user_color == chess.WHITE)
 
 
 def ladder_trie(drill_id: str, drill: Drill) -> list[dict]:
     if not drill.lines:
         return []
+    return ladder.trie(drill_id, drill.lines, drill.user_color == chess.WHITE)
+
+
+def run_depth(drill_id: str, drill: Drill | None, script: list[str]) -> int:
+    """How many of your moves this run is graded over: the rung the line you
+    are being shown is waiting on. Off the drills, or with no line in play,
+    fall back to a fixed length."""
+    if drill is None or not drill.lines or not script:
+        return MIXED_DEPTH
     is_white = drill.user_color == chess.WHITE
-    depth = ladder.state(drill_id, drill.lines, is_white, ladder_target())["depth"]
-    return ladder.trie(drill_id, drill.lines, is_white, depth)
-
-
-def run_depth(drill_id: str, drill: Drill | None) -> int:
-    """How many of the user's moves this run is graded over."""
-    if drill is None:
-        return ladder_target()
-    return ladder_state(drill_id, drill)["depth"]
+    reach = ladder_mod.line_length(script, is_white)
+    if not reach:
+        return MIXED_DEPTH
+    return min(reach, ladder.depth_of(drill_id, script, is_white))
 
 
 def seed_ladder_from_history(drills: dict[str, Drill]) -> None:
-    """First run only: start each opening where its practice log proves it."""
+    """First run only: credit every line your practice log shows you passing,
+    to the depth you passed it at."""
+    if ladder.has_state():
+        return
     analysis = analyze_practice_log()
-    runs = []
+    grown = 0
     for gid in analysis["order"]:
         res = analysis["results"][gid]
         if not res["verdict"]:
             continue
         drill_id = (analysis["starts"].get(gid) or {}).get("drill")
-        if not drill_id or drill_id.startswith("practice:"):
+        drill = drills.get(drill_id or "")
+        if drill is None or not drill.lines or drill_id.startswith("practice:"):
             continue
-        runs.append((drill_id, res["sans"], res["orientation"] == "white"))
-    book = {did: d.lines for did, d in drills.items() if d.lines}
-    if ladder.seed(runs, book):
-        print(f"ladder seeded from {len(runs)} passed runs", flush=True)
+        is_white = res["orientation"] == "white"
+        depth = ladder_mod.line_length(res["sans"], is_white)
+        if depth:
+            ladder.record_pass(drill_id, res["sans"], is_white, depth)
+            grown += 1
+    print(f"ladder seeded from {grown} passed runs", flush=True)
 
 
 def hint_ucis(
@@ -907,30 +909,33 @@ def handle_drills(drills: dict[str, Drill], user: str) -> dict:
 
 
 def handle_result(payload: dict, drills: dict[str, Drill]) -> dict:
-    """The client reports a finished run; a pass ticks its line off the current
-    depth and may promote the opening to the next one."""
+    """The client reports a finished run. A pass grows the line it played by
+    one rung; nothing else in the opening moves."""
     drill_id = str(payload.get("drill", ""))
     drill = drills.get(drill_id)
     passed = bool(payload.get("passed"))
-    # every finished run is logged, ladder or not — the home-screen stats read
+    depth = int(payload.get("depth") or 0)
+    # every finished run is logged, drill or not — the home-screen stats read
     # these verdicts rather than trying to recompute them
     if drill is None or not drill.lines:
         log_event("run_result", drill=drill_id or None, game=payload.get("game"),
-                  passed=passed)
+                  passed=passed, depth=depth or None)
         return {"ladder": None}
     history = list(payload.get("history") or [])
-    state = ladder_state(drill_id, drill)
-    if not passed:
+    is_white = drill.user_color == chess.WHITE
+    if not passed or not depth:
         log_event("run_result", drill=drill_id, game=payload.get("game"),
-                  passed=False, depth=state["depth"])
-        return {"ladder": state, "promoted": False}
-    result = ladder.record_pass(
-        drill_id, history, drill.lines,
-        drill.user_color == chess.WHITE, ladder_target(),
-    )
+                  passed=False, depth=depth or None)
+        return {"ladder": ladder_state(drill_id, drill), "grew": False}
+    grew = ladder.record_pass(drill_id, history, is_white, depth)
     log_event("run_result", drill=drill_id, game=payload.get("game"), passed=True,
-              depth=state["depth"], promoted=result.get("promoted", False))
-    return {"ladder": result, "promoted": result.get("promoted", False)}
+              depth=depth, marked=grew["marked"])
+    return {
+        "ladder": ladder_state(drill_id, drill),
+        "grew": bool(grew["marked"]),
+        "depth": depth,
+        "next": grew["next"],
+    }
 
 
 def freshen_note(mistake_index: MistakeIndex, board: chess.Board, reply: dict) -> None:
@@ -1112,10 +1117,10 @@ def handle_new(
     game_id = f"g{int(time.time() * 1000):x}{random.randrange(16 ** 4):04x}"
     script = payload.get("script") or []
     if not script and drill is not None and drill.lines:
-        # steer into a line you have not yet cleared at this opening's depth,
-        # so climbing the ladder is a matter of playing, not hunting
-        target_line = ladder.next_line(
-            drill_id, drill.lines, drill.user_color == chess.WHITE, ladder_target()
+        # show a line, shallowest first, so the repertoire broadens before it
+        # deepens. Nothing is locked: a line you decline simply waits.
+        target_line, _ = ladder.next_line(
+            drill_id, drill.lines, drill.user_color == chess.WHITE
         )
         if target_line:
             script = target_line
@@ -1299,7 +1304,9 @@ def handle_move(
             (len(history) + 1) // 2 if drill.user_color == chess.WHITE
             else len(history) // 2
         )
-        graded_depth = run_depth(str(payload.get("drill", "")), drill)
+        graded_depth = run_depth(
+            str(payload.get("drill", "")), drill, payload.get("script") or []
+        )
         if user_moves == graded_depth:
             # the run ends on the user's last graded move — no engine reply yet
             eval_cp = analysis.eval_cp(board, chess.WHITE, movetime=0.3)
@@ -1335,6 +1342,7 @@ def handle_move(
                 "family_record": family_record,
                 "ladder": ladder_state(str(payload.get("drill", "")), drill)
                 if drill is not None else None,
+                "depth": graded_depth,
             }
 
     scripted = payload.get("script") or []
