@@ -480,42 +480,21 @@ function showIntro(stats, fallback) {
   const el = document.getElementById('message')
   el.className = 'message note'
   if (!stats) { el.textContent = fallback || ''; return }
-  const row = (label, value, rest, pct) => {
-    const line = document.createElement('div')
-    line.className = 'i-row'
-    const l = document.createElement('span')
-    l.className = 'i-label'
-    l.textContent = label
-    const v = document.createElement('b')
-    v.className = 'i-num'
-    v.textContent = value
-    const r = document.createElement('span')
-    r.className = 'i-rest'
-    r.textContent = rest
-    line.append(l, v, r)
-    if (pct != null) {
-      const p = document.createElement('b')
-      p.className = `i-pct ${scoreClass(pct)}`
-      p.textContent = `${pct}%`
-      line.append(p)
-    }
-    return line
-  }
+  // Sentences, with the figures picked out — a bare grid of labels and numbers
+  // read as a form to be deciphered rather than as something being said.
+  const num = (v) => Object.assign(document.createElement('b'),
+    { className: 'i-num', textContent: v })
+  const pct = (v) => Object.assign(document.createElement('b'),
+    { className: `i-pct ${scoreClass(v)}`, textContent: `${v}%` })
   const rows = []
   if (stats.opening) {
-    rows.push(row('you', stats.opening.games, 'games', stats.opening.score))
-  }
-  if (stats.line) {
-    rows.push(row('this line', stats.line.games,
-      `reached move ${stats.line.move}`, stats.line.score))
+    const p = document.createElement('div')
+    p.append('You have played this opening ', num(stats.opening.games),
+      ' times, scoring ', pct(stats.opening.score), '.')
+    rows.push(p)
   }
   if (!rows.length) { el.textContent = fallback || ''; return }
-  // one grid for all the rows — each row sizing its own columns is what put
-  // the counts in different places
-  const grid = document.createElement('div')
-  grid.className = 'i-grid'
-  grid.append(...rows)
-  el.replaceChildren(grid)
+  el.replaceChildren(...rows)
 }
 
 function showOpening(op) {
