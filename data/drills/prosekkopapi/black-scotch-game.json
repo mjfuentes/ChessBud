@@ -7,31 +7,40 @@
    "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bc5 Be3 Qf6 c3 Nge7 Qd2 d5 Nb5 Bxe3 Qxe3 O-O Nxc7 Rb8 Nxd5 Nxd5 exd5 Nb4",
    "notes": {
     "3": "Scotch Game",
-    "4": "Scotch Game",
-    "7": "Scotch Game: Classical Variation, Blackburne Attack"
+    "4": "Scotch Game: Classical Variation",
+    "7": "Scotch Game: Classical Variation, Blackburne Attack",
+    "12": "Scotch Game: Gottschall Variation"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bc5 Be3 Qf6 c3 Nge7 Bb5 Nd8",
    "notes": {
     "3": "Scotch Game",
-    "4": "Scotch Game",
-    "7": "Scotch Game: Paulsen Attack"
+    "4": "Scotch Game: Classical Variation",
+    "7": "Scotch Game: Paulsen, Gunsberg Defense"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bc5 Be3 Qf6 c3 Nge7 Nc2",
    "notes": {
     "3": "Scotch Game",
-    "4": "Scotch Game",
+    "4": "Scotch Game: Classical Variation",
     "7": "Scotch Game: Meitner Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bc5 Be3 Qf6 c3 Qg6",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Classical Variation",
+    "6": "Scotch Game: Classical Variation, Millennium Variation"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bc5 Be3 Qf6 Nb5",
    "notes": {
     "3": "Scotch Game",
-    "4": "Scotch Game",
+    "4": "Scotch Game: Classical Variation",
     "6": "Scotch Game: Blumenfeld Attack"
    }
   },
@@ -39,30 +48,123 @@
    "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bc5 Nb3 Bb4+",
    "notes": {
     "3": "Scotch Game",
-    "4": "Scotch Game",
-    "5": "Scotch Game: Potter Variation"
+    "4": "Scotch Game: Classical Variation",
+    "5": "Scotch Game: Romanishin Variation"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bc5 Nxc6 Qf6",
    "notes": {
     "3": "Scotch Game",
-    "4": "Scotch Game"
+    "4": "Scotch Game: Classical Variation",
+    "5": "Scotch Game: Classical Variation, Intermezzo Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qh4 Nb5 Bb4+ Bd2 Qxe4+ Be2 Kd8 O-O Bxd2 Qxd2",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Steinitz Variation",
+    "5": "Scotch Game: Horwitz Attack",
+    "6": "Scotch Game",
+    "9": "Scotch Game: Horwitz Attack, Blackburne Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qh4 Nb5 Bb4+ Bd2 Qxe4+ Be2 Kd8 O-O Bxd2 Nxd2 Qg6",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Steinitz Variation",
+    "5": "Scotch Game: Horwitz Attack",
+    "6": "Scotch Game",
+    "9": "Scotch Game: Rosenthal Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qh4 Nc3 Bb4",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Steinitz Variation",
+    "5": "Scotch Game: Modern Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qh4 Be3",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Steinitz Variation",
+    "5": "Scotch Game: Braune Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qh4 Nf3",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Steinitz Variation",
+    "5": "Scotch Game: Fraser Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qh4 Nf5",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Steinitz Variation",
+    "5": "Scotch Game: Paulsen Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Nf6 Nxc6 bxc6 e5",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Schmidt Variation",
+    "6": "Scotch Game: Mieses Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Nf6 Nxc6 bxc6 Nd2",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Schmidt Variation",
+    "6": "Scotch Game: Tartakower Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Nf6 e5",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Schmidt Variation",
+    "5": "Scotch Game: Alekhine Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Nxd4 Qxd4 d6 Bd3",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game",
+    "6": "Scotch Game: Ghulam-Kassim Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bb4+",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Malaniuk Variation"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Bc5 Ng5 Nh6 Nxf7 Nxf7 Bxf7+ Kxf7 Qh5+ g6 Qxc5 d5",
    "notes": {
     "3": "Scotch Game",
-    "4": "Scotch Game: Scotch Gambit",
-    "5": "Scotch Game: Scotch Gambit, Sarratt Variation"
+    "4": "Scotch Game: Haxo Gambit",
+    "5": "Scotch Game: Scotch Gambit, Sarratt Variation",
+    "9": "Scotch Game: Cochrane-Shumov Defense"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Bc5 Ng5 Nh6 Qh5",
    "notes": {
     "3": "Scotch Game",
-    "4": "Scotch Game: Scotch Gambit",
+    "4": "Scotch Game: Haxo Gambit",
     "5": "Scotch Game: Scotch Gambit, Sarratt Variation",
     "6": "Scotch Game: Vitzthum Attack"
    }
@@ -71,7 +173,32 @@
    "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Bc5 O-O d6 c3 Bg4",
    "notes": {
     "3": "Scotch Game",
-    "4": "Scotch Game: Scotch Gambit"
+    "4": "Scotch Game: Haxo Gambit",
+    "6": "Scotch Game: Scotch Gambit, Cochrane-Anderssen Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Bb4+ c3 dxc3 bxc3 Ba5 e5",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Scotch Gambit, London Defense",
+    "7": "Scotch Game: Cochrane Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Bb4+ c3 dxc3 O-O cxb2 Bxb2 Nf6 Ng5 O-O e5 Nxe5",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Scotch Gambit, London Defense",
+    "9": "Scotch Game: Hanneken Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 e5",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Scotch Gambit",
+    "5": "Scotch Game: Scotch Gambit, Advance Variation"
    }
   },
   {
@@ -79,14 +206,31 @@
    "notes": {
     "3": "Scotch Game",
     "4": "Scotch Game: G\u00f6ring Gambit",
-    "5": "Scotch Game: G\u00f6ring Gambit, Double Pawn Sacrifice"
+    "5": "Scotch Game: G\u00f6ring Gambit, Double Pawn Sacrifice",
+    "6": "Scotch Game: G\u00f6ring Gambit, Bardeleben Variation"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 d4 exd4 c3 dxc3 Nxc3 Bb4",
    "notes": {
     "3": "Scotch Game",
-    "4": "Scotch Game: G\u00f6ring Gambit"
+    "4": "Scotch Game: G\u00f6ring Gambit",
+    "5": "Scotch Game: G\u00f6ring Gambit, Main Line"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 c3 dxc3 Nxc3 d6 Bc4 Bg4 O-O Ne5 Nxe5 Bxd1 Bxf7+ Ke7 Nd5#",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: G\u00f6ring Gambit",
+    "10": "Scotch Game: Sea-Cadet Mate"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 c3 d5",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Scotch Gambit, G\u00f6ring Gambit Declined"
    }
   },
   {
@@ -97,8 +241,31 @@
    }
   },
   {
+   "line": "e4 e5 Nf3 Nc6 d4 Nxd4 Nxd4 exd4 Qxd4",
+   "notes": {
+    "3": "Scotch Game: Lolli Variation",
+    "5": "Scotch Game: Lolli Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 Nxd4 Nxd4 exd4 Bc4",
+   "notes": {
+    "3": "Scotch Game: Lolli Variation",
+    "5": "Scotch Game: Napoleon Gambit"
+   }
+  },
+  {
    "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 e5 Ng4",
-   "notes": {}
+   "notes": {
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
+    "5": "Scotch Game: Scotch Gambit, Kingside Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Be7 d4 exd4",
+   "notes": {
+    "4": "Scotch Game: Benima Defense"
+   }
   }
  ]
 }

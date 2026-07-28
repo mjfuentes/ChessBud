@@ -8,7 +8,70 @@
    "notes": {
     "2": "Philidor Defense",
     "3": "Philidor Defense: Nimzowitsch Variation",
-    "4": "Philidor Defense: Lion Variation"
+    "4": "Philidor Defense: Lion Variation",
+    "7": "Philidor Defense: Nimzowitsch, Larobok Variation",
+    "8": "Philidor Defense: Lion Variation, Forcing Line"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 Nf6 Nc3 Nbd7 Bc4 Be7 Bxf7+",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Nimzowitsch Variation",
+    "4": "Philidor Defense: Lion Variation",
+    "6": "Philidor Defense: Lion Variation, Bishop Sacrifice"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 Nf6 Nc3 Nbd7 Bc4 Be7 O-O h6",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Nimzowitsch Variation",
+    "4": "Philidor Defense: Lion Variation",
+    "6": "Philidor Defense: Lion Variation, Lion's Claw, with Bc4 and h6"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 Nf6 Nc3 Nbd7 Be2 Be7 O-O c6",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Nimzowitsch Variation",
+    "4": "Philidor Defense: Lion Variation",
+    "6": "Philidor Defense: Lion Variation, Lion's Claw, with Be2 and c6"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 Nf6 dxe5 Nxe4 Qd5",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Nimzowitsch Variation",
+    "4": "Philidor Defense: Nimzowitsch Variation",
+    "5": "Philidor Defense: Nimzowitsch Variation, Rellstab Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 Nf6 dxe5 Nxe4 Nbd2",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Nimzowitsch Variation",
+    "4": "Philidor Defense: Nimzowitsch Variation",
+    "5": "Philidor Defense: Nimzowitsch Variation, Sokolsky Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 Nf6 Bc4",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Nimzowitsch Variation",
+    "4": "Philidor Defense: Nimzowitsch Variation, Klein Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 Nf6 Ng5",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Nimzowitsch Variation",
+    "4": "Philidor Defense: Nimzowitsch, Locock Variation"
    }
   },
   {
@@ -16,7 +79,8 @@
    "notes": {
     "2": "Philidor Defense",
     "3": "Philidor Defense: Exchange Variation",
-    "4": "Philidor Defense: Exchange Variation"
+    "4": "Philidor Defense: Exchange Variation",
+    "10": "Philidor Defense: Berger Variation"
    }
   },
   {
@@ -31,14 +95,66 @@
    "line": "e4 e5 Nf3 d6 d4 exd4 Nxd4 d5 exd5",
    "notes": {
     "2": "Philidor Defense",
-    "3": "Philidor Defense: Exchange Variation"
+    "3": "Philidor Defense: Exchange Variation",
+    "4": "Philidor Defense: Exchange Variation",
+    "5": "Philidor Defense: Paulsen Attack"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 exd4 c3",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Exchange Variation",
+    "4": "Philidor Defense: Bird Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 exd4 Qxd4 Bd7",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Exchange Variation",
+    "4": "Philidor Defense: Boden Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 exd4 Bc4",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Exchange Variation",
+    "4": "Philidor Defense: Morphy Gambit"
    }
   },
   {
    "line": "e4 e5 Nf3 d6 d4 Nd7 Bc4 c6 O-O Be7 dxe5",
    "notes": {
     "2": "Philidor Defense",
-    "3": "Philidor Defense: Hanham Variation"
+    "3": "Philidor Defense: Hanham Variation",
+    "5": "Philidor Defense: Hanham Variation, Krause Variation",
+    "6": "Philidor Defense: Hanham Variation, Steiner Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 Nd7 Bc4 c6 c3",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Hanham Variation",
+    "5": "Philidor Defense: Hanham Variation, Delmar Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 Nd7 Bc4 c6 Nc3",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Hanham Variation",
+    "5": "Philidor Defense: Hanham Variation, Schlechter Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 Nd7 Bc4 c6 Ng5",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Hanham Variation",
+    "5": "Philidor Defense: Hanham, Kmoch Variation"
    }
   },
   {
@@ -50,16 +166,43 @@
    }
   },
   {
+   "line": "e4 e5 Nf3 d6 d4 Nd7 Nc3 Ngf6 g4",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Hanham Variation",
+    "5": "Philidor Defense: Lion Variation, Shirov Gambit"
+   }
+  },
+  {
    "line": "e4 e5 Nf3 d6 d4 f5 dxe5 fxe4 Ng5 d5 e6 Bc5 Nc3",
    "notes": {
     "2": "Philidor Defense",
-    "3": "Philidor Defense: Philidor Countergambit"
+    "3": "Philidor Defense: Philidor Countergambit",
+    "6": "Philidor Defense: Philidor Countergambit, del Rio Attack",
+    "7": "Philidor Defense: Philidor Countergambit, Berger Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 f5 Bc4 exd4 Ng5 Nh6 Nxh7",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Philidor Countergambit",
+    "6": "Philidor Defense: Lopez Countergambit, Jaenisch Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 d4 f5 Nc3",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Philidor Countergambit",
+    "4": "Philidor Defense: Philidor Countergambit, Zukertort Variation"
    }
   },
   {
    "line": "e4 e5 Nf3 d6 d4 Bg4 dxe5 Nd7",
    "notes": {
     "2": "Philidor Defense",
+    "3": "Philidor Defense",
     "4": "Philidor Defense: Albin-Blackburne Gambit"
    }
   },
@@ -71,8 +214,25 @@
    }
   },
   {
+   "line": "e4 e5 Nf3 d6 Bc4 Be7 c3",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense",
+    "4": "Philidor Defense: Steinitz Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 d6 Bc4 f5",
+   "notes": {
+    "2": "Philidor Defense",
+    "3": "Philidor Defense: Lopez Countergambit"
+   }
+  },
+  {
    "line": "e4 d6 d4 Nf6 Nc3 Nbd7 Nf3 e5 Bc4 Be7 dxe5 dxe5 Bxf7+",
-   "notes": {}
+   "notes": {
+    "7": "Philidor Defense: Lion Variation, Delayed Bishop Sacrifice"
+   }
   },
   {
    "line": "e4 d6 d4 Nf6 Nc3 e5 Nf3 Nbd7 Bc4 Be7 O-O O-O Qe2 c6 a4 exd4",

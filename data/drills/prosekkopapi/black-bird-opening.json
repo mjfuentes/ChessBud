@@ -6,19 +6,74 @@
   {
    "line": "f4 e5 fxe5 d6 exd6 Bxd6 Nf3 g5",
    "notes": {
-    "1": "Bird Opening"
+    "1": "Bird Opening: From's Gambit",
+    "4": "Bird Opening: From's Gambit, Lasker Variation"
+   }
+  },
+  {
+   "line": "f4 e5 fxe5 d6 exd6 Bxd6 Nf3 Nh6 d4",
+   "notes": {
+    "1": "Bird Opening: From's Gambit",
+    "5": "Bird Opening: From's Gambit, Lipke Variation"
+   }
+  },
+  {
+   "line": "f4 e5 fxe5 d6 exd6 Nf6",
+   "notes": {
+    "1": "Bird Opening: From's Gambit",
+    "3": "Bird Opening: From's Gambit, Langheld Gambit"
    }
   },
   {
    "line": "f4 e5 d4 exd4 Nf3 c5 c3",
    "notes": {
-    "1": "Bird Opening",
+    "1": "Bird Opening: From's Gambit",
     "4": "Bird Opening: Siegener Gambit"
    }
   },
   {
+   "line": "f4 d5 e4 dxe4 Nc3 Nf6 Qe2",
+   "notes": {
+    "1": "Bird Opening: Dutch Variation",
+    "2": "Bird Opening: Williams Gambit",
+    "4": "Bird Opening: Williams Gambit"
+   }
+  },
+  {
+   "line": "f4 d5 e4 dxe4 Nc3 Nf6 Nge2",
+   "notes": {
+    "1": "Bird Opening: Dutch Variation",
+    "2": "Bird Opening: Williams Gambit",
+    "4": "Bird Opening: Williams-Zilbermints Gambit"
+   }
+  },
+  {
+   "line": "f4 d5 Nf3 Nf6 e3 c5",
+   "notes": {
+    "1": "Bird Opening: Dutch Variation",
+    "3": "Bird Opening: Lasker Variation"
+   }
+  },
+  {
+   "line": "f4 d5 b3 Nf6 Bb2 d4 Nf3 c5 e3",
+   "notes": {
+    "1": "Bird Opening: Dutch Variation",
+    "5": "Bird Opening: Thomas Gambit"
+   }
+  },
+  {
+   "line": "f4 f5 e4 fxe4 Nc3 Nf6 g4",
+   "notes": {
+    "1": "Bird Opening",
+    "2": "Bird Opening: Wagner-Zwitersch Gambit",
+    "4": "Bird Opening: Swiss Gambit"
+   }
+  },
+  {
    "line": "e4 c5 f4 d5 Nf3 dxe4",
-   "notes": {}
+   "notes": {
+    "3": "Bird Opening: Dutch Variation, Batavo Gambit"
+   }
   }
  ]
 }

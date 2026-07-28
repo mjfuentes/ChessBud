@@ -6,14 +6,33 @@
   {
    "line": "e4 e5 Nf3 Nc6 Be2 Nf6 d4 exd4 e5",
    "notes": {
-    "1": "King's Pawn Game"
+    "1": "King's Pawn Game",
+    "3": "King's Pawn Game: Tayler Opening",
+    "4": "King's Pawn Game: Tayler Opening",
+    "5": "King's Pawn Game: Tayler Opening, Basman Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Be2 Nf6 d3 d5 Nbd2",
+   "notes": {
+    "1": "King's Pawn Game",
+    "3": "King's Pawn Game: Tayler Opening",
+    "5": "King's Pawn Game: Tayler Opening, Inverted Hanham"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nxe5 Nxe5 d4",
+   "notes": {
+    "1": "King's Pawn Game",
+    "4": "King's Pawn Game: Schulze-M\u00fcller Gambit"
    }
   },
   {
    "line": "e4 e5 Nf3 f6 Nxe5 fxe5 Qh5+ g6 Qxe5+ Qe7 Qxh8",
    "notes": {
     "1": "King's Pawn Game",
-    "2": "King's Pawn Game: Damiano Defense"
+    "2": "King's Pawn Game: Damiano Defense",
+    "6": "King's Pawn Game: Damiano Defense, Damiano Gambit"
    }
   },
   {
@@ -36,7 +55,8 @@
    "line": "e4 e5 Nf3 Qf6 Bc4 Qg6 O-O",
    "notes": {
     "1": "King's Pawn Game",
-    "2": "King's Pawn Game: McConnell Defense"
+    "2": "King's Pawn Game: McConnell Defense",
+    "4": "King's Pawn Game: La Bourdonnais Gambit"
    }
   },
   {
@@ -44,6 +64,45 @@
    "notes": {
     "1": "King's Pawn Game",
     "3": "King's Pawn Game: Gunderam Defense, Gunderam Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 d3 Nf6 f4 Bc5",
+   "notes": {
+    "1": "King's Pawn Game",
+    "2": "King's Pawn Game: Leonardis Variation",
+    "3": "King's Pawn Game: Clam Variation, Radisch Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 d3 d5 exd5 c6 dxc6 Nxc6",
+   "notes": {
+    "1": "King's Pawn Game",
+    "2": "King's Pawn Game: Leonardis Variation",
+    "4": "King's Pawn Game: Weber Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 c3 d5 Qh5 Bd6",
+   "notes": {
+    "1": "King's Pawn Game",
+    "2": "King's Pawn Game: MacLeod Attack",
+    "3": "King's Pawn Game: MacLeod Attack, Norwalde Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Qh5 Nc6 Bc4 Nh6 d3 g6 Qf3 f6 Ne2 d5",
+   "notes": {
+    "1": "King's Pawn Game",
+    "2": "King's Pawn Game: Wayward Queen Attack",
+    "6": "King's Pawn Game: Wayward Queen Attack, Mellon Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 d4 d6 dxe5 Bd7",
+   "notes": {
+    "1": "King's Pawn Game",
+    "3": "King's Pawn Game: Philidor Gambit"
    }
   }
  ]

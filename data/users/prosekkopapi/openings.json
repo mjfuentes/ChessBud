@@ -6,7 +6,7 @@
    "color": "white",
    "games": 127,
    "score_pct": 54.3,
-   "lines": 30
+   "lines": 114
   },
   {
    "id": "prosekkopapi/black-italian-game",
@@ -14,7 +14,7 @@
    "color": "black",
    "games": 61,
    "score_pct": 68.9,
-   "lines": 25
+   "lines": 114
   },
   {
    "id": "prosekkopapi/white-sicilian-defense",
@@ -22,7 +22,7 @@
    "color": "white",
    "games": 50,
    "score_pct": 57.0,
-   "lines": 61
+   "lines": 210
   },
   {
    "id": "prosekkopapi/white-caro-kann-defense",
@@ -30,7 +30,7 @@
    "color": "white",
    "games": 50,
    "score_pct": 53.0,
-   "lines": 9
+   "lines": 63
   },
   {
    "id": "prosekkopapi/black-scotch-game",
@@ -38,7 +38,7 @@
    "color": "black",
    "games": 33,
    "score_pct": 59.1,
-   "lines": 13
+   "lines": 33
   },
   {
    "id": "prosekkopapi/black-indian-defense",
@@ -46,7 +46,7 @@
    "color": "black",
    "games": 31,
    "score_pct": 43.5,
-   "lines": 7
+   "lines": 16
   },
   {
    "id": "prosekkopapi/white-scandinavian-defense",
@@ -54,7 +54,7 @@
    "color": "white",
    "games": 23,
    "score_pct": 67.4,
-   "lines": 15
+   "lines": 28
   },
   {
    "id": "prosekkopapi/black-bishop-s-opening",
@@ -62,7 +62,7 @@
    "color": "black",
    "games": 22,
    "score_pct": 34.1,
-   "lines": 6
+   "lines": 22
   },
   {
    "id": "prosekkopapi/black-ruy-lopez",
@@ -70,7 +70,7 @@
    "color": "black",
    "games": 21,
    "score_pct": 31.0,
-   "lines": 19
+   "lines": 143
   },
   {
    "id": "prosekkopapi/black-queen-s-pawn-game",
@@ -78,7 +78,7 @@
    "color": "black",
    "games": 20,
    "score_pct": 47.5,
-   "lines": 11
+   "lines": 31
   },
   {
    "id": "prosekkopapi/white-philidor-defense",
@@ -86,7 +86,7 @@
    "color": "white",
    "games": 19,
    "score_pct": 57.9,
-   "lines": 11
+   "lines": 29
   },
   {
    "id": "prosekkopapi/white-french-defense",
@@ -94,7 +94,7 @@
    "color": "white",
    "games": 19,
    "score_pct": 57.9,
-   "lines": 27
+   "lines": 111
   },
   {
    "id": "prosekkopapi/black-vienna-game",
@@ -102,7 +102,7 @@
    "color": "black",
    "games": 17,
    "score_pct": 52.9,
-   "lines": 7
+   "lines": 20
   },
   {
    "id": "prosekkopapi/black-king-s-indian-defense",
@@ -110,7 +110,7 @@
    "color": "black",
    "games": 16,
    "score_pct": 56.2,
-   "lines": 33
+   "lines": 73
   },
   {
    "id": "prosekkopapi/black-four-knights-game",
@@ -118,7 +118,7 @@
    "color": "black",
    "games": 15,
    "score_pct": 40.0,
-   "lines": 10
+   "lines": 29
   },
   {
    "id": "prosekkopapi/black-ponziani-opening",
@@ -126,7 +126,7 @@
    "color": "black",
    "games": 13,
    "score_pct": 53.8,
-   "lines": 3
+   "lines": 10
   },
   {
    "id": "prosekkopapi/white-petrov-s-defense",
@@ -134,7 +134,7 @@
    "color": "white",
    "games": 11,
    "score_pct": 72.7,
-   "lines": 8
+   "lines": 28
   },
   {
    "id": "prosekkopapi/white-pirc-defense",
@@ -142,7 +142,7 @@
    "color": "white",
    "games": 9,
    "score_pct": 27.8,
-   "lines": 2
+   "lines": 16
   },
   {
    "id": "prosekkopapi/black-king-s-gambit-accepted",
@@ -150,7 +150,7 @@
    "color": "black",
    "games": 7,
    "score_pct": 57.1,
-   "lines": 26
+   "lines": 75
   },
   {
    "id": "prosekkopapi/black-english-opening",
@@ -158,7 +158,7 @@
    "color": "black",
    "games": 7,
    "score_pct": 35.7,
-   "lines": 12
+   "lines": 92
   },
   {
    "id": "prosekkopapi/black-queen-s-gambit-declined",
@@ -166,7 +166,7 @@
    "color": "black",
    "games": 7,
    "score_pct": 64.3,
-   "lines": 20
+   "lines": 122
   },
   {
    "id": "prosekkopapi/black-sicilian-defense",
@@ -174,7 +174,7 @@
    "color": "black",
    "games": 7,
    "score_pct": 21.4,
-   "lines": 34
+   "lines": 210
   },
   {
    "id": "prosekkopapi/black-king-s-pawn-game",
@@ -182,7 +182,7 @@
    "color": "black",
    "games": 6,
    "score_pct": 33.3,
-   "lines": 3
+   "lines": 13
   },
   {
    "id": "prosekkopapi/white-nimzowitsch-defense",
@@ -190,7 +190,7 @@
    "color": "white",
    "games": 6,
    "score_pct": 75.0,
-   "lines": 12
+   "lines": 20
   },
   {
    "id": "prosekkopapi/white-modern-defense",
@@ -198,7 +198,7 @@
    "color": "white",
    "games": 5,
    "score_pct": 60.0,
-   "lines": 8
+   "lines": 25
   },
   {
    "id": "prosekkopapi/black-van-t-kruijs-opening",
@@ -206,7 +206,7 @@
    "color": "black",
    "games": 4,
    "score_pct": 62.5,
-   "lines": 1
+   "lines": 3
   },
   {
    "id": "prosekkopapi/black-zukertort-opening",
@@ -214,7 +214,7 @@
    "color": "black",
    "games": 4,
    "score_pct": 75.0,
-   "lines": 5
+   "lines": 10
   },
   {
    "id": "prosekkopapi/white-scotch-game",
@@ -222,7 +222,7 @@
    "color": "white",
    "games": 4,
    "score_pct": 0.0,
-   "lines": 7
+   "lines": 33
   },
   {
    "id": "prosekkopapi/black-bird-opening",
@@ -230,7 +230,7 @@
    "color": "black",
    "games": 3,
    "score_pct": 66.7,
-   "lines": 3
+   "lines": 10
   },
   {
    "id": "prosekkopapi/white-owen-defense",
@@ -238,7 +238,7 @@
    "color": "white",
    "games": 3,
    "score_pct": 50.0,
-   "lines": 3
+   "lines": 4
   },
   {
    "id": "prosekkopapi/black-pirc-defense",
@@ -246,7 +246,7 @@
    "color": "black",
    "games": 3,
    "score_pct": 0.0,
-   "lines": 13
+   "lines": 16
   },
   {
    "id": "prosekkopapi/black-center-game",
@@ -254,7 +254,7 @@
    "color": "black",
    "games": 3,
    "score_pct": 33.3,
-   "lines": 4
+   "lines": 7
   },
   {
    "id": "prosekkopapi/black-trompowsky-attack",
@@ -262,7 +262,7 @@
    "color": "black",
    "games": 3,
    "score_pct": 66.7,
-   "lines": 3
+   "lines": 5
   },
   {
    "id": "prosekkopapi/black-london-system",
@@ -270,7 +270,7 @@
    "color": "black",
    "games": 3,
    "score_pct": 33.3,
-   "lines": 1
+   "lines": 2
   },
   {
    "id": "prosekkopapi/white-ruy-lopez",
@@ -278,7 +278,7 @@
    "color": "white",
    "games": 2,
    "score_pct": 25.0,
-   "lines": 70
+   "lines": 143
   },
   {
    "id": "prosekkopapi/black-three-knights-opening",
@@ -286,7 +286,7 @@
    "color": "black",
    "games": 2,
    "score_pct": 100.0,
-   "lines": 1
+   "lines": 3
   },
   {
    "id": "prosekkopapi/white-king-s-pawn-game",
@@ -294,7 +294,7 @@
    "color": "white",
    "games": 2,
    "score_pct": 100.0,
-   "lines": 6
+   "lines": 13
   },
   {
    "id": "prosekkopapi/white-rat-defense",
@@ -302,7 +302,7 @@
    "color": "white",
    "games": 2,
    "score_pct": 0.0,
-   "lines": 1
+   "lines": 4
   },
   {
    "id": "prosekkopapi/black-nimzo-larsen-attack",
@@ -310,7 +310,7 @@
    "color": "black",
    "games": 2,
    "score_pct": 100.0,
-   "lines": 1
+   "lines": 2
   }
  ]
 }

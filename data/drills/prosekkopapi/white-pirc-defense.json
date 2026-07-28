@@ -9,7 +9,32 @@
     "1": "Pirc Defense",
     "2": "Pirc Defense",
     "3": "Pirc Defense",
-    "5": "Pirc Defense: Austrian Attack"
+    "4": "Pirc Defense: Austrian Attack",
+    "5": "Pirc Defense: Austrian Attack",
+    "6": "Pirc Defense: Austrian Attack, Unzicker Attack",
+    "7": "Pirc Defense: Austrian Attack, Unzicker Attack, Bronstein Variation"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 f4 Bg7 Nf3 O-O Be3",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "4": "Pirc Defense: Austrian Attack",
+    "5": "Pirc Defense: Austrian Attack",
+    "6": "Pirc Defense: Austrian Attack, Kurajica Variation"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 f4 Bg7 Nf3 O-O Bd3",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "4": "Pirc Defense: Austrian Attack",
+    "5": "Pirc Defense: Austrian Attack",
+    "6": "Pirc Defense: Austrian Attack, Weiss Variation"
    }
   },
   {
@@ -18,7 +43,124 @@
     "1": "Pirc Defense",
     "2": "Pirc Defense",
     "3": "Pirc Defense",
+    "4": "Pirc Defense: Austrian Attack",
     "5": "Pirc Defense: Austrian Attack, Dragon Formation"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 f4 Bg7 Bc4",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "4": "Pirc Defense: Austrian Attack",
+    "5": "Pirc Defense: Austrian Attack, Ljubojevic Variation"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 Nf3 Bg7 Be2 O-O O-O Nc6",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "4": "Pirc Defense: Classical Variation",
+    "5": "Pirc Defense: Classical Variation, Quiet System",
+    "6": "Pirc Defense: Classical Variation, Quiet System, Chigorin Line"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 Nf3 Bg7 Be2 O-O O-O c6",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "4": "Pirc Defense: Classical Variation",
+    "5": "Pirc Defense: Classical Variation, Quiet System",
+    "6": "Pirc Defense: Classical Variation, Quiet System, Czech Defense"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 Nf3 Bg7 Be2 O-O O-O Bg4",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "4": "Pirc Defense: Classical Variation",
+    "5": "Pirc Defense: Classical Variation, Quiet System",
+    "6": "Pirc Defense: Classical Variation, Quiet System, Parma Defense"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 Nf3 Bg7 h3",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "4": "Pirc Defense: Classical Variation",
+    "5": "Pirc Defense: Classical Variation, Schlechter Variation"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 Be3 c6 Qd2 Bg4",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "5": "Pirc Defense: 150 Attack, Inner Doll Defense"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 Be3 c6 h3",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "5": "Pirc Defense: 150 Attack, Sveshnikov-Jansa Attack"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 Be2 Bg7 h4",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "5": "Pirc Defense: Bayonet Attack"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 Be2 Bg7 g4",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "5": "Pirc Defense: Chinese Variation"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 Bg5",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "4": "Pirc Defense: Byrne Variation"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 Bc4",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "4": "Pirc Defense: Kholmov System"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 g6 g3",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Pirc Defense",
+    "4": "Pirc Defense: Sveshnikov System"
    }
   }
  ]

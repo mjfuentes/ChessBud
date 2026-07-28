@@ -7,8 +7,29 @@
    "line": "d4 d5 Nf3 Nf6 Bg5 e6 e3 c5 c3 Nbd7 Nbd2 Bd6",
    "notes": {
     "1": "Queen's Pawn Game",
-    "2": "Queen's Pawn Game: Zukertort Variation",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
     "3": "Queen's Pawn Game: Torre Attack",
+    "5": "Queen's Pawn Game: Torre Attack",
+    "6": "Queen's Pawn Game: Torre Attack"
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 Nf6 Bg5 e6 e3 c5 c3 Nbd7 Nbd2 Be7",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
+    "3": "Queen's Pawn Game: Torre Attack",
+    "5": "Queen's Pawn Game: Torre Attack",
+    "6": "Queen's Pawn Game: Torre Attack"
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 Nf6 Bg5 e6 e3 c5 c3 Nc6 Bd3",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
+    "3": "Queen's Pawn Game: Torre Attack",
+    "5": "Queen's Pawn Game: Torre Attack",
     "6": "Queen's Pawn Game: Torre Attack"
    }
   },
@@ -16,28 +37,55 @@
    "line": "d4 d5 Nf3 Nf6 Bg5 e6 e3 c5 Nbd2 Nc6 c3",
    "notes": {
     "1": "Queen's Pawn Game",
-    "2": "Queen's Pawn Game: Zukertort Variation",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
     "3": "Queen's Pawn Game: Torre Attack",
     "5": "Queen's Pawn Game: Torre Attack",
     "6": "Queen's Pawn Game: Torre Attack"
    }
   },
   {
+   "line": "d4 d5 Nf3 Nf6 Bg5 e6 e3 Nbd7 Bd3",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
+    "3": "Queen's Pawn Game: Torre Attack",
+    "5": "Queen's Pawn Game: Torre Attack"
+   }
+  },
+  {
    "line": "d4 d5 Nf3 Nf6 Bg5 e6 Nbd2 Be7 c3 Nbd7 e3",
    "notes": {
     "1": "Queen's Pawn Game",
-    "2": "Queen's Pawn Game: Zukertort Variation",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
     "3": "Queen's Pawn Game: Torre Attack",
     "6": "Queen's Pawn Game: Torre Attack"
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 Nf6 Bg5 g6 e3",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
+    "3": "Queen's Pawn Game: Torre Attack, Gr\u00fcnfeld Variation",
+    "4": "Queen's Pawn Game: Torre Attack, Gr\u00fcnfeld Variation"
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 Nf6 Bg5 Ne4",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
+    "3": "Queen's Pawn Game: Torre Attack, Gossip Variation"
    }
   },
   {
    "line": "d4 d5 Nf3 Nf6 e3 e6 b3 c5 Bb2 Nc6 Bd3",
    "notes": {
     "1": "Queen's Pawn Game",
-    "2": "Queen's Pawn Game: Zukertort Variation",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
     "3": "Queen's Pawn Game: Colle System",
     "4": "Queen's Pawn Game: Colle System",
+    "5": "Queen's Pawn Game: Colle System",
     "6": "Queen's Pawn Game: Colle System"
    }
   },
@@ -45,9 +93,10 @@
    "line": "d4 d5 Nf3 Nf6 e3 e6 b3 c5 Bb2 Nc6 Nbd2",
    "notes": {
     "1": "Queen's Pawn Game",
-    "2": "Queen's Pawn Game: Zukertort Variation",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
     "3": "Queen's Pawn Game: Colle System",
     "4": "Queen's Pawn Game: Colle System",
+    "5": "Queen's Pawn Game: Colle System",
     "6": "Queen's Pawn Game: Colle System"
    }
   },
@@ -55,16 +104,33 @@
    "line": "d4 d5 Nf3 Nf6 e3 e6 Bd3",
    "notes": {
     "1": "Queen's Pawn Game",
-    "2": "Queen's Pawn Game: Zukertort Variation",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
     "3": "Queen's Pawn Game: Colle System",
     "4": "Queen's Pawn Game: Colle System"
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 Nf6 e3 Bf5",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
+    "3": "Queen's Pawn Game: Colle System, Anti-Colle"
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 Nf6 e3 g6 Bd3 Bg7",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
+    "3": "Queen's Pawn Game: Colle System",
+    "4": "Queen's Pawn Game: Colle System, Gr\u00fcnfeld Formation"
    }
   },
   {
    "line": "d4 d5 Nf3 Nf6 Bf4 c5 e3 Nc6 Nbd2 e6 c3",
    "notes": {
     "1": "Queen's Pawn Game",
-    "2": "Queen's Pawn Game: Zukertort Variation",
+    "2": "Queen's Pawn Game: Symmetrical Variation",
     "3": "Queen's Pawn Game: London System",
     "4": "Queen's Pawn Game: London System",
     "5": "Queen's Pawn Game: London System",
@@ -75,28 +141,129 @@
    "line": "d4 d5 Nf3 Nf6 g3 c6 Bg2 Bg4",
    "notes": {
     "1": "Queen's Pawn Game",
-    "2": "Queen's Pawn Game: Zukertort Variation",
-    "3": "Queen's Pawn Game: Symmetrical Variation, Pseudo-Catalan"
+    "2": "Queen's Pawn Game: Symmetrical Variation",
+    "3": "Queen's Pawn Game: Symmetrical Variation, Pseudo-Catalan",
+    "4": "Queen's Pawn Game: Symmetrical Variation, Pseudo-Catalan"
    }
   },
   {
    "line": "d4 d5 Nf3 Nf6 c4 b5",
    "notes": {
     "1": "Queen's Pawn Game",
-    "2": "Queen's Pawn Game: Zukertort Variation"
+    "2": "Queen's Pawn Game: Symmetrical Variation",
+    "3": "Queen's Pawn Game: Zilbermints Countergambit"
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 c5 g3 cxd4 Bg2",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Krause Variation",
+    "4": "Queen's Pawn Game: Chandler Gambit"
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 c5 e3 Nf6 Nbd2 e6 b3",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Krause Variation",
+    "5": "Queen's Pawn Game: Zukertort Variation"
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 e6 Bf4 Nf6",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Zukertort Variation",
+    "3": "Queen's Pawn Game: London System, with e6"
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 c6 Bg5 h6 Bh4 Qb6",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Zukertort Variation",
+    "4": "Queen's Pawn Game: Levitsky Attack, Euwe Variation, Modern Line"
    }
   },
   {
    "line": "d4 d5 Bf4 c5 e4 dxe4",
    "notes": {
     "1": "Queen's Pawn Game",
-    "2": "Queen's Pawn Game: Accelerated London System",
-    "3": "Queen's Pawn Game: Accelerated London System, Steinitz Countergambit, Morris Countergambit"
+    "2": "Queen's Pawn Game: Accelerated London System, Steinitz Countergambit",
+    "3": "Queen's Pawn Game: Accelerated London System, Steinitz Countergambit, Morris Countergambit Accepted"
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 g6 Nc3 d5 Bf4 Bg7 e3 O-O Be2",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "4": "Queen's Pawn Game: Barry Attack",
+    "6": "Queen's Pawn Game: Barry Attack, Gr\u00fcnfeld Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 g6 Nc3 d5 Bf4 Bg7 Qd2",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "4": "Queen's Pawn Game: Barry Attack",
+    "5": "Queen's Pawn Game: Barry Attack, Tarzan Attack"
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 g6 Bg5 Bg7 Nbd2 d5 e3 O-O",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "5": "Queen's Pawn Game: Torre Attack, Gr\u00fcnfeld Variation, Main Line"
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 e6 e3 b6 Bd3 Bb7 O-O c5 b3 Be7 Bb2 O-O Nbd2 d5",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "8": "Queen's Pawn Game: Colle System"
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 e6 e3 c5 Bd3 d5 c3",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "5": "Queen's Pawn Game: Colle System, Traditional Colle"
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 e6 Bg5 d5 e3 c5 c3 Qb6",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "5": "Queen's Pawn Game: Torre Attack, Breyer Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 e6 Nc3 d5 Bg5",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "4": "Queen's Pawn Game: Veresov Attack, Classical Defense"
+   }
+  },
+  {
+   "line": "d4 g6 Nf3 Bg7 Nc3 d5",
+   "notes": {
+    "1": "Queen's Pawn Game: Modern Defense",
+    "3": "Queen's Pawn Game: Chigorin Variation, Fianchetto Defense"
+   }
+  },
+  {
+   "line": "d4 g6 Nf3 Bg7 Bf4 c5 c3 cxd4 cxd4 Qa5+",
+   "notes": {
+    "1": "Queen's Pawn Game: Modern Defense",
+    "5": "Queen's Pawn Game: London System, Pterodactyl Variation"
    }
   },
   {
    "line": "Nf3 d5 g3 c6 Bg2 Nf6 O-O Bg4 d4 e6",
-   "notes": {}
+   "notes": {
+    "5": "Queen's Pawn Game: Symmetrical Variation, Pseudo-Catalan"
+   }
   }
  ]
 }

@@ -9,6 +9,20 @@
     "1": "Van't Kruijs Opening",
     "4": "Van't Kruijs Opening: Keoni-Hiva Gambit, Akahi Variation"
    }
+  },
+  {
+   "line": "e3 e5 Nc3 Nc6 f4 exf4 Nf3",
+   "notes": {
+    "1": "Van't Kruijs Opening",
+    "4": "Van't Kruijs Opening: Keoni-Hiva Gambit, Alua Variation"
+   }
+  },
+  {
+   "line": "e3 e5 Nc3 d5 f4 exf4 Nf3",
+   "notes": {
+    "1": "Van't Kruijs Opening",
+    "4": "Van't Kruijs Opening: Keoni-Hiva Gambit, Ekolu Variation"
+   }
   }
  ]
 }

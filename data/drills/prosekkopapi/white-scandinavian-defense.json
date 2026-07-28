@@ -8,7 +8,71 @@
    "notes": {
     "1": "Scandinavian Defense",
     "2": "Scandinavian Defense: Modern Variation",
-    "3": "Scandinavian Defense: Portuguese Gambit"
+    "3": "Scandinavian Defense: Portuguese Gambit",
+    "6": "Scandinavian Defense: Portuguese Gambit, Jadoul Variation"
+   }
+  },
+  {
+   "line": "e4 d5 exd5 Nf6 d4 Bg4 f3 Bf5 Bb5+ Nbd7 Nc3",
+   "notes": {
+    "1": "Scandinavian Defense",
+    "2": "Scandinavian Defense: Modern Variation",
+    "3": "Scandinavian Defense: Portuguese Gambit",
+    "6": "Scandinavian Defense: Portuguese Gambit, Melbourne Shuffle Variation"
+   }
+  },
+  {
+   "line": "e4 d5 exd5 Nf6 d4 Bg4 f3 Bf5 c4",
+   "notes": {
+    "1": "Scandinavian Defense",
+    "2": "Scandinavian Defense: Modern Variation",
+    "3": "Scandinavian Defense: Portuguese Gambit",
+    "5": "Scandinavian Defense: Portuguese Gambit, Banker Variation"
+   }
+  },
+  {
+   "line": "e4 d5 exd5 Nf6 d4 Bg4 f3 Bf5 g4",
+   "notes": {
+    "1": "Scandinavian Defense",
+    "2": "Scandinavian Defense: Modern Variation",
+    "3": "Scandinavian Defense: Portuguese Gambit",
+    "5": "Scandinavian Defense: Portuguese Gambit, Correspondence Refutation"
+   }
+  },
+  {
+   "line": "e4 d5 exd5 Nf6 d4 Bg4 Bb5+ c6",
+   "notes": {
+    "1": "Scandinavian Defense",
+    "2": "Scandinavian Defense: Modern Variation",
+    "3": "Scandinavian Defense: Portuguese Gambit",
+    "4": "Scandinavian Defense: Portuguese Gambit, Elbow Variation"
+   }
+  },
+  {
+   "line": "e4 d5 exd5 Nf6 d4 Bg4 Bb5+ Nbd7 Be2",
+   "notes": {
+    "1": "Scandinavian Defense",
+    "2": "Scandinavian Defense: Modern Variation",
+    "3": "Scandinavian Defense: Portuguese Gambit",
+    "5": "Scandinavian Defense: Portuguese Gambit, Lusophobe Variation"
+   }
+  },
+  {
+   "line": "e4 d5 exd5 Nf6 d4 Bg4 Nf3",
+   "notes": {
+    "1": "Scandinavian Defense",
+    "2": "Scandinavian Defense: Modern Variation",
+    "3": "Scandinavian Defense: Portuguese Gambit",
+    "4": "Scandinavian Defense: Portuguese Gambit, Classical Variation"
+   }
+  },
+  {
+   "line": "e4 d5 exd5 Nf6 d4 Bg4 Be2",
+   "notes": {
+    "1": "Scandinavian Defense",
+    "2": "Scandinavian Defense: Modern Variation",
+    "3": "Scandinavian Defense: Portuguese Gambit",
+    "4": "Scandinavian Defense: Portuguese Gambit, Wuss Variation"
    }
   },
   {
@@ -30,6 +94,15 @@
    }
   },
   {
+   "line": "e4 d5 exd5 Nf6 d4 Nxd5 c4 Nb4",
+   "notes": {
+    "1": "Scandinavian Defense",
+    "2": "Scandinavian Defense: Modern Variation",
+    "3": "Scandinavian Defense: Marshall Variation",
+    "4": "Scandinavian Defense: Kiel Variation"
+   }
+  },
+  {
    "line": "e4 d5 exd5 Nf6 d4 g6 c4 b5",
    "notes": {
     "1": "Scandinavian Defense",
@@ -43,7 +116,24 @@
    "notes": {
     "1": "Scandinavian Defense",
     "2": "Scandinavian Defense: Modern Variation",
+    "3": "Scandinavian Defense: Modern Variation",
     "4": "Scandinavian Defense: K\u00e1das Gambit"
+   }
+  },
+  {
+   "line": "e4 d5 exd5 Nf6 c4 e6",
+   "notes": {
+    "1": "Scandinavian Defense",
+    "2": "Scandinavian Defense: Modern Variation",
+    "3": "Scandinavian Defense: Icelandic-Palme Gambit"
+   }
+  },
+  {
+   "line": "e4 d5 exd5 Nf6 c4 c6",
+   "notes": {
+    "1": "Scandinavian Defense",
+    "2": "Scandinavian Defense: Modern Variation",
+    "3": "Scandinavian Defense: Panov Transfer"
    }
   },
   {
@@ -57,13 +147,24 @@
    }
   },
   {
+   "line": "e4 d5 exd5 Qxd5 Nc3 Qa5 d4 e5 dxe5 Nc6 Nf3 Bb4 Bd2",
+   "notes": {
+    "1": "Scandinavian Defense",
+    "2": "Scandinavian Defense: Mieses-Kotroc Variation",
+    "3": "Scandinavian Defense: Main Line",
+    "4": "Scandinavian Defense: Anderssen Counterattack",
+    "7": "Scandinavian Defense: Anderssen Counterattack, Orthodox Attack"
+   }
+  },
+  {
    "line": "e4 d5 exd5 Qxd5 Nc3 Qa5 d4 Nf6 Nf3 Bf5 Ne5 c6 g4",
    "notes": {
     "1": "Scandinavian Defense",
     "2": "Scandinavian Defense: Mieses-Kotroc Variation",
     "3": "Scandinavian Defense: Main Line",
     "4": "Scandinavian Defense: Main Line, Mieses Variation",
-    "5": "Scandinavian Defense: Classical Variation"
+    "5": "Scandinavian Defense: Classical Variation",
+    "7": "Scandinavian Defense: Gr\u00fcnfeld Variation"
    }
   },
   {
@@ -72,7 +173,17 @@
     "1": "Scandinavian Defense",
     "2": "Scandinavian Defense: Mieses-Kotroc Variation",
     "3": "Scandinavian Defense: Main Line",
-    "4": "Scandinavian Defense: Main Line, Mieses Variation"
+    "4": "Scandinavian Defense: Main Line, Mieses Variation",
+    "6": "Scandinavian Defense: Lasker Variation"
+   }
+  },
+  {
+   "line": "e4 d5 exd5 Qxd5 Nc3 Qa5 b4",
+   "notes": {
+    "1": "Scandinavian Defense",
+    "2": "Scandinavian Defense: Mieses-Kotroc Variation",
+    "3": "Scandinavian Defense: Main Line",
+    "4": "Scandinavian Defense: Main Line, Leonhardt Gambit"
    }
   },
   {
@@ -82,6 +193,15 @@
     "2": "Scandinavian Defense: Mieses-Kotroc Variation",
     "3": "Scandinavian Defense: Gubinsky-Melts Defense",
     "5": "Scandinavian Defense: Bronstein Variation"
+   }
+  },
+  {
+   "line": "e4 d5 exd5 Qxd5 Nc3 Qd6 d4 Nf6 Bc4 c6 Nge2 Bf5 Bf4 Qb4",
+   "notes": {
+    "1": "Scandinavian Defense",
+    "2": "Scandinavian Defense: Mieses-Kotroc Variation",
+    "3": "Scandinavian Defense: Gubinsky-Melts Defense",
+    "7": "Scandinavian Defense: Schiller-Pytel Variation, Modern Variation"
    }
   },
   {

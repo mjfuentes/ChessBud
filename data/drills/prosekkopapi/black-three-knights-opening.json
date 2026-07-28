@@ -6,7 +6,21 @@
   {
    "line": "e4 e5 Nf3 Nc6 Nc3 Bb4 Nd5 Nf6",
    "notes": {
-    "3": "Three Knights Opening"
+    "3": "Three Knights Opening",
+    "4": "Three Knights Opening: Schlechter Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 g6 d4 exd4 Nd5",
+   "notes": {
+    "3": "Three Knights Opening: Steinitz Defense",
+    "5": "Three Knights Opening: Steinitz-Rosenthal Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 f5",
+   "notes": {
+    "3": "Three Knights Opening: Winawer Defense"
    }
   }
  ]

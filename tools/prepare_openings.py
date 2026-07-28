@@ -5,9 +5,9 @@ ones played at you. It no longer decides what the lines are: a family sampled
 from nineteen games is not a repertoire.
 
 The lines come from data/eco_*.tsv, the lichess-org/chess-openings list of
-3,807 named variations. At your turn one continuation is prepared, the one the
-most named variations run through; at the opponent's turn every named reply is
-kept, widest first. Branches are labelled with their variation names.
+3,807 named variations. Both sides branch over every named continuation, so a
+node can offer you several prepared moves — the Giuoco Piano and the Evans
+Gambit are both the Italian. Branches are labelled with their variation names.
 
 No engine: the book is curated theory, and the trainer measures every book move
 as you play it, so a prepared move that leaks is caught at the board rather
@@ -41,7 +41,7 @@ ROOT = Path(__file__).resolve().parent.parent
 MAX_PLIES = 26
 MIN_FAMILY_GAMES = 2
 MAX_BRANCHES = 8
-MAX_LINES_PER_DRILL = 150
+MAX_LINES_PER_DRILL = 400
 RESULT_SCORE = {"1-0": 1.0, "0-1": 0.0, "1/2-1/2": 0.5}
 
 
@@ -106,10 +106,16 @@ def expand_theory(history, board, node, is_user_turn_fn, notes, lines):
     move as you play it anyway — so a prepared move that leaks is caught at the
     board, where it means something, rather than silently swapped out here.
 
-    At your turn one continuation is prepared: the one the most named
-    variations run through, which is the opening's main road. At the
-    opponent's turn every named continuation is kept, widest first — that is
-    the theory of what gets played at you. A line ends where the book ends.
+    Both sides branch over every named continuation. Choosing a single move for
+    you looked reasonable and was not: picking the one the most variations run
+    through measures how much theory has been WRITTEN, not what gets played, so
+    the Italian prepared 4.b4 — the Evans Gambit, thirteen named lines of
+    19th-century romanticism — and left out the Giuoco Piano entirely.
+
+    Enumerating the subtree instead means several prepared moves at a node,
+    which the trainer already allows: every one of them badges as book. The
+    line count stays bounded because it cannot exceed the number of named
+    variations in the family.
     """
     if len(lines) >= MAX_LINES_PER_DRILL or len(history) >= MAX_PLIES:
         lines.append((list(history), dict(notes)))
@@ -118,17 +124,6 @@ def expand_theory(history, board, node, is_user_turn_fn, notes, lines):
     kids = sorted(node.kids.items(), key=lambda kv: -kv[1].weight) if node else []
     if not kids:
         lines.append((list(history), dict(notes)))
-        return
-
-    if is_user_turn_fn(board):
-        san, kid = kids[0]
-        try:
-            board.push_san(san)
-        except ValueError:
-            lines.append((list(history), dict(notes)))
-            return
-        expand_theory(history + [san], board, kid, is_user_turn_fn, notes, lines)
-        board.pop()
         return
 
     for san, kid in kids[:MAX_BRANCHES]:

@@ -6,27 +6,33 @@
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qf6 e5 Qxe5 Bxf7+",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
     "5": "King's Gambit Accepted: Muzio Gambit, Wild Muzio Gambit",
+    "6": "King's Gambit Accepted: Muzio Gambit, Sarratt Defense",
     "8": "King's Gambit Accepted: Double Muzio Gambit"
    }
   },
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qf6 e5 Qxe5 d3 Bh6 Nc3 Ne7 Bd2 Nbc6 Rae1",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
     "5": "King's Gambit Accepted: Muzio Gambit, Wild Muzio Gambit",
+    "6": "King's Gambit Accepted: Muzio Gambit, Sarratt Defense",
     "11": "King's Gambit Accepted: Double Muzio Gambit, Paulsen Defense"
    }
   },
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qf6 Nc3 Qd4+ Kh1 Qxc4 Nd5",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
     "5": "King's Gambit Accepted: Muzio Gambit, Wild Muzio Gambit",
+    "6": "King's Gambit Accepted: Muzio Gambit, Sarratt Defense",
     "7": "King's Gambit Accepted: Double Muzio Gambit, Bello Gambit",
     "9": "King's Gambit Accepted: Double Muzio Gambit, Baldwin Gambit"
    }
@@ -34,22 +40,108 @@
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qf6 Bxf7+ Kxf7 d4 Qxd4+ Be3 Qf6 Nc3 fxe3",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
-    "5": "King's Gambit Accepted: Muzio Gambit, Wild Muzio Gambit"
+    "5": "King's Gambit Accepted: Muzio Gambit, Wild Muzio Gambit",
+    "6": "King's Gambit Accepted: Muzio Gambit, Sarratt Defense",
+    "10": "King's Gambit Accepted: Double Muzio Gambit, Young Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qe7",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Muzio Gambit, Wild Muzio Gambit",
+    "6": "King's Gambit Accepted: Muzio Gambit Accepted, From's Defense"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Nc6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Muzio Gambit, Wild Muzio Gambit",
+    "6": "King's Gambit Accepted: Muzio Gambit, Holloway Defense"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O d5",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Muzio Gambit, Brentano Defense"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O Qe7",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Muzio Gambit, Kling and Horwitz Counterattack"
    }
   },
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Ne5 Qh4+ Kf1 Nh6 d4 d6",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
-    "5": "King's Gambit Accepted: Salvio Gambit"
+    "5": "King's Gambit Accepted: Salvio Gambit",
+    "6": "King's Gambit Accepted: Salvio Gambit, Silberschmidt Defense",
+    "7": "King's Gambit Accepted: Salvio Gambit, Anderssen Counterattack"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Ne5 Qh4+ Kf1 Nh6 d4 f3",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Salvio Gambit",
+    "6": "King's Gambit Accepted: Salvio Gambit, Silberschmidt Defense",
+    "7": "King's Gambit Accepted: Silberschmidt Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Ne5 Qh4+ Kf1 f3",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Salvio Gambit",
+    "6": "King's Gambit Accepted: Salvio Gambit, Cochrane Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Ne5 Qh4+ Kf1 Nf6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Salvio Gambit",
+    "6": "King's Gambit Accepted: Salvio Gambit, Santa Maria Defense"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Ne5 Qh4+ Kf1 Nc6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Salvio Gambit",
+    "6": "King's Gambit Accepted: Salvio Gambit, Viennese Variation"
    }
   },
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 d4 gxf3 Qxf3",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
     "5": "King's Gambit Accepted: Ghulam-Kassim Gambit",
@@ -59,6 +151,7 @@
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 d4 gxf3 Bxf4",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
     "5": "King's Gambit Accepted: Ghulam-Kassim Gambit",
@@ -68,6 +161,7 @@
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Bxf7+ Kxf7 O-O gxf3 Qxf3 Qf6 d4 Qxd4+ Be3 Qf6 Nc3",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
     "5": "King's Gambit Accepted: Lolli Gambit",
@@ -77,6 +171,7 @@
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 h4",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
     "5": "King's Gambit Accepted: Australian Gambit"
@@ -85,48 +180,172 @@
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Nc3",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
     "5": "King's Gambit Accepted: McDonnell Gambit"
    }
   },
   {
-   "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nf6 Bc4 d5 exd5 Bd6 O-O Bxe5",
+   "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 Bg7 h4 h6 d4 d6 Nc3 c6 hxg5 hxg5 Rxh8 Bxh8 Ne5",
    "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: Traditional Variation",
+    "5": "King's Gambit Accepted: Philidor Gambit",
+    "10": "King's Gambit Accepted: Greco Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 Bg7 O-O",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: Traditional Variation",
+    "5": "King's Gambit Accepted: Hanstein Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 Bg7 d4 d6 c3",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: Traditional Variation",
+    "6": "King's Gambit Accepted: Mayet Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 d6 O-O Bg4 h3 h5 hxg4 hxg4",
+   "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
-    "5": "King's Gambit Accepted: Kieseritzky Gambit",
-    "8": "King's Gambit Accepted: Kieseritzky, Rice Gambit"
+    "7": "King's Gambit Accepted: Middleton Countergambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nf6 Bc4 d5 exd5 Bd6 O-O Bxe5",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Kieseritzky Gambit, Berlin Defense",
+    "7": "King's Gambit Accepted: Kieseritzky Gambit, Anderssen Defense",
+    "8": "King's Gambit Accepted: Kieseritzky Gambit, Rice Gambit"
    }
   },
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nf6 Bc4 d5 exd5 Bd6 d4 Nh5 Bxf4 Nxf4",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
-    "5": "King's Gambit Accepted: Kieseritzky Gambit"
+    "5": "King's Gambit Accepted: Kieseritzky Gambit, Berlin Defense",
+    "7": "King's Gambit Accepted: Kieseritzky Gambit, Anderssen Defense",
+    "9": "King's Gambit Accepted: Kieseritzky Gambit, Anderssen-Cordel Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nf6 Bc4 d5 exd5 Bg7",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Kieseritzky Gambit, Berlin Defense",
+    "7": "King's Gambit Accepted: Kieseritzky Gambit, Paulsen Defense Deferred"
    }
   },
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nf6 d4",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
-    "5": "King's Gambit Accepted: Kieseritzky Gambit",
+    "5": "King's Gambit Accepted: Kieseritzky Gambit, Berlin Defense",
     "6": "King's Gambit Accepted: Kieseritzky Gambit, Berlin Defense, Rubinstein Variation"
    }
   },
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nf6 Nxg4 d5",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
-    "5": "King's Gambit Accepted: Kieseritzky Gambit"
+    "5": "King's Gambit Accepted: Kieseritzky Gambit, Berlin Defense",
+    "6": "King's Gambit Accepted: Kieseritzky Gambit, Berlin Defense, de Riviere Variation"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 d5 d4 Nf6 Bxf4 Nxe4 Nd2",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Kieseritzky Gambit, Brentano Defense",
+    "7": "King's Gambit Accepted: Kieseritzky Gambit, Brentano Defense",
+    "8": "King's Gambit Accepted: Kieseritzky Gambit, Brentano Defense, Caro Variation"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 h5 Bc4 Rh7 d4 Bh6 Nc3",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Kieseritzky Gambit, Long Whip",
+    "8": "King's Gambit Accepted: Kieseritzky, Long Whip Defense, Jaenisch Variation"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Qe7 d4 f5 Bc4",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Kieseritzky Gambit, Rosenthal Defense",
+    "7": "King's Gambit Accepted: Kieseritzky, Salvio Defense, Cozio Variation"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 d6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Kieseritzky Gambit, Kolisch Defense"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nc6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Kieseritzky Gambit, Neumann Defense"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Bg7",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Kieseritzky Gambit, Paulsen Defense"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Be7",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Kieseritzky, Polerio Defense"
    }
   },
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5 h6 Nxf7 Kxf7 d4 d5 Bxf4 dxe4 Bc4+ Kg7 Be5+",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
     "5": "King's Gambit Accepted: Allgaier Gambit",
@@ -138,6 +357,7 @@
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5 h6 Nxf7 Kxf7 Bc4+ d5 Bxd5+ Kg7 d4",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
     "5": "King's Gambit Accepted: Allgaier Gambit",
@@ -149,6 +369,7 @@
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5 h6 Nxf7 Kxf7 Nc3",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
     "5": "King's Gambit Accepted: Allgaier Gambit",
@@ -159,15 +380,27 @@
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5 h6 Nxf7 Kxf7 Qxg4 Nf6 Qxf4 Bd6",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: King's Knight's Gambit",
     "5": "King's Gambit Accepted: Allgaier Gambit",
-    "6": "King's Gambit Accepted: Kieseritzky Gambit, Cotter Gambit"
+    "6": "King's Gambit Accepted: Kieseritzky Gambit, Cotter Gambit",
+    "8": "King's Gambit Accepted: Allgaier, Horny Defense"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5 Nf6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: King's Knight's Gambit",
+    "4": "King's Gambit Accepted: King's Knight's Gambit",
+    "5": "King's Gambit Accepted: Allgaier, Schlechter Defense"
    }
   },
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 d4 g4 Ne5 Qh4+ g3",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: Rosentreter Gambit",
     "5": "King's Gambit Accepted: S\u00f6rensen Gambit",
@@ -177,6 +410,7 @@
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 d4 g4 Nc3",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: Rosentreter Gambit",
     "5": "King's Gambit Accepted: Rosentreter Gambit, S\u00f6rensen Gambit"
@@ -185,6 +419,7 @@
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 d4 g4 Bxf4",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: Rosentreter Gambit",
     "5": "King's Gambit Accepted: Rosentreter Gambit, Testa Variation"
@@ -193,14 +428,98 @@
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 Nc3",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: King's Knight's Gambit",
     "4": "King's Gambit Accepted: Quaade Gambit"
    }
   },
   {
+   "line": "e4 e5 f4 exf4 Nf3 d6 b4",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Fischer Defense",
+    "4": "King's Gambit Accepted: Fischer Defense, Schulder Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 d6 d4 Nf6 Bd3",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Fischer Defense",
+    "5": "King's Gambit Accepted: Fischer Defense, Spanish Variation"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 d6 Bc4 h6 d4 g5 h4 Bg7",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Fischer Defense",
+    "6": "King's Gambit Accepted: Greco Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 Be7 Bc4 Bh4+ g3 fxg3 O-O gxh2+ Kh1",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Cunningham Defense",
+    "5": "King's Gambit Accepted: Cunningham Defense, Bertin Gambit",
+    "7": "King's Gambit Accepted: Cunningham Defense, Bertin Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 Be7 Bc4 Nf6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Cunningham Defense",
+    "4": "King's Gambit Accepted: Cunningham Defense, McCormick Defense"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 d5 exd5 Nf6 Bb5+ c6 dxc6 bxc6 Bc4 Nd5",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Modern Defense",
+    "4": "King's Gambit Accepted: Abbazia Defense",
+    "7": "King's Gambit Accepted: Abbazia Defense, Main Line"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 h6 Bc4 d6 d4 g5 h4 Bg7 Qd3",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Becker Defense",
+    "7": "King's Gambit Accepted: Philidor Gambit, Schultz Variation"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 Nc6 Bc4 g5",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: MacLeod Defense",
+    "4": "King's Gambit Accepted: Blachly Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 Nf6 e5 Nh5 g4",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Schallopp Defense",
+    "5": "King's Gambit Accepted: Schallopp Defense, Tashkent Attack"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 Ne7",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bonsch-Osmolovsky Variation"
+   }
+  },
+  {
    "line": "e4 e5 f4 exf4 Bc4 Qh4+ Kf1 g5 Nc3 Bg7 g3 fxg3 Qf3",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: Bishop's Gambit",
+    "4": "King's Gambit Accepted: Bishop's Gambit, Lopez Variation",
     "6": "King's Gambit Accepted: Bishop's Gambit, McDonnell Attack",
     "7": "King's Gambit Accepted: Bishop's Gambit, Fraser Variation"
    }
@@ -208,21 +527,169 @@
   {
    "line": "e4 e5 f4 exf4 Bc4 Qh4+ Kf1 g5 Nc3 Bg7 d4 d6 e5",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: Bishop's Gambit",
+    "4": "King's Gambit Accepted: Bishop's Gambit, Lopez Variation",
     "7": "King's Gambit Accepted: Bishop's Gambit, Grimm Attack"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 Qh4+ Kf1 g5 Nc3 Bg7 d4 Ne7 g3",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit",
+    "4": "King's Gambit Accepted: Bishop's Gambit, Lopez Variation",
+    "7": "King's Gambit Accepted: Bishop's Gambit, McDonnell Attack"
    }
   },
   {
    "line": "e4 e5 f4 exf4 Bc4 Qh4+ Kf1 g5 Qf3",
    "notes": {
+    "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: Bishop's Gambit",
+    "4": "King's Gambit Accepted: Bishop's Gambit, Lopez Variation",
     "5": "King's Gambit Accepted: Bishop's Gambit, Classical Defense, Cozio Attack"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 Qh4+ Kf1 Nc6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit",
+    "4": "King's Gambit Accepted: Bishop's Gambit, Boden Variation"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 Qh4+ Kf1 b5",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit",
+    "4": "King's Gambit Accepted: Bishop's Gambit, Bryan Countergambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 Qh4+ Kf1 d5 Bxd5 g5 g3",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit",
+    "6": "King's Gambit Accepted: Bishop's Gambit, Chigorin's Attack"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 Qh4+ Kf1 Ne7 Nc3 g5 d4 Bg7",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit",
+    "6": "King's Gambit Accepted: Bishop's Gambit, Classical Defense"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 Qh4+ Kf1 d6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit",
+    "4": "King's Gambit Accepted: Bishop's Gambit, Cozio Variation"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 Qh4+ Kf1 Nf6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit",
+    "4": "King's Gambit Accepted: Bishop's Gambit, First Jaenisch Variation"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 Qh4+ Kf1 Bc5",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit",
+    "4": "King's Gambit Accepted: Bishop's Gambit, Greco Variation"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 d5 Bxd5 c6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit, Bledow Variation",
+    "4": "King's Gambit Accepted: Bishop's Gambit, Anderssen Variation"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 d5 Bxd5 Nf6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit, Bledow Variation",
+    "4": "King's Gambit Accepted: Bishop's Gambit, Bledow Countergambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 d5 Bxd5 Qh4+ Kf1 Bd6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit, Bledow Variation",
+    "5": "King's Gambit Accepted: Bishop's Gambit, Boren-Svenonius Variation"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 Nf6 Nc3 c6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit, Cozio Defense",
+    "4": "King's Gambit Accepted: Bishop's Gambit, Bogoljubow Defense"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 Nf6 Nc3 Bb4 e5",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit, Cozio Defense",
+    "4": "King's Gambit Accepted: Bishop's Gambit, Bogoljubow Variation",
+    "5": "King's Gambit Accepted: Bishop's Gambit, Paulsen Attack"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 f5 Qe2 Qh4+ Kd1 fxe4 Nc3 Kd8",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit, Gianutio Gambit",
+    "6": "King's Gambit Accepted: Lopez-Gianutio Countergambit, Hein Variation"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 g5",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit, Anderssen Defense"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 b5",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit, Kieseritzky Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 c6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit, Lopez Defense"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Bc4 Nc6",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Bishop's Gambit, Maurian Defense"
    }
   },
   {
    "line": "e4 e5 f4 exf4 Be2 f5 exf5 d6",
    "notes": {
-    "3": "King's Gambit Accepted: Tartakower Gambit"
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Tartakower Gambit",
+    "4": "King's Gambit Accepted: Tartakower Gambit, Weiss Defense"
    }
   }
  ]

@@ -4,9 +4,30 @@
  "intro": "11 named variations of the Rat Defense, from the ECO book. You have played it 2 times, scoring 0%.",
  "lines": [
   {
+   "line": "e4 d6 f4 d5 exd5 Nf6",
+   "notes": {
+    "2": "Rat Defense: Harmonist",
+    "3": "Rat Defense: Fuller Gambit"
+   }
+  },
+  {
    "line": "e4 g6 d4 d6 Nc3 c6",
    "notes": {
     "3": "Rat Defense: Accelerated Gurgenidze"
+   }
+  },
+  {
+   "line": "d4 d6 c4 e5 dxe5 Nc6",
+   "notes": {
+    "2": "Rat Defense: English Rat",
+    "3": "Rat Defense: English Rat, Lisbon Gambit"
+   }
+  },
+  {
+   "line": "d4 d6 c4 e5 dxe5 Be6",
+   "notes": {
+    "2": "Rat Defense: English Rat",
+    "3": "Rat Defense: English Rat, Pounds Gambit"
    }
   }
  ]

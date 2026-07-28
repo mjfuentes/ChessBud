@@ -10,7 +10,19 @@
     "4": "Italian Game: Evans Gambit Accepted",
     "5": "Italian Game: Evans Gambit, Main Line",
     "6": "Italian Game: Evans Gambit, Pierce Defense",
-    "7": "Italian Game: Evans Gambit, Compromised Defense"
+    "7": "Italian Game: Evans Gambit, Compromised Defense",
+    "11": "Italian Game: Evans Gambit, Compromised Defense, Main Line"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Ba5 d4 exd4 O-O dxc3 Qb3 Qf6 e5 Qg6 Nxc3 Nge7 Rd1",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Evans Gambit Accepted",
+    "5": "Italian Game: Evans Gambit, Main Line",
+    "6": "Italian Game: Evans Gambit, Pierce Defense",
+    "7": "Italian Game: Evans Gambit, Compromised Defense",
+    "11": "Italian Game: Evans Gambit, Compromised Defense, Potter Variation"
    }
   },
   {
@@ -19,7 +31,18 @@
     "3": "Italian Game: Giuoco Piano",
     "4": "Italian Game: Evans Gambit Accepted",
     "5": "Italian Game: Evans Gambit, Main Line",
-    "6": "Italian Game: Evans Gambit, Pierce Defense"
+    "6": "Italian Game: Evans Gambit, Pierce Defense",
+    "9": "Italian Game: Evans Gambit, Morphy Attack"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Ba5 d4 exd4 O-O d6 Qb3",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Evans Gambit Accepted",
+    "5": "Italian Game: Evans Gambit, Main Line",
+    "6": "Italian Game: Evans Gambit, Pierce Defense",
+    "8": "Italian Game: Evans Gambit, Waller Attack"
    }
   },
   {
@@ -58,7 +81,19 @@
     "3": "Italian Game: Giuoco Piano",
     "4": "Italian Game: Evans Gambit Accepted",
     "5": "Italian Game: Evans Gambit, Main Line",
-    "6": "Italian Game: Evans Gambit, Bronstein Defense"
+    "6": "Italian Game: Evans Gambit, Bronstein Defense",
+    "7": "Italian Game: Evans Gambit, Tartakower Attack",
+    "11": "Italian Game: Evans Gambit, Levenfish Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Ba5 d4 d6 Bg5",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Evans Gambit Accepted",
+    "5": "Italian Game: Evans Gambit, Main Line",
+    "6": "Italian Game: Evans Gambit, Bronstein Defense",
+    "7": "Italian Game: Evans Gambit, Sokolsky Variation"
    }
   },
   {
@@ -80,6 +115,56 @@
    }
   },
   {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Ba5 O-O d6 d4 Bg4",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Evans Gambit Accepted",
+    "5": "Italian Game: Evans Gambit, Main Line",
+    "6": "Italian Game: Evans Gambit",
+    "7": "Italian Game: Evans Gambit, Alapin-Steinitz Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Ba5 O-O d6 d4 Bb6",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Evans Gambit Accepted",
+    "5": "Italian Game: Evans Gambit, Main Line",
+    "6": "Italian Game: Evans Gambit",
+    "7": "Italian Game: Evans Gambit, Lasker Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Ba5 O-O d6 d4 Bd7",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Evans Gambit Accepted",
+    "5": "Italian Game: Evans Gambit, Main Line",
+    "6": "Italian Game: Evans Gambit",
+    "7": "Italian Game: Evans Gambit, Sanders-Alapin Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Ba5 O-O Nf6 d4 exd4",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Evans Gambit Accepted",
+    "5": "Italian Game: Evans Gambit, Main Line",
+    "6": "Italian Game: Evans Gambit, Slow Variation",
+    "7": "Italian Game: Evans Gambit, Anderssen Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Ba5 O-O Nf6 d4 O-O Nxe5",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Evans Gambit Accepted",
+    "5": "Italian Game: Evans Gambit, Main Line",
+    "6": "Italian Game: Evans Gambit, Slow Variation",
+    "8": "Italian Game: Evans Gambit, Richardson Attack"
+   }
+  },
+  {
    "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Bc5 d4 exd4 O-O d6 cxd4 Bb6 Nc3 Bg4 Qa4 Bd7 Qb3 Na5 Bxf7+ Kf8 Qc2 Kxf7",
    "notes": {
     "3": "Italian Game: Giuoco Piano",
@@ -87,6 +172,7 @@
     "5": "Italian Game: Evans Gambit, McDonnell Defense",
     "8": "Italian Game: Evans Gambit, McDonnell Defense, Main Line",
     "9": "Italian Game: Evans Gambit",
+    "10": "Italian Game: Evans Gambit, Fraser Attack",
     "13": "Italian Game: Evans Gambit, Mortimer-Evans Gambit"
    }
   },
@@ -96,7 +182,28 @@
     "3": "Italian Game: Giuoco Piano",
     "4": "Italian Game: Evans Gambit Accepted",
     "5": "Italian Game: Evans Gambit, McDonnell Defense",
-    "8": "Italian Game: Evans Gambit, McDonnell Defense, Main Line"
+    "8": "Italian Game: Evans Gambit, McDonnell Defense, Main Line",
+    "10": "Italian Game: Evans Gambit, G\u00f6ring Attack",
+    "11": "Italian Game: Evans Gambit, Steinitz Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Bc5 d4 exd4 O-O d6 cxd4 Bb6 d5 Na5 Bb2 Ne7",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Evans Gambit Accepted",
+    "5": "Italian Game: Evans Gambit, McDonnell Defense",
+    "8": "Italian Game: Evans Gambit, McDonnell Defense, Main Line",
+    "10": "Italian Game: Evans Gambit, Paulsen Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Bc5 d4 exd4 cxd4 Bb4+ Bd2",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Evans Gambit Accepted",
+    "5": "Italian Game: Evans Gambit, McDonnell Defense",
+    "8": "Italian Game: Evans Gambit, Harding Variation"
    }
   },
   {
@@ -129,7 +236,17 @@
    "notes": {
     "3": "Italian Game: Giuoco Piano",
     "4": "Italian Game: Evans Gambit Declined",
-    "6": "Italian Game: Evans Gambit Declined, Hirschbach Variation"
+    "6": "Italian Game: Evans Gambit Declined, Hirschbach Variation",
+    "9": "Italian Game: Evans Gambit Declined, Hicken Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bb6 b5 Na5 Nxe5 Qg5 Bxf7+ Ke7 Qh5",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Evans Gambit Declined",
+    "6": "Italian Game: Evans Gambit Declined, Hirschbach Variation",
+    "8": "Italian Game: Evans Gambit Declined, Vasquez Variation"
    }
   },
   {
@@ -137,7 +254,25 @@
    "notes": {
     "3": "Italian Game: Giuoco Piano",
     "4": "Italian Game: Evans Gambit Declined",
-    "6": "Italian Game: Evans Gambit Declined, Lange Variation"
+    "6": "Italian Game: Evans Gambit Declined, Lange Variation",
+    "12": "Italian Game: Evans Gambit Declined, Pavlov Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bb6 a4 a6 Nc3",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Evans Gambit Declined",
+    "5": "Italian Game: Evans Gambit Declined",
+    "6": "Italian Game: Evans Gambit Declined, Showalter Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bb6 Bb2",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Evans Gambit Declined",
+    "5": "Italian Game: Evans Gambit Declined, Cordel Variation"
    }
   },
   {
@@ -155,12 +290,373 @@
    }
   },
   {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 exd4 cxd4 Bb4+ Nc3 Nxe4 O-O Bxc3 d5 Bf6 Re1 Ne7 Rxe4 d6 g4",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Center Attack",
+    "6": "Italian Game: Classical Variation, Greco Gambit, Traditional Line",
+    "7": "Italian Game: Giuoco Piano, Greco's Attack",
+    "8": "Italian Game: Classical Variation, Greco Gambit, Main Line",
+    "9": "Italian Game: Classical Variation, Greco Gambit, Moeller-Therkatz Attack",
+    "12": "Italian Game: Classical Variation, Greco Gambit, Moeller-Bayonet Attack"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 exd4 cxd4 Bb4+ Nc3 Nxe4 O-O Bxc3 d5 Bf6 Re1 Ne7 Rxe4 d6 Bg5 Bxg5 Nxg5 O-O",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Center Attack",
+    "6": "Italian Game: Classical Variation, Greco Gambit, Traditional Line",
+    "7": "Italian Game: Giuoco Piano, Greco's Attack",
+    "8": "Italian Game: Classical Variation, Greco Gambit, Main Line",
+    "9": "Italian Game: Classical Variation, Greco Gambit, Moeller-Therkatz Attack"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 exd4 cxd4 Bb4+ Nc3 Nxe4 O-O Bxc3 bxc3 d5 Ba3",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Center Attack",
+    "6": "Italian Game: Classical Variation, Greco Gambit, Traditional Line",
+    "7": "Italian Game: Giuoco Piano, Greco's Attack",
+    "8": "Italian Game: Classical Variation, Greco Gambit, Main Line",
+    "10": "Italian Game: Giuoco Piano, Steinitz Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 exd4 cxd4 Bb4+ Nc3 Nxe4 O-O Nxc3 bxc3 Bxc3 Ba3",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Center Attack",
+    "6": "Italian Game: Classical Variation, Greco Gambit, Traditional Line",
+    "7": "Italian Game: Giuoco Piano, Greco's Attack",
+    "8": "Italian Game: Classical Variation, Greco Gambit, Greco Variation",
+    "10": "Italian Game: Giuoco Piano, Aitken Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 exd4 cxd4 Bb4+ Nc3 Nxe4 O-O Nxc3 bxc3 Bxc3 Qb3 d5",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Center Attack",
+    "6": "Italian Game: Classical Variation, Greco Gambit, Traditional Line",
+    "7": "Italian Game: Giuoco Piano, Greco's Attack",
+    "8": "Italian Game: Classical Variation, Greco Gambit, Greco Variation",
+    "10": "Italian Game: Giuoco Piano, Bernstein Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 exd4 cxd4 Bb4+ Kf1",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Center Attack",
+    "6": "Italian Game: Classical Variation, Greco Gambit, Traditional Line",
+    "7": "Italian Game: Giuoco Piano, Cracow Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 exd4 cxd4 Bb4+ Bd2 Nxe4 Bxb4 Nxb4 Bxf7+ Kxf7 Qb3+ d5 Ne5+ Kf6 f3",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Center Attack",
+    "6": "Italian Game: Classical Variation, Greco Gambit, Traditional Line",
+    "12": "Italian Game: Giuoco Piano, Krause Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 exd4 e5 d5 Bb5 Ne4 cxd4 Bb4+",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Center Attack",
+    "6": "Italian Game: Classical Variation, Greco Gambit, Modern Line",
+    "8": "Italian Game: Classical Variation, Greco Gambit, Anderssen Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 exd4 e5 Ne4 Bd5 Nxf2 Kxf2 dxc3+ Kg3",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Center Attack",
+    "6": "Italian Game: Classical Variation, Greco Gambit, Modern Line",
+    "9": "Italian Game: Classical Variation, Ghulam-Kassim Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 exd4 b4",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Center Attack",
+    "6": "Italian Game: Classical Variation, Greco Gambit, Dubov Italian"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 exd4 O-O",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Center Attack",
+    "6": "Italian Game: Scotch Gambit, Walbrodt-Baird Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d3 d6 Nbd2 O-O O-O",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Giuoco Pianissimo",
+    "7": "Italian Game: Classical Variation, Giuoco Pianissimo"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d3 d6 Nbd2 a6",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Giuoco Pianissimo",
+    "6": "Italian Game: Classical Variation, Giuoco Pianissimo, with a6"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d3 d6 O-O O-O Re1 a6 Bb3 Ba7 h3",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Giuoco Pianissimo",
+    "9": "Italian Game: Classical Variation, Giuoco Pianissimo, Main Line"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d3 d6 O-O O-O a4 a5",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Giuoco Pianissimo",
+    "7": "Italian Game: Classical Variation, Giuoco Pianissimo, with a4 a5"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d3 d6 b4",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Giuoco Pianissimo",
+    "6": "Italian Game: Classical Variation, Giuoco Pianissimo, Albin Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d3 a6",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, Giuoco Pianissimo, with a6"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d3 d5",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Classical Variation, with d5"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 b4",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "5": "Italian Game: Bird's Attack"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Qe7 d4 Bb6 d5 Nb8 d6",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation, Closed Variation",
+    "5": "Italian Game: Classical Variation, Center Holding Variation",
+    "7": "Italian Game: Classical Variation, Eisinger Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Qe7 d4 Bb6 Bg5",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation, Closed Variation",
+    "5": "Italian Game: Classical Variation, Center Holding Variation",
+    "6": "Italian Game: Classical Variation, Mestel Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Qe7 d4 Bb6 O-O d6 a4 a6 h3 Nf6 Re1",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation, Closed Variation",
+    "5": "Italian Game: Classical Variation, Center Holding Variation",
+    "9": "Italian Game: Classical Variation, Tarrasch Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 d6 d4 exd4 cxd4 Bb6",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Classical Variation",
+    "6": "Italian Game: Classical Variation, La Bourdonnais Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 d3 d6 c3 a6 a4 Ba7",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "6": "Italian Game: Classical Variation, Giuoco Pianissimo",
+    "7": "Italian Game: Classical Variation, Giuoco Pianissimo"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 d3 d6 c3 a6 a4 O-O",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "6": "Italian Game: Classical Variation, Giuoco Pianissimo",
+    "7": "Italian Game: Classical Variation, Giuoco Pianissimo"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 d3 d6 c3 a6 Re1 Ba7",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "6": "Italian Game: Classical Variation, Giuoco Pianissimo",
+    "7": "Italian Game: Classical Variation, Giuoco Pianissimo"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 d3 d6 c3 h6 Re1",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "6": "Italian Game: Classical Variation, Giuoco Pianissimo, with h6",
+    "7": "Italian Game: Classical Variation, Giuoco Pianissimo"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 d3 d6 c3 h6 Nbd2",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "6": "Italian Game: Classical Variation, Giuoco Pianissimo, with h6",
+    "7": "Italian Game: Classical Variation, Giuoco Pianissimo"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 d3 d6 c3 a5",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "6": "Italian Game: Classical Variation, Giuoco Pianissimo"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 d3 d6 c3 Bb6",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "6": "Italian Game: Classical Variation, Giuoco Pianissimo"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 d3 d6 c3 O-O",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "6": "Italian Game: Classical Variation, Giuoco Pianissimo"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 d3 h6 c3",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "6": "Italian Game: Classical Variation, Giuoco Pianissimo"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 d3 O-O c3 d5",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "6": "Italian Game: Classical Variation, Giuoco Pianissimo"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 d3 a5 c3",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "6": "Italian Game: Classical Variation, Giuoco Pianissimo, with a5"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 d4 exd4 e5 d5 exf6 dxc4 Re1+ Be6 fxg7",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "5": "Italian Game: Deutz Gambit",
+    "9": "Italian Game: Scotch Gambit, Max Lange Attack Accepted"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 c3",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "5": "Italian Game: Classical Variation, Albin Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 d3 Nf6 Nc3 d6 Bg5",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Giuoco Pianissimo",
+    "5": "Italian Game: Giuoco Pianissimo, Italian Four Knights Variation",
+    "6": "Italian Game: Giuoco Pianissimo, Canal Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 d3 f5 Ng5 f4",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Giuoco Pianissimo, Lucchini Gambit",
+    "5": "Italian Game: Giuoco Pianissimo, Dubois Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 Nc3 Nf6 O-O O-O d3",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "5": "Italian Game: Giuoco Pianissimo",
+    "6": "Italian Game: Giuoco Pianissimo"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 Bxf7+",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Jerome Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 d4",
+   "notes": {
+    "3": "Italian Game: Giuoco Piano",
+    "4": "Italian Game: Rosentreter Gambit"
+   }
+  },
+  {
    "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5 exd5 Na5 Bb5+ c6 dxc6 bxc6 Be2 h6 Nf3 e4 Ne5 Bd6 d4 Qc7 Bd2",
    "notes": {
     "3": "Italian Game: Two Knights Defense",
     "4": "Italian Game: Two Knights Defense, Knight Attack, Normal Variation",
     "5": "Italian Game: Two Knights Defense, Polerio Defense",
-    "8": "Italian Game: Two Knights Defense, Polerio Defense, Suhle Defense"
+    "6": "Italian Game: Two Knights Defense, Polerio Defense, Bishop Check Line",
+    "8": "Italian Game: Two Knights Defense, Polerio Defense, Suhle Defense",
+    "12": "Italian Game: Two Knights Defense, Knorre Variation"
    }
   },
   {
@@ -169,8 +665,71 @@
     "3": "Italian Game: Two Knights Defense",
     "4": "Italian Game: Two Knights Defense, Knight Attack, Normal Variation",
     "5": "Italian Game: Two Knights Defense, Polerio Defense",
+    "6": "Italian Game: Two Knights Defense, Polerio Defense, Bishop Check Line",
     "8": "Italian Game: Two Knights Defense, Polerio Defense, Suhle Defense",
     "10": "Italian Game: Two Knights Defense, Polerio Defense, G\u00f6ring Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5 exd5 Na5 Bb5+ c6 dxc6 bxc6 Be2 h6 Nh3",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Knight Attack, Normal Variation",
+    "5": "Italian Game: Two Knights Defense, Polerio Defense",
+    "6": "Italian Game: Two Knights Defense, Polerio Defense, Bishop Check Line",
+    "8": "Italian Game: Two Knights Defense, Polerio Defense, Suhle Defense",
+    "9": "Italian Game: Two Knights Defense, Steinitz Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5 exd5 Na5 Bb5+ c6 dxc6 bxc6 Qf3 cxb5",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Knight Attack, Normal Variation",
+    "5": "Italian Game: Two Knights Defense, Polerio Defense",
+    "6": "Italian Game: Two Knights Defense, Polerio Defense, Bishop Check Line",
+    "8": "Italian Game: Two Knights Defense, Blackburne Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5 exd5 Na5 Bb5+ c6 dxc6 bxc6 Qf3 Rb8",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Knight Attack, Normal Variation",
+    "5": "Italian Game: Two Knights Defense, Polerio Defense",
+    "6": "Italian Game: Two Knights Defense, Polerio Defense, Bishop Check Line",
+    "8": "Italian Game: Two Knights Defense, Colman Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5 exd5 Na5 Bb5+ c6 dxc6 bxc6 Qf3 Qc7 Bd3",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Knight Attack, Normal Variation",
+    "5": "Italian Game: Two Knights Defense, Polerio Defense",
+    "6": "Italian Game: Two Knights Defense, Polerio Defense, Bishop Check Line",
+    "8": "Italian Game: Two Knights Defense, Polerio Defense, Bogoljubow Variation",
+    "9": "Italian Game: Two Knights Defense, Paoli Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5 exd5 Na5 d3 h6 Nf3 e4 Qe2 Nxc4 dxc4 Be7",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Knight Attack, Normal Variation",
+    "5": "Italian Game: Two Knights Defense, Polerio Defense",
+    "6": "Italian Game: Two Knights Defense, Polerio Defense, Kieseritzky Variation",
+    "9": "Italian Game: Two Knights Defense, Mar\u00f3czy Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5 exd5 Na5 d3 h6 Nf3 e4 Qe2 Nxc4 dxc4 Bc5 Nfd2",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Knight Attack, Normal Variation",
+    "5": "Italian Game: Two Knights Defense, Polerio Defense",
+    "6": "Italian Game: Two Knights Defense, Polerio Defense, Kieseritzky Variation",
+    "10": "Italian Game: Two Knights Defense, Polerio Defense, Yankovich Variation"
    }
   },
   {
@@ -178,7 +737,16 @@
    "notes": {
     "3": "Italian Game: Two Knights Defense",
     "4": "Italian Game: Two Knights Defense, Knight Attack, Normal Variation",
+    "6": "Italian Game: Two Knights Defense, Fried Liver Attack",
     "11": "Italian Game: Two Knights Defense, Fegatello Attack, Leonhardt Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5 exd5 Nxd5 d4 Bb4+",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Knight Attack, Normal Variation",
+    "6": "Italian Game: Two Knights Defense, Pincus Variation"
    }
   },
   {
@@ -186,7 +754,8 @@
    "notes": {
     "3": "Italian Game: Two Knights Defense",
     "4": "Italian Game: Two Knights Defense, Knight Attack, Normal Variation",
-    "5": "Italian Game: Two Knights Defense, Fritz Variation"
+    "5": "Italian Game: Two Knights Defense, Fritz Variation",
+    "8": "Italian Game: Two Knights Defense, Fritz, Gruber Variation"
    }
   },
   {
@@ -194,7 +763,8 @@
    "notes": {
     "3": "Italian Game: Two Knights Defense",
     "4": "Italian Game: Two Knights Defense, Knight Attack, Normal Variation",
-    "5": "Italian Game: Two Knights Defense, Ulvestad Variation"
+    "5": "Italian Game: Two Knights Defense, Ulvestad Variation",
+    "7": "Italian Game: Two Knights Defense, Ulvestad Variation, Kurkin Gambit"
    }
   },
   {
@@ -209,7 +779,18 @@
    "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 Bc5 Bxf7+ Ke7 d4",
    "notes": {
     "3": "Italian Game: Two Knights Defense",
-    "4": "Italian Game: Two Knights Defense, Traxler Counterattack"
+    "4": "Italian Game: Two Knights Defense, Traxler Counterattack",
+    "5": "Italian Game: Two Knights Defense, Traxler Counterattack, Bishop Sacrifice Line",
+    "6": "Italian Game: Two Knights Defense, Traxler Variation, Trencianske-Teplice Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 Bc5 Nxf7 Bxf2+ Kxf2 Nxe4+ Ke3",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Traxler Counterattack",
+    "5": "Italian Game: Two Knights Defense, Traxler Counterattack, Knight Sacrifice Line",
+    "7": "Italian Game: Two Knights Defense, Traxler Counterattack, King March Line"
    }
   },
   {
@@ -217,6 +798,127 @@
    "notes": {
     "3": "Italian Game: Two Knights Defense",
     "4": "Italian Game: Two Knights Defense, Ponziani-Steinitz Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Nxe4 Re1 d5 Bxd5 Qxd5 Nc3 Qa5 Nxe4 Be6 Bd2 Qd5 Bg5",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "5": "Italian Game: Scotch Gambit, Double Gambit Accepted",
+    "8": "Italian Game: Scotch Gambit, Anderssen Attack",
+    "11": "Italian Game: Scotch Gambit, Anderssen Attack, Main Line"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Nxe4 Nc3",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "5": "Italian Game: Scotch Gambit, Double Gambit Accepted",
+    "6": "Italian Game: Scotch Gambit, Nakhmanson Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Bc5 e5 d5 exf6 dxc4 Re1+ Be6 Ng5 Qd5 Nc3 Qf5 g4 Qg6 Nce4 Bb6 f4 O-O-O",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "5": "Italian Game: Scotch Gambit",
+    "13": "Italian Game: Two Knights Defense, Max Lange Attack, Berger Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Bc5 e5 d5 exf6 dxc4 Re1+ Be6 Ng5 Qd5 Nc3 Qf5 Nce4 Bf8",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "5": "Italian Game: Scotch Gambit",
+    "11": "Italian Game: Two Knights Defense, Max Lange Attack, Rubinstein Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Bc5 e5 Ng4 c3",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "5": "Italian Game: Scotch Gambit",
+    "7": "Italian Game: Two Knights Defense, Max Lange Attack, Krause Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 e5 d5 Bb5 Ne4 Nxd4 Bc5 Nxc6 Bxf2+ Kf1 Qh4",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "6": "Italian Game: Scotch Gambit, Max Lange Attack",
+    "9": "Italian Game: Two Knights Defense, Keidansky Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 Ng5",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "5": "Italian Game: Two Knights Defense, Perreux Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 d6",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Scotch Invitation Declined"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 O-O Bc5 d4 Bxd4 Nxd4 Nxd4 Bg5 d6 f4 Qe7 fxe5 dxe5 Nc3",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "7": "Italian Game: Two Knights Defense",
+    "10": "Italian Game: Giuoco Piano, Holzhausen Attack"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 O-O Bc5 d4 Bxd4 Nxd4 Nxd4 Bg5 h6 Bh4 g5 f4",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "9": "Italian Game: Giuoco Piano, Rosentreter Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 O-O Bc5 Nc3 d6 d3",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "6": "Italian Game: Giuoco Pianissimo"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d3 Bc5",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Giuoco Pianissimo, Normal"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d3 Be7",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Modern Bishop's Opening"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d3 h6 O-O d6",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Italian Game: Two Knights Defense, Modern Bishop's Opening",
+    "5": "Italian Game: Two Knights Defense, Modern Bishop's Opening"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Nc3 Nxe4 Nxe4 d5",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "5": "Italian Game: Two Knights Defense"
    }
   },
   {
@@ -248,6 +950,51 @@
    "line": "e4 e5 Nf3 Nc6 Bc4 f5",
    "notes": {
     "3": "Italian Game: Rousseau Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 O-O Bc5 e5 d5 exf6 dxc4 Re1+ Be6 Ng5 Qd5 Nc3 Qf5 Nce4",
+   "notes": {
+    "5": "Italian Game: Scotch Gambit, Max Lange Attack",
+    "6": "Italian Game: Two Knights Defense, Max Lange Attack",
+    "11": "Italian Game: Scotch Gambit, Max Lange Attack, Long Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 O-O Bc5 e5 Ng4",
+   "notes": {
+    "5": "Italian Game: Scotch Gambit, Max Lange Attack",
+    "6": "Italian Game: Scotch Gambit, Max Lange Attack, Spielmann Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 O-O Nxe4 Re1 d5 Nc3",
+   "notes": {
+    "7": "Italian Game: Scotch Gambit, Canal Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 O-O Nxe4 Re1 d5 Bxd5 Qxd5 Nc3 Qa5 Nxe4 Be6 Bg5 h6 Bh4 g5 Nf6+ Ke7 b4",
+   "notes": {
+    "13": "Italian Game: Two Knights Defense, Yurdansky Attack"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 O-O d6",
+   "notes": {
+    "5": "Italian Game: Scotch Gambit, Janowski Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 O-O Be7",
+   "notes": {
+    "5": "Italian Game: Scotch Gambit, de Riviere Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Bc5 O-O Nf6 e5 d5 exf6 dxc4 Re1+ Be6 Ng5 g6",
+   "notes": {
+    "9": "Italian Game: Two Knights Defense, Max Lange Attack, Loman Defense"
    }
   }
  ]

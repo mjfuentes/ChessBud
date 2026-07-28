@@ -6,48 +6,178 @@
   {
    "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Bb4 O-O O-O d3 d6 Bg5 Bxc3 bxc3 Qe7 Re1 Nd8 d4 Bg4",
    "notes": {
-    "4": "Four Knights Game: Spanish Variation",
-    "6": "Four Knights Game: Spanish Variation, Double Spanish"
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Spanish Variation, Double Spanish",
+    "6": "Four Knights Game: Spanish Variation, Symmetrical Variation",
+    "8": "Four Knights Game: Spanish Variation, Symmetrical Variation, Metger Unpin",
+    "10": "Four Knights Game: Spanish Variation, Symmetrical Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Bb4 O-O O-O d3 d6 Bg5 Ne7 Nh4 c6 Bc4 d5 Bb3 Qd6",
+   "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Spanish Variation, Double Spanish",
+    "6": "Four Knights Game: Spanish Variation, Symmetrical Variation",
+    "7": "Four Knights Game: Spanish Variation, Symmetrical Variation",
+    "10": "Four Knights Game: Spanish Variation, Symmetrical Variation, Blake Variation"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Bb4 O-O O-O d3 d6 Ne2",
    "notes": {
-    "4": "Four Knights Game: Spanish Variation",
-    "6": "Four Knights Game: Spanish Variation, Double Spanish",
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Spanish Variation, Double Spanish",
+    "6": "Four Knights Game: Spanish Variation, Symmetrical Variation",
     "7": "Four Knights Game: Spanish Variation, Symmetrical Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Bb4 O-O O-O d3 Bxc3 bxc3 d6 Re1",
+   "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Spanish Variation, Double Spanish",
+    "6": "Four Knights Game: Spanish Variation",
+    "8": "Four Knights Game: Spanish Variation, Janowski Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Bb4 O-O O-O d3 Bxc3 bxc3 d5",
+   "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Spanish Variation, Double Spanish",
+    "6": "Four Knights Game: Spanish Variation",
+    "7": "Four Knights Game: Spanish Variation, Svenonius Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Bb4 O-O O-O d3 Qe7 Ne2 d5",
+   "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Spanish Variation, Double Spanish",
+    "6": "Four Knights Game: Spanish Variation, Double Spanish",
+    "7": "Four Knights Game: Spanish Variation, Alatortsev Variation"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Bb4 O-O O-O Bxc6",
    "notes": {
-    "4": "Four Knights Game: Spanish Variation",
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Spanish Variation, Double Spanish",
     "6": "Four Knights Game: Spanish Variation, Nimzowitsch Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Nd4 Be2 Nxf3+ Bxf3 Bc5 O-O O-O d3 d6 Na4 Bb6",
+   "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Spanish Variation, Rubinstein Variation",
+    "5": "Four Knights Game: Spanish Variation, Rubinstein Variation",
+    "9": "Four Knights Game: Spanish Variation, Rubinstein Variation, Mar\u00f3czy Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Nd4 Nxd4",
+   "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Spanish Variation, Rubinstein Variation",
+    "5": "Four Knights Game: Spanish Variation, Rubinstein Variation Accepted"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Nd4 Ba4 Bc5 Nxe5 O-O",
+   "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Spanish Variation, Rubinstein Variation",
+    "6": "Four Knights Game: Spanish Variation, Rubinstein Variation, Marshall Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Nd4 Nxe5 Bc5 O-O O-O",
+   "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Spanish Variation, Rubinstein Variation",
+    "6": "Four Knights Game: Spanish Variation, Rubinstein Variation, Marshall Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Bc5 O-O O-O Nxe5 Nxe5 d4 Bd6 f4 Nc6 e5 Bb4",
+   "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Spanish Variation, Classical Variation",
+    "9": "Four Knights Game: Spanish Variation, Bardeleben Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 a6 Bxc6 dxc6 Nxe5 Nxe4 Nxe4 Qd4 O-O Qxe5 Re1 Be6 d4 Qd5",
+   "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Spanish Variation",
+    "5": "Four Knights Game: Spanish Variation, Ranken Variation",
+    "10": "Four Knights Game: Spanish Variation, Spielmann Variation"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 d4 exd4 Nxd4 Bb4 Nxc6 bxc6 Bd3 d5 exd5 O-O O-O",
    "notes": {
-    "4": "Four Knights Game: Scotch Variation",
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Scotch Variation Accepted",
     "9": "Four Knights Game: Scotch Variation Accepted, Main Line"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 d4 exd4 Nxd4 Nxe4",
+   "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Scotch Variation Accepted",
+    "5": "Four Knights Game: Scotch Variation, Schmid Defense"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 d4 exd4 Nd5 Nxe4 Qe2 f5",
    "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Scotch Variation Accepted",
+    "5": "Four Knights Game: Scotch Variation, Belgrade Gambit",
+    "6": "Four Knights Game: Scotch Variation, Belgrade Gambit, Modern Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 d4 Bb4 Nxe5 Qe7",
+   "notes": {
+    "3": "Four Knights Game",
     "4": "Four Knights Game: Scotch Variation",
-    "5": "Four Knights Game: Scotch Variation, Belgrade Gambit"
+    "5": "Four Knights Game: Scotch Variation, Krause Gambit, Leonhardt Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 d4 Bb4 d5 Nd4",
+   "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Scotch Variation",
+    "5": "Four Knights Game: Scotch Variation, Oxford Gambit"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Nxe5 Nxe5 d4 Ng6 e5 Ng8 Bc4 Bb4 Qf3 f5",
    "notes": {
-    "4": "Four Knights Game: Halloween Gambit"
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Halloween Gambit",
+    "8": "Four Knights Game: Halloween Gambit, Oldtimer Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Nxe5 Nxe5 d4 Nc6 d5 Ne5 f4 Ng6 e5 Ng8 d6 cxd6 exd6 Qf6 Nb5 Rb8",
+   "notes": {
+    "3": "Four Knights Game",
+    "4": "Four Knights Game: Halloween Gambit",
+    "11": "Four Knights Game: Halloween Gambit, Plasma Variation"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 g3 d5 exd5 Nxd5 Bg2 Nxc3 bxc3",
    "notes": {
+    "3": "Four Knights Game",
     "4": "Four Knights Game: Glek System",
     "7": "Four Knights Game: Glek System"
    }
@@ -55,6 +185,7 @@
   {
    "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 a3 d6 h3",
    "notes": {
+    "3": "Four Knights Game",
     "4": "Four Knights Game: Gunsberg Variation",
     "5": "Four Knights Game: Gunsberg Variation, Provincial Opening"
    }
@@ -62,6 +193,7 @@
   {
    "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Nd5",
    "notes": {
+    "3": "Four Knights Game",
     "4": "Four Knights Game: Naroditsky Variation"
    }
   },
@@ -70,6 +202,36 @@
    "notes": {
     "4": "Four Knights Game: Italian Variation",
     "5": "Four Knights Game: Italian Variation, Noa Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 Nc3 Nf6",
+   "notes": {
+    "4": "Four Knights Game: Italian Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nf6 Nc3 Nc6 Bb5 Nd4 Nxe5 Qe7 f4",
+   "notes": {
+    "6": "Four Knights Game: Spanish Variation, Rubinstein Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nf6 Nc3 Nc6 Bb5 Nd4 O-O",
+   "notes": {
+    "5": "Four Knights Game: Spanish Variation, Rubinstein Variation, Henneberger Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nf6 Nc3 Nc6 Bb5 Bb4 O-O O-O Nd5 Nxd5 exd5 e4",
+   "notes": {
+    "7": "Four Knights Game: Spanish Variation, Gunsberg Counterattack"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nf6 Nc3 Nc6 Bb5 Bb4 O-O O-O d3 d6 Bg5 Be6",
+   "notes": {
+    "7": "Four Knights Game: Spanish Variation, Symmetrical Variation, Tarrasch Variation"
    }
   }
  ]

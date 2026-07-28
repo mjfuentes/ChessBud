@@ -6,93 +6,786 @@
   {
    "line": "c4 e5 Nc3 Nf6 Nf3 Nc6 g3 Bc5 d3 d6 Bg2 O-O O-O",
    "notes": {
-    "1": "English Opening",
-    "2": "English Opening: King's English Variation, Reversed Sicilian",
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Four Knights Variation",
     "4": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line",
     "6": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line, with .. d6",
     "7": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line, with .. d6"
    }
   },
   {
+   "line": "c4 e5 Nc3 Nf6 Nf3 Nc6 g3 Bc5 d3 d6 Bg2 a6",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Four Knights Variation",
+    "4": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line",
+    "6": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line, with .. d6, a6"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 Nf3 Nc6 g3 Bc5 d3 d6 Bg2 h6",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Four Knights Variation",
+    "4": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line",
+    "6": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line, with .. d6, h6"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 Nf3 Nc6 g3 Bb4 Bg2 Bxc3 dxc3 d6 O-O O-O",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Four Knights Variation",
+    "4": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line",
+    "7": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 Nf3 Nc6 g3 d5 cxd5 Nxd5 Bg2 Bc5",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Four Knights Variation",
+    "4": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line",
+    "6": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line, with Bc5"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 Nf3 Nc6 g3 d5 cxd5 Nxd5 Bg2 Nb6",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Four Knights Variation",
+    "4": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line",
+    "6": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line, with Nb6"
+   }
+  },
+  {
    "line": "c4 e5 Nc3 Nf6 Nf3 Nc6 e3 Bb4 Qc2 Bxc3",
    "notes": {
-    "1": "English Opening",
-    "2": "English Opening: King's English Variation, Reversed Sicilian",
-    "4": "English Opening: King's English Variation, Four Knights Variation, Quiet Line"
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Four Knights Variation",
+    "4": "English Opening: King's English Variation, Four Knights Variation, Quiet Line",
+    "5": "English Opening: King's English Variation, Four Knights Variation, Quiet Line"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 Nf3 Nc6 e3 Bb4 Qc2 O-O Nd5 Re8 Qf5",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Four Knights Variation",
+    "4": "English Opening: King's English Variation, Four Knights Variation, Quiet Line",
+    "7": "English Opening: King's English Variation, Four Knights Variation, Quiet Line"
    }
   },
   {
    "line": "c4 e5 Nc3 Nf6 Nf3 Nc6 d4 exd4 Nxd4 Bb4 Bg5 h6 Bh4 Bxc3+ bxc3 Ne5",
    "notes": {
-    "1": "English Opening",
-    "2": "English Opening: King's English Variation, Reversed Sicilian"
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Four Knights Variation",
+    "8": "English Opening: King's English Variation, Four Knights Variation"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 Nf3 Nc6 d4 e4",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Four Knights Variation",
+    "4": "English Opening: King's English Variation, Four Knights Variation, Bradley Beach Variation"
    }
   },
   {
    "line": "c4 e5 Nc3 Nf6 Nf3 Nc6 e4",
    "notes": {
-    "1": "English Opening",
-    "2": "English Opening: King's English Variation, Reversed Sicilian",
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Four Knights Variation",
     "4": "English Opening: Four Knights System, Nimzowitsch Variation"
    }
   },
   {
    "line": "c4 e5 Nc3 Nf6 Nf3 Nc6 d3",
    "notes": {
-    "1": "English Opening",
-    "2": "English Opening: King's English Variation, Reversed Sicilian",
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Four Knights Variation",
     "4": "English Opening: King's English Variation, Four Knights Variation, Flexible Line"
    }
   },
   {
    "line": "c4 e5 Nc3 Nf6 Nf3 Nc6 a3",
    "notes": {
-    "1": "English Opening",
-    "2": "English Opening: King's English Variation, Reversed Sicilian",
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Four Knights Variation",
     "4": "English Opening: King's English Variation, Four Knights Variation, Korchnoi Line"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 Nf3 e4 Ng5 c6",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "4": "English Opening: King's English Variation, Adhiban Gambit"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 Nf3 e4 Ng5 b5",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "4": "English Opening: King's English Variation, Bellon Gambit"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 Nf3 e4 Ng5 Ng4",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "4": "English Opening: King's English, Erbenheimer Gambit"
    }
   },
   {
    "line": "c4 e5 Nc3 Nf6 g3 Bb4 e4 O-O Nge2 Nc6 Bg2",
    "notes": {
-    "1": "English Opening",
-    "2": "English Opening: King's English Variation, Reversed Sicilian",
-    "3": "English Opening: Carls-Bremen System",
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Two Knights Variation, Smyslov System",
     "6": "English Opening: King's English Variation, Reversed Closed Sicilian"
    }
   },
   {
    "line": "c4 e5 Nc3 Nf6 g3 Bb4 Bg2 O-O Nf3 Re8 O-O e4 Nd4 Nc6",
    "notes": {
-    "1": "English Opening",
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Two Knights Variation, Smyslov System",
+    "7": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line, Delayed .. Nc6"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 g3 d5",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Two Knights Variation, Reversed Dragon"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 g3 c6",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Two Knights Variation, Keres Variation"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 g3 Bc5 Bg2 c6",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: Carls-Bremen System",
+    "4": "English Opening: King's English Variation, Two Knights Variation, Keres Variation"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 g3 g6",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: King's English Variation, Two Knights Variation, Fianchetto Line"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nf6 g3 Nc6 Bg2 d6 d3 Be7 Nf3 O-O",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Two Knights Variation",
+    "3": "English Opening: Carls-Bremen System",
+    "6": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line, with .. d6, Be7"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nc6 g3 g6 Bg2 Bg7 d3 d6 e4",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Reversed Closed Sicilian",
+    "4": "English Opening: King's English Variation, Taimanov Variation",
+    "5": "English Opening: King's English Variation, Closed System, Full Symmetry",
+    "6": "English Opening: King's English Variation, Botvinnik System"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nc6 g3 g6 Bg2 Bg7 e3 d6 Nge2 Nh6",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Reversed Closed Sicilian",
+    "4": "English Opening: King's English Variation, Taimanov Variation",
+    "6": "English Opening: Closed, Taimanov Variation"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nc6 g3 g6 Bg2 Bg7 e3 d6 Nge2 Be6",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Reversed Closed Sicilian",
+    "4": "English Opening: King's English Variation, Taimanov Variation",
+    "6": "English Opening: King's English Variation, Bremen-Hort Variation"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nc6 g3 g6 Bg2 Bg7 Rb1",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Reversed Closed Sicilian",
+    "4": "English Opening: King's English Variation, Taimanov Variation",
+    "5": "English Opening: King's English Variation, Hungarian Attack"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nc6 g3 g6 Rb1 Nh6 Bg2 Bg7",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Reversed Closed Sicilian",
+    "5": "English Opening: Closed, Taimanov Variation"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 Nc6 g3 d6 Bg2 Be6",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Reversed Closed Sicilian",
+    "4": "English Opening: King's English Variation, Troger Defense"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 d6 Nf3 Bg4",
+   "notes": {
+    "1": "English Opening: King's English Variation",
     "2": "English Opening: King's English Variation, Reversed Sicilian",
-    "3": "English Opening: Carls-Bremen System"
+    "3": "English Opening: King's English Variation, Smyslov Defense"
+   }
+  },
+  {
+   "line": "c4 e5 Nc3 d6 g3 c6",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "2": "English Opening: King's English Variation, Reversed Sicilian",
+    "3": "English Opening: King's English Variation, Keres Defense"
    }
   },
   {
    "line": "c4 e5 g3 Nf6 Bg2 Nc6 Nc3 Bb4 e4 d6 Nge2 Bg4",
    "notes": {
-    "1": "English Opening",
+    "1": "English Opening: King's English Variation",
     "6": "English Opening: King's English Variation, Reversed Closed Sicilian"
    }
   },
   {
    "line": "c4 e5 g3 Nf6 Bg2 Nc6 Nc3 Bb4 Nd5",
    "notes": {
-    "1": "English Opening",
+    "1": "English Opening: King's English Variation",
     "5": "English Opening: King's English Variation, Reversed Closed Sicilian"
+   }
+  },
+  {
+   "line": "c4 e5 g3 Nf6 Bg2 d5 cxd5 Nxd5 Nf3 Nc6 d3 Be7 O-O O-O",
+   "notes": {
+    "1": "English Opening: King's English Variation",
+    "5": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line",
+    "6": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line",
+    "7": "English Opening: King's English Variation, Four Knights Variation, Fianchetto Line"
    }
   },
   {
    "line": "c4 e5 e3 Nf6 f4 exf4 Nf3",
    "notes": {
-    "1": "English Opening",
+    "1": "English Opening: King's English Variation",
     "4": "English Opening: King's English Variation, Kahiko-Hula Gambit"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 d5 g3 Nf6 Bg2 Be7 O-O c5 cxd5 Nxd5 Nc3 Nc6",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "3": "English Opening: Neo-Catalan",
+    "4": "English Opening: Neo-Catalan Declined",
+    "5": "English Opening: Agincourt Defense, Neo-Catalan Declined",
+    "7": "English Opening: Agincourt Defense, Keres Defense"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 d5 g3 Nf6 Bg2 Be7 O-O O-O b3",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "3": "English Opening: Neo-Catalan",
+    "4": "English Opening: Neo-Catalan Declined",
+    "5": "English Opening: Agincourt Defense, Neo-Catalan Declined",
+    "6": "English Opening: Agincourt Defense, Neo-Catalan Declined"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 d5 g3 Nf6 Bg2 Be7 b3 b6",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "3": "English Opening: Neo-Catalan",
+    "4": "English Opening: Neo-Catalan Declined",
+    "5": "English Opening: Agincourt Defense, Neo-Catalan Declined, Early b3"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 d5 g3 Nf6 Bg2 Be7 b3 c5",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "3": "English Opening: Neo-Catalan",
+    "4": "English Opening: Neo-Catalan Declined",
+    "5": "English Opening: Agincourt Defense, Neo-Catalan Declined, Early b3"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 d5 g3 Nf6 Bg2 Bd6",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "3": "English Opening: Neo-Catalan",
+    "4": "English Opening: Agincourt Defense, Bogoljubow Defense"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 d5 g3 Nf6 Bg2 c5 b3 Nc6 O-O Be7",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "3": "English Opening: Neo-Catalan",
+    "6": "English Opening: Agincourt Defense, Tarrasch Defense"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 d5 g3 b6 Bg2 Bb7 O-O",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "5": "English Opening: Agincourt Defense, Catalan Defense"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 d5 g3 c5",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "3": "English Opening: Agincourt Defense, Catalan Defense"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 d5 g3 c6",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "3": "English Opening: Agincourt Defense, Kurajica Defense"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 d5 b3 Nf6 Bb2 Be7 e3 O-O d4",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "5": "English Opening: Agincourt Defense",
+    "6": "English Opening: Agincourt Defense"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 Nf6 g3 d5 Bg2 dxc4",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "4": "English Opening: Agincourt Defense, Catalan Defense Accepted"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 Nf6 g3 d5 Bg2 c6",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "4": "English Opening: Agincourt Defense, Catalan Defense, Semi-Slav Defense"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 Nf6 g3 b6 Bg2 Bb7",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "4": "English Opening: Anglo-Indian Defense, Queen's Indian Formation"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 Nf6 g3 a6",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "3": "English Opening: Anglo-Indian Defense, Romanishin Variation"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 Nf6 Nc3 c5 d4 Nc6 g3 cxd4 Nxd4 Qb6",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "6": "English Opening: Symmetrical Variation, Anti-Benoni Variation, Geller Variation"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 Nf6 Nc3 c5 d4 cxd4 Nxd4 Nc6",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "5": "English Opening: Symmetrical Variation, Anti-Benoni Variation, Spielmann Defense"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 Nf6 Nc3 c5 g3 b6 Bg2 Bb7 O-O Be7",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "6": "English Opening: Symmetrical Variation, Hedgehog Defense"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 Nf6 b3 d5 Bb2 c5 e3",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "5": "English Opening: Agincourt Defense, Wimpy System"
+   }
+  },
+  {
+   "line": "c4 e6 Nf3 c5 Nc3 Nf6 g3 b6 Bg2 Bb7 O-O Be7 d4 cxd4 Qxd4 d6 Rd1 a6 b3 Nbd7",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "2": "English Opening: Agincourt Defense",
+    "10": "English Opening: Symmetrical, Hedgehog, Flexible Formation"
+   }
+  },
+  {
+   "line": "c4 e6 Nc3 Nf6 e4 c5 e5 Ng8",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "3": "English Opening: Mikenas-Carls, Sicilian",
+    "4": "English Opening: Anglo-Indian Defense, Flohr-Mikenas-Carls Variation, Nei Gambit"
+   }
+  },
+  {
+   "line": "c4 e6 Nc3 Nf6 e4 Nc6",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "3": "English Opening: Mikenas-Carls Variation"
+   }
+  },
+  {
+   "line": "c4 e6 Nc3 Nf6 e4 d5 e5",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "3": "English Opening: Mikenas-Carls Variation",
+    "4": "English Opening: Mikenas-Carls Variation"
+   }
+  },
+  {
+   "line": "c4 e6 Nc3 Nf6 Nf3 b6 e4 Bb7 Bd3",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "3": "English Opening: Anglo-Indian Defense, Queen's Indian Formation",
+    "5": "English Opening: Anglo-Indian Defense, Queen's Indian Variation"
+   }
+  },
+  {
+   "line": "c4 e6 Nc3 Nf6 Nf3 Bb4 g4",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "4": "English Opening: Anglo-Indian Defense, Zvjaginsev-Krasenkow Attack"
+   }
+  },
+  {
+   "line": "c4 e6 d4 c5 Nf3 cxd4 Nxd4 Nf6",
+   "notes": {
+    "1": "English Opening: Agincourt Defense",
+    "4": "English Opening: Symmetrical Variation, Anti-Benoni Variation, Spielmann Defense"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nf3 g6 g3 d5",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Indian Defense, King's Indian Formation",
+    "3": "English Opening: Anglo-Indian Defense, Gr\u00fcnfeld Formation"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nf3 g6 g3 b6 Bg2 Bb7",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Indian Defense, King's Indian Formation",
+    "4": "English Opening: Anglo-Indian Defense, King's Indian Formation, Double Fianchetto"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nf3 g6 g3 c6",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Indian Defense, King's Indian Formation",
+    "3": "English Opening: Anglo-Indian Defense, Slav Formation"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nf3 g6 g3 Bg7 Bg2 O-O O-O c5 Nc3 Nc6 d3",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Indian Defense, King's Indian Formation",
+    "7": "English Opening: Symmetrical Variation, Duchamp Variation"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nf3 d5 cxd5 Nxd5",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Indian Defense, Scandinavian Defense",
+    "3": "English Opening: Anglo-Indian Defense, Scandinavian Defense, Exchange Variation"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nf3 c5 Nc3 Nc6 g3 g6 Bg2 Bg7 O-O O-O d4",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Indian Defense, King's Knight Variation",
+    "5": "English Opening: Symmetrical Variation, Full Symmetry Line",
+    "7": "English Opening: Symmetrical Variation, Mecking Variation"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nf3 e6 g3 a6 Bg2 b5",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Indian Defense, King's Knight Variation",
+    "4": "English Opening: Romanishin Gambit"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nc3 d5 cxd5 Nxd5 Nf3 g6 g3 Bg7 Bg2 e5",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Gr\u00fcnfeld Defense",
+    "4": "English Opening: Anglo-Indian Defense, Anglo-Gr\u00fcnfeld Variation",
+    "6": "English Opening: Anglo-Gr\u00fcnfeld Defense, Korchnoi Variation"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nc3 d5 cxd5 Nxd5 Nf3 c5 e3 e6",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Gr\u00fcnfeld Defense",
+    "4": "English Opening: Anglo-Indian Defense, Anglo-Gr\u00fcnfeld Variation",
+    "5": "English Opening: Anglo-Indian Defense"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nc3 d5 cxd5 Nxd5 g3 g6 Bg2 Nb6",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Gr\u00fcnfeld Defense",
+    "5": "English Opening: Anglo-Indian Defense, Anglo-Gr\u00fcnfeld Variation"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nc3 d5 cxd5 Nxd5 g3 g6 Bg2 Nxc3",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Gr\u00fcnfeld Defense",
+    "5": "English Opening: Anglo-Indian Defense, Anglo-Gr\u00fcnfeld Variation"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nc3 e6 Nf3 Bb4",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Indian Defense, Hedgehog System",
+    "3": "English Opening: Anglo-Indian Defense, Nimzo-English"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nc3 c5 g3 d5 cxd5 Nxd5 Bg2 Nc7",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Indian Defense, Queen's Knight Variation",
+    "3": "English Opening: Symmetrical Variation, Fianchetto Variation",
+    "5": "English Opening: Symmetrical Variation, Rubinstein Variation"
+   }
+  },
+  {
+   "line": "c4 Nf6 Nc3 g6 Nf3 Bg7 e4",
+   "notes": {
+    "1": "English Opening: Anglo-Indian Defense",
+    "2": "English Opening: Anglo-Indian Defense, Queen's Knight Variation",
+    "4": "English Opening: Anglo-Indian Defense, Anti-Anti-Gr\u00fcnfeld"
+   }
+  },
+  {
+   "line": "c4 c5 Nc3 Nc6 g3 g6 Bg2 Bg7 Nf3 e5 O-O Nge7 d3 d6",
+   "notes": {
+    "1": "English Opening: Symmetrical Variation",
+    "2": "English Opening: Symmetrical Variation, Two Knights Variation",
+    "3": "English Opening: Symmetrical Variation, Two Knights, Fianchetto Variation",
+    "5": "English Opening: Symmetrical Variation, Botvinnik System Reversed, with Nf3",
+    "6": "English Opening: Symmetrical Variation, Botvinnik System Reversed, with Nf3",
+    "7": "English Opening: Symmetrical Variation, Botvinnik System Reversed, with Nf3"
+   }
+  },
+  {
+   "line": "c4 c5 Nc3 Nc6 g3 g6 Bg2 Bg7 Nf3 e5 O-O Nge7 a3",
+   "notes": {
+    "1": "English Opening: Symmetrical Variation",
+    "2": "English Opening: Symmetrical Variation, Two Knights Variation",
+    "3": "English Opening: Symmetrical Variation, Two Knights, Fianchetto Variation",
+    "5": "English Opening: Symmetrical Variation, Botvinnik System Reversed, with Nf3",
+    "6": "English Opening: Symmetrical Variation, Botvinnik System Reversed, with Nf3",
+    "7": "English Opening: Symmetrical Variation, Botvinnik System Reversed, with Nf3"
+   }
+  },
+  {
+   "line": "c4 c5 Nc3 Nc6 g3 g6 Bg2 Bg7 Nf3 e5 O-O d6",
+   "notes": {
+    "1": "English Opening: Symmetrical Variation",
+    "2": "English Opening: Symmetrical Variation, Two Knights Variation",
+    "3": "English Opening: Symmetrical Variation, Two Knights, Fianchetto Variation",
+    "5": "English Opening: Symmetrical Variation, Botvinnik System Reversed, with Nf3",
+    "6": "English Opening: Symmetrical Variation, Botvinnik System Reversed, with Nf3"
+   }
+  },
+  {
+   "line": "c4 c5 Nc3 Nc6 g3 g6 Bg2 Bg7 Nf3 Nf6 O-O O-O b3",
+   "notes": {
+    "1": "English Opening: Symmetrical Variation",
+    "2": "English Opening: Symmetrical Variation, Two Knights Variation",
+    "3": "English Opening: Symmetrical Variation, Two Knights, Fianchetto Variation",
+    "5": "English Opening: Symmetrical Variation, Three Knights, Fianchetto Variation",
+    "7": "English Opening: Symmetrical Variation, Double Fianchetto"
+   }
+  },
+  {
+   "line": "c4 c5 Nc3 Nc6 g3 g6 Bg2 Bg7 e3 e5",
+   "notes": {
+    "1": "English Opening: Symmetrical Variation",
+    "2": "English Opening: Symmetrical Variation, Two Knights Variation",
+    "3": "English Opening: Symmetrical Variation, Two Knights, Fianchetto Variation",
+    "5": "English Opening: Symmetrical Variation, Botvinnik System Reversed, with e3"
+   }
+  },
+  {
+   "line": "c4 c5 Nc3 Nf6 Nf3 e5",
+   "notes": {
+    "1": "English Opening: Symmetrical Variation",
+    "2": "English Opening: Symmetrical Variation, Normal Variation",
+    "3": "English Opening: Symmetrical Variation"
+   }
+  },
+  {
+   "line": "c4 c5 Nf3 Nf6 Nc3 Nc6 g3 d5 d4 cxd4",
+   "notes": {
+    "1": "English Opening: Symmetrical Variation",
+    "2": "English Opening: Symmetrical Variation",
+    "3": "English Opening: Symmetrical Variation, Four Knights Variation",
+    "5": "English Opening: Symmetrical Variation"
+   }
+  },
+  {
+   "line": "c4 c5 Nf3 Nf6 Nc3 Nc6 g3 e6",
+   "notes": {
+    "1": "English Opening: Symmetrical Variation",
+    "2": "English Opening: Symmetrical Variation",
+    "3": "English Opening: Symmetrical Variation, Four Knights Variation",
+    "4": "English Opening: Symmetrical Variation, Four Knights Variation, Keres-Parma System"
+   }
+  },
+  {
+   "line": "c4 c5 Nf3 Nf6 Nc3 d5 cxd5 Nxd5 g3 Nc6 Bg2 Nc7",
+   "notes": {
+    "1": "English Opening: Symmetrical Variation",
+    "2": "English Opening: Symmetrical Variation",
+    "6": "English Opening: Symmetrical Variation, Rubinstein Variation"
+   }
+  },
+  {
+   "line": "c4 c5 Nf3 Nc6 g3 g6 Bg2 Bg7 O-O d6 Nc3",
+   "notes": {
+    "1": "English Opening: Symmetrical Variation",
+    "2": "English Opening: Symmetrical Variation",
+    "6": "English Opening: Symmetrical Variation, Three Knights, Fianchetto Variation"
+   }
+  },
+  {
+   "line": "c4 c5 Nf3 Nc6 g3 g6 Bg2 Bg7 O-O e6 Nc3",
+   "notes": {
+    "1": "English Opening: Symmetrical Variation",
+    "2": "English Opening: Symmetrical Variation",
+    "6": "English Opening: Symmetrical Variation, Three Knights, Fianchetto Variation"
+   }
+  },
+  {
+   "line": "c4 c5 e4 Nc6 Nc3 g6 g3 Bg7 Bg2",
+   "notes": {
+    "1": "English Opening: Symmetrical Variation",
+    "5": "English Opening: Symmetrical Variation, Botvinnik System"
+   }
+  },
+  {
+   "line": "c4 c5 g3 g6 Bg2 Bg7 Nc3 Nc6",
+   "notes": {
+    "1": "English Opening: Symmetrical Variation",
+    "4": "English Opening: Symmetrical Variation, Ultra-Symmetrical Variation"
+   }
+  },
+  {
+   "line": "c4 f5 Nc3 Nf6 e4 fxe4 g4",
+   "notes": {
+    "1": "English Opening: Anglo-Dutch Defense",
+    "3": "English Opening: Anglo-Dutch Variation, Ferenc Gambit",
+    "4": "English Opening: Porcupine Variation"
+   }
+  },
+  {
+   "line": "c4 d5 cxd5 Qxd5 Nc3 Qa5",
+   "notes": {
+    "1": "English Opening: Anglo-Scandinavian Defense",
+    "3": "English Opening: Anglo-Scandinavian Defense, Malvinas Variation"
+   }
+  },
+  {
+   "line": "c4 g6 Nc3 Bg7 g3 Nf6 Bg2 O-O e4 d6 Nge2 e5 O-O c6 d3 a6",
+   "notes": {
+    "1": "English Opening: Great Snake Variation",
+    "8": "English Opening: King's English Variation, Botvinnik System, Prickly Pawn Pass System"
    }
   },
   {
    "line": "Nf3 d5 g3 Nf6 Bg2 e6 O-O Be7 c4 O-O b3 c5 e3 d4",
    "notes": {
+    "6": "English Opening: Agincourt Defense, Neo-Catalan Declined",
+    "7": "English Opening: Agincourt Defense, Neo-Catalan Declined"
+   }
+  },
+  {
+   "line": "Nf3 d5 g3 Nf6 Bg2 e6 O-O Be7 c4 O-O b3 c5 e3 Nc6",
+   "notes": {
+    "6": "English Opening: Agincourt Defense, Neo-Catalan Declined",
     "7": "English Opening: Agincourt Defense, Neo-Catalan Declined"
    }
   }

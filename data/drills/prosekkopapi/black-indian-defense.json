@@ -6,50 +6,133 @@
   {
    "line": "d4 Nf6 c4 e5 dxe5 Ng4 e4 Nxe5",
    "notes": {
-    "2": "Indian Defense: Normal Variation",
-    "3": "Indian Defense: Budapest Gambit Accepted",
-    "4": "Indian Defense: Budapest Gambit Accepted, Main Line, Alekhine Variation"
+    "1": "Indian Defense",
+    "2": "Indian Defense: Budapest Gambit",
+    "3": "Indian Defense: Budapest Gambit Accepted, Main Line",
+    "4": "Indian Defense: Budapest Gambit Accepted, Main Line, Alekhine Variation, Abonyi Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 e5 dxe5 Ng4 e4 d6",
+   "notes": {
+    "1": "Indian Defense",
+    "2": "Indian Defense: Budapest Gambit",
+    "3": "Indian Defense: Budapest Gambit Accepted, Main Line",
+    "4": "Indian Defense: Budapest Gambit Accepted, Main Line, Alekhine Variation, Tartakower Defense"
    }
   },
   {
    "line": "d4 Nf6 c4 e5 dxe5 Ng4 Nf3",
    "notes": {
-    "2": "Indian Defense: Normal Variation",
-    "3": "Indian Defense: Budapest Gambit Accepted",
+    "1": "Indian Defense",
+    "2": "Indian Defense: Budapest Gambit",
+    "3": "Indian Defense: Budapest Gambit Accepted, Main Line",
     "4": "Indian Defense: Budapest Gambit Accepted, Main Line, Adler Variation"
    }
   },
   {
    "line": "d4 Nf6 c4 e5 dxe5 Ng4 Bf4",
    "notes": {
-    "2": "Indian Defense: Normal Variation",
-    "3": "Indian Defense: Budapest Gambit Accepted",
+    "1": "Indian Defense",
+    "2": "Indian Defense: Budapest Gambit",
+    "3": "Indian Defense: Budapest Gambit Accepted, Main Line",
     "4": "Indian Defense: Budapest Gambit Accepted, Main Line, Rubinstein Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 e5 dxe5 Ne4 a3",
+   "notes": {
+    "1": "Indian Defense",
+    "2": "Indian Defense: Budapest Gambit",
+    "3": "Indian Defense: Budapest Gambit Accepted, Fajarowicz Defense",
+    "4": "Indian Defense: Budapest Gambit Accepted, Fajarowicz Defense, Bonsdorf Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 e5 dxe5 Ne4 Qc2",
+   "notes": {
+    "1": "Indian Defense",
+    "2": "Indian Defense: Budapest Gambit",
+    "3": "Indian Defense: Budapest Gambit Accepted, Fajarowicz Defense",
+    "4": "Indian Defense: Budapest Gambit Accepted, Fajarowicz Defense, Steiner Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 e6 Nf3 a6",
+   "notes": {
+    "1": "Indian Defense",
+    "2": "Indian Defense: Normal Variation",
+    "3": "Indian Defense: Dzindzi-Indian Defense"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 e6 Nf3 Ne4",
+   "notes": {
+    "1": "Indian Defense",
+    "2": "Indian Defense: Normal Variation",
+    "3": "Indian Defense: D\u00f6ry Indian"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 d5 b5",
+   "notes": {
+    "1": "Indian Defense",
+    "2": "Indian Defense: West Indian Defense",
+    "3": "Indian Defense: Anti-Gr\u00fcnfeld, Adorjan Gambit"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 f3 e5",
+   "notes": {
+    "1": "Indian Defense",
+    "2": "Indian Defense: West Indian Defense",
+    "3": "Indian Defense: Anti-Gr\u00fcnfeld, Alekhine Variation, Leko Gambit"
    }
   },
   {
    "line": "d4 Nf6 Nf3 c5 d5 b5",
    "notes": {
-    "2": "Indian Defense: Knights Variation"
+    "1": "Indian Defense",
+    "2": "Indian Defense: Spielmann-Indian",
+    "3": "Indian Defense: Pseudo-Benko"
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 g6 e3 Bg7 Bd3 d6",
+   "notes": {
+    "1": "Indian Defense",
+    "2": "Indian Defense: Knights Variation",
+    "4": "Indian Defense: Colle System, King's Indian Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 b6 c3 e5",
+   "notes": {
+    "1": "Indian Defense",
+    "2": "Indian Defense: Knights Variation",
+    "3": "Indian Defense: Schnepper Gambit"
    }
   },
   {
    "line": "d4 Nf6 g4 Nxg4 f3 Nf6 e4",
    "notes": {
-    "2": "Indian Defense: Gibbins-Weidenhagen Gambit",
+    "1": "Indian Defense",
+    "2": "Indian Defense: Gibbins-Weidenhagen Gambit Accepted",
     "4": "Indian Defense: Gibbins-Weidenhagen Gambit, Maltese Falcon"
    }
   },
   {
    "line": "d4 Nf6 g4 Nxg4 e4 d6 Be2 Nf6 Nc3",
    "notes": {
-    "2": "Indian Defense: Gibbins-Weidenhagen Gambit",
+    "1": "Indian Defense",
+    "2": "Indian Defense: Gibbins-Weidenhagen Gambit Accepted",
     "5": "Indian Defense: Gibbins-Weidenhagen Gambit, Stummer Gambit"
    }
   },
   {
    "line": "d4 Nf6 e4 Nxe4 Bd3 Nf6 Bg5",
    "notes": {
+    "1": "Indian Defense",
     "2": "Indian Defense: Omega Gambit",
     "4": "Indian Defense: Omega Gambit, Arafat Gambit"
    }

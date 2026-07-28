@@ -6,15 +6,31 @@
   {
    "line": "e4 e5 Bc4 Bc5 c3 d5 Bxd5 Nf6 d4",
    "notes": {
-    "2": "Bishop's Opening",
-    "3": "Bishop's Opening: Philidor Variation",
+    "2": "Bishop's Opening: Boi Variation",
+    "3": "Bishop's Opening: Lewis Countergambit",
+    "4": "Bishop's Opening: Lewis Countergambit",
     "5": "Bishop's Opening: Lewis Countergambit, Walker Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Bc5 c3 Nf6 d4 exd4 e5 d5 exf6 dxc4 Qh5 O-O",
+   "notes": {
+    "2": "Bishop's Opening: Boi Variation",
+    "3": "Bishop's Opening: Philidor Variation",
+    "7": "Bishop's Opening: Pratt Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Bc5 c3 Qg5",
+   "notes": {
+    "2": "Bishop's Opening: Boi Variation",
+    "3": "Bishop's Opening: del Rio Variation"
    }
   },
   {
    "line": "e4 e5 Bc4 Bc5 b4 Bxb4 f4 exf4 Nf3 Be7 d4 Bh4+ g3 fxg3 O-O gxh2+ Kh1",
    "notes": {
-    "2": "Bishop's Opening",
+    "2": "Bishop's Opening: Boi Variation",
     "3": "Bishop's Opening: McDonnell Gambit",
     "4": "Bishop's Opening: McDonnell Gambit, McDonnell Double Gambit",
     "9": "Bishop's Opening: Four Pawns Gambit"
@@ -23,7 +39,7 @@
   {
    "line": "e4 e5 Bc4 Bc5 b4 Bxb4 c3",
    "notes": {
-    "2": "Bishop's Opening",
+    "2": "Bishop's Opening: Boi Variation",
     "3": "Bishop's Opening: McDonnell Gambit",
     "4": "Bishop's Opening: McDonnell Gambit, La Bourdonnais-Denker Gambit"
    }
@@ -31,9 +47,106 @@
   {
    "line": "e4 e5 Bc4 Bc5 Qe2 Nc6 c3 Nf6 f4",
    "notes": {
-    "2": "Bishop's Opening",
+    "2": "Bishop's Opening: Boi Variation",
     "3": "Bishop's Opening: Lopez Variation",
     "5": "Bishop's Opening: Lopez Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Bc5 Qe2 Nf6 f4",
+   "notes": {
+    "2": "Bishop's Opening: Boi Variation",
+    "3": "Bishop's Opening: Lopez Variation",
+    "4": "Bishop's Opening: Lopez Variation, Lopez Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Nf6 d4 exd4 Nf3 d5 exd5 Bb4+ c3 Qe7+",
+   "notes": {
+    "2": "Bishop's Opening: Berlin Defense",
+    "3": "Bishop's Opening: Ponziani Gambit",
+    "4": "Bishop's Opening: Urusov Gambit",
+    "6": "Bishop's Opening: Urusov Gambit, Panov Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Nf6 d4 exd4 Nf3 Nxe4 Qxd4",
+   "notes": {
+    "2": "Bishop's Opening: Berlin Defense",
+    "3": "Bishop's Opening: Ponziani Gambit",
+    "4": "Bishop's Opening: Urusov Gambit",
+    "5": "Bishop's Opening: Urusov Gambit, Keidansky Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Nf6 d4 exd4 c3",
+   "notes": {
+    "2": "Bishop's Opening: Berlin Defense",
+    "3": "Bishop's Opening: Ponziani Gambit",
+    "4": "Bishop's Opening: Warsaw Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Nf6 d3 Be7 Nf3 O-O",
+   "notes": {
+    "2": "Bishop's Opening: Berlin Defense",
+    "4": "Bishop's Opening: Kitchener Folly"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Nf6 d3 c6",
+   "notes": {
+    "2": "Bishop's Opening: Berlin Defense",
+    "3": "Bishop's Opening: Paulsen Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Nf6 d3 Nc6 Nc3",
+   "notes": {
+    "2": "Bishop's Opening: Berlin Defense",
+    "4": "Bishop's Opening: Vienna Hybrid"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Nf6 f3 Bc5 Ne2 Nc6 b4",
+   "notes": {
+    "2": "Bishop's Opening: Berlin Defense",
+    "5": "Bishop's Opening: Krejcik Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Nf6 Ne2 Nxe4 Nec3",
+   "notes": {
+    "2": "Bishop's Opening: Berlin Defense",
+    "4": "Bishop's Opening: Pachman Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Nf6 Nc3 b5",
+   "notes": {
+    "2": "Bishop's Opening: Berlin Defense",
+    "3": "Bishop's Opening: Horwitz Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 b5 Bxb5 c6",
+   "notes": {
+    "2": "Bishop's Opening",
+    "3": "Bishop's Opening: Anderssen Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 b5 Bxb5 f5",
+   "notes": {
+    "2": "Bishop's Opening",
+    "3": "Bishop's Opening: Thorold Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 c6 d4 d5 exd5 cxd5 Bb5+ Bd7 Bxd7+ Nxd7 dxe5 Nxe5 Ne2",
+   "notes": {
+    "2": "Bishop's Opening: Philidor Counterattack",
+    "8": "Bishop's Opening: Lisitsyn Variation"
    }
   },
   {
@@ -43,9 +156,15 @@
    }
   },
   {
+   "line": "e4 e5 Nc3 Nc6 Bc4 Nf6 d3 Bb4 Ne2",
+   "notes": {
+    "5": "Bishop's Opening: Vienna Hybrid, Hrom\u00e1dka Variation"
+   }
+  },
+  {
    "line": "e4 e5 Nf3 Nf6 Bc4 Nxe4 Nc3 d5",
    "notes": {
-    "4": "Bishop's Opening: Boden-Kieseritzky Gambit"
+    "4": "Bishop's Opening: Boden-Kieseritzky Gambit, Lichtenhein Defense"
    }
   }
  ]

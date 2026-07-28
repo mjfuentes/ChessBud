@@ -17,7 +17,8 @@
    "notes": {
     "1": "Nimzowitsch Defense",
     "2": "Nimzowitsch Defense: Scandinavian Variation",
-    "3": "Nimzowitsch Defense: Scandinavian Variation, Bogoljubow Variation"
+    "3": "Nimzowitsch Defense: Scandinavian Variation, Bogoljubow Variation",
+    "5": "Nimzowitsch Defense: Scandinavian Variation, Bogoljubow Variation, Richter Gambit"
    }
   },
   {
@@ -53,6 +54,23 @@
    }
   },
   {
+   "line": "e4 Nc6 d4 d5 exd5 Qxd5 Nc3",
+   "notes": {
+    "1": "Nimzowitsch Defense",
+    "2": "Nimzowitsch Defense: Scandinavian Variation",
+    "3": "Nimzowitsch Defense: Scandinavian Variation, Exchange Variation",
+    "4": "Nimzowitsch Defense: Scandinavian Variation, Exchange Variation, Marshall Gambit"
+   }
+  },
+  {
+   "line": "e4 Nc6 d4 d5 exd5 Nb4",
+   "notes": {
+    "1": "Nimzowitsch Defense",
+    "2": "Nimzowitsch Defense: Scandinavian Variation",
+    "3": "Nimzowitsch Defense: Scandinavian Variation, Aachen Gambit"
+   }
+  },
+  {
    "line": "e4 Nc6 d4 e5 dxe5 Nxe5 f4 Ng6",
    "notes": {
     "1": "Nimzowitsch Defense",
@@ -66,6 +84,22 @@
     "1": "Nimzowitsch Defense",
     "2": "Nimzowitsch Defense: Kennedy Variation",
     "4": "Nimzowitsch Defense: Kennedy Variation, Riemann Defense"
+   }
+  },
+  {
+   "line": "e4 Nc6 d4 e5 dxe5 Nxe5 Nc3",
+   "notes": {
+    "1": "Nimzowitsch Defense",
+    "2": "Nimzowitsch Defense: Kennedy Variation",
+    "4": "Nimzowitsch Defense: Kennedy Variation, Keres Attack"
+   }
+  },
+  {
+   "line": "e4 Nc6 d4 e5 dxe5 Nxe5 Nf3",
+   "notes": {
+    "1": "Nimzowitsch Defense",
+    "2": "Nimzowitsch Defense: Kennedy Variation",
+    "4": "Nimzowitsch Defense: Kennedy Variation, Paulsen Attack"
    }
   },
   {
@@ -98,6 +132,40 @@
     "1": "Nimzowitsch Defense",
     "2": "Nimzowitsch Defense: Kennedy Variation",
     "3": "Nimzowitsch Defense: Kennedy Variation, de Smet Gambit"
+   }
+  },
+  {
+   "line": "e4 Nc6 Nf3 Nf6 e5 Ng4 d4 d6 h3 Nh6 e6",
+   "notes": {
+    "1": "Nimzowitsch Defense",
+    "2": "Nimzowitsch Defense: Declined Variation",
+    "3": "Nimzowitsch Defense: El Columpio Defense",
+    "6": "Nimzowitsch Defense: El Columpio Defense, El Columpio Gambit"
+   }
+  },
+  {
+   "line": "e4 Nc6 Nf3 Nf6 e5 Ng4 d4 d6 h3 Nh6 exd6",
+   "notes": {
+    "1": "Nimzowitsch Defense",
+    "2": "Nimzowitsch Defense: Declined Variation",
+    "3": "Nimzowitsch Defense: El Columpio Defense",
+    "6": "Nimzowitsch Defense: El Columpio Defense, Exchange Variation"
+   }
+  },
+  {
+   "line": "e4 Nc6 Nf3 Nf6 e5 Ng4 d4 d6 h3 Nh6 Bb5",
+   "notes": {
+    "1": "Nimzowitsch Defense",
+    "2": "Nimzowitsch Defense: Declined Variation",
+    "3": "Nimzowitsch Defense: El Columpio Defense",
+    "6": "Nimzowitsch Defense: El Columpio Defense, Pin Variation"
+   }
+  },
+  {
+   "line": "e4 Nc6 Nc3 Nf6 d4 e5",
+   "notes": {
+    "1": "Nimzowitsch Defense",
+    "3": "Nimzowitsch Defense: Breyer Variation"
    }
   }
  ]
