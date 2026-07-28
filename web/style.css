@@ -640,6 +640,28 @@ cg-board {
 .message.good { color: var(--good); }
 .message.bad { color: var(--bad); }
 
+/* the figures that open a run — label, count, context, result */
+.i-row {
+  display: grid;
+  grid-template-columns: 5.2em max-content 1fr max-content;
+  align-items: baseline;
+  gap: 0 8px;
+  font-variant-numeric: tabular-nums;
+  padding: 1px 0;
+}
+.i-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
+}
+.i-num { font-size: 1rem; font-weight: 700; color: var(--amber); }
+.i-rest { font-size: 0.78rem; color: var(--text-faint); }
+.i-pct { font-size: 0.9rem; font-weight: 700; color: var(--text-soft); }
+.i-pct.good { color: var(--good); }
+.i-pct.bad { color: var(--bad); }
+
 .message .mv {
   cursor: pointer;
   font-weight: 600;

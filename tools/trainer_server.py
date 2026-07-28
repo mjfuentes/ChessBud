@@ -923,6 +923,39 @@ def opening_record(drill_id: str) -> dict:
     return _manifest_cache.get(drill_id, {})
 
 
+def run_stats(
+    drill: Drill | None, drill_id: str, script: list[str],
+    depth: int, mistake_index: MistakeIndex,
+) -> dict | None:
+    """The same figures as run_intro, structured so the panel can set them in
+    type rather than as a sentence."""
+    if drill is None:
+        return None
+    rec = opening_record(drill_id)
+    out: dict = {"depth": depth}
+    if rec.get("games"):
+        out["opening"] = {"games": rec["games"], "score": round(rec.get("score_pct", 0))}
+    stats = mistake_index.get().position_stats
+    board = chess.Board()
+    reached = None
+    for ply, san in enumerate(script[: 2 * depth]):
+        try:
+            board.push_san(san)
+        except ValueError:
+            break
+        seen = stats.get(board.epd())
+        if seen and seen[0] >= 2:
+            reached = (ply // 2 + 1, seen)
+    if reached and reached[0] >= 2:
+        move_no, (games, points) = reached
+        out["line"] = {
+            "games": int(games),
+            "score": round(100.0 * points / games),
+            "move": move_no,
+        }
+    return out
+
+
 def run_intro(
     drill: Drill | None, drill_id: str, script: list[str],
     depth: int, mistake_index: MistakeIndex,
@@ -1178,10 +1211,9 @@ def handle_new(
         )
         if target_line:
             script = target_line
-    intro = run_intro(
-        drill, drill_id, script,
-        run_depth(drill_id, drill, script), mistake_index,
-    )
+    graded = run_depth(drill_id, drill, script)
+    intro = run_intro(drill, drill_id, script, graded, mistake_index)
+    intro_stats = run_stats(drill, drill_id, script, graded, mistake_index)
     if drill is not None and board.turn != drill.user_color:
         reply = None
         if script:
@@ -1218,6 +1250,7 @@ def handle_new(
     return {
         **game_state(board),
         "message": intro,
+        "intro_stats": intro_stats,
         "game_id": game_id,
         "script": script or None,
         "book_ucis": expected_ucis(drill, [m["san"] for m in pre_moves], board),

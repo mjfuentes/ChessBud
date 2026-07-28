@@ -471,6 +471,48 @@ function showMessage(text, kind = 'note') {
   el.className = `message ${kind}`
 }
 
+const scoreClass = (pct) => (pct < 45 ? 'bad' : pct > 55 ? 'good' : '')
+
+// The figures that open a run, set as figures. As a sentence they read as
+// filler; as type, the two percentages are the whole point — how you do in
+// this opening, and how you do once this particular line appears.
+function showIntro(stats, fallback) {
+  const el = document.getElementById('message')
+  el.className = 'message note'
+  if (!stats) { el.textContent = fallback || ''; return }
+  const row = (label, value, rest, pct) => {
+    const line = document.createElement('div')
+    line.className = 'i-row'
+    const l = document.createElement('span')
+    l.className = 'i-label'
+    l.textContent = label
+    const v = document.createElement('b')
+    v.className = 'i-num'
+    v.textContent = value
+    const r = document.createElement('span')
+    r.className = 'i-rest'
+    r.textContent = rest
+    line.append(l, v, r)
+    if (pct != null) {
+      const p = document.createElement('b')
+      p.className = `i-pct ${scoreClass(pct)}`
+      p.textContent = `${pct}%`
+      line.append(p)
+    }
+    return line
+  }
+  const rows = []
+  if (stats.opening) {
+    rows.push(row('you', stats.opening.games, 'games', stats.opening.score))
+  }
+  if (stats.line) {
+    rows.push(row('this line', stats.line.games,
+      `reached move ${stats.line.move}`, stats.line.score))
+  }
+  rows.push(row('graded', stats.depth, 'moves'))
+  el.replaceChildren(...rows)
+}
+
 function showOpening(op) {
   const el = document.getElementById('opening-name')
   if (!op) { el.replaceChildren(); return }
@@ -1191,7 +1233,7 @@ async function newGame(custom) {
   document.getElementById('drill-name').textContent = data.drill_name || 'Opening Practice'
   showContext(null)
   showOpening(data.opening)
-  showMessage(data.message, 'note')
+  showIntro(data.intro_stats, data.message)
   setActionLabels('Repeat', 'Next')
   setPuzzleActions(true)
   const positions = [data.start_fen]
