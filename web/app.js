@@ -880,10 +880,8 @@ async function submitMove(uci) {
       drift, userColor: state.userColor, flaws,
     })
     kind = passed ? 'good' : 'bad'
-    const banner = document.getElementById('verdict')
-    banner.hidden = false
-    banner.className = `verdict ${passed ? 'pass' : 'fail'}`
-    banner.textContent = `${passed ? '✓ ' : ''}${vTitle} — ${reason}`
+    // the verdict lives in the popup alone — repeating it in the panel said
+    // the same sentence twice on the same screen
     const title = document.getElementById('verdict-title')
     title.className = `verdict-title ${passed ? 'pass' : 'fail'}`
     title.textContent = vTitle
@@ -980,7 +978,6 @@ async function nextPuzzle(setName) {
   document.getElementById('drill-name').textContent =
     `${label} · ${data.solved_count}/${data.total} solved`
   hintedPuzzleId = null
-  document.getElementById('verdict').hidden = true
   hideVerdictModal()
   showContext(data.context)
   showOpening(null)
@@ -1301,7 +1298,6 @@ async function newGame(custom) {
     sans.push(m.san)
     history.push(m.san)
   })
-  document.getElementById('verdict').hidden = true
   hideVerdictModal()
   setState({
     ...initialState,

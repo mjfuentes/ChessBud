@@ -564,26 +564,6 @@ cg-board {
 }
 .modal-actions button:hover { color: var(--amber); border-color: var(--amber); }
 
-.verdict {
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  line-height: 1.45;
-  padding: 10px 12px;
-  border-radius: 3px;
-  text-align: center;
-}
-.verdict.pass {
-  color: var(--good);
-  background: oklch(0.78 0.13 145 / 0.12);
-  border: 1px solid oklch(0.78 0.13 145 / 0.4);
-}
-.verdict.fail {
-  color: var(--bad);
-  background: oklch(0.72 0.16 40 / 0.12);
-  border: 1px solid oklch(0.72 0.16 40 / 0.4);
-}
 
 .opening-name {
   font-size: 0.85rem;
