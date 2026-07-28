@@ -161,9 +161,13 @@ class Ladder:
     ) -> tuple[list[str] | None, int]:
         """A line to play, and the rung it is waiting on.
 
-        Shallow lines come first so the repertoire broadens before it deepens,
-        but the choice stays random among equals — nothing is ever locked, and
-        a line you keep declining simply waits.
+        Weighted towards the lines you have taken furthest, so a session keeps
+        building rather than resetting: serving the shallowest first meant that
+        the moment your worked lines reached move 6, the untouched ones still
+        at move 3 became "next" and every run got short again.
+
+        The weight is only linear, so new lines keep surfacing — a line you
+        never play simply waits at its own depth, blocking nothing.
         """
         with self._lock:
             done = self._cleared(drill_id)
@@ -175,9 +179,7 @@ class Ladder:
         open_lines = [(ln, d) for ln, d in scored if d <= line_length(ln, is_white)]
         if not open_lines:
             return (random.choice(lines) if lines else None, MIN_DEPTH)
-        shallowest = min(d for _, d in open_lines)
-        pool = [(ln, d) for ln, d in open_lines if d == shallowest]
-        return random.choice(pool)
+        return random.choices(open_lines, weights=[d for _, d in open_lines])[0]
 
     def trie(
         self, drill_id: str, lines: list[list[str]], is_white: bool
