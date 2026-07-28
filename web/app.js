@@ -244,33 +244,17 @@ function verdictCopy({ passed, lost, hintUsed, bounces, drift, userColor, flaws 
   }
 }
 
-const ladderText = (l) => `${l.started} of ${l.lines} lines growing`
-  + ` · deepest ${l.deepest} moves`
-
-// Tell the server how the run went so the line it played can grow, then show
-// where the opening stands. Failing to report must not break the verdict.
+// Record the run so the line it played can grow. Silent: the tree is where
+// growth shows. Failing to report must not break the verdict.
 async function reportResult(passed, before, history, depth) {
-  const el = document.getElementById('verdict-ladder')
-  el.className = 'verdict-ladder'
-  if (!state.drill || !before || !before.lines) { el.textContent = ''; return }
-  el.textContent = ladderText(before)
-  let data
+  if (!state.drill) return
   try {
-    data = await api('/api/result', {
+    await api('/api/result', {
       drill: state.drill, game: state.gameId, history: history || state.history,
       passed, depth,
     })
   } catch (err) {
     console.error('Could not record the run:', err)
-    return
-  }
-  const after = data.ladder
-  if (!after || !after.lines) return
-  if (data.grew) {
-    el.className = 'verdict-ladder promoted'
-    el.textContent = `Cleared to ${data.depth} moves — next time it goes to ${data.next}`
-  } else {
-    el.textContent = ladderText(after)
   }
 }
 

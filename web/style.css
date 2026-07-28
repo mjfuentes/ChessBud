@@ -528,17 +528,6 @@ cg-board {
   font-variant-numeric: tabular-nums;
 }
 .verdict-stats b { font-weight: 700; }
-.verdict-ladder {
-  font-size: 0.82rem;
-  color: var(--text-soft);
-  letter-spacing: 0.04em;
-}
-.verdict-ladder.promoted {
-  color: var(--good);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
 .verdict-family { font-size: 0.82rem; color: var(--text-faint); }
 
 /* how much of the current depth is cleared, as a thin rung under the count */
