@@ -824,7 +824,6 @@ async function submitMove(uci) {
 
   if (data.opening) showOpening(data.opening)
   const lines = []
-  let kind = 'note'
   let openingDone = state.openingDone
   // slots already scored by an earlier bounce or hint don't score again
   const slotScored = state.scoredFen === snapshot.fen
@@ -879,7 +878,6 @@ async function submitMove(uci) {
       passed, lost: lostNow, hintUsed: state.hintUsed, bounces: state.bounces,
       drift, userColor: state.userColor, flaws,
     })
-    kind = passed ? 'good' : 'bad'
     // the verdict lives in the popup alone — repeating it in the panel said
     // the same sentence twice on the same screen
     const title = document.getElementById('verdict-title')
@@ -920,7 +918,9 @@ async function submitMove(uci) {
   if (data.note) lines.push(data.note)
   // not the opponent's move — it is on the board and in the move list
   if (data.game_over) lines.push(`Result: ${data.result}`)
-  showLines(moveVerdict(data.user_san, slotClass, data.best_sans), lines, kind)
+  // the sentence stays neutral — the moves in it carry the colour, and the
+  // run's verdict is the popup's job
+  showLines(moveVerdict(data.user_san, slotClass, data.best_sans), lines)
 
   const positions = [...snapshot.positions, data.fen_after_user]
   const ucis = [...snapshot.ucis, uci]
