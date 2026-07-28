@@ -25,7 +25,6 @@ const initialState = {
   gameOver: false,
   result: null,
   drill: null,
-  drillFamily: null, // opening being drilled, without the colour suffix
   gameId: null,
   bounces: 0,
   bounceFen: null,
@@ -477,15 +476,12 @@ const scoreClass = (pct) => (pct < 45 ? 'bad' : pct > 55 ? 'good' : '')
 // What your move was, said plainly, and what the best move was when it wasn't
 // yours. The tie band means "best" is often several moves — name them all
 // rather than pretend there is one answer.
-function moveVerdict(san, cls, best, opening) {
+function moveVerdict(san, cls, best) {
   const others = (best || []).filter((m) => m !== san)
   const list = others.join(', ')
   switch (cls) {
-    // a book move is not a claim about strength — it is what makes the
-    // position the opening you are drilling, which is why it names it
-    case 'book': return opening
-      ? `${san} is the correct continuation for the ${opening}.`
-      : `${san} is the prepared continuation.`
+    // not a claim about strength: the engine often prefers something else
+    case 'book': return `${san} is a book move.`
     case 'great': return `${san} is the best move, and the only one.`
     case 'best': return `${san} is the best move.`
     case 'excellent': return others.length
@@ -716,8 +712,7 @@ async function submitMove(uci) {
   // rewrites this if the reply proves the move worse than it probed.
   if (optimisticClass && state.mode === 'drill') {
     const san = classTable.sans[uci] || uci
-    const said = moveVerdict(san, optimisticClass,
-      warm ? classTable.bestSans : [], state.drillFamily)
+    const said = moveVerdict(san, optimisticClass, warm ? classTable.bestSans : [])
     if (said) showMessage(said, 'note')
   }
 
@@ -894,9 +889,7 @@ async function submitMove(uci) {
     setActionLabels('Repeat', 'Next')
     setPuzzleActions(true)
   }
-  const verdictLine = moveVerdict(
-    data.user_san, slotClass, data.best_sans, state.drillFamily,
-  )
+  const verdictLine = moveVerdict(data.user_san, slotClass, data.best_sans)
   if (verdictLine) lines.unshift(verdictLine)
   if (data.prep_note) lines.push(data.prep_note)
   if (data.note) lines.push(data.note)
@@ -1283,7 +1276,6 @@ async function newGame(custom) {
   setState({
     ...initialState,
     drill: data.drill_id || null,
-    drillFamily: (data.drill_name || '').replace(/ — (White|Black)$/, '') || null,
     gameId: data.game_id || null,
     script: data.script || (custom && custom.script) || null,
     fen: data.fen,
