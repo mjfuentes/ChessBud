@@ -787,13 +787,27 @@ def ladder_trie(drill_id: str, drill: Drill) -> list[dict]:
     return ladder.trie(drill_id, drill.lines, drill.user_color == chess.WHITE)
 
 
-def run_depth(drill_id: str, drill: Drill | None, script: list[str]) -> int:
+def run_depth(
+    drill_id: str, drill: Drill | None, script: list[str],
+    history: list[str] | None = None,
+) -> int:
     """How many of your moves this run is graded over: the rung the line you
-    are being shown is waiting on. Off the drills, or with no line in play,
-    fall back to a fixed length."""
-    if drill is None or not drill.lines or not script:
+    are on is waiting for.
+
+    Measured from what has actually been played, not from the line that was
+    served — your own move choices decide which line happens, and grading at
+    the served line's depth ends runs on lines already cleared. Falls back to
+    the served line before a move exists, and to a fixed length off the drills.
+    """
+    if drill is None or not drill.lines:
         return MIXED_DEPTH
     is_white = drill.user_color == chess.WHITE
+    if history:
+        live = ladder.depth_for_history(drill_id, drill.lines, is_white, history)
+        if live:
+            return live
+    if not script:
+        return MIXED_DEPTH
     reach = ladder_mod.line_length(script, is_white)
     if not reach:
         return MIXED_DEPTH
@@ -1423,9 +1437,13 @@ def handle_move(
             else len(history) // 2
         )
         graded_depth = run_depth(
-            str(payload.get("drill", "")), drill, payload.get("script") or []
+            str(payload.get("drill", "")), drill, payload.get("script") or [],
+            history,
         )
-        if user_moves == graded_depth:
+        # >= not ==: the depth is measured from the line you are actually on,
+        # so it can shorten mid-run when your move lands on a line that still
+        # needs a shallower rung
+        if user_moves >= graded_depth:
             # the run ends on the user's last graded move — no engine reply yet
             eval_cp = analysis.eval_cp(board, chess.WHITE, movetime=0.3)
             log_event(

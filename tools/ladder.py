@@ -165,6 +165,30 @@ class Ladder:
         return {"depth": depth, "marked": marked, "next": depth + 1,
                 "off_book": lines is not None and not marked}
 
+    def depth_for_history(
+        self, drill_id: str, lines: list[list[str]], is_white: bool,
+        history: list[str],
+    ) -> int | None:
+        """The rung the line you are ACTUALLY on is waiting for.
+
+        A run is steered at one line, but your own moves decide which line
+        happens: answer with something else and the opponent's reply changes
+        with it. Grading at the served line's depth then finishes runs on a
+        line that was already cleared, which passes and marks nothing.
+        """
+        played = history[1::2] if is_white else history[0::2]
+        best = None
+        with self._lock:
+            done = self._cleared(drill_id)
+            for line in lines:
+                theirs = line[1::2] if is_white else line[0::2]
+                if theirs[:len(played)] != played:
+                    continue
+                depth = self.depth_of(drill_id, line, is_white, done)
+                if depth <= line_length(line, is_white):
+                    best = depth if best is None else min(best, depth)
+        return best
+
     def next_line(
         self, drill_id: str, lines: list[list[str]], is_white: bool
     ) -> tuple[list[str] | None, int]:
