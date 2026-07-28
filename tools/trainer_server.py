@@ -667,7 +667,11 @@ def analyze_practice_log() -> dict:
         results[gid] = {
             "verdict": verdict,
             "orientation": orientation,
-            "family": op["name"].split(":")[0].strip() if op else "Other",
+            # the drill it was started from, when known — a run that transposes
+            # out of its opening is still a run of that opening. Falls back to
+            # the position's ECO name for mixed practice and for older logs.
+            "family": start.get("family")
+            or (op["name"].split(":")[0].strip() if op else "Other"),
             "sans": sans,
         }
         order.append(gid)
@@ -1246,6 +1250,7 @@ def handle_new(
         orientation="black" if drill and drill.user_color == chess.BLACK else "white",
         pre_moves=[m["san"] for m in pre_moves],
         repeat_of=payload.get("repeat_of"),
+        family=drill.family if drill and not drill_id.startswith("practice:") else None,
     )
     return {
         **game_state(board),
@@ -1389,14 +1394,15 @@ def handle_move(
                 eval_cp=eval_cp, move_class=move_class,
             )
             op = opening_name(history)
+            # credit the drill you chose, not the ECO name of where you ended
+            # up: the Italian's 3.Bc4 Nf6 4.d4 is a Scotch Gambit by
+            # transposition, and it was still an Italian run
             family_record = None
-            if op:
-                fam = op["name"].split(":")[0].strip()
-                color_name = "white" if drill.user_color == chess.WHITE else "black"
-                for o in training_summary().get("openings", []):
-                    if o["family"] == fam and o["color"] == color_name:
-                        family_record = o
-                        break
+            color_name = "white" if drill.user_color == chess.WHITE else "black"
+            for o in training_summary().get("openings", []):
+                if o["family"] == drill.family and o["color"] == color_name:
+                    family_record = o
+                    break
             return {
                 **game_state(board),
                 "user_san": user_san,
