@@ -1,7 +1,7 @@
 {
  "name": "French Defense \u2014 White",
  "user_color": "white",
- "intro": "212 named variations of the French Defense, from the ECO book. You have played it 19 times, scoring 58%.",
+ "intro": "215 named variations of the French Defense, from the ECO book. You have played it 19 times, scoring 58%.",
  "lines": [
   {
    "line": "e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 Bxc3+ bxc3 Ne7 Qg4 Qc7 Qxg7 Rg8 Qxh7 cxd4 Ne2",
@@ -1100,11 +1100,11 @@
    }
   },
   {
-   "line": "e4 e6 Nf3 d5 e5 c5 b4",
+   "line": "e4 e6 d3 d5 Nd2 Nf6 Ngf3 c5 g3 Nc6 Bg2 Be7 O-O O-O Re1",
    "notes": {
     "1": "French Defense",
-    "2": "French Defense: Knight Variation",
-    "4": "French Defense: Wing Gambit"
+    "2": "French Defense: King's Indian Attack",
+    "8": "King's Indian Attack: Sicilian Variation"
    }
   },
   {
@@ -1113,6 +1113,14 @@
     "1": "French Defense",
     "2": "French Defense: King's Indian Attack",
     "5": "French Defense: Reversed Philidor Formation"
+   }
+  },
+  {
+   "line": "e4 e6 Nf3 d5 e5 c5 b4",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense: Knight Variation",
+    "4": "French Defense: Wing Gambit"
    }
   },
   {

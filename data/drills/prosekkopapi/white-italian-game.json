@@ -1,7 +1,7 @@
 {
  "name": "Italian Game \u2014 White",
  "user_color": "white",
- "intro": "187 named variations of the Italian Game, from the ECO book. You have played it 127 times, scoring 54%.",
+ "intro": "193 named variations of the Italian Game, from the ECO book. You have played it 127 times, scoring 54%.",
  "lines": [
   {
    "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Ba5 d4 exd4 O-O dxc3 Qb3 Qf6 e5 Qg6 Nxc3 Nge7 Ba3",
@@ -630,6 +630,7 @@
    "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 Nc3 Nf6 O-O O-O d3",
    "notes": {
     "3": "Italian Game: Giuoco Piano",
+    "4": "Four Knights Game: Italian Variation",
     "5": "Italian Game: Giuoco Pianissimo",
     "6": "Italian Game: Giuoco Pianissimo"
    }
@@ -804,7 +805,7 @@
    "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Nxe4 Re1 d5 Bxd5 Qxd5 Nc3 Qa5 Nxe4 Be6 Bd2 Qd5 Bg5",
    "notes": {
     "3": "Italian Game: Two Knights Defense",
-    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
     "5": "Italian Game: Scotch Gambit, Double Gambit Accepted",
     "8": "Italian Game: Scotch Gambit, Anderssen Attack",
     "11": "Italian Game: Scotch Gambit, Anderssen Attack, Main Line"
@@ -814,7 +815,7 @@
    "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Nxe4 Nc3",
    "notes": {
     "3": "Italian Game: Two Knights Defense",
-    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
     "5": "Italian Game: Scotch Gambit, Double Gambit Accepted",
     "6": "Italian Game: Scotch Gambit, Nakhmanson Gambit"
    }
@@ -823,7 +824,7 @@
    "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Bc5 e5 d5 exf6 dxc4 Re1+ Be6 Ng5 Qd5 Nc3 Qf5 g4 Qg6 Nce4 Bb6 f4 O-O-O",
    "notes": {
     "3": "Italian Game: Two Knights Defense",
-    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
     "5": "Italian Game: Scotch Gambit",
     "13": "Italian Game: Two Knights Defense, Max Lange Attack, Berger Variation"
    }
@@ -832,7 +833,7 @@
    "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Bc5 e5 d5 exf6 dxc4 Re1+ Be6 Ng5 Qd5 Nc3 Qf5 Nce4 Bf8",
    "notes": {
     "3": "Italian Game: Two Knights Defense",
-    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
     "5": "Italian Game: Scotch Gambit",
     "11": "Italian Game: Two Knights Defense, Max Lange Attack, Rubinstein Variation"
    }
@@ -841,7 +842,7 @@
    "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Bc5 e5 Ng4 c3",
    "notes": {
     "3": "Italian Game: Two Knights Defense",
-    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
     "5": "Italian Game: Scotch Gambit",
     "7": "Italian Game: Two Knights Defense, Max Lange Attack, Krause Variation"
    }
@@ -850,16 +851,24 @@
    "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 e5 d5 Bb5 Ne4 Nxd4 Bc5 Nxc6 Bxf2+ Kf1 Qh4",
    "notes": {
     "3": "Italian Game: Two Knights Defense",
-    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
     "6": "Italian Game: Scotch Gambit, Max Lange Attack",
     "9": "Italian Game: Two Knights Defense, Keidansky Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 e5 Ng4",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
+    "5": "Scotch Game: Scotch Gambit, Kingside Variation"
    }
   },
   {
    "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 Ng5",
    "notes": {
     "3": "Italian Game: Two Knights Defense",
-    "4": "Italian Game: Two Knights Defense, Open Variation",
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
     "5": "Italian Game: Two Knights Defense, Perreux Variation"
    }
   },
@@ -915,9 +924,18 @@
    }
   },
   {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Nc3 Nxe4 Bxf7+",
+   "notes": {
+    "3": "Italian Game: Two Knights Defense",
+    "4": "Four Knights Game: Italian Variation",
+    "5": "Four Knights Game: Italian Variation, Noa Gambit"
+   }
+  },
+  {
    "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Nc3 Nxe4 Nxe4 d5",
    "notes": {
     "3": "Italian Game: Two Knights Defense",
+    "4": "Four Knights Game: Italian Variation",
     "5": "Italian Game: Two Knights Defense"
    }
   },
@@ -925,6 +943,7 @@
    "line": "e4 e5 Nf3 Nc6 Bc4 Be7 d4 exd4 c3 Nf6 e5 Ne4",
    "notes": {
     "3": "Italian Game: Hungarian Defense",
+    "4": "Scotch Game: Benima Defense",
     "6": "Italian Game: Hungarian Defense, Tartakower Variation"
    }
   },

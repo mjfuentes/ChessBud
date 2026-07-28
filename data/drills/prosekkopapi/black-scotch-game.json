@@ -1,7 +1,7 @@
 {
  "name": "Scotch Game \u2014 Black",
  "user_color": "black",
- "intro": "53 named variations of the Scotch Game, from the ECO book. You have played it 33 times, scoring 59%.",
+ "intro": "74 named variations of the Scotch Game, from the ECO book. You have played it 33 times, scoring 59%.",
  "lines": [
   {
    "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bc5 Be3 Qf6 c3 Nge7 Qd2 d5 Nb5 Bxe3 Qxe3 O-O Nxc7 Rb8 Nxd5 Nxd5 exd5 Nb4",
@@ -152,6 +152,65 @@
    }
   },
   {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 O-O Bc5 e5 d5 exf6 dxc4 Re1+ Be6 Ng5 Qd5 Nc3 Qf5 Nce4",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Scotch Gambit",
+    "5": "Italian Game: Scotch Gambit, Max Lange Attack",
+    "6": "Italian Game: Two Knights Defense, Max Lange Attack",
+    "11": "Italian Game: Scotch Gambit, Max Lange Attack, Long Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 O-O Bc5 e5 Ng4",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Scotch Gambit",
+    "5": "Italian Game: Scotch Gambit, Max Lange Attack",
+    "6": "Italian Game: Scotch Gambit, Max Lange Attack, Spielmann Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 O-O Nxe4 Re1 d5 Nc3",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Scotch Gambit",
+    "7": "Italian Game: Scotch Gambit, Canal Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 O-O Nxe4 Re1 d5 Bxd5 Qxd5 Nc3 Qa5 Nxe4 Be6 Bg5 h6 Bh4 g5 Nf6+ Ke7 b4",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Scotch Gambit",
+    "13": "Italian Game: Two Knights Defense, Yurdansky Attack"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 O-O d6",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Scotch Gambit",
+    "5": "Italian Game: Scotch Gambit, Janowski Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 O-O Be7",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Scotch Gambit",
+    "5": "Italian Game: Scotch Gambit, de Riviere Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 e5",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Scotch Gambit",
+    "5": "Scotch Game: Scotch Gambit, Advance Variation"
+   }
+  },
+  {
    "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Bc5 Ng5 Nh6 Nxf7 Nxf7 Bxf7+ Kxf7 Qh5+ g6 Qxc5 d5",
    "notes": {
     "3": "Scotch Game",
@@ -178,6 +237,14 @@
    }
   },
   {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Bc5 O-O Nf6 e5 d5 exf6 dxc4 Re1+ Be6 Ng5 g6",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Haxo Gambit",
+    "9": "Italian Game: Two Knights Defense, Max Lange Attack, Loman Defense"
+   }
+  },
+  {
    "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Bb4+ c3 dxc3 bxc3 Ba5 e5",
    "notes": {
     "3": "Scotch Game",
@@ -191,14 +258,6 @@
     "3": "Scotch Game",
     "4": "Scotch Game: Scotch Gambit, London Defense",
     "9": "Scotch Game: Hanneken Variation"
-   }
-  },
-  {
-   "line": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 e5",
-   "notes": {
-    "3": "Scotch Game",
-    "4": "Scotch Game: Scotch Gambit",
-    "5": "Scotch Game: Scotch Gambit, Advance Variation"
    }
   },
   {
@@ -255,6 +314,55 @@
    }
   },
   {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Nxe4 Re1 d5 Bxd5 Qxd5 Nc3 Qa5 Nxe4 Be6 Bd2 Qd5 Bg5",
+   "notes": {
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
+    "5": "Italian Game: Scotch Gambit, Double Gambit Accepted",
+    "8": "Italian Game: Scotch Gambit, Anderssen Attack",
+    "11": "Italian Game: Scotch Gambit, Anderssen Attack, Main Line"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Nxe4 Nc3",
+   "notes": {
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
+    "5": "Italian Game: Scotch Gambit, Double Gambit Accepted",
+    "6": "Italian Game: Scotch Gambit, Nakhmanson Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Bc5 e5 d5 exf6 dxc4 Re1+ Be6 Ng5 Qd5 Nc3 Qf5 g4 Qg6 Nce4 Bb6 f4 O-O-O",
+   "notes": {
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
+    "5": "Italian Game: Scotch Gambit",
+    "13": "Italian Game: Two Knights Defense, Max Lange Attack, Berger Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Bc5 e5 d5 exf6 dxc4 Re1+ Be6 Ng5 Qd5 Nc3 Qf5 Nce4 Bf8",
+   "notes": {
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
+    "5": "Italian Game: Scotch Gambit",
+    "11": "Italian Game: Two Knights Defense, Max Lange Attack, Rubinstein Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 O-O Bc5 e5 Ng4 c3",
+   "notes": {
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
+    "5": "Italian Game: Scotch Gambit",
+    "7": "Italian Game: Two Knights Defense, Max Lange Attack, Krause Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 e5 d5 Bb5 Ne4 Nxd4 Bc5 Nxc6 Bxf2+ Kf1 Qh4",
+   "notes": {
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
+    "6": "Italian Game: Scotch Gambit, Max Lange Attack",
+    "9": "Italian Game: Two Knights Defense, Keidansky Variation"
+   }
+  },
+  {
    "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 e5 Ng4",
    "notes": {
     "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
@@ -262,9 +370,17 @@
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Bc4 Be7 d4 exd4",
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 Ng5",
    "notes": {
-    "4": "Scotch Game: Benima Defense"
+    "4": "Scotch Game: Scotch Gambit, Dubois R\u00e9ti Defense",
+    "5": "Italian Game: Two Knights Defense, Perreux Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bc4 Be7 d4 exd4 c3 Nf6 e5 Ne4",
+   "notes": {
+    "4": "Scotch Game: Benima Defense",
+    "6": "Italian Game: Hungarian Defense, Tartakower Variation"
    }
   }
  ]

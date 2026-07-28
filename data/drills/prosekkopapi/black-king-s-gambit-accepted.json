@@ -1,7 +1,7 @@
 {
  "name": "King's Gambit Accepted \u2014 Black",
  "user_color": "black",
- "intro": "137 named variations of the King's Gambit Accepted, from the ECO book. You have played it 7 times, scoring 57%.",
+ "intro": "138 named variations of the King's Gambit Accepted, from the ECO book. You have played it 7 times, scoring 57%.",
  "lines": [
   {
    "line": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qf6 e5 Qxe5 Bxf7+",
@@ -484,11 +484,11 @@
    }
   },
   {
-   "line": "e4 e5 f4 exf4 Nf3 h6 Bc4 d6 d4 g5 h4 Bg7 Qd3",
+   "line": "e4 e5 f4 exf4 Nf3 Nc6 Nc3 g5 h4 g4 Ng5 h6 Nxf7 Kxf7 d4",
    "notes": {
     "2": "King's Gambit Accepted",
-    "3": "King's Gambit Accepted: Becker Defense",
-    "7": "King's Gambit Accepted: Philidor Gambit, Schultz Variation"
+    "3": "King's Gambit Accepted: MacLeod Defense",
+    "8": "Vienna Gambit, with Max Lange Defense: Hamppe-Allgaier Gambit, Thorold Variation"
    }
   },
   {
@@ -497,6 +497,14 @@
     "2": "King's Gambit Accepted",
     "3": "King's Gambit Accepted: MacLeod Defense",
     "4": "King's Gambit Accepted: Blachly Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 f4 exf4 Nf3 h6 Bc4 d6 d4 g5 h4 Bg7 Qd3",
+   "notes": {
+    "2": "King's Gambit Accepted",
+    "3": "King's Gambit Accepted: Becker Defense",
+    "7": "King's Gambit Accepted: Philidor Gambit, Schultz Variation"
    }
   },
   {

@@ -1,13 +1,30 @@
 {
  "name": "London System \u2014 Black",
  "user_color": "black",
- "intro": "4 named variations of the London System, from the ECO book. You have played it 3 times, scoring 33%.",
+ "intro": "16 named variations of the London System, from the ECO book. You have played it 3 times, scoring 33%.",
  "lines": [
   {
-   "line": "d4 Nf6 Nf3 g6 Bf4 Bg7 e3 d6",
+   "line": "d4 Nf6 Nf3 g6 Bf4 Bg7 e3 d6 Be2 O-O",
    "notes": {
     "3": "London System",
-    "4": "London System"
+    "4": "London System",
+    "5": "London System, with Be2"
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 g6 Bf4 Bg7 e3 d6 Bd3",
+   "notes": {
+    "3": "London System",
+    "4": "London System",
+    "5": "London System, with Bd3"
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 g6 Bf4 Bg7 e3 d6 h3 c5 Be2",
+   "notes": {
+    "3": "London System",
+    "4": "London System",
+    "6": "London System, with Be2"
    }
   },
   {

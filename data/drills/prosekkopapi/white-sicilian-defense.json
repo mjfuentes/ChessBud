@@ -1,7 +1,7 @@
 {
  "name": "Sicilian Defense \u2014 White",
  "user_color": "white",
- "intro": "388 named variations of the Sicilian Defense, from the ECO book. You have played it 50 times, scoring 57%.",
+ "intro": "401 named variations of the Sicilian Defense, from the ECO book. You have played it 50 times, scoring 57%.",
  "lines": [
   {
    "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5 e6 f4 Be7 Qf3 h6 Bh4 Qc7",
@@ -1726,11 +1726,43 @@
    }
   },
   {
+   "line": "e4 c5 Nf3 g6 d4 Bg7 Nc3 Qa5 Be3",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Hyperaccelerated Dragon",
+    "3": "Sicilian Defense: Hyperaccelerated Pterodactyl",
+    "4": "Modern Defense: Pterodactyl Variation",
+    "5": "Pterodactyl Defense: Sicilian, Anhanguera"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 g6 d4 Bg7 Nc3 Qa5 d5",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Hyperaccelerated Dragon",
+    "3": "Sicilian Defense: Hyperaccelerated Pterodactyl",
+    "4": "Modern Defense: Pterodactyl Variation",
+    "5": "Pterodactyl Defense: Sicilian, Benoni Gambit"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 g6 d4 Bg7 Nc3 Qa5 Bd2",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Hyperaccelerated Dragon",
+    "3": "Sicilian Defense: Hyperaccelerated Pterodactyl",
+    "4": "Modern Defense: Pterodactyl Variation",
+    "5": "Pterodactyl Defense: Sicilian, Unpin"
+   }
+  },
+  {
    "line": "e4 c5 Nf3 g6 d4 Bg7 dxc5 Qa5+ Nc3 Bxc3+ bxc3 Qxc3+",
    "notes": {
     "1": "Sicilian Defense",
     "2": "Sicilian Defense: Hyperaccelerated Dragon",
     "3": "Sicilian Defense: Hyperaccelerated Pterodactyl",
+    "4": "Pterodactyl Defense: Western, Rhamphorhynchus",
+    "5": "Pterodactyl Defense: Sicilian, Rhamphorhynchus",
     "6": "Sicilian Defense: Hyperaccelerated Pterodactyl, Exchange Variation"
    }
   },
@@ -1749,6 +1781,14 @@
     "2": "Sicilian Defense: Hyperaccelerated Dragon",
     "3": "Sicilian Defense: Hyperaccelerated Dragon",
     "13": "Sicilian Defense: Dragon Variation, Classical Variation, Bernard Defense"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 g6 c3 Bg7 d4 Qa5",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Hyperaccelerated Dragon",
+    "4": "Pterodactyl Defense: Western, Pterodactyl"
    }
   },
   {
@@ -2173,6 +2213,14 @@
    }
   },
   {
+   "line": "e4 c5 f4 d5 Nf3 dxe4",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: McDonnell Attack",
+    "3": "Bird Opening: Dutch Variation, Batavo Gambit"
+   }
+  },
+  {
    "line": "e4 c5 f4 d5 exd5 Nf6",
    "notes": {
     "1": "Sicilian Defense",
@@ -2186,6 +2234,24 @@
     "1": "Sicilian Defense",
     "2": "Sicilian Defense: Staunton-Cochrane Variation",
     "4": "Sicilian Defense: Gloria Variation"
+   }
+  },
+  {
+   "line": "e4 g6 d4 Bg7 Nf3 c5 Be3 Qa5+",
+   "notes": {
+    "4": "Pterodactyl Defense: Western, Anhanguera"
+   }
+  },
+  {
+   "line": "e4 g6 Nf3 Bg7 d4 c5 Bc4 cxd4 Nxd4 Qa5+",
+   "notes": {
+    "5": "Pterodactyl Defense: Western, Siroccopteryx"
+   }
+  },
+  {
+   "line": "c4 c5 e4 Nc6 Nc3 g6 g3 Bg7 Bg2",
+   "notes": {
+    "5": "English Opening: Symmetrical Variation, Botvinnik System"
    }
   }
  ]

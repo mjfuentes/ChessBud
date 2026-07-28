@@ -1,7 +1,7 @@
 {
  "name": "Pirc Defense \u2014 Black",
  "user_color": "black",
- "intro": "28 named variations of the Pirc Defense, from the ECO book. You have played it 3 times, scoring 0%.",
+ "intro": "44 named variations of the Pirc Defense, from the ECO book. You have played it 3 times, scoring 0%.",
  "lines": [
   {
    "line": "e4 d6 d4 Nf6 Nc3 g6 f4 Bg7 Nf3 O-O e5 Nfd7 h4",
@@ -161,6 +161,58 @@
     "2": "Pirc Defense",
     "3": "Pirc Defense",
     "4": "Pirc Defense: Sveshnikov System"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 Nbd7 f4 e5 Nf3 exd4 Qxd4 c6 Bc4 d5",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Lion Defense",
+    "4": "Lion Defense: Anti-Philidor, Lion's Cave",
+    "7": "Lion Defense: Anti-Philidor, Lion's Cave, Lion Claw Gambit"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 Nbd7 g4",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Lion Defense",
+    "4": "Lion Defense: Bayonet Attack"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 Nbd7 Nf3 e5 Bc4 Be7 dxe5 dxe5 Bxf7+",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Lion Defense",
+    "7": "Philidor Defense: Lion Variation, Delayed Bishop Sacrifice"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 c6",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "3": "Czech Defense"
+   }
+  },
+  {
+   "line": "e4 d6 d4 Nf6 Nc3 e5 Nf3 Nbd7 Bc4 Be7 O-O O-O Qe2 c6 a4 exd4",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Pirc Defense",
+    "8": "Philidor Defense: Lion Variation, Sozin Variation"
+   }
+  },
+  {
+   "line": "e4 d6 f4 d5 exd5 Nf6",
+   "notes": {
+    "1": "Pirc Defense",
+    "2": "Rat Defense: Harmonist",
+    "3": "Rat Defense: Fuller Gambit"
    }
   }
  ]

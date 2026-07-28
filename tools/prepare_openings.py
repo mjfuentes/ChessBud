@@ -32,7 +32,7 @@ import chess.pgn
 
 from blunder_scan import user_color
 from opening_report import load_eco_book, classify
-from eco_tree import build_tree, family_of, load_eco_lines
+from eco_tree import build_tree, entries_for, load_eco_lines
 
 ROOT = Path(__file__).resolve().parent.parent
 # The ladder grades up to 15 of the user's moves (30 plies), and a rung is only
@@ -153,9 +153,6 @@ def main() -> None:
     # nineteen games is not a repertoire, and the ECO book holds hundreds of
     # named variations for the same opening.
     entries = load_eco_lines(ROOT / "data")
-    by_family: dict[str, list] = defaultdict(list)
-    for e in entries:
-        by_family[family_of(e[1])].append(e)
 
     out_dir = ROOT / "data" / "drills" / args.user
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -163,7 +160,7 @@ def main() -> None:
     for (color_name, family), games in sorted(grouped.items(), key=lambda kv: -len(kv[1])):
         if len(games) < MIN_FAMILY_GAMES:
             continue
-        theory = by_family.get(family)
+        theory = entries_for(entries, family)
         if not theory:
             print(f"skip {family} — not in the ECO book", flush=True)
             continue

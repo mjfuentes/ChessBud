@@ -1,8 +1,135 @@
 {
  "name": "Vienna Game \u2014 Black",
  "user_color": "black",
- "intro": "41 named variations of the Vienna Game, from the ECO book. You have played it 17 times, scoring 53%.",
+ "intro": "60 named variations of the Vienna Game, from the ECO book. You have played it 17 times, scoring 53%.",
  "lines": [
+  {
+   "line": "e4 e5 Nc3 Nc6 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Ne5 Qxf4 Qf6",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Gambit, with Max Lange Defense",
+    "4": "Vienna Gambit, with Max Lange Defense: Knight Variation",
+    "6": "Vienna Gambit, with Max Lange Defense: Hamppe-Muzio Gambit",
+    "8": "Vienna Game: Hamppe-Muzio, Dubois Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 f4 exf4 Nf3 g5 h4 g4 Ng5 d6",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Gambit, with Max Lange Defense",
+    "4": "Vienna Gambit, with Max Lange Defense: Knight Variation",
+    "6": "Vienna Gambit, with Max Lange Defense: Hamppe-Allgaier Gambit, Alapin Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 f4 exf4 Nf3 g5 d4 g4 Bc4 gxf3 O-O d5 exd5 Bg4 dxc6",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Gambit, with Max Lange Defense",
+    "4": "Vienna Gambit, with Max Lange Defense: Knight Variation",
+    "5": "Vienna Gambit, with Max Lange Defense: Pierce Gambit",
+    "9": "Vienna Game: Pierce Gambit, Rushmere Attack"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 f4 exf4 Nf3 Be7",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Gambit, with Max Lange Defense",
+    "4": "Vienna Gambit, with Max Lange Defense: Cunningham Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 f4 exf4 d4 Qh4+ Ke2 b6",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Gambit, with Max Lange Defense",
+    "4": "Vienna Gambit, with Max Lange Defense: Steinitz Gambit",
+    "5": "Vienna Gambit, with Max Lange Defense: Steinitz Gambit, Fraser-Minckwitz Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 f4 exf4 d4 Qh4+ Ke2 d6",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Gambit, with Max Lange Defense",
+    "4": "Vienna Gambit, with Max Lange Defense: Steinitz Gambit",
+    "5": "Vienna Gambit, with Max Lange Defense: Steinitz Gambit, Paulsen Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 f4 exf4 d4 Qh4+ Ke2 g5",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Gambit, with Max Lange Defense",
+    "4": "Vienna Gambit, with Max Lange Defense: Steinitz Gambit",
+    "5": "Vienna Gambit, with Max Lange Defense: Steinitz Gambit, S\u00f6rensen Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 f4 exf4 d4 Qh4+ Ke2 d5",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Gambit, with Max Lange Defense",
+    "4": "Vienna Gambit, with Max Lange Defense: Steinitz Gambit",
+    "5": "Vienna Gambit, with Max Lange Defense: Steinitz Gambit, Zukertort Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 f4 Bc5 fxe5 d6",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Gambit, with Max Lange Defense",
+    "4": "Vienna Gambit, with Max Lange Defense: Quelle Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 Bc4 Nf6 d3 Bb4 Ne2",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Game: Stanley Variation, Three Knights Variation",
+    "5": "Bishop's Opening: Vienna Hybrid, Hrom\u00e1dka Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 Bc4 Nf6 f4 Nxe4 Nf3",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Game: Stanley Variation, Three Knights Variation",
+    "5": "Vienna Game: Stanley Variation, Bronstein Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 Bc4 Bc5 Qg4 Qf6 Nd5",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "5": "Vienna Game: Stanley Variation, Meitner-Mieses Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 g3 Nf6 Bg2 Bc5 Nge2 d5",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Game: Paulsen Variation",
+    "5": "Vienna Game: Paulsen Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 g3 Bc5 Bg2 h5 Nf3 h4",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Game: Paulsen Variation",
+    "5": "Vienna Game: Paulsen Variation, Mariotti Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nc6 d4 f5",
+   "notes": {
+    "2": "Vienna Game: Max Lange Defense",
+    "3": "Vienna Game: Philidor Countergambit"
+   }
+  },
   {
    "line": "e4 e5 Nc3 Nf6 f4 d5 fxe5 Nxe4 Qf3 f5 d4",
    "notes": {
@@ -46,6 +173,14 @@
    }
   },
   {
+   "line": "e4 e5 Nc3 Nf6 f4 d5 exd5 e4 d3 Bb4 Bd2 e3",
+   "notes": {
+    "2": "Vienna Game: Falkbeer Variation",
+    "3": "Vienna Game: Vienna Gambit, Main Line",
+    "6": "King's Gambit Declined: Falkbeer Countergambit, Charousek Gambit, Morphy Defense"
+   }
+  },
+  {
    "line": "e4 e5 Nc3 Nf6 Bc4 Nxe4 Qh5 Nd6 Bb3 Nc6 d4",
    "notes": {
     "2": "Vienna Game: Falkbeer Variation",
@@ -68,6 +203,14 @@
     "3": "Vienna Game: Frankenstein-Dracula Variation",
     "5": "Vienna Game: Stanley Variation, Monster Declined",
     "7": "Vienna Game: Stanley Variation, Alekhine Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nc3 Nf6 Bc4 Bc5 d3",
+   "notes": {
+    "2": "Vienna Game: Falkbeer Variation",
+    "3": "Vienna Game: Stanley Variation",
+    "4": "Bishop's Opening: Vienna Hybrid, Spielmann Attack"
    }
   },
   {
@@ -102,63 +245,22 @@
    }
   },
   {
-   "line": "e4 e5 Nc3 Nc6 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Ne5 Qxf4 Qf6",
-   "notes": {
-    "2": "Vienna Game: Max Lange Defense",
-    "6": "Vienna Game: Hamppe-Muzio Gambit",
-    "8": "Vienna Game: Hamppe-Muzio, Dubois Variation"
-   }
-  },
-  {
-   "line": "e4 e5 Nc3 Nc6 f4 exf4 Nf3 g5 d4 g4 Bc4 gxf3 O-O d5 exd5 Bg4 dxc6",
-   "notes": {
-    "2": "Vienna Game: Max Lange Defense",
-    "9": "Vienna Game: Pierce Gambit, Rushmere Attack"
-   }
-  },
-  {
-   "line": "e4 e5 Nc3 Nc6 g3 Nf6 Bg2 Bc5 Nge2 d5",
-   "notes": {
-    "2": "Vienna Game: Max Lange Defense",
-    "3": "Vienna Game: Paulsen Variation",
-    "5": "Vienna Game: Paulsen Variation"
-   }
-  },
-  {
-   "line": "e4 e5 Nc3 Nc6 g3 Bc5 Bg2 h5 Nf3 h4",
-   "notes": {
-    "2": "Vienna Game: Max Lange Defense",
-    "3": "Vienna Game: Paulsen Variation",
-    "5": "Vienna Game: Paulsen Variation, Mariotti Gambit"
-   }
-  },
-  {
-   "line": "e4 e5 Nc3 Nc6 Bc4 Nf6 f4 Nxe4 Nf3",
-   "notes": {
-    "2": "Vienna Game: Max Lange Defense",
-    "3": "Vienna Game: Stanley Variation, Three Knights Variation",
-    "5": "Vienna Game: Stanley Variation, Bronstein Gambit"
-   }
-  },
-  {
-   "line": "e4 e5 Nc3 Nc6 Bc4 Bc5 Qg4 Qf6 Nd5",
-   "notes": {
-    "2": "Vienna Game: Max Lange Defense",
-    "5": "Vienna Game: Stanley Variation, Meitner-Mieses Gambit"
-   }
-  },
-  {
-   "line": "e4 e5 Nc3 Nc6 d4 f5",
-   "notes": {
-    "2": "Vienna Game: Max Lange Defense",
-    "3": "Vienna Game: Philidor Countergambit"
-   }
-  },
-  {
    "line": "e4 e5 Nc3 Bb4 Qg4 Nf6",
    "notes": {
     "2": "Vienna Game",
     "3": "Vienna Game: Zhuravlev Countergambit"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Nf6 Nc3 b5",
+   "notes": {
+    "3": "Bishop's Opening: Horwitz Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Bc4 Nc6 Nc3 Nf6 d3 Bc5 f4 d6 Nf3 Bg4 h3 Bxf3 Qxf3 exf4",
+   "notes": {
+    "8": "King's Gambit Declined: Classical, Svenonius Variation"
    }
   }
  ]

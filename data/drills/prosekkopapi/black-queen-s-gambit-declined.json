@@ -1,7 +1,7 @@
 {
  "name": "Queen's Gambit Declined \u2014 Black",
  "user_color": "black",
- "intro": "198 named variations of the Queen's Gambit Declined, from the ECO book. You have played it 7 times, scoring 64%.",
+ "intro": "246 named variations of the Queen's Gambit Declined, from the ECO book. You have played it 7 times, scoring 64%.",
  "lines": [
   {
    "line": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 e3 O-O Nf3 Nbd7 Rc1 c6 Bd3 dxc4 Bxc4 Nd5 Bxe7 Qxe7 O-O Nxc3 Rxc3 e5 dxe5 Nxe5",
@@ -290,6 +290,296 @@
    }
   },
   {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 g3 Nf6 Bg2 Be7 O-O O-O Bg5 cxd4 Nxd4 h6 Be3 Re8 Rc1 Be6",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "5": "Tarrasch Defense: Two Knights Variation",
+    "6": "Tarrasch Defense: Prague Variation",
+    "7": "Tarrasch Defense: Prague Variation, Main Line",
+    "8": "Tarrasch Defense: Classical Variation",
+    "9": "Tarrasch Defense: Classical Variation, Carlsbad Variation",
+    "11": "Tarrasch Defense: Classical Variation, Main Line",
+    "12": "Tarrasch Defense: Classical Variation, Chandler Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 g3 Nf6 Bg2 Be7 O-O O-O Bg5 cxd4 Nxd4 h6 Be3 Bg4",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "5": "Tarrasch Defense: Two Knights Variation",
+    "6": "Tarrasch Defense: Prague Variation",
+    "7": "Tarrasch Defense: Prague Variation, Main Line",
+    "8": "Tarrasch Defense: Classical Variation",
+    "9": "Tarrasch Defense: Classical Variation, Carlsbad Variation",
+    "11": "Tarrasch Defense: Classical Variation, Spassky Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 g3 Nf6 Bg2 Be7 O-O O-O Bg5 cxd4 Nxd4 Re8",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "5": "Tarrasch Defense: Two Knights Variation",
+    "6": "Tarrasch Defense: Prague Variation",
+    "7": "Tarrasch Defense: Prague Variation, Main Line",
+    "8": "Tarrasch Defense: Classical Variation",
+    "9": "Tarrasch Defense: Classical Variation, Carlsbad Variation",
+    "10": "Tarrasch Defense: Classical Variation, Petursson Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 g3 Nf6 Bg2 Be7 O-O O-O Bg5 c4",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "5": "Tarrasch Defense: Two Knights Variation",
+    "6": "Tarrasch Defense: Prague Variation",
+    "7": "Tarrasch Defense: Prague Variation, Main Line",
+    "8": "Tarrasch Defense: Classical Variation",
+    "9": "Tarrasch Defense: Classical Variation, Advance Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 g3 Nf6 Bg2 Be7 O-O O-O Bg5 Be6",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "5": "Tarrasch Defense: Two Knights Variation",
+    "6": "Tarrasch Defense: Prague Variation",
+    "7": "Tarrasch Defense: Prague Variation, Main Line",
+    "8": "Tarrasch Defense: Classical Variation",
+    "9": "Tarrasch Defense: Classical Variation, Endgame Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 g3 Nf6 Bg2 Be7 O-O O-O dxc5 d4",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "5": "Tarrasch Defense: Two Knights Variation",
+    "6": "Tarrasch Defense: Prague Variation",
+    "7": "Tarrasch Defense: Prague Variation, Main Line",
+    "8": "Tarrasch Defense: Classical Variation",
+    "9": "Tarrasch Defense: Classical Variation, Classical Tarrasch Gambit"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 g3 Nf6 Bg2 Be7 O-O O-O dxc5 Bxc5 Na4",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "5": "Tarrasch Defense: Two Knights Variation",
+    "6": "Tarrasch Defense: Prague Variation",
+    "7": "Tarrasch Defense: Prague Variation, Main Line",
+    "8": "Tarrasch Defense: Classical Variation",
+    "10": "Tarrasch Defense: Classical Variation, R\u00e9ti Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 g3 Nf6 Bg2 cxd4 Nxd4 Bc5",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "5": "Tarrasch Defense: Two Knights Variation",
+    "6": "Tarrasch Defense: Prague Variation",
+    "8": "Tarrasch Defense: Dubov Tarrasch"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 g3 Nf6 Bg2 Bg4",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "5": "Tarrasch Defense: Two Knights Variation",
+    "6": "Tarrasch Defense: Prague Variation",
+    "7": "Tarrasch Defense: Wagner Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 g3 c4 e4",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "5": "Tarrasch Defense: Two Knights Variation",
+    "6": "Tarrasch Defense: Swedish Variation",
+    "7": "Tarrasch Defense: Swedish Variation, Central Break"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 Bg5 Be7 Bxe7 Ngxe7",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "5": "Tarrasch Defense: Two Knights Variation",
+    "6": "Queen's Gambit Declined: Tarrasch Defense",
+    "7": "Queen's Gambit Declined: Tarrasch Defense"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 dxc5 d4 Na4 b5",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "5": "Tarrasch Defense: Two Knights Variation",
+    "7": "Tarrasch Defense: Gr\u00fcnfeld Gambit"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 e4",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "5": "Tarrasch Defense: Marshall Gambit"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 dxc5 d4 Na4 b5",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Queen's Gambit Declined: Tarrasch Defense",
+    "6": "Tarrasch Defense: Tarrasch Gambit"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 cxd4 Qxd4 Nc6 Qd1 exd5 Qxd5 Be6",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "4": "Tarrasch Defense: Schara Gambit",
+    "7": "Tarrasch Defense: von Hennig Gambit"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c5 e3 Nf6 Nf3 Nc6",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Tarrasch Defense",
+    "5": "Tarrasch Defense: Symmetrical Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c6 Nf3 dxc4 a4 Bb4 e3 b5 Bd2 a5",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Semi-Slav Defense: Accelerated Move Order",
+    "4": "Semi-Slav Defense: Noteboom Variation",
+    "7": "Queen's Gambit Declined: Semi-Slav, Abrahams Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c6 Nf3 dxc4 a4 Bb4 e3 Bxc3+ bxc3 b5 axb5 cxb5",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Semi-Slav Defense: Accelerated Move Order",
+    "4": "Semi-Slav Defense: Noteboom Variation",
+    "8": "Semi-Slav Defense: Noteboom Variation, Abrahams Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c6 Nf3 dxc4 Bg5 f6",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Semi-Slav Defense: Accelerated Move Order",
+    "4": "Semi-Slav Defense: Noteboom Variation",
+    "5": "Semi-Slav Defense: Noteboom Variation, Anti-Noteboom Variation, Belyavsky Line"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c6 Nf3 dxc4 e3 b5 a4 Bb4 Bd2 Qe7",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Semi-Slav Defense: Accelerated Move Order",
+    "4": "Semi-Slav Defense: Noteboom Variation",
+    "7": "Queen's Gambit Declined: Semi-Slav, Koomen Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c6 Nf3 dxc4 g3",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Semi-Slav Defense: Accelerated Move Order",
+    "4": "Semi-Slav Defense: Noteboom Variation",
+    "5": "Semi-Slav Defense: Noteboom Variation, Anti-Noteboom Gambit"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c6 Nf3 Nf6 e3 Nbd7 b3 Bd6 Bb2 O-O Be2",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Semi-Slav Defense: Accelerated Move Order",
+    "8": "Semi-Slav Defense: Normal Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c6 Nf3 Nf6 e3 Nbd7 Ne5",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Semi-Slav Defense: Accelerated Move Order",
+    "6": "Semi-Slav Defense: Rubinstein System"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c6 e4 dxe4 Nxe4 Bb4+ Bd2 Qxd4 Bxb4 Qxe4+ Be2 c5 Bxc5 Qxg2",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Semi-Slav Defense: Accelerated Move Order",
+    "4": "Semi-Slav Defense: Marshall Gambit",
+    "6": "Semi-Slav Defense: Marshall Gambit, Main Line",
+    "9": "Semi-Slav Defense: Marshall Gambit, Tolush Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c6 e4 dxe4 Nxe4 Bb4+ Nc3",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Semi-Slav Defense: Accelerated Move Order",
+    "4": "Semi-Slav Defense: Marshall Gambit",
+    "6": "Semi-Slav Defense: Marshall Gambit, Forgotten Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c6 e4 dxe4 f3",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Semi-Slav Defense: Accelerated Move Order",
+    "4": "Semi-Slav Defense: Marshall Gambit",
+    "5": "Semi-Slav Defense: Gunderam Gambit"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c6 e3 f5 g4",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Semi-Slav Defense: Accelerated Move Order",
+    "4": "Semi-Slav Defense: Anti-Noteboom, Stonewall Variation",
+    "5": "Semi-Slav Defense: Anti-Noteboom, Stonewall Variation, Portisch Gambit"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 c6 e3 Nf6 Nf3 Nbd7 Bd3 dxc4 Bxc4 b5 Bd3 a6 e4 b4",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "3": "Semi-Slav Defense: Accelerated Move Order",
+    "9": "Semi-Slav Defense: Meran Variation, Pirc Variation"
+   }
+  },
+  {
    "line": "d4 d5 c4 e6 Nc3 Be7 Nf3 Nf6 Bg5 h6 Bh4 O-O e3 b6 cxd5 Nxd5 Bxe7 Qxe7 Nxd5 exd5 Rc1 Be6",
    "notes": {
     "2": "Queen's Gambit Declined",
@@ -340,44 +630,10 @@
    }
   },
   {
-   "line": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 Bg5 Be7 Bxe7 Ngxe7",
-   "notes": {
-    "2": "Queen's Gambit Declined",
-    "3": "Queen's Gambit Declined: Queen's Knight Variation",
-    "4": "Queen's Gambit Declined: Tarrasch Defense",
-    "6": "Queen's Gambit Declined: Tarrasch Defense",
-    "7": "Queen's Gambit Declined: Tarrasch Defense"
-   }
-  },
-  {
-   "line": "d4 d5 c4 e6 Nc3 c6 Nf3 dxc4 a4 Bb4 e3 b5 Bd2 a5",
-   "notes": {
-    "2": "Queen's Gambit Declined",
-    "3": "Queen's Gambit Declined: Queen's Knight Variation",
-    "7": "Queen's Gambit Declined: Semi-Slav, Abrahams Variation"
-   }
-  },
-  {
-   "line": "d4 d5 c4 e6 Nc3 c6 Nf3 dxc4 e3 b5 a4 Bb4 Bd2 Qe7",
-   "notes": {
-    "2": "Queen's Gambit Declined",
-    "3": "Queen's Gambit Declined: Queen's Knight Variation",
-    "7": "Queen's Gambit Declined: Semi-Slav, Koomen Variation"
-   }
-  },
-  {
    "line": "d4 d5 c4 e6 Nc3 a6",
    "notes": {
     "2": "Queen's Gambit Declined",
     "3": "Queen's Gambit Declined: Janowski Variation"
-   }
-  },
-  {
-   "line": "d4 d5 c4 e6 Nf3 Nf6 Nc3 Nc6 Bg5 Be7 e3 O-O Rc1 h6 Bh4 Ne4",
-   "notes": {
-    "2": "Queen's Gambit Declined",
-    "6": "Queen's Gambit Declined",
-    "8": "Queen's Gambit Declined: Lasker Defense"
    }
   },
   {
@@ -386,6 +642,21 @@
     "2": "Queen's Gambit Declined",
     "5": "Queen's Gambit Declined",
     "6": "Queen's Gambit Declined"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nf3 Nf6 Nc3 dxc4 e4",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "5": "Queen's Gambit Accepted"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nf3 Nf6 Nc3 Nc6 Bg5 Be7 e3 O-O Rc1 h6 Bh4 Ne4",
+   "notes": {
+    "2": "Queen's Gambit Declined",
+    "6": "Queen's Gambit Declined",
+    "8": "Queen's Gambit Declined: Lasker Defense"
    }
   },
   {
@@ -835,6 +1106,20 @@
    }
   },
   {
+   "line": "d4 Nf6 c4 e6 Nf3 d5 Nc3 c6 Bg5 dxc4 e4 b5 e5 h6 Bh4 g5 Nxg5 Nd5",
+   "notes": {
+    "4": "Queen's Gambit Declined: Three Knights Variation",
+    "9": "Semi-Slav Defense: Botvinnik Variation, Alatortsev System"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 e6 Nf3 d5 Nc3 c6 Bg5 dxc4 e4 b5 e5 h6 Bh4 g5 Nxg5 hxg5 Bxg5 Nbd7 Qf3",
+   "notes": {
+    "4": "Queen's Gambit Declined: Three Knights Variation",
+    "11": "Semi-Slav Defense: Botvinnik Variation, Szabo Variation"
+   }
+  },
+  {
    "line": "d4 Nf6 c4 e6 Nf3 d5 Bg5 h6",
    "notes": {
     "4": "Queen's Gambit Declined: Capablanca Variation"
@@ -856,6 +1141,12 @@
    "line": "d4 Nf6 c4 e6 Nf3 d5 e3 b6 Nc3 Bd6 cxd5 exd5",
    "notes": {
     "6": "Queen's Gambit Declined: Exchange Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 e6 Nf3 d5 e3 Be7 Nc3 O-O b3 b6",
+   "notes": {
+    "6": "Queen's Indian Defense, with e3"
    }
   },
   {
@@ -936,6 +1227,12 @@
    }
   },
   {
+   "line": "d4 Nf6 c4 e6 Nc3 c5 Nf3 d5 cxd5 exd5 g3 Nc6 Bg2 Be7 O-O O-O Bg5 Be6 Rc1 c4",
+   "notes": {
+    "10": "Tarrasch Defense: Classical Variation, Bogoljubow Variation"
+   }
+  },
+  {
    "line": "d4 Nf6 Nf3 e6 c4 d5 Bg5 c6 Nbd2 Nbd7 e3",
    "notes": {
     "6": "Queen's Gambit Declined: Capablanca Variation"
@@ -957,6 +1254,12 @@
    "line": "Nf3 d5 d4 Nf6 c4 e6 Nc3 Be7 Bg5 O-O e3 Nbd7 Rc1 c6 Qc2 Ne4",
    "notes": {
     "8": "Queen's Gambit Declined: Orthodox Defense, Rubinstein Attack"
+   }
+  },
+  {
+   "line": "Nf3 d5 e3 Nf6 c4 e6 Nc3 Be7 d4 O-O b3 b6 cxd5 exd5 Bb2 Bb7 Bd3",
+   "notes": {
+    "9": "Queen's Indian Defense, with e3"
    }
   },
   {

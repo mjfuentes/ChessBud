@@ -1,7 +1,7 @@
 {
  "name": "Nimzowitsch Defense \u2014 White",
  "user_color": "white",
- "intro": "43 named variations of the Nimzowitsch Defense, from the ECO book. You have played it 6 times, scoring 75%.",
+ "intro": "44 named variations of the Nimzowitsch Defense, from the ECO book. You have played it 6 times, scoring 75%.",
  "lines": [
   {
    "line": "e4 Nc6 d4 d5 Nc3 dxe4 d5 Ne5",
@@ -18,6 +18,7 @@
     "1": "Nimzowitsch Defense",
     "2": "Nimzowitsch Defense: Scandinavian Variation",
     "3": "Nimzowitsch Defense: Scandinavian Variation, Bogoljubow Variation",
+    "4": "Van Geet Opening: Berlin Gambit",
     "5": "Nimzowitsch Defense: Scandinavian Variation, Bogoljubow Variation, Richter Gambit"
    }
   },

@@ -1,12 +1,46 @@
 {
  "name": "Danish Gambit \u2014 Black",
  "user_color": "black",
- "intro": "Built from 2 of your games as black (you score 0%). Play your prepared moves.",
+ "intro": "8 named variations of the Danish Gambit, from the ECO book. You have played it 2 times, scoring 0%.",
  "lines": [
   {
-   "line": "e4 e5 d4 exd4 c3 Qe7 cxd4 Qxe4+ Be3 Nf6 Nc3 Bb4 Nf3 Nd5 Qd2 Qe7 Bd3 Nxe3 fxe3 d5 O-O Nd7 Nxd5 Bxd2",
+   "line": "e4 e5 d4 exd4 c3 dxc3 Bc4 cxb2 Bxb2 Qe7",
    "notes": {
-    "4": "Beyond your games \u2014 engine line from here."
+    "3": "Danish Gambit Accepted",
+    "5": "Danish Gambit Accepted: Chigorin Defense"
+   }
+  },
+  {
+   "line": "e4 e5 d4 exd4 c3 dxc3 Bc4 cxb2 Bxb2 Nf6",
+   "notes": {
+    "3": "Danish Gambit Accepted",
+    "5": "Danish Gambit Accepted: Classical Defense"
+   }
+  },
+  {
+   "line": "e4 e5 d4 exd4 c3 dxc3 Bc4 cxb2 Bxb2 Bb4+",
+   "notes": {
+    "3": "Danish Gambit Accepted",
+    "5": "Danish Gambit Accepted: Copenhagen Defense"
+   }
+  },
+  {
+   "line": "e4 e5 d4 exd4 c3 dxc3 Bc4 cxb2 Bxb2 d5",
+   "notes": {
+    "3": "Danish Gambit Accepted",
+    "5": "Danish Gambit Accepted: Schlechter Defense"
+   }
+  },
+  {
+   "line": "e4 e5 d4 exd4 c3 Ne7",
+   "notes": {
+    "3": "Danish Gambit Accepted: Svenonius Defense"
+   }
+  },
+  {
+   "line": "e4 e5 d4 exd4 c3 d5",
+   "notes": {
+    "3": "Danish Gambit Declined: S\u00f6rensen Defense"
    }
   }
  ]
