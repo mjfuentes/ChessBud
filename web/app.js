@@ -218,14 +218,13 @@ const signedPawns = (cp) => `${cp < 0 ? '−' : '+'}${pawns(cp)}`
 // The single source of truth for how a run is described. The modal and the
 // panel banner both render exactly this — they must never disagree. Plain
 // coach language: no "drift", no pawn arithmetic.
-function verdictCopy({ passed, lost, hintUsed, bounces, drift, userColor, flaws }) {
+function verdictCopy({ passed, lost, hintUsed, bounces, drift, userColor, flaws, depth }) {
   const them = userColor === 'b' ? 'White' : 'Black'
   if (passed) {
     return {
-      title: 'Opening passed',
-      reason: drift >= 25 ? 'you came out of the opening better'
-        : drift > -25 ? 'you came out of the opening equal'
-          : 'you came out of the opening fine',
+      title: `${depth} moves deep`,
+      reason: drift >= 25 ? 'and you came out of the opening better'
+        : drift > -25 ? 'every move worth keeping' : 'though the position slipped a little',
     }
   }
   const inacc = flaws?.inaccuracy || 0
@@ -851,12 +850,10 @@ async function submitMove(uci) {
   const userEval = userCp(data.eval_cp)
   const lostNow = state.mode === 'drill' && !openingDone && !data.opening_complete
     && data.eval_cp != null && userEval < FLOOR_CP
-  // an inaccuracy ends the run there and then: the line is not learned, and
-  // playing out the remaining moves cannot change that
-  const flawedNow = state.mode === 'drill' && !openingDone && !data.opening_complete
-    && ['inaccuracy', 'mistake', 'blunder'].includes(slotClass)
+  // the server ends the run: it lasts while your moves are worth keeping, and
+  // stops on the first merely good one (pass) or worse (fail)
   const verdictNow = state.mode === 'drill' && !openingDone
-    && (data.opening_complete || lostNow || flawedNow)
+    && (data.opening_complete || lostNow)
   if (verdictNow) {
     openingDone = true
     // what the run is judged on: how far the position moved from where the
@@ -871,12 +868,14 @@ async function submitMove(uci) {
       blunder: classCounts.blunder || 0,
     }
     const flawed = flaws.inaccuracy + flaws.mistake + flaws.blunder > 0
-    const passed = !lostNow && state.bounces === 0 && !state.hintUsed && !flawed
-      && userEval >= FLOOR_CP && drift > DRIFT_FAIL_CP
+    // the server's verdict, with the position kept as a backstop: moves that
+    // are individually fine can still compound into a bad position
+    const passed = data.run_passed === true && !lostNow && state.bounces === 0
+      && !state.hintUsed && userEval >= FLOOR_CP && drift > DRIFT_FAIL_CP
     const accuracy = accCount ? Math.round(accSum / accCount) : 100
     const { title: vTitle, reason } = verdictCopy({
       passed, lost: lostNow, hintUsed: state.hintUsed, bounces: state.bounces,
-      drift, userColor: state.userColor, flaws,
+      drift, userColor: state.userColor, flaws, depth: data.depth,
     })
     // the verdict lives in the popup alone — repeating it in the panel said
     // the same sentence twice on the same screen
