@@ -268,7 +268,7 @@ async function reportResult(passed, before, history, depth) {
   if (!after || !after.lines) return
   if (data.grew) {
     el.className = 'verdict-ladder promoted'
-    el.textContent = `This line grows to ${data.next} moves`
+    el.textContent = `Cleared to ${data.depth} moves — next time it goes to ${data.next}`
   } else {
     el.textContent = ladderText(after)
   }
