@@ -1185,22 +1185,24 @@ def handle_move(
         return {"error": "illegal move", **game_state(board)}
     user_san = board.san(move)
 
-    # The run is steered at a line you have not cleared yet, and reaching it
-    # depends on you playing the move that line is built on. Leave it and the
-    # opponent's scripted reply usually stops being sound — the Italian's
-    # 4...Nxe4 is only playable after 4.Ng5 — so the line silently becomes
-    # unreachable and the rung stalls. Say so rather than let you guess.
+    # The run is steered at a line you have not cleared yet. A line is the
+    # opponent's sequence, so your own move does not have to match the book's —
+    # play something else and the scripted reply still stands if it is sound
+    # here. It is only when that reply stops being sound (the Italian's
+    # 4...Nxe4 after anything but 4.Ng5 or 4.d4) that the line goes out of
+    # reach and the rung stalls. Name it either way rather than let you guess.
     line_note = None
     script_now = payload.get("script") or []
+    ply = len(history)
     if (
         drill is not None
-        and len(script_now) > len(history)
-        and script_now[: len(history)] == history
-        and script_now[len(history)] != user_san
+        and len(script_now) > ply + 1
+        and script_now[:ply] == history
+        and script_now[ply] != user_san
     ):
         line_note = (
-            f"The line still open here needs {script_now[len(history)]} — "
-            f"{user_san} is fine, but it will come back."
+            f"Open line here: {script_now[ply]} {script_now[ply + 1]}. "
+            f"{user_san} can still reach it if {script_now[ply + 1]} holds up."
         )
 
     prep_note = None
