@@ -1248,26 +1248,6 @@ def handle_move(
         return {"error": "illegal move", **game_state(board)}
     user_san = board.san(move)
 
-    # The run is steered at a line you have not cleared yet. A line is the
-    # opponent's sequence, so your own move does not have to match the book's —
-    # play something else and the scripted reply still stands if it is sound
-    # here. It is only when that reply stops being sound (the Italian's
-    # 4...Nxe4 after anything but 4.Ng5 or 4.d4) that the line goes out of
-    # reach and the rung stalls. Name it either way rather than let you guess.
-    line_note = None
-    script_now = payload.get("script") or []
-    ply = len(history)
-    if (
-        drill is not None
-        and len(script_now) > ply + 1
-        and script_now[:ply] == history
-        and script_now[ply] != user_san
-    ):
-        line_note = (
-            f"Open line here: {script_now[ply]} {script_now[ply + 1]}. "
-            f"{user_san} can still reach it if {script_now[ply + 1]} holds up."
-        )
-
     prep_note = None
     mistake_fen = None
     in_prep = None
@@ -1354,7 +1334,6 @@ def handle_move(
             "fen_after_user": fen_after_user,
             "history": history,
             "prep_note": prep_note,
-            "line_note": line_note,
             "move_class": move_class,
         }
 
@@ -1391,8 +1370,7 @@ def handle_move(
                 "fen_after_user": fen_after_user,
                 "history": history,
                 "prep_note": prep_note,
-                "line_note": line_note,
-                "move_class": move_class,
+                    "move_class": move_class,
                 "loss": round(move_loss, 4),
                 "move_verified": move_verified,
                 "opening": op,
@@ -1456,7 +1434,6 @@ def handle_move(
         "fen_after_user": fen_after_user,
         "history": history,
         "prep_note": prep_note,
-        "line_note": line_note,
         "move_class": move_class,
         "loss": round(move_loss, 4),
         "move_verified": move_verified,
