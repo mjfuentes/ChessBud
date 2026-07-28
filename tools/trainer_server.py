@@ -1505,6 +1505,25 @@ def handle_move(
             san = board.san(mv)
             board.push(mv)
             reply = {"reply_san": san, "reply_uci": mv.uci(), "source": "repeat", "note": None}
+    # Knocked off the line, steer onto another that still has an open rung
+    # rather than dropping onto whatever book reply comes to hand — which is
+    # often a line already cleared to its end, where the run passes and grows
+    # nothing.
+    if reply is None and drill is not None and drill.lines:
+        fresh = ladder.resteer(
+            str(payload.get("drill", "")), drill.lines,
+            drill.user_color == chess.WHITE, history,
+        )
+        if fresh and len(fresh) > len(history):
+            try:
+                mv = board.parse_san(fresh[len(history)])
+                san = board.san(mv)
+                board.push(mv)
+                reply = {"reply_san": san, "reply_uci": mv.uci(),
+                         "source": "book", "note": None}
+                scripted = fresh
+            except ValueError:
+                reply = None
     if reply is None:
         hot = practice_targets(mistake_index) if drill is not None else None
         fail_next = (
@@ -1538,6 +1557,9 @@ def handle_move(
         "loss": round(move_loss, 4),
         "move_verified": move_verified,
         "best_sans": best_sans,
+        # the line may have been re-steered above; the client holds the script
+        # and would otherwise keep following the one it was given
+        "script": scripted or None,
         "book_ucis": expected_ucis(drill, history, board),
         "opening": opening_name(history) if drill is not None else None,
         "eval_cp": eval_cp,

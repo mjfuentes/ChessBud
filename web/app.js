@@ -940,6 +940,9 @@ async function submitMove(uci) {
     sans,
     viewPly: positions.length - 1,
     check: data.check,
+    // the server re-steers onto another line when a move knocks the opponent
+    // off the one it was showing; keep following the line it is actually on
+    script: data.script || state.script,
     evalCp: data.eval_cp ?? state.evalCp,
     gameOver: data.game_over,
     result: data.result,

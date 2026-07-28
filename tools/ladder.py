@@ -189,6 +189,31 @@ class Ladder:
                     best = depth if best is None else min(best, depth)
         return best
 
+    def resteer(
+        self, drill_id: str, lines: list[list[str]], is_white: bool,
+        history: list[str],
+    ) -> list[str] | None:
+        """A line still worth playing that continues from here.
+
+        Knocked off the line it was steering at, the opponent used to fall back
+        to any book reply — often onto a line already cleared to its end, where
+        the run can pass without growing anything. This finds a continuation
+        from the current position that still has an open rung.
+        """
+        played = history[1::2] if is_white else history[0::2]
+        with self._lock:
+            done = self._cleared(drill_id)
+            open_lines = []
+            for line in lines:
+                theirs = line[1::2] if is_white else line[0::2]
+                if theirs[:len(played)] != played or len(line) <= len(history):
+                    continue
+                if self.depth_of(drill_id, line, is_white, done) <= line_length(
+                    line, is_white
+                ):
+                    open_lines.append(line)
+        return random.choice(open_lines) if open_lines else None
+
     def next_line(
         self, drill_id: str, lines: list[list[str]], is_white: bool
     ) -> tuple[list[str] | None, int]:
