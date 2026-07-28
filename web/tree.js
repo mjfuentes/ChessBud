@@ -40,6 +40,34 @@ const ARC_TO = -22
 // the BASE so they radiate from where they meet the wood.
 const LEAF_PATH = 'M776.5 569.4c0 210.6-119.5 296.9-266.9 296.9s-267-86.3-267'
   + '-296.9 267-550.3 267-550.3 266.9 339.7 266.9 550.3z'
+// The rest of the artwork: outline, midrib and the four veins. Drawn with
+// presentation attributes rather than a class, because CSS selectors do not
+// reach inside a <use> shadow tree — only inherited properties do, which is
+// how the blade still takes its colour from .tw-leaf.
+const LEAF_OUTLINE = 'M509.6 876.2c-80.3 0-148-25-195.8-72.3-26-25.7-46-58-59.6'
+  + '-95.9-14.3-39.9-21.6-86.6-21.6-138.6 0-49.3 14.3-109.4 42.4-178.6 22.3-54.9'
+  + ' 53.4-115.6 92.4-180.7C433.8 99.6 501 13.8 501.7 12.9c1.9-2.4 4.8-3.8 7.9'
+  + '-3.8s6 1.4 7.9 3.8c0.7 0.9 67.9 86.7 134.2 197.2 39 65 70.1 125.8 92.4 180.7'
+  + ' 28.2 69.2 42.4 129.3 42.4 178.6 0 52-7.3 98.7-21.6 138.6-13.6 37.9-33.6'
+  + ' 70.2-59.6 95.9-47.7 47.3-115.4 72.3-195.7 72.3z m0-840.7c-19.6 25.8-72.6'
+  + ' 97.6-125 185.1-38.5 64.1-69.1 124-91 177.8-27.2 66.7-40.9 124.2-40.9 171 0'
+  + ' 96.7 25.3 170.8 75.2 220.3 43.9 43.5 106.8 66.6 181.7 66.6s137.8-23 181.7'
+  + '-66.6c49.9-49.5 75.2-123.6 75.2-220.3 0-46.7-13.8-104.3-41-171.1-21.9-53.9'
+  + '-52.6-113.8-91.1-177.9C582 133 529.1 61.3 509.6 35.5z'
+const LEAF_MIDRIB = 'M509.6 1017.5c-5.5 0-10-4.5-10-10V218.8c0-5.5 4.5-10 10-10s10'
+  + ' 4.5 10 10v788.6c0 5.6-4.5 10.1-10 10.1z'
+const LEAF_VEINS = 'M509.6 521.2c-2.7 0-5.5-1.1-7.4-3.3l-137.5-153c-3.7-4.1-3.4'
+  + '-10.4 0.8-14.1 4.1-3.7 10.4-3.4 14.1 0.8l137.5 153c3.7 4.1 3.4 10.4-0.8 14.1'
+  + '-2 1.7-4.3 2.5-6.7 2.5zM509.6 782.4c-2.8 0-5.6-1.2-7.6-3.5L308.7 552c-3.6-4.2'
+  + '-3.1-10.5 1.1-14.1 4.2-3.6 10.5-3.1 14.1 1.1l193.2 226.9c3.6 4.2 3.1 10.5-1.1'
+  + ' 14.1-1.8 1.6-4.1 2.4-6.4 2.4zM509.6 368.2c-2.6 0-5.1-1-7.1-2.9-3.9-3.9-3.9'
+  + '-10.2 0-14.1l93.2-93.2c3.9-3.9 10.2-3.9 14.1 0 3.9 3.9 3.9 10.2 0 14.1l-93.2'
+  + ' 93.2c-1.9 1.9-4.5 2.9-7 2.9zM518.6 642.6c-2.7 0-5.5-1.1-7.4-3.3-3.7-4.1-3.3'
+  + '-10.4 0.8-14.1l135.8-121.8c4.1-3.7 10.4-3.3 14.1 0.8 3.7 4.1 3.3 10.4-0.8'
+  + ' 14.1L525.3 640c-1.9 1.7-4.3 2.6-6.7 2.6z'
+// plain hex, not oklch: this is a presentation attribute on content inside a
+// <use>, where colour-level-4 support cannot be assumed
+const LEAF_INK = '#212d1e'
 const LEAF_AXIS = -90
 const LEAF_STEM_X = 509.6
 const LEAF_STEM_Y = 866.3
@@ -150,7 +178,7 @@ function layout(level, ctx, geo, bounds) {
 
 function placeLeaf(group, g, cls, scale) {
   const lean = g.noise * 34
-  const blade = (11 + g.noise * 2.5) * scale
+  const blade = (17 + g.noise * 2.5) * scale
   group.append(el('use', {
     href: '#cb-leaf',
     class: cls,
@@ -202,7 +230,12 @@ export function renderTree(host, drills, handlers) {
       + 'the same wood; every leaf is a line you have cleared.',
   })
   const defs = el('defs')
-  defs.append(el('path', { id: 'cb-leaf', d: LEAF_PATH }))
+  const leaf = el('g', { id: 'cb-leaf' })
+  leaf.append(el('path', { d: LEAF_PATH })) // no fill: inherits from .tw-leaf
+  for (const d of [LEAF_OUTLINE, LEAF_MIDRIB, LEAF_VEINS]) {
+    leaf.append(el('path', { d, fill: LEAF_INK }))
+  }
+  defs.append(leaf)
   svg.append(defs)
 
   const playable = drills.filter((d) => d.book?.length)
