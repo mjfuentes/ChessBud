@@ -1130,6 +1130,25 @@ def handle_classify(payload: dict, analysis: EngineWrapper) -> dict:
     return {"moves": {u: v["class"] for u, v in table["moves"].items()}}
 
 
+def best_move_sans(fen: str, fallback_pv: list[chess.Move]) -> list[str]:
+    """Every move that counts as best here, in SAN. Reads the cached
+    classification table so it names the same moves the badges and the hint do;
+    falls back to the probe's own line when the table is cold."""
+    board = chess.Board(fen)
+    with classify_lock:
+        table = classify_cache.get(fen)
+    ucis = (table or {}).get("best_ucis") or []
+    if not ucis and fallback_pv:
+        ucis = [fallback_pv[0].uci()]
+    out = []
+    for uci in ucis[:HINT_MOVES]:
+        try:
+            out.append(board.san(chess.Move.from_uci(uci)))
+        except (ValueError, AssertionError):
+            continue
+    return out
+
+
 def probe_move(
     board: chess.Board, move: chess.Move, analysis: EngineWrapper, fen: str
 ) -> tuple[str, float, int, list[chess.Move]]:
@@ -1292,6 +1311,7 @@ def handle_move(
     move_class = None
     move_loss = 0.0
     move_verified = False  # the move was the engine's own pick — can't lose ground
+    best_sans: list[str] = []
     if drill is not None:
         mistake_fen = mistake_index.get().epd_to_fen.get(board.epd())
         expected = drill.expected.get(tuple(history))
@@ -1334,6 +1354,10 @@ def handle_move(
             move_class = probe_class
             if in_prep and probe_class not in ("mistake", "blunder"):
                 move_class = "book"
+            # what the panel names when your move was not the top one. The tie
+            # band means "the best move" is often several moves, so name them
+            # all rather than pretend there is one answer.
+            best_sans = best_move_sans(payload["fen"], best_pv)
             # every move plays — the eval bar is the judge. Bad moves are
             # still captured as exercises and steer future practice.
             if in_opening and move_class in ("mistake", "blunder"):
@@ -1412,6 +1436,7 @@ def handle_move(
                     "move_class": move_class,
                 "loss": round(move_loss, 4),
                 "move_verified": move_verified,
+                "best_sans": best_sans,
                 "opening": op,
                 "eval_cp": eval_cp,
                 "opening_complete": True,
@@ -1476,6 +1501,7 @@ def handle_move(
         "move_class": move_class,
         "loss": round(move_loss, 4),
         "move_verified": move_verified,
+        "best_sans": best_sans,
         "book_ucis": expected_ucis(drill, history, board),
         "opening": opening_name(history) if drill is not None else None,
         "eval_cp": eval_cp,

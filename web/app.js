@@ -473,6 +473,30 @@ function showMessage(text, kind = 'note') {
 
 const scoreClass = (pct) => (pct < 45 ? 'bad' : pct > 55 ? 'good' : '')
 
+// What your move was, said plainly, and what the best move was when it wasn't
+// yours. The tie band means "best" is often several moves — name them all
+// rather than pretend there is one answer.
+function moveVerdict(san, cls, best) {
+  const others = (best || []).filter((m) => m !== san)
+  const list = others.join(', ')
+  switch (cls) {
+    case 'book': return `${san} — your prepared move.`
+    case 'great': return `${san} is the best move, and the only one.`
+    case 'best': return `${san} is the best move.`
+    case 'excellent': return others.length
+      ? `${san} is excellent. Best was ${list}.` : `${san} is excellent.`
+    case 'good': return others.length
+      ? `${san} is good. Best was ${list}.` : `${san} is good.`
+    case 'inaccuracy': return others.length
+      ? `${san} is an inaccuracy. Best: ${list}.` : `${san} is an inaccuracy.`
+    case 'mistake': return others.length
+      ? `${san} is a mistake. Best: ${list}.` : `${san} is a mistake.`
+    case 'blunder': return others.length
+      ? `${san} is a blunder. Best: ${list}.` : `${san} is a blunder.`
+    default: return ''
+  }
+}
+
 // The figures that open a run, set as figures. As a sentence they read as
 // filler; as type, the two percentages are the whole point — how you do in
 // this opening, and how you do once this particular line appears.
@@ -791,8 +815,12 @@ async function submitMove(uci) {
   const userEval = userCp(data.eval_cp)
   const lostNow = state.mode === 'drill' && !openingDone && !data.opening_complete
     && data.eval_cp != null && userEval < FLOOR_CP
+  // an inaccuracy ends the run there and then: the line is not learned, and
+  // playing out the remaining moves cannot change that
+  const flawedNow = state.mode === 'drill' && !openingDone && !data.opening_complete
+    && ['inaccuracy', 'mistake', 'blunder'].includes(slotClass)
   const verdictNow = state.mode === 'drill' && !openingDone
-    && (data.opening_complete || lostNow)
+    && (data.opening_complete || lostNow || flawedNow)
   if (verdictNow) {
     openingDone = true
     // what the run is judged on: how far the position moved from where the
@@ -853,6 +881,8 @@ async function submitMove(uci) {
     setActionLabels('Repeat', 'Next')
     setPuzzleActions(true)
   }
+  const verdictLine = moveVerdict(data.user_san, slotClass, data.best_sans)
+  if (verdictLine) lines.unshift(verdictLine)
   if (data.prep_note) lines.push(data.prep_note)
   if (data.note) lines.push(data.note)
   // not the opponent's move — it is on the board and in the move list
