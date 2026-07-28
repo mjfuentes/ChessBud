@@ -635,8 +635,12 @@ cg-board {
 .message .mv:hover { color: var(--amber); }
 .message .mv.active { color: var(--amber); border-bottom-style: solid; }
 
-.puzzle-actions { display: flex; gap: 8px; }
-.panel-actions { display: flex; }
+/* one row for all three: the groups exist only so the run buttons can be
+   hidden together, so they contribute their buttons and no box of their own.
+   `[hidden]`'s display:none is !important, so hiding still works. */
+.panel-buttons { display: flex; gap: 8px; flex-wrap: wrap; }
+.puzzle-actions,
+.panel-actions { display: contents; }
 .panel-actions button,
 .puzzle-actions button {
   font-family: var(--sans);
