@@ -1,83 +1,273 @@
 {
  "name": "French Defense \u2014 White",
  "user_color": "white",
- "intro": "Built from 19 of your games as white (you score 58%). Play your prepared moves.",
+ "intro": "212 named variations of the French Defense, from the ECO book. You have played it 19 times, scoring 58%.",
  "lines": [
   {
-   "line": "e4 e6 d4 d5 exd5 exd5 Nf3 Nf6 Nc3 Bb4 Bd3 O-O O-O Bg4 Bg5 c6 h3 Bh5 g4 Bg6 Ne5 Nbd7 f4 Qb6 Ne2",
+   "line": "e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 Bxc3+ bxc3 Ne7 Qg4 Qc7 Qxg7 Rg8 Qxh7 cxd4 Ne2",
    "notes": {
-    "1": "You've faced this 18 times (scoring 61%).",
-    "2": "You've faced this 14 times (scoring 64%).",
-    "3": "You've faced this 7 times (scoring 71%).",
-    "6": "Beyond your games \u2014 engine line from here."
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Winawer Variation",
+    "4": "French Defense: Winawer Variation, Advance Variation",
+    "6": "French Defense: Winawer Variation, Advance Variation",
+    "7": "French Defense: Winawer Variation, Poisoned Pawn Variation"
    }
   },
   {
-   "line": "e4 e6 d4 d5 exd5 exd5 Nf3 Nc6 Bb5 Bd7 Nc3 a6 Ba4 b5 Bb3 Nf6 Nxd5 Nxd5 Bxd5 Qe7+ Be3 Qd6 Be4 f5 Bd3",
+   "line": "e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 Bxc3+ bxc3 Ne7 Qg4 cxd4 Qxg7 Rg8 Qxh7 Nbc6",
    "notes": {
-    "1": "You've faced this 18 times (scoring 61%).",
-    "2": "You've faced this 14 times (scoring 64%).",
-    "3": "You've faced this 7 times (scoring 71%).",
-    "9": "Beyond your games \u2014 engine line from here."
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Winawer Variation",
+    "4": "French Defense: Winawer Variation, Advance Variation",
+    "6": "French Defense: Winawer Variation, Advance Variation",
+    "9": "French Defense: Winawer Variation, Poisoned Pawn Variation"
    }
   },
   {
-   "line": "e4 e6 d4 d5 exd5 exd5 Nf3 Nc6 Bb5 a6 Bxc6+ bxc6 O-O Bd6 Re1+ Ne7 Ne5 Bxe5 Rxe5 O-O Nd2 Ng6 Re1 Qg5 Nb3 Nf4",
+   "line": "e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 Bxc3+ bxc3 Ne7 Qg4 Kf8",
    "notes": {
-    "1": "You've faced this 18 times (scoring 61%).",
-    "2": "You've faced this 14 times (scoring 64%).",
-    "3": "You've faced this 7 times (scoring 71%)."
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Winawer Variation",
+    "4": "French Defense: Winawer Variation, Advance Variation",
+    "6": "French Defense: Winawer Variation, Advance Variation",
+    "7": "French Defense: Winawer Variation, Eingorn Variation"
    }
   },
   {
-   "line": "e4 e6 d4 d5 exd5 exd5 Nf3 c5 Bb5+ Nc6 O-O Nf6 Nc3 Bg4 Bg5 Be7 Bxf6 Bxf6 Re1+ Be6 dxc5 O-O Qd2 Rc8 Rab1",
+   "line": "e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 Bxc3+ bxc3 Ne7 Qg4 O-O",
    "notes": {
-    "1": "You've faced this 18 times (scoring 61%).",
-    "2": "You've faced this 14 times (scoring 64%).",
-    "3": "You've faced this 7 times (scoring 71%).",
-    "5": "Beyond your games \u2014 engine line from here."
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Winawer Variation",
+    "4": "French Defense: Winawer Variation, Advance Variation",
+    "6": "French Defense: Winawer Variation, Advance Variation",
+    "7": "French Defense: Winawer Variation, Warsaw Variation"
    }
   },
   {
-   "line": "e4 e6 d4 d5 exd5 exd5 Nf3 Bd6 Be2 Ne7 Nc3 c6 O-O O-O Bg5 h6 Bh4 Qc7 Re1 Ng6 Bg3 Bxg3 hxg3 Nd7 Bd3 Nf6",
+   "line": "e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 Bxc3+ bxc3 Nc6 Nf3 Nge7",
    "notes": {
-    "1": "You've faced this 18 times (scoring 61%).",
-    "2": "You've faced this 14 times (scoring 64%).",
-    "3": "You've faced this 7 times (scoring 71%)."
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Winawer Variation",
+    "4": "French Defense: Winawer Variation, Advance Variation",
+    "7": "French Defense: Winawer Variation, Positional Variation"
    }
   },
   {
-   "line": "e4 e6 d4 d5 exd5 Qxd5 Nc3 Bb4 Nf3 Nf6 a3 Bxc3+ bxc3 O-O c4 Qa5+ Bd2 Qa4 Bd3 Nc6 O-O Re8 Re1 b6 Bg5",
+   "line": "e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 Bxc3+ bxc3 Nc6 Nf3 Qa5 Bd2 Nge7",
    "notes": {
-    "1": "You've faced this 18 times (scoring 61%).",
-    "2": "You've faced this 14 times (scoring 64%).",
-    "12": "Beyond your games \u2014 engine line from here."
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Winawer Variation",
+    "4": "French Defense: Winawer Variation, Advance Variation",
+    "8": "French Defense: Winawer Variation, Positional Variation"
    }
   },
   {
-   "line": "e4 e6 d4 b6 Nf3 Bb7 Nc3 Bb4 Bd3 h6 a3 Bxc3+ bxc3 Nf6 Qe2 d6 O-O Nbd7 Bb2 c5 Nd2 d5 e5 Ng8 c4",
+   "line": "e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 Bxc3+ bxc3 Qc7",
    "notes": {
-    "1": "You've faced this 18 times (scoring 61%).",
-    "11": "Beyond your games \u2014 engine line from here."
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Winawer Variation",
+    "4": "French Defense: Winawer Variation, Advance Variation",
+    "6": "French Defense: Winawer Variation, Classical Variation"
    }
   },
   {
-   "line": "e4 e6 d4 c5 c3 cxd4 cxd4 Nc6 d5 e5 dxc6 bxc6 Nf3 d5",
+   "line": "e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 Bxc3+ bxc3 Qa5",
    "notes": {
-    "1": "You've faced this 18 times (scoring 61%)."
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Winawer Variation",
+    "4": "French Defense: Winawer Variation, Advance Variation",
+    "6": "French Defense: Winawer Variation, Portisch-Hook Variation"
    }
   },
   {
-   "line": "e4 e6 d4 Nf6 e5 Nd5 c4 Nb6 Nf3 d5 c5 N6d7 Nc3 Be7 a3 b6 b4 a5 Be3 c6 Be2 Ba6 h4 Bxe2 Nxe2",
+   "line": "e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 cxd4 axb4 dxc3 Nf3",
    "notes": {
-    "1": "You've faced this 18 times (scoring 61%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Winawer Variation",
+    "4": "French Defense: Winawer Variation, Advance Variation",
+    "6": "French Defense: Winawer Variation, Mar\u00f3czy-Wallis Variation"
    }
   },
   {
-   "line": "e4 c5 c3 e6 d4 d5 e5 h6 Nf3 f6 Bd3 Ne7 dxc5 Nbc6 exf6 gxf6 Nh4 Bg7 Qh5+ Kf8 Na3 Bd7 O-O f5 Nb5",
+   "line": "e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 Ba5 b4 cxd4",
    "notes": {
-    "7": "Beyond your games \u2014 engine line from here."
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Winawer Variation",
+    "4": "French Defense: Winawer Variation, Advance Variation",
+    "5": "French Defense: Winawer Variation, Retreat Variation",
+    "6": "French Defense: Winawer Variation, Retreat Variation, Armenian Line"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 Bb4 e5 Ne7 a3 Bxc3+ bxc3 c5 a4 Qc7",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Winawer Variation",
+    "7": "French Defense: Winawer Variation, Advance Variation, Smyslov Variation"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 Bb4 e5 Qd7",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Winawer Variation",
+    "4": "French Defense: Winawer Variation, Petrosian Variation"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 Nf6 Bg5 Be7 e5 Nfd7 Bxe7 Qxe7 f4 O-O Nf3 c5 Qd2 Nc6 O-O-O c4",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Classical Variation",
+    "4": "French Defense: Classical Variation, Normal Variation",
+    "6": "French Defense: Classical Variation",
+    "10": "French Defense: Classical Variation, Stahlberg Variation"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 Nf6 Bg5 Be7 e5 Ng8 Be3 b6",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Classical Variation",
+    "4": "French Defense: Classical Variation, Normal Variation",
+    "5": "French Defense: Classical Variation, Vistaneckis Variation",
+    "6": "French Defense: Classical Variation, Frankfurt Variation"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 Nf6 Bg5 Be7 e5 Ne4",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Classical Variation",
+    "4": "French Defense: Classical Variation, Normal Variation",
+    "5": "French Defense: Classical Variation, Tartakower Variation"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 Nf6 Bg5 Bb4 e5 h6 Bd2 Bxc3 bxc3 Ne4 Qg4 g6",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Classical Variation",
+    "4": "French Defense: McCutcheon Variation",
+    "6": "French Defense: McCutcheon Variation, Lasker Variation",
+    "8": "French Defense: McCutcheon Variation, Lasker Variation"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 Nf6 Bg5 Bb4 e5 h6 Bd2 Nfd7",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Classical Variation",
+    "4": "French Defense: McCutcheon Variation",
+    "6": "French Defense: McCutcheon Variation, Tartakower Variation"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 Nf6 Bg5 dxe4 Nxe4 Be7 Bxf6 Bxf6 Nf3 O-O",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Classical Variation",
+    "4": "French Defense: Classical Variation, Burn Variation",
+    "5": "French Defense: Classical Variation",
+    "7": "French Defense: Classical Variation, Burn Variation, Main Line"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 Nf6 Bg5 dxe4 Nxe4 Be7 Bxf6 gxf6",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Classical Variation",
+    "4": "French Defense: Classical Variation, Burn Variation",
+    "5": "French Defense: Classical Variation",
+    "6": "French Defense: Classical Variation, Burn Variation, Morozevich Line"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 dxe4 Nxe4 Nd7 Nf3 Ngf6 Nxf6+ Nxf6 Ne5",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Rubinstein Variation",
+    "4": "French Defense: Rubinstein Variation, Blackburne Defense"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 dxe4 Nxe4 e5",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Rubinstein Variation",
+    "4": "French Defense: Rubinstein Variation, Ellis Gambit"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 dxe4 Nxe4 Bd7 Nf3 Bc6",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Rubinstein Variation",
+    "5": "French Defense: Rubinstein Variation, Fort Knox Variation"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 dxe4 Nxe4 Qd5",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Rubinstein Variation",
+    "4": "French Defense: Rubinstein Variation, Maric Variation"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 a6 Nf3 Nf6 e5 Nfd7 a3",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "5": "French Defense: Steinitz Variation"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 Nc6",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Hecht-Reefschl\u00e4ger Variation"
+   }
+  },
+  {
+   "line": "e4 e6 d4 d5 Nc3 c5",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense",
+    "3": "French Defense: Marshall Gambit"
+   }
+  },
+  {
+   "line": "e4 e6 d4 a6 c4 b5 cxb5 axb5",
+   "notes": {
+    "1": "French Defense",
+    "2": "French Defense: St. George Defense",
+    "3": "French Defense: St. George Defense, Sanky-George Gambit",
+    "4": "French Defense: St. George Defense, St. George Gambit"
    }
   }
  ]

@@ -1,16 +1,581 @@
 {
  "name": "Ruy Lopez \u2014 White",
  "user_color": "white",
- "intro": "Built from 2 of your games as white (you score 25%). Play your prepared moves.",
+ "intro": "235 named variations of the Ruy Lopez, from the ECO book. You have played it 2 times, scoring 25%.",
  "lines": [
   {
-   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Bc5 d3 b5 Bb3 Nd4 Nxe5 Nxb3 axb3 Qf6 Nf3 Bb7 O-O h6 d4 Bb6 Re1 O-O-O d5 Ne7",
-   "notes": {}
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Na5 Bc2 c5 d4 Qc7 Nbd2 Nc6 dxc5",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Closed",
+    "9": "Ruy Lopez: Closed, Chigorin Defense",
+    "10": "Ruy Lopez: Closed, Chigorin Defense",
+    "11": "Ruy Lopez: Closed, Chigorin Defense",
+    "12": "Ruy Lopez: Closed, Chigorin Defense"
+   }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Bb5 Qf6 Nc3 Nd4 Nxd4 exd4 Nd5 Qd8 Qh5 Bd6 e5 g6 Qf3 Be7 Bc4 d6 Qf4 f6 exd6 Bxd6 Qxd4",
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Na5 Bc2 c5 d4 Qc7 Nbd2 Bd7 Nf1 Rfe8",
    "notes": {
-    "5": "Beyond your games \u2014 engine line from here."
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Closed",
+    "9": "Ruy Lopez: Closed, Chigorin Defense",
+    "10": "Ruy Lopez: Closed, Chigorin Defense",
+    "11": "Ruy Lopez: Closed, Chigorin Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Na5 Bc2 c5 d4 Qc7 Nbd2 cxd4 cxd4",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Closed",
+    "9": "Ruy Lopez: Closed, Chigorin Defense",
+    "10": "Ruy Lopez: Closed, Chigorin Defense",
+    "11": "Ruy Lopez: Closed, Chigorin Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Na5 Bc2 c5 d4 Nc6",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Closed",
+    "9": "Ruy Lopez: Closed, Chigorin Defense",
+    "10": "Ruy Lopez: Closed, Chigorin Defense",
+    "11": "Ruy Lopez: Closed, Borisenko Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Na5 Bc2 c5 d4 Nd7",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Closed",
+    "9": "Ruy Lopez: Closed, Chigorin Defense",
+    "10": "Ruy Lopez: Closed, Chigorin Defense",
+    "11": "Ruy Lopez: Closed, Keres Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Na5 Bc2 d5",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Closed",
+    "9": "Ruy Lopez: Closed, Chigorin Defense",
+    "10": "Ruy Lopez: Closed, Chigorin Defense, Gajewski Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Na5 Bc2 c6 d4 Qc7",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Closed",
+    "9": "Ruy Lopez: Closed, Chigorin Defense",
+    "11": "Ruy Lopez: Closed, Rossolimo Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Nb8 d4 Nbd7 Nbd2 Bb7 Bc2 c5",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Closed",
+    "9": "Ruy Lopez: Closed, Breyer Defense",
+    "10": "Ruy Lopez: Closed, Breyer Defense, Zaitsev Hybrid",
+    "12": "Ruy Lopez: Closed, Breyer Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Bb7 d4 Re8 Nbd2 Bf8 a3 h6",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Closed",
+    "9": "Ruy Lopez: Closed, Flohr System",
+    "12": "Ruy Lopez: Closed, Smyslov-Breyer-Zaitsev Hybrid"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Nd7",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Closed",
+    "9": "Ruy Lopez: Closed, Karpov Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Be6",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Closed",
+    "9": "Ruy Lopez: Closed, Kholmov Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Re8",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Closed",
+    "9": "Ruy Lopez: Closed, Zaitsev System"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 h6",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Closed",
+    "9": "Ruy Lopez: Closed, Smyslov Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 Na5 Bc2 c5 d4 Qc7 Nbd2 O-O Nf1 Bg4 Ne3 Bxf3",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "7": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Marshall Attack",
+    "11": "Ruy Lopez: Marshall Attack, Modern Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 Nf6",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "7": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Marshall Attack",
+    "11": "Ruy Lopez: Marshall Attack, Original Marshall Attack"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 e4",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "7": "Ruy Lopez: Closed",
+    "8": "Ruy Lopez: Marshall Attack",
+    "9": "Ruy Lopez: Marshall Attack, Steiner Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 Bb7",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "7": "Ruy Lopez: Closed, Trajkovic Counterattack"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 d6",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Closed",
+    "6": "Ruy Lopez: Closed, Averbakh Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4 b5 Bb3 d5 dxe5 Be6 c3 Bc5 Nbd2 O-O Bc2 Nxf2",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Open",
+    "8": "Ruy Lopez: Open, Main Line",
+    "9": "Ruy Lopez: Open, Italian Variation",
+    "11": "Ruy Lopez: Open, Dilworth Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4 b5 Bb3 d5 dxe5 Be6 c3 Be7 Re1 O-O Nd4 Nxe5",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Open",
+    "8": "Ruy Lopez: Open, Main Line",
+    "9": "Ruy Lopez: Open, Classical Defense",
+    "11": "Ruy Lopez: Open, Breslau Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4 b5 Bb3 d5 dxe5 Be6 c3 Be7 Re1 O-O Nd4 Qd7 Nxe6 fxe6 Rxe4",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Open",
+    "8": "Ruy Lopez: Open, Main Line",
+    "9": "Ruy Lopez: Open, Classical Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4 b5 Bb3 d5 dxe5 Be6 c3 Nc5",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Open",
+    "8": "Ruy Lopez: Open, Main Line",
+    "9": "Ruy Lopez: Open, Berlin Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4 b5 Bb3 d5 dxe5 Ne7",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Open",
+    "8": "Ruy Lopez: Open, Zukertort Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4 exd4",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Open",
+    "6": "Ruy Lopez: Open, Riga Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4 Be7 Re1 b5 Bb3 d5 dxe5 Be6 c3",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Open"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O b5 Bb3 d6 Ng5 d5 exd5 Nd4 Re1 Bc5 Rxe5+ Kf8",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "6": "Ruy Lopez: Morphy Defense",
+    "10": "Ruy Lopez: Rabinovich Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O b5 Bb3 Bb7",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "6": "Ruy Lopez: Morphy Defense, Arkhangelsk Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O b5 Bb3 Bc5",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "6": "Ruy Lopez: Morphy Defense, Neo-Arkhangelsk Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O b5 Bb3 Be7 a4",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O d6 Bxc6+ bxc6 d4 Nxe4 Re1 f5 dxe5 d5 Nc3",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Morphy Defense, Steinitz Deferred",
+    "7": "Ruy Lopez: Morphy Defense, Steinitz Deferred"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O d6 Bxc6+ bxc6 d4 Bg4",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Morphy Defense, Steinitz Deferred",
+    "7": "Ruy Lopez: Steinitz Defense Deferred, Lipnitsky Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O g6",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Brix Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O d5",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Central Countergambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Bc5",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "5": "Ruy Lopez: Morphy Defense, M\u00f8ller Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 d6 c3 f5 exf5 Bxf5 O-O",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "4": "Ruy Lopez: Morphy Defense, Modern Steinitz Defense",
+    "5": "Ruy Lopez: Morphy Defense, Modern Steinitz Defense, Siesta Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 d6 c3 Bd7 d4 Nge7",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "4": "Ruy Lopez: Morphy Defense, Modern Steinitz Defense",
+    "5": "Ruy Lopez: Morphy Defense, Modern Steinitz Defense",
+    "6": "Ruy Lopez: Morphy Defense, Modern Steinitz Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 b5 Bb3 Na5 Bxf7+",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "4": "Ruy Lopez: Morphy Defense, Caro Variation",
+    "5": "Ruy Lopez: Morphy Defense, Norwegian Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 b5 Bb3 Bc5",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "4": "Ruy Lopez: Morphy Defense, Caro Variation",
+    "5": "Ruy Lopez: Morphy Defense, Graz Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 b5 Bb3 d6 d4 Nxd4 Nxd4 exd4 Qxd4 c5",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "4": "Ruy Lopez: Morphy Defense, Caro Variation",
+    "8": "Ruy Lopez: Noah's Ark Trap"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 f5 exf5",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "4": "Ruy Lopez: Morphy Defense, Schliemann Defense Deferred"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nd4",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "4": "Ruy Lopez: Bird's Defense Deferred"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Bb4",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "4": "Ruy Lopez: Morphy Defense, Alapin's Defense Deferred"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Bc5",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "4": "Ruy Lopez: Morphy Defense, Classical Defense Deferred"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nge7",
+   "notes": {
+    "3": "Ruy Lopez: Morphy Defense",
+    "4": "Ruy Lopez: Morphy Defense, Cozio Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 O-O Nxe4 d4 Be7 Qe2 Nd6 Bxc6 bxc6 dxe5 Nb7 b3",
+   "notes": {
+    "3": "Ruy Lopez: Berlin Defense",
+    "4": "Ruy Lopez: Berlin Defense, Rio Gambit Accepted",
+    "5": "Ruy Lopez: Berlin Defense, Rio de Janeiro Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 O-O Nxe4 d4 Be7 Qe2 Nd6 Bxc6 bxc6 dxe5 Nf5",
+   "notes": {
+    "3": "Ruy Lopez: Berlin Defense",
+    "4": "Ruy Lopez: Berlin Defense, Rio Gambit Accepted",
+    "5": "Ruy Lopez: Berlin Defense, Rio de Janeiro Variation",
+    "8": "Ruy Lopez: Berlin Defense, Cordel Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 O-O Nxe4 d4 Be7 Qe2 d5",
+   "notes": {
+    "3": "Ruy Lopez: Berlin Defense",
+    "4": "Ruy Lopez: Berlin Defense, Rio Gambit Accepted",
+    "5": "Ruy Lopez: Berlin Defense, Rio de Janeiro Variation",
+    "6": "Ruy Lopez: Berlin Defense, Trifunovic Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 O-O Nxe4 d4 Nd6 Bxc6 dxc6 dxe5 Nf5 Qxd8+ Kxd8 Nc3 Bd7",
+   "notes": {
+    "3": "Ruy Lopez: Berlin Defense",
+    "4": "Ruy Lopez: Berlin Defense, Rio Gambit Accepted",
+    "5": "Ruy Lopez: Berlin Defense, l'Hermet Variation",
+    "8": "Ruy Lopez: Berlin Defense, l'Hermet Variation, Berlin Wall Defense",
+    "9": "Ruy Lopez: Berlin Defense, Berlin Wall"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 O-O Nxe4 d4 Nd6 Bxc6 dxc6 dxe5 Ne4",
+   "notes": {
+    "3": "Ruy Lopez: Berlin Defense",
+    "4": "Ruy Lopez: Berlin Defense, Rio Gambit Accepted",
+    "5": "Ruy Lopez: Berlin Defense, l'Hermet Variation",
+    "7": "Ruy Lopez: Berlin Defense, l'Hermet Variation, Westerinen Line"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 O-O Nxe4 d4 a6",
+   "notes": {
+    "3": "Ruy Lopez: Berlin Defense",
+    "4": "Ruy Lopez: Berlin Defense, Rio Gambit Accepted",
+    "5": "Ruy Lopez: Berlin Defense, Rosenthal Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 O-O d6 d4 Bd7 Nc3 Be7 Bg5",
+   "notes": {
+    "3": "Ruy Lopez: Berlin Defense",
+    "4": "Ruy Lopez: Berlin Defense, Improved Steinitz Defense",
+    "6": "Ruy Lopez: Berlin Defense, Hedgehog Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 O-O d6 d4 Bd7 Nc3 exd4",
+   "notes": {
+    "3": "Ruy Lopez: Berlin Defense",
+    "4": "Ruy Lopez: Berlin Defense, Improved Steinitz Defense",
+    "6": "Ruy Lopez: Berlin Defense, Closed Wolf Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 O-O d6 d4 Nd7",
+   "notes": {
+    "3": "Ruy Lopez: Berlin Defense",
+    "4": "Ruy Lopez: Berlin Defense, Improved Steinitz Defense",
+    "5": "Ruy Lopez: Closed Berlin Defense, Chigorin Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 O-O Bc5 c3 O-O d4 Bb6 Bg5",
+   "notes": {
+    "3": "Ruy Lopez: Berlin Defense",
+    "4": "Ruy Lopez: Berlin Defense, Beverwijk Variation",
+    "6": "Ruy Lopez: Classical Defense, Benelux Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 O-O Ng4",
+   "notes": {
+    "3": "Ruy Lopez: Berlin Defense",
+    "4": "Ruy Lopez: Berlin Defense, Fishing Pole Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 f5 Nc3 fxe4 Nxe4 d5 Nxe5 dxe4 Nxc6 Qg5",
+   "notes": {
+    "3": "Ruy Lopez: Schliemann Defense",
+    "7": "Ruy Lopez: Schliemann Defense, Classical Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 f5 Nc3 fxe4 Nxe4 d5 Nxe5 dxe4 Nxc6 Qd5",
+   "notes": {
+    "3": "Ruy Lopez: Schliemann Defense",
+    "7": "Ruy Lopez: Schliemann Defense, M\u00f6hring Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 f5 Nc3 fxe4 Nxe4 Be7",
+   "notes": {
+    "3": "Ruy Lopez: Schliemann Defense",
+    "5": "Ruy Lopez: Schliemann Defense, Kosti\u0107 Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 f5 Nc3 fxe4 Nxe4 Nf6",
+   "notes": {
+    "3": "Ruy Lopez: Schliemann Defense",
+    "5": "Ruy Lopez: Schliemann Defense, Tartakower Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Bc5 c3 Qe7",
+   "notes": {
+    "3": "Ruy Lopez: Classical Variation",
+    "4": "Ruy Lopez: Classical Defense, Boden Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Bc5 c3 Bb6",
+   "notes": {
+    "3": "Ruy Lopez: Classical Variation",
+    "4": "Ruy Lopez: Classical Variation, Charousek Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Bc5 c3 f5",
+   "notes": {
+    "3": "Ruy Lopez: Classical Variation",
+    "4": "Ruy Lopez: Classical Variation, Cordel Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Bc5 c3 d5",
+   "notes": {
+    "3": "Ruy Lopez: Classical Variation",
+    "4": "Ruy Lopez: Classical Variation, Konikowski Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 d6 d4 Bd7 Nc3 Nf6 Bxc6",
+   "notes": {
+    "3": "Ruy Lopez: Steinitz Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 d6 d4 exd4 O-O",
+   "notes": {
+    "3": "Ruy Lopez: Steinitz Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 g6 c3 f5",
+   "notes": {
+    "3": "Ruy Lopez: Fianchetto Defense",
+    "4": "Ruy Lopez: Fianchetto Defense, Kevitz Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 g6 c3 a6 Ba4 d6 d4 Bd7",
+   "notes": {
+    "3": "Ruy Lopez: Fianchetto Defense",
+    "6": "Ruy Lopez: Morphy Defense, Modern Steinitz Defense, Fianchetto Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 d5 Nxe5 Qg5 O-O",
+   "notes": {
+    "3": "Ruy Lopez: Spanish Countergambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 Bb5 Bb4 c3 Ba5 Bxc6 dxc6",
+   "notes": {
+    "3": "Ruy Lopez: Alapin Defense",
+    "5": "Ruy Lopez: Alapin Defense, Alapin Gambit"
    }
   }
  ]

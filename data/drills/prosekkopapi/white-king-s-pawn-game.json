@@ -1,12 +1,49 @@
 {
  "name": "King's Pawn Game \u2014 White",
  "user_color": "white",
- "intro": "Built from 2 of your games as white (you score 100%). Play your prepared moves.",
+ "intro": "38 named variations of the King's Pawn Game, from the ECO book. You have played it 2 times, scoring 100%.",
  "lines": [
   {
-   "line": "e4 e5 Nf3 Qf6 Bc4 Bc5 Nc3 Ne7 O-O O-O d4 exd4 Bg5 Qg6 Na4 h6 Bh4 Qh5 h3 d5 Nxc5 dxc4 Bxe7 Re8 Qxd4",
+   "line": "e4 e5 Nf3 Nc6 Be2 Nf6 d4 exd4 e5",
    "notes": {
-    "4": "Beyond your games \u2014 engine line from here."
+    "1": "King's Pawn Game"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 f6 Nxe5 fxe5 Qh5+ g6 Qxe5+ Qe7 Qxh8",
+   "notes": {
+    "1": "King's Pawn Game",
+    "2": "King's Pawn Game: Damiano Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 f6 Nxe5 Qe7 Nf3 d5",
+   "notes": {
+    "1": "King's Pawn Game",
+    "2": "King's Pawn Game: Damiano Defense",
+    "4": "King's Pawn Game: Damiano Defense, Damiano Gambit, Chigorin Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Bc5 Nxe5 Nc6",
+   "notes": {
+    "1": "King's Pawn Game",
+    "2": "King's Pawn Game: Busch-Gass Gambit",
+    "3": "King's Pawn Game: Busch-Gass Gambit, Chiodini Gambit"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Qf6 Bc4 Qg6 O-O",
+   "notes": {
+    "1": "King's Pawn Game",
+    "2": "King's Pawn Game: McConnell Defense"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Qe7 Bc4 f5",
+   "notes": {
+    "1": "King's Pawn Game",
+    "3": "King's Pawn Game: Gunderam Defense, Gunderam Gambit"
    }
   }
  ]

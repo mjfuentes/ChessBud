@@ -1,186 +1,91 @@
 {
  "name": "Caro-Kann Defense \u2014 White",
  "user_color": "white",
- "intro": "Built from 50 of your games as white (you score 53%). Play your prepared moves.",
+ "intro": "110 named variations of the Caro-Kann Defense, from the ECO book. You have played it 50 times, scoring 53%.",
  "lines": [
   {
-   "line": "e4 c6 d4 d5 e5 Bf5 h4 h6 g4 Be4 f3 Bh7 Bd3 Bxd3 Qxd3 e6 h5 Qb6 Ne2 Nd7 Nd2 Be7 f4 c5 Nf3",
+   "line": "e4 c6 d4 d5 exd5 cxd5 c4 Nf6 Nc3 Nc6 Bg5 e6",
    "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 25 times (scoring 52%).",
-    "4": "You've faced this 9 times (scoring 78%).",
-    "5": "You've faced this 7 times (scoring 71%).",
-    "6": "You've faced this 6 times (scoring 67%).",
-    "7": "You've faced this 4 times (scoring 75%).",
-    "8": "You've faced this 4 times (scoring 75%).",
-    "12": "Beyond your games \u2014 engine line from here."
+    "1": "Caro-Kann Defense",
+    "2": "Caro-Kann Defense",
+    "3": "Caro-Kann Defense: Exchange Variation",
+    "5": "Caro-Kann Defense: Panov Attack, Modern Defense",
+    "6": "Caro-Kann Defense: Panov Attack, Modern Defense, Carlsbad Line"
    }
   },
   {
-   "line": "e4 c6 d4 d5 e5 Bf5 h4 h6 g4 Be4 f3 Bh7 Bd3 Bxd3 Qxd3 e6 h5 Be7 Be3 Bh4+ Kf1 Nd7 Nd2 Be7 Ne2",
+   "line": "e4 c6 d4 d5 exd5 cxd5 c4 Nf6 Nc3 Nc6 Bg5 Qa5",
    "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 25 times (scoring 52%).",
-    "4": "You've faced this 9 times (scoring 78%).",
-    "5": "You've faced this 7 times (scoring 71%).",
-    "6": "You've faced this 6 times (scoring 67%).",
-    "7": "You've faced this 4 times (scoring 75%).",
-    "8": "You've faced this 4 times (scoring 75%)."
+    "1": "Caro-Kann Defense",
+    "2": "Caro-Kann Defense",
+    "3": "Caro-Kann Defense: Exchange Variation",
+    "5": "Caro-Kann Defense: Panov Attack, Modern Defense",
+    "6": "Caro-Kann Defense: Panov Attack, Modern Defense, Czerniak Line"
    }
   },
   {
-   "line": "e4 c6 d4 d5 e5 Bf5 h4 h6 g4 Be4 f3 Bh7 Bd3 e6 Bxh7 Rxh7 Qd3 Rh8 h5 Nd7 Be3 Qb6 b3 Qb4+ c3 Qb6",
+   "line": "e4 c6 d4 d5 exd5 cxd5 c4 Nf6 Nc3 Nc6 Bg5 Qb6",
    "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 25 times (scoring 52%).",
-    "4": "You've faced this 9 times (scoring 78%).",
-    "5": "You've faced this 7 times (scoring 71%).",
-    "6": "You've faced this 6 times (scoring 67%)."
+    "1": "Caro-Kann Defense",
+    "2": "Caro-Kann Defense",
+    "3": "Caro-Kann Defense: Exchange Variation",
+    "5": "Caro-Kann Defense: Panov Attack, Modern Defense",
+    "6": "Caro-Kann Defense: Panov Attack, Modern Defense, Reifir-Spielmann Line"
    }
   },
   {
-   "line": "e4 c6 d4 d5 e5 Bf5 h4 h6 g4 Be4 f3 Qa5+",
+   "line": "e4 c6 d4 d5 exd5 cxd5 c4 Nf6 Nc3 Nc6 Bg5 dxc4 d5 Na5",
    "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 25 times (scoring 52%).",
-    "4": "You've faced this 9 times (scoring 78%).",
-    "5": "You've faced this 7 times (scoring 71%)."
+    "1": "Caro-Kann Defense",
+    "2": "Caro-Kann Defense",
+    "3": "Caro-Kann Defense: Exchange Variation",
+    "5": "Caro-Kann Defense: Panov Attack, Modern Defense",
+    "7": "Caro-Kann Defense: Panov-Botvinnik, Herzog Defense"
    }
   },
   {
-   "line": "e4 c6 d4 d5 e5 Bf5 h4 h6 g4 Bh7 e6 fxe6 Bd3 Bxd3 Qxd3 Kd7",
+   "line": "e4 c6 d4 d5 exd5 cxd5 c4 Nf6 Nc3 e6 Nf3 Bb4",
    "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 25 times (scoring 52%).",
-    "4": "You've faced this 9 times (scoring 78%)."
+    "1": "Caro-Kann Defense",
+    "2": "Caro-Kann Defense",
+    "3": "Caro-Kann Defense: Exchange Variation",
+    "5": "Caro-Kann Defense: Panov Attack",
+    "6": "Caro-Kann Defense: Panov Attack, Main Line"
    }
   },
   {
-   "line": "e4 c6 d4 d5 e5 Bf5 h4 e6 g4 Be4 f3 Bxc2 Qxc2 Qb6 Ne2 c5",
+   "line": "e4 c6 d4 d5 exd5 cxd5 c4 Nf6 Nc3 g6 cxd5 Bg7",
    "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 25 times (scoring 52%).",
-    "4": "You've faced this 3 times (scoring 33%).",
-    "5": "You've faced this 3 times (scoring 33%)."
+    "1": "Caro-Kann Defense",
+    "2": "Caro-Kann Defense",
+    "3": "Caro-Kann Defense: Exchange Variation",
+    "5": "Caro-Kann Defense: Panov Attack, Fianchetto Defense",
+    "6": "Caro-Kann Defense: Panov Attack, Fianchetto Defense, Fianchetto Gambit"
    }
   },
   {
-   "line": "e4 c6 d4 d5 e5 Bf5 h4 e6 g4 Be4 f3 Bxc2 Qxc2 g6",
+   "line": "e4 c6 d4 d5 exd5 cxd5 c4 Nc6 Nc3 Nf6 Nf3 e6 cxd5 exd5 Bb5 Bg4",
    "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 25 times (scoring 52%).",
-    "4": "You've faced this 3 times (scoring 33%).",
-    "5": "You've faced this 3 times (scoring 33%)."
+    "1": "Caro-Kann Defense",
+    "2": "Caro-Kann Defense",
+    "3": "Caro-Kann Defense: Exchange Variation",
+    "8": "Caro-Kann Defense: Panov Attack"
    }
   },
   {
-   "line": "e4 c6 d4 d5 e5 Bf5 h4 e6 g4 Be4 f3 Bb4+",
+   "line": "e4 c6 d4 d5 exd5 cxd5 c4 Nc6 Nc3 Nf6 Nf3 e6 cxd5 exd5 Bb5 Bd6 Bg5 O-O O-O",
    "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 25 times (scoring 52%).",
-    "4": "You've faced this 3 times (scoring 33%).",
-    "5": "You've faced this 3 times (scoring 33%)."
+    "1": "Caro-Kann Defense",
+    "2": "Caro-Kann Defense",
+    "3": "Caro-Kann Defense: Exchange Variation"
    }
   },
   {
-   "line": "e4 c6 d4 d5 e5 Bf5 h4 h5 Bd3 Bxd3 Qxd3 Qa5+ Nc3 e6 Nf3 Bb4 Bd2 Qa6 Qe3 Ne7 a3 Nf5 Qf4 Bxc3 Bxc3",
+   "line": "e4 c6 d4 Na6 Nc3 Nc7",
    "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 25 times (scoring 52%).",
-    "4": "You've faced this 3 times (scoring 67%).",
-    "12": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e4 c6 d4 d5 e5 Bf5 h4 c5 dxc5 Nc6 Bb5 Qc7 Nc3 e6 g4 d4 Qxd4 Bxc2 Qd2 a6 Bxc6+ Qxc6 Rh3 Be4 Qe2",
-   "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 25 times (scoring 52%).",
-    "5": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e4 c6 d4 d5 e5 Bf5 h4 f6 g4 Be6 f4 fxe5 dxe5 Qc7 Bh3 Nh6 Nd2 g6 Nb3 Na6 Nd4 Bc8 a4 c5 Nb5",
-   "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 25 times (scoring 52%).",
-    "7": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e4 c6 d4 d5 e5 Bf5 h4 Bd7 c4 e6 Nc3 c5 cxd5 exd5 Bg5 Qa5 a3 Nc6 Nf3 c4 Bd2 Bg4 Be2 Rd8 O-O",
-   "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 25 times (scoring 52%).",
-    "5": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e4 c6 d4 d5 e5 Bf5 h4 g6 g4 Be6 h5 gxh5 Rxh5 f6 Nc3 c5 Nge2 Bxg4 Rh4 h5 Rxg4 hxg4 Nf4 Qc8 Ncxd5",
-   "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 25 times (scoring 52%).",
-    "5": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e4 c6 d4 d5 e5 c5 c3 Nc6 Nf3 Bg4 dxc5 Nxe5",
-   "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 18 times (scoring 58%).",
-    "4": "You've faced this 13 times (scoring 62%).",
-    "5": "You've faced this 12 times (scoring 67%).",
-    "6": "You've faced this 3 times (scoring 33%)."
-   }
-  },
-  {
-   "line": "e4 c6 d4 d5 e5 c5 c3 Nc6 Nf3 cxd4 cxd4 Bg4 Bb5 e6 h3 Bxf3 Qxf3 Ne7 Nc3 Nf5 Be3 Be7 O-O O-O Ne2",
-   "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 18 times (scoring 58%).",
-    "4": "You've faced this 13 times (scoring 62%).",
-    "11": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e4 c6 d4 d5 e5 c5 c3 cxd4 cxd4 Nc6 Nf3 Bg4 Bb5 e6 h3 Bxf3 Qxf3 Ne7 O-O Nf5 Qd3 a6 Bxc6+ bxc6 Be3",
-   "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%).",
-    "3": "You've faced this 18 times (scoring 58%).",
-    "4": "You've faced this 4 times (scoring 38%).",
-    "5": "You've faced this 4 times (scoring 38%).",
-    "6": "You've faced this 4 times (scoring 38%).",
-    "11": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e4 c6 d4 d5 e5 e6 Bd3 c5 c3 cxd4 cxd4 Bb4+ Nc3 Nc6 Nf3 Qb6 Be3 Bd7 O-O Bxc3 bxc3 Qc7 Rb1 b6 Ng5",
-   "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "2": "You've faced this 48 times (scoring 55%)."
-   }
-  },
-  {
-   "line": "e4 c6 d4 g6 Nf3 Bg7 Bc4 d6 O-O Nf6 Re1 d5 exd5 cxd5 Bb3 Nc6 c3 O-O h3 b5 Ne5 Bb7 Nd3 a5 Nc5",
-   "notes": {
-    "1": "You've faced this 50 times (scoring 53%).",
-    "5": "Beyond your games \u2014 engine line from here."
+    "1": "Caro-Kann Defense",
+    "2": "Caro-Kann Defense: De Bruycker Defense",
+    "3": "Caro-Kann Defense: De Bruycker Defense"
    }
   }
  ]

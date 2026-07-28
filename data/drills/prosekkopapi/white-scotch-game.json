@@ -1,38 +1,55 @@
 {
  "name": "Scotch Game \u2014 White",
  "user_color": "white",
- "intro": "Built from 4 of your games as white (you score 0%). Play your prepared moves.",
+ "intro": "53 named variations of the Scotch Game, from the ECO book. You have played it 4 times, scoring 0%.",
  "lines": [
   {
-   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 e5 Ng4 O-O Be7 Re1 d6 exd6 cxd6 Nxd4 O-O h3 d5 Nxc6 bxc6 hxg4 dxc4 Qf3",
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bc5 Be3 Qf6 c3 Nge7 Qd2 d5 Nb5 Bxe3 Qxe3 O-O Nxc7 Rb8 Nxd5 Nxd5 exd5 Nb4",
    "notes": {
-    "1": "You've faced this 4 times (scoring 0%).",
-    "2": "You've faced this 4 times (scoring 0%).",
-    "6": "Beyond your games \u2014 engine line from here."
+    "3": "Scotch Game",
+    "4": "Scotch Game: Classical Variation",
+    "12": "Scotch Game: Gottschall Variation"
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 d4 exd4 e5 d5 Bb5 Ne4 Nxd4 Bc5 Be3 O-O Nxc6 bxc6 Bxc5 Nxc5 Bxc6 Rb8 Qxd5 Qe7 O-O",
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bc5 Be3 Qf6 c3 Qg6",
    "notes": {
-    "1": "You've faced this 4 times (scoring 0%).",
-    "2": "You've faced this 4 times (scoring 0%).",
-    "6": "Beyond your games \u2014 engine line from here."
+    "3": "Scotch Game",
+    "4": "Scotch Game: Classical Variation",
+    "6": "Scotch Game: Classical Variation, Millennium Variation"
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Bc4 Bc5 d4 exd4 Ng5 Nh6 Nxf7 Nxf7 Bxf7+ Kxf7 Qh5+ g6 Qxc5 d5 O-O dxe4 c3 Qd6 Qxd6 cxd6 cxd4",
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Qh4 Nb5 Bb4+ Bd2 Qxe4+ Be2 Kd8 O-O Bxd2 Qxd2",
    "notes": {
-    "1": "You've faced this 4 times (scoring 0%).",
-    "2": "You've faced this 4 times (scoring 0%).",
-    "6": "Beyond your games \u2014 engine line from here."
+    "3": "Scotch Game",
+    "4": "Scotch Game: Steinitz Variation"
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Bc4 Be7 d4 exd4 Nxd4 Ne5 Be2 Nf6 f4 Ng6 e5 Nd5 O-O d6 Bb5+ Bd7 e6 Bxb5 exf7+ Kxf7 Nxb5",
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Nf6 Nxc6 bxc6 e5",
    "notes": {
-    "1": "You've faced this 4 times (scoring 0%).",
-    "2": "You've faced this 4 times (scoring 0%).",
-    "10": "Beyond your games \u2014 engine line from here."
+    "3": "Scotch Game",
+    "4": "Scotch Game: Schmidt Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Nxd4 Qxd4 d6 Bd3",
+   "notes": {
+    "3": "Scotch Game"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bb4+",
+   "notes": {
+    "3": "Scotch Game",
+    "4": "Scotch Game: Malaniuk Variation"
+   }
+  },
+  {
+   "line": "e4 e5 Nf3 Nc6 d4 Nxd4 Nxd4 exd4 Qxd4",
+   "notes": {
+    "3": "Scotch Game: Lolli Variation"
    }
   }
  ]

@@ -1,15 +1,24 @@
 {
  "name": "Bird Opening \u2014 Black",
  "user_color": "black",
- "intro": "Built from 3 of your games as black (you score 67%). Play your prepared moves.",
+ "intro": "28 named variations of the Bird Opening, from the ECO book. You have played it 3 times, scoring 67%.",
  "lines": [
   {
-   "line": "f4 d5 Nf3 Nf6 g3 e6 Bg2 Bc5 e3 O-O O-O b5 Qe2 c6 d3 a5 Kh1 Ba6 Nbd2 Qb6 Ne5 Nbd7 e4 a4",
+   "line": "f4 e5 fxe5 d6 exd6 Bxd6 Nf3 g5",
    "notes": {
-    "1": "You've faced this 3 times (scoring 67%).",
-    "2": "You've faced this 3 times (scoring 67%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "1": "Bird Opening"
    }
+  },
+  {
+   "line": "f4 e5 d4 exd4 Nf3 c5 c3",
+   "notes": {
+    "1": "Bird Opening",
+    "4": "Bird Opening: Siegener Gambit"
+   }
+  },
+  {
+   "line": "e4 c5 f4 d5 Nf3 dxe4",
+   "notes": {}
   }
  ]
 }

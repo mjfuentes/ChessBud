@@ -1,22 +1,26 @@
 {
  "name": "Owen Defense \u2014 White",
  "user_color": "white",
- "intro": "Built from 3 of your games as white (you score 50%). Play your prepared moves.",
+ "intro": "8 named variations of the Owen Defense, from the ECO book. You have played it 3 times, scoring 50%.",
  "lines": [
   {
-   "line": "e4 b6 d4 Bb7 Bd3 Nf6 Nc3 e6 Nf3 Bb4 Nd2 O-O e5 Bxc3 bxc3 Nd5 Qf3 f6 Ba3 c5 exf6 Rxf6 Qe4 Rh6 c4",
+   "line": "e4 b6 d4 Bb7 Bd3 f5 exf5 Bxg2 Qh5+ g6",
    "notes": {
-    "1": "You've faced this 3 times (scoring 50%).",
-    "2": "You've faced this 3 times (scoring 50%).",
-    "6": "Beyond your games \u2014 engine line from here."
+    "1": "Owen Defense",
+    "5": "Owen Defense: Matovinsky Gambit"
    }
   },
   {
-   "line": "e4 b6 d4 Bb7 Bd3 g6 Nf3 Bg7 c4 d6 O-O Nd7 Nc3 e5 d5 Ngf6 a3 O-O b4 Kh8 Bg5 h6 Be3 Ng8 Qc2",
+   "line": "e4 b6 d4 c5 dxc5 Nc6",
    "notes": {
-    "1": "You've faced this 3 times (scoring 50%).",
-    "2": "You've faced this 3 times (scoring 50%).",
-    "9": "Beyond your games \u2014 engine line from here."
+    "1": "Owen Defense",
+    "3": "Owen Defense: Hekili-Loa Gambit"
+   }
+  },
+  {
+   "line": "e4 f6 d4 b6 c4 Bb7",
+   "notes": {
+    "3": "Owen Defense: Unicorn Variation"
    }
   }
  ]

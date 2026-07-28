@@ -1,49 +1,144 @@
 {
  "name": "Queen's Gambit Declined \u2014 Black",
  "user_color": "black",
- "intro": "Built from 7 of your games as black (you score 64%). Play your prepared moves.",
+ "intro": "198 named variations of the Queen's Gambit Declined, from the ECO book. You have played it 7 times, scoring 64%.",
  "lines": [
   {
-   "line": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 Bxf6 Bxf6 e3 O-O Nf3 a6 Bd3 dxc4 Bxc4 Nd7 a4 c5 O-O cxd4 exd4 g6",
+   "line": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 e3 O-O Nf3 Nbd7 Rc1 c6 Bd3 dxc4 Bxc4 Nd5 Bxe7 Qxe7 O-O Nxc3 Rxc3 e5 dxe5 Nxe5",
    "notes": {
-    "1": "You've faced this 7 times (scoring 64%).",
-    "2": "You've faced this 7 times (scoring 64%).",
-    "3": "You've faced this 3 times (scoring 50%).",
-    "9": "Beyond your games \u2014 engine line from here."
+    "3": "Queen's Gambit Declined: Queen's Knight Variation",
+    "4": "Queen's Gambit Declined: Modern Variation",
+    "8": "Queen's Gambit Declined: Orthodox Defense, Bd3 Line",
+    "11": "Queen's Gambit Declined: Orthodox Defense, Main Line"
    }
   },
   {
-   "line": "d4 d5 c4 e6 Nc3 Nf6 cxd5 Nxd5 e4 Nxc3 bxc3 c5 Nf3 cxd4 cxd4 Bb4+ Bd2 Bxd2+ Qxd2 O-O Bc4 Nd7 O-O Nf6",
+   "line": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 e3 O-O Nf3 Nbd7 Rc1 c6 Bd3 dxc4 Bxc4 Nd5 Bxe7 Qxe7 Ne4",
    "notes": {
-    "1": "You've faced this 7 times (scoring 64%).",
-    "2": "You've faced this 7 times (scoring 64%).",
-    "3": "You've faced this 3 times (scoring 50%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "3": "Queen's Gambit Declined: Queen's Knight Variation",
+    "4": "Queen's Gambit Declined: Modern Variation",
+    "8": "Queen's Gambit Declined: Orthodox Defense, Bd3 Line",
+    "11": "Queen's Gambit Declined: Orthodox Defense, Alekhine Variation"
    }
   },
   {
-   "line": "d4 d5 c4 e6 Nf3 Nf6 Nc3 Bb4 Bg5 h6 Bh4 dxc4 Bxf6 Qxf6 Qa4+ Nc6 a3 Bxc3+ bxc3 O-O e3 Rd8 Qxc4 Bd7",
+   "line": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 e3 O-O Nf3 Nbd7 Qc2 c6 a3",
    "notes": {
-    "1": "You've faced this 7 times (scoring 64%).",
-    "2": "You've faced this 7 times (scoring 64%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "3": "Queen's Gambit Declined: Queen's Knight Variation",
+    "4": "Queen's Gambit Declined: Modern Variation",
+    "7": "Queen's Gambit Declined: Orthodox Defense, Rubinstein Variation",
+    "8": "Queen's Gambit Declined: Orthodox Defense, Rubinstein Variation"
    }
   },
   {
-   "line": "d4 d5 c4 e6 Nf3 Nf6 Bg5 h6 Bxf6 Qxf6 c5 b6 cxb6 axb6 Nc3 Bb4 e3 O-O Bd3 Bxc3+ bxc3 Nd7 O-O Bb7",
+   "line": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 e3 O-O Nf3 Nbd7 Qc2 c6 Rd1 a6",
    "notes": {
-    "1": "You've faced this 7 times (scoring 64%).",
-    "2": "You've faced this 7 times (scoring 64%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "3": "Queen's Gambit Declined: Queen's Knight Variation",
+    "4": "Queen's Gambit Declined: Modern Variation",
+    "7": "Queen's Gambit Declined: Orthodox Defense, Rubinstein Variation"
    }
   },
   {
-   "line": "d4 d5 c4 e6 cxd5 exd5 Bf4 Nf6 Nf3 Bd6 Bxd6 Qxd6 Nc3 a6 e3 O-O Bd3 Re8 Qc2 Nc6 a3 Bg4 O-O Bxf3",
+   "line": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 Nf3 c6 e3 dxc4 Bxc4",
    "notes": {
-    "1": "You've faced this 7 times (scoring 64%).",
-    "2": "You've faced this 7 times (scoring 64%).",
-    "12": "Beyond your games \u2014 engine line from here."
+    "3": "Queen's Gambit Declined: Queen's Knight Variation",
+    "4": "Queen's Gambit Declined: Modern Variation",
+    "5": "Queen's Gambit Declined",
+    "7": "Queen's Gambit Declined"
    }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 Bxf6",
+   "notes": {
+    "3": "Queen's Gambit Declined: Queen's Knight Variation",
+    "4": "Queen's Gambit Declined: Modern Variation",
+    "5": "Queen's Gambit Declined: Modern Variation, Heral Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 Nf6 Nf3 c5 e3 Nc6 Bd3 Bd6 O-O O-O Qe2 Qe7 dxc5 Bxc5 e4",
+   "notes": {
+    "3": "Queen's Gambit Declined: Queen's Knight Variation",
+    "10": "Queen's Gambit Declined: Semi-Tarrasch Defense, Levenfish Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 Nf6 Nf3 c5 e3 Nc6 a3 cxd4 exd4 Bd6",
+   "notes": {
+    "3": "Queen's Gambit Declined: Queen's Knight Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 Nf6 Nf3 c5 Bg5",
+   "notes": {
+    "3": "Queen's Gambit Declined: Queen's Knight Variation",
+    "5": "Queen's Gambit Declined: Semi-Tarrasch Defense, Pillsbury Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 Nf6 Nf3 c5 cxd5 Nxd5 e4 Nxc3 bxc3 cxd4 cxd4 Bb4+ Bd2 Bxd2+ Qxd2 O-O Bb5",
+   "notes": {
+    "3": "Queen's Gambit Declined: Queen's Knight Variation",
+    "11": "Queen's Gambit Declined: Semi-Tarrasch Defense, Kmoch Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 Nf6 e3 Be7 cxd5 exd5 Bd3 O-O Nf3 c6",
+   "notes": {
+    "3": "Queen's Gambit Declined: Queen's Knight Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 Nf6 Bf4",
+   "notes": {
+    "3": "Queen's Gambit Declined: Queen's Knight Variation",
+    "4": "Queen's Gambit Declined: Harrwitz Attack"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nc3 Nf6 cxd5 Nxd5 e4 Nxc3 bxc3 c5 Nf3 cxd4 cxd4 Bb4+ Bd2 Qa5",
+   "notes": {
+    "3": "Queen's Gambit Declined: Queen's Knight Variation"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nf3 Nf6 Nc3 Nc6 Bg5 Be7 e3 O-O Rc1 h6 Bh4 Ne4",
+   "notes": {
+    "8": "Queen's Gambit Declined"
+   }
+  },
+  {
+   "line": "d4 d5 c4 e6 Nf3 Nf6 e3 c6 Nbd2 g6",
+   "notes": {}
+  },
+  {
+   "line": "d4 d5 Nf3 Nf6 c4 e6 Nc3 Be7 Bg5 O-O e3 Nbd7 Rc1 c6 Qc2 a6 cxd5 exd5 Bd3",
+   "notes": {
+    "9": "Queen's Gambit Declined: Orthodox Defense, Rubinstein Attack",
+    "10": "Queen's Gambit Declined: Orthodox Defense, Rubinstein Attack"
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 Nf6 c4 e6 Nc3 Be7 Bg5 O-O e3 Nbd7 Rc1 c6 Bd3 dxc4 Bxc4 Nd5 h4",
+   "notes": {
+    "10": "Queen's Gambit Declined: Orthodox Defense, Janowski Variation"
+   }
+  },
+  {
+   "line": "d4 d5 Nf3 Nf6 c4 e6 Nc3 Be7 Bg5 O-O e3 Nbd7 Qb3",
+   "notes": {
+    "7": "Queen's Gambit Declined: Orthodox Defense, Rauzer Variation"
+   }
+  },
+  {
+   "line": "Nf3 d5 d4 Nf6 c4 e6 Nc3 Be7 Bg5 O-O e3 Nbd7 Rc1 b6 cxd5 exd5 Bb5",
+   "notes": {
+    "9": "Queen's Gambit Declined: Orthodox Defense, Capablanca Variation"
+   }
+  },
+  {
+   "line": "c4 c5 Nf3 Nf6 Nc3 Nc6 g3 d5 d4 e6",
+   "notes": {}
   }
  ]
 }

@@ -1,75 +1,102 @@
 {
  "name": "Queen's Pawn Game \u2014 Black",
  "user_color": "black",
- "intro": "Built from 20 of your games as black (you score 48%). Play your prepared moves.",
+ "intro": "82 named variations of the Queen's Pawn Game, from the ECO book. You have played it 20 times, scoring 48%.",
  "lines": [
   {
-   "line": "d4 d5 Bf4 Nf6 e3 e6 c3 Bd6 Nf3 O-O Bd3 c5 Ne5 Qc7 Nd2 Nbd7 Ndf3 Ne4 Qc2 Ndf6 h4 cxd4 cxd4 Nh5",
+   "line": "d4 d5 Nf3 Nf6 Bg5 e6 e3 c5 c3 Nbd7 Nbd2 Bd6",
    "notes": {
-    "1": "You've faced this 19 times (scoring 45%).",
-    "2": "You've faced this 7 times (scoring 29%).",
-    "3": "You've faced this 3 times (scoring 67%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Zukertort Variation",
+    "3": "Queen's Pawn Game: Torre Attack",
+    "6": "Queen's Pawn Game: Torre Attack"
    }
   },
   {
-   "line": "d4 d5 Bf4 Nf6 e3 e6 c3 Bd6 Bg3 O-O Nf3 b6 Nbd2 c5 Bxd6 Qxd6 dxc5 bxc5 Nc4 Qd8 Nce5 c4 Be2 Qb6 Rb1 Nfd7",
+   "line": "d4 d5 Nf3 Nf6 Bg5 e6 e3 c5 Nbd2 Nc6 c3",
    "notes": {
-    "1": "You've faced this 19 times (scoring 45%).",
-    "2": "You've faced this 7 times (scoring 29%).",
-    "3": "You've faced this 3 times (scoring 67%)."
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Zukertort Variation",
+    "3": "Queen's Pawn Game: Torre Attack",
+    "5": "Queen's Pawn Game: Torre Attack",
+    "6": "Queen's Pawn Game: Torre Attack"
    }
   },
   {
-   "line": "d4 d5 Bf4 Nf6 Nf3 Bf5 e3 e6 c3 Be7 Bd3 Bxd3 Qxd3 O-O O-O c5 Nbd2 Qb6 a4 a5 Rfc1 h6 h3 Rc8",
+   "line": "d4 d5 Nf3 Nf6 Bg5 e6 Nbd2 Be7 c3 Nbd7 e3",
    "notes": {
-    "1": "You've faced this 19 times (scoring 45%).",
-    "2": "You've faced this 7 times (scoring 29%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Zukertort Variation",
+    "3": "Queen's Pawn Game: Torre Attack",
+    "6": "Queen's Pawn Game: Torre Attack"
    }
   },
   {
-   "line": "d4 d5 Nf3 Nf6 Bg5 e6 Bxf6 Qxf6 e3 c5 c4 cxd4 Nxd4 Bb4+ Nc3 Bxc3+ bxc3 dxc4 Bxc4 O-O O-O Nd7 a4 Rb8",
+   "line": "d4 d5 Nf3 Nf6 e3 e6 b3 c5 Bb2 Nc6 Bd3",
    "notes": {
-    "1": "You've faced this 19 times (scoring 45%).",
-    "2": "You've faced this 4 times (scoring 88%).",
-    "6": "Beyond your games \u2014 engine line from here."
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Zukertort Variation",
+    "3": "Queen's Pawn Game: Colle System",
+    "4": "Queen's Pawn Game: Colle System",
+    "6": "Queen's Pawn Game: Colle System"
    }
   },
   {
-   "line": "d4 d5 Nf3 Nf6 Bf4 e6 e3 Bd6 Be5 Nc6 Bb5 Bd7 Bxc6 Bxc6 O-O O-O Nbd2 a5 c4 Ne4 cxd5 exd5 Qc2 f6",
+   "line": "d4 d5 Nf3 Nf6 e3 e6 b3 c5 Bb2 Nc6 Nbd2",
    "notes": {
-    "1": "You've faced this 19 times (scoring 45%).",
-    "2": "You've faced this 4 times (scoring 88%).",
-    "8": "Beyond your games \u2014 engine line from here."
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Zukertort Variation",
+    "3": "Queen's Pawn Game: Colle System",
+    "4": "Queen's Pawn Game: Colle System",
+    "6": "Queen's Pawn Game: Colle System"
    }
   },
   {
-   "line": "d4 d5 Nf3 Nf6 e3 e6 Bd3 Bb4+ Bd2 a5 O-O O-O a3 Bd6 c4 c5 Nc3 cxd4 Nxd4 e5 Nde2 e4 Bc2 Bxh2+ Kxh2 Ng4+",
+   "line": "d4 d5 Nf3 Nf6 e3 e6 Bd3",
    "notes": {
-    "1": "You've faced this 19 times (scoring 45%).",
-    "2": "You've faced this 4 times (scoring 88%)."
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Zukertort Variation",
+    "3": "Queen's Pawn Game: Colle System",
+    "4": "Queen's Pawn Game: Colle System"
    }
   },
   {
-   "line": "d4 d5 e3 Nf6 h3 Bf5 Nf3 Nc6 c4 e6 c5 Be7 Bb5 O-O Bxc6 bxc6 Nc3 Qe8 Bd2 a5 O-O Ne4 Rc1 Ng5",
+   "line": "d4 d5 Nf3 Nf6 Bf4 c5 e3 Nc6 Nbd2 e6 c3",
    "notes": {
-    "1": "You've faced this 19 times (scoring 45%).",
-    "8": "Beyond your games \u2014 engine line from here."
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Zukertort Variation",
+    "3": "Queen's Pawn Game: London System",
+    "4": "Queen's Pawn Game: London System",
+    "5": "Queen's Pawn Game: London System",
+    "6": "Queen's Pawn Game: London System"
    }
   },
   {
-   "line": "d4 d5 e3 Nf6 Nf3 e6 c4 Be7 cxd5 exd5 Nc3 O-O Bd3 Re8 O-O Bd6 Qc2 c6 b3 Nbd7 Re1 Nf8 h3 Bd7",
+   "line": "d4 d5 Nf3 Nf6 g3 c6 Bg2 Bg4",
    "notes": {
-    "1": "You've faced this 19 times (scoring 45%).",
-    "6": "Beyond your games \u2014 engine line from here."
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Zukertort Variation",
+    "3": "Queen's Pawn Game: Symmetrical Variation, Pseudo-Catalan"
    }
   },
   {
-   "line": "Nf3 Nf6 d4 d5 Nc3 Nc6 Bf4 a6 e3 e6 Ne5 Nxe5 dxe5 Nd7 Qg4 h5 Qg3 h4 Qg4 b5 Nb1 c6 Nd2 Qc7",
+   "line": "d4 d5 Nf3 Nf6 c4 b5",
    "notes": {
-    "9": "Beyond your games \u2014 engine line from here."
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Zukertort Variation"
    }
+  },
+  {
+   "line": "d4 d5 Bf4 c5 e4 dxe4",
+   "notes": {
+    "1": "Queen's Pawn Game",
+    "2": "Queen's Pawn Game: Accelerated London System",
+    "3": "Queen's Pawn Game: Accelerated London System, Steinitz Countergambit, Morris Countergambit"
+   }
+  },
+  {
+   "line": "Nf3 d5 g3 c6 Bg2 Nf6 O-O Bg4 d4 e6",
+   "notes": {}
   }
  ]
 }

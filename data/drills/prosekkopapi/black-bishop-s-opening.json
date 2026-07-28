@@ -1,134 +1,51 @@
 {
  "name": "Bishop's Opening \u2014 Black",
  "user_color": "black",
- "intro": "Built from 22 of your games as black (you score 34%). Play your prepared moves.",
+ "intro": "41 named variations of the Bishop's Opening, from the ECO book. You have played it 22 times, scoring 34%.",
  "lines": [
   {
-   "line": "e4 e5 Bc4 Nf6 d3 Bc5 Nf3 d6 h3 Nbd7 c3 c6 a4 d5 Bb3 O-O Bc2 Re8 O-O Bd6 Re1 h6 Nbd2 Bc7",
+   "line": "e4 e5 Bc4 Bc5 c3 d5 Bxd5 Nf6 d4",
    "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 19 times (scoring 39%).",
-    "3": "You've faced this 14 times (scoring 39%).",
-    "4": "You've faced this 4 times (scoring 25%).",
-    "5": "You've faced this 3 times (scoring 33%).",
-    "8": "Beyond your games \u2014 engine line from here."
+    "2": "Bishop's Opening",
+    "3": "Bishop's Opening: Philidor Variation",
+    "5": "Bishop's Opening: Lewis Countergambit, Walker Variation"
    }
   },
   {
-   "line": "e4 e5 Bc4 Nf6 d3 Bc5 Nf3 d6 h3 Nbd7 Ng5 O-O h4 Nb6 Bb3 c6 Nc3 d5 Bd2 h6 a4 a5 Qf3 Bd4",
+   "line": "e4 e5 Bc4 Bc5 b4 Bxb4 f4 exf4 Nf3 Be7 d4 Bh4+ g3 fxg3 O-O gxh2+ Kh1",
    "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 19 times (scoring 39%).",
-    "3": "You've faced this 14 times (scoring 39%).",
-    "4": "You've faced this 4 times (scoring 25%).",
-    "5": "You've faced this 3 times (scoring 33%).",
-    "11": "Beyond your games \u2014 engine line from here."
+    "2": "Bishop's Opening",
+    "3": "Bishop's Opening: McDonnell Gambit",
+    "4": "Bishop's Opening: McDonnell Gambit, McDonnell Double Gambit",
+    "9": "Bishop's Opening: Four Pawns Gambit"
    }
   },
   {
-   "line": "e4 e5 Bc4 Nf6 d3 Bc5 Nf3 d6 O-O O-O a4 Bg4 c3 a5 h3 Bh5 Bg5 Re8 Nbd2 h6 Bh4 g5 g4 Bg6",
+   "line": "e4 e5 Bc4 Bc5 b4 Bxb4 c3",
    "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 19 times (scoring 39%).",
-    "3": "You've faced this 14 times (scoring 39%).",
-    "4": "You've faced this 4 times (scoring 25%).",
-    "8": "Beyond your games \u2014 engine line from here."
+    "2": "Bishop's Opening",
+    "3": "Bishop's Opening: McDonnell Gambit",
+    "4": "Bishop's Opening: McDonnell Gambit, La Bourdonnais-Denker Gambit"
    }
   },
   {
-   "line": "e4 e5 Bc4 Nf6 d3 Bc5 h3 c6 Nf3 d5 exd5 cxd5 Bb3 Nc6 O-O O-O Bg5 h6 Bxf6 gxf6 d4 Nxd4 Nxd4 Bxd4",
+   "line": "e4 e5 Bc4 Bc5 Qe2 Nc6 c3 Nf6 f4",
    "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 19 times (scoring 39%).",
-    "3": "You've faced this 14 times (scoring 39%).",
-    "4": "You've faced this 3 times (scoring 50%).",
-    "5": "You've faced this 3 times (scoring 50%).",
-    "10": "Beyond your games \u2014 engine line from here."
+    "2": "Bishop's Opening",
+    "3": "Bishop's Opening: Lopez Variation",
+    "5": "Bishop's Opening: Lopez Gambit"
    }
   },
   {
-   "line": "e4 e5 Bc4 Nf6 d3 Bc5 h3 c6 Nf3 d5 exd5 cxd5 Bb5+ Bd7 Nxe5",
+   "line": "e4 e5 Nc3 Nf6 Bc4 Bc5 d3",
    "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 19 times (scoring 39%).",
-    "3": "You've faced this 14 times (scoring 39%).",
-    "4": "You've faced this 3 times (scoring 50%).",
-    "5": "You've faced this 3 times (scoring 50%)."
+    "4": "Bishop's Opening: Vienna Hybrid, Spielmann Attack"
    }
   },
   {
-   "line": "e4 e5 Bc4 Nf6 d3 Bc5 Bg5 h6 Bh4 g5 Bg3 d6 Nc3 Nc6 h3 Na5 Bb3 Nxb3 axb3 Be6 Na4 Bb4+ c3 Ba5 b4 Bb6",
+   "line": "e4 e5 Nf3 Nf6 Bc4 Nxe4 Nc3 d5",
    "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 19 times (scoring 39%).",
-    "3": "You've faced this 14 times (scoring 39%)."
-   }
-  },
-  {
-   "line": "e4 e5 Bc4 Nf6 d3 Bc5 Bg5 h6 Bh4 g5 Bg3 d6 Nc3 Nc6 Qd2 Bd7 O-O-O a6 a3 b5 Ba2 b4 axb4 Bxb4 Nge2 Nd4",
-   "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 19 times (scoring 39%).",
-    "3": "You've faced this 14 times (scoring 39%)."
-   }
-  },
-  {
-   "line": "e4 e5 Bc4 Nf6 d3 Bc5 f4 d6 Nf3 Nc6 Nc3 a5 f5 Nd4 Nxd4 exd4 Ne2 c6 a4 d5 exd5 cxd5 Bb5+ Bd7",
-   "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 19 times (scoring 39%).",
-    "3": "You've faced this 14 times (scoring 39%).",
-    "6": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e4 e5 Bc4 Nf6 d3 Bc5 Nc3 c6 Nf3 d6 h3 b5 Bb3 a5 a3 Bb7 O-O Nbd7 Bg5 h6 Bxf6 Nxf6 Nh4 g6 Nf3 Qd7",
-   "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 19 times (scoring 39%).",
-    "3": "You've faced this 14 times (scoring 39%)."
-   }
-  },
-  {
-   "line": "e4 e5 Bc4 Nf6 d3 Bc5 c3 O-O Nf3 c6 Bb3 d5 exd5 cxd5 O-O Nc6 d4 exd4 cxd4 Bb4 Bd2 Bxd2 Qxd2 Qb6",
-   "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 19 times (scoring 39%).",
-    "3": "You've faced this 14 times (scoring 39%).",
-    "5": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e4 e5 Bc4 Nf6 d4 exd4 Nf3 Bb4+ c3 dxc3 bxc3 Bc5 e5 d5 exf6 dxc4 Qxd8+ Kxd8 fxg7 Re8+ Be3 Bxe3 fxe3 Rg8",
-   "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 19 times (scoring 39%).",
-    "3": "You've faced this 3 times (scoring 33%).",
-    "8": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e4 e5 Bc4 Nf6 Qf3 Nc6 c3 Bc5 Be2 d5 exd5 e4 Qg3 Bd6 Qxg7 Rg8 Qh6 Ne5 Kf1 Qe7 h3 Nxd5 c4 Nf6",
-   "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 19 times (scoring 39%).",
-    "6": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e4 e5 Bc4 Nf6 Nc3 Bc5 d3 c6 f4 d5 exd5 cxd5 Bb5+ Nfd7 Nf3 O-O fxe5 Nxe5 Nxe5 a6 d4 Qh4+ g3 Qxd4",
-   "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 19 times (scoring 39%).",
-    "8": "Beyond your games \u2014 engine line from here."
-   }
-  },
-  {
-   "line": "e4 e5 Nc3 Bc5 Bc4 Nf6 d3 c6 f4 d5 fxe5 dxc4 exf6 Qxf6 Nf3 Bg4 Na4 Bb4+ c3 Be7 d4 b5 Nc5 Bxc5",
-   "notes": {
-    "1": "You've faced this 22 times (scoring 34%).",
-    "2": "You've faced this 3 times (scoring 0%).",
-    "10": "Beyond your games \u2014 engine line from here."
+    "4": "Bishop's Opening: Boden-Kieseritzky Gambit"
    }
   }
  ]

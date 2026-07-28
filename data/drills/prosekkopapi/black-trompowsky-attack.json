@@ -1,22 +1,27 @@
 {
  "name": "Trompowsky Attack \u2014 Black",
  "user_color": "black",
- "intro": "Built from 3 of your games as black (you score 67%). Play your prepared moves.",
+ "intro": "10 named variations of the Trompowsky Attack, from the ECO book. You have played it 3 times, scoring 67%.",
  "lines": [
   {
-   "line": "d4 Nf6 Bg5 h6 Bh4 g5 Bg3 Bg7 Nf3 d5 e3 Ne4 Nbd2 Nxg3 hxg3 c5 c3 Qb6 Qc2 Nc6 Be2 cxd4 exd4 g4",
+   "line": "d4 Nf6 Bg5 Ne4 Bh4 c6 Nd2 Qa5 c3 Nxd2 Qxd2 d5 e4",
    "notes": {
-    "1": "You've faced this 3 times (scoring 67%).",
-    "2": "You've faced this 3 times (scoring 67%).",
-    "9": "Beyond your games \u2014 engine line from here."
+    "2": "Trompowsky Attack",
+    "3": "Trompowsky Attack: Edge Variation",
+    "7": "Trompowsky Attack: Edge Variation, Hergert Gambit"
    }
   },
   {
-   "line": "d4 Nf6 Bg5 h6 Bxf6 exf6 g3 d5 e3 Nd7 Bg2 Nb6 Nd2 c6 Ne2 h5 h4 Bg4 b3 Qd7 c4 Bb4 Qc2 O-O",
+   "line": "d4 Nf6 Bg5 Ne4 h4 Nxg5 hxg5 e5",
    "notes": {
-    "1": "You've faced this 3 times (scoring 67%).",
-    "2": "You've faced this 3 times (scoring 67%).",
-    "5": "Beyond your games \u2014 engine line from here."
+    "2": "Trompowsky Attack",
+    "3": "Trompowsky Attack: Raptor Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 Bg5 Ne4 Bf4 g5",
+   "notes": {
+    "2": "Trompowsky Attack"
    }
   }
  ]

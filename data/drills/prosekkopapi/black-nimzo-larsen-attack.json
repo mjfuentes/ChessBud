@@ -1,16 +1,12 @@
 {
  "name": "Nimzo-Larsen Attack \u2014 Black",
  "user_color": "black",
- "intro": "Built from 2 of your games as black (you score 100%). Play your prepared moves.",
+ "intro": "18 named variations of the Nimzo-Larsen Attack, from the ECO book. You have played it 2 times, scoring 100%.",
  "lines": [
   {
-   "line": "b3 e5 Bb2 Nc6 g3 d5 Bg2 Nf6 d3 Be6 Nd2 Qd7 e3 O-O-O Ngf3 Bd6 O-O Bh3 c4 Bxg2 Kxg2 e4 dxe4 dxe4",
-   "notes": {}
-  },
-  {
-   "line": "b3 e5 Bb2 Nc6 e4 d5 d3 dxe4 dxe4 Qxd1+ Kxd1 Nf6 Bd3 Bc5 f3 Be6 a3 O-O-O Nd2 Rd6 b4 Bf2 Ne2 Rhd8",
+   "line": "b3 e5 Bb2 Nc6 c4 Nf6",
    "notes": {
-    "9": "Beyond your games \u2014 engine line from here."
+    "1": "Nimzo-Larsen Attack"
    }
   }
  ]

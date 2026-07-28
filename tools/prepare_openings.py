@@ -1,13 +1,17 @@
-"""Build personalized opening-practice drills from a user's game archive.
+"""Build opening-practice drills from published theory.
 
-For every opening family the user actually plays (both colors), builds a
-drill tree where:
-- the user's own moves are kept when sound (within EVAL_TOLERANCE of the
-  engine's best), and replaced by the engine's move when they leak eval;
-- opponent branches are the replies opponents actually play against the
-  user, most frequent first;
-- lines are extended with engine moves beyond the user's data until
-  TARGET_DEPTH plies, so preparation goes deeper than past games.
+Your archive decides WHICH openings to prepare — the ones you play and the
+ones played at you. It no longer decides what the lines are: a family sampled
+from nineteen games is not a repertoire.
+
+The lines come from data/eco_*.tsv, the lichess-org/chess-openings list of
+3,807 named variations. At your turn one continuation is prepared, the one the
+most named variations run through; at the opponent's turn every named reply is
+kept, widest first. Branches are labelled with their variation names.
+
+No engine: the book is curated theory, and the trainer measures every book move
+as you play it, so a prepared move that leaks is caught at the board rather
+than silently swapped out here.
 
 Writes data/drills/<user>/*.json (trainer drill format) and a manifest at
 data/users/<user>/openings.json.
@@ -20,65 +24,29 @@ from __future__ import annotations
 import argparse
 import json
 import re
-from collections import Counter, defaultdict
+from collections import defaultdict
 from pathlib import Path
 
 import chess
-import chess.engine
 import chess.pgn
 
 from blunder_scan import user_color
 from opening_report import load_eco_book, classify
+from eco_tree import build_tree, family_of, load_eco_lines
 
 ROOT = Path(__file__).resolve().parent.parent
 # The ladder grades up to 15 of the user's moves (30 plies), and a rung is only
 # a real test if several lines still exist at it. Lines that stop at 14 plies
 # made every depth past 7 collapse to a handful of engine tails.
 MAX_PLIES = 26
-TARGET_DEPTH = 24
 MIN_FAMILY_GAMES = 2
 MAX_BRANCHES = 8
 MAX_LINES_PER_DRILL = 150
-EVAL_TOLERANCE = 50
-DECIDED_CP = 350
 RESULT_SCORE = {"1-0": 1.0, "0-1": 0.0, "1/2-1/2": 0.5}
 
 
 def slug(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
-
-
-class EngineMemo:
-    def __init__(self) -> None:
-        self.engine = chess.engine.SimpleEngine.popen_uci("stockfish")
-        self.cache: dict[str, tuple[str, int]] = {}
-        self.calls = 0
-
-    def best(self, board: chess.Board) -> tuple[chess.Move, int]:
-        """Best move and its eval (side-to-move POV, capped)."""
-        key = board.epd()
-        if key not in self.cache:
-            info = self.engine.analyse(board, chess.engine.Limit(time=0.3))
-            cp = info["score"].pov(board.turn).score(mate_score=1000)
-            self.cache[key] = (info["pv"][0].uci(), max(-1000, min(1000, cp)))
-            self.calls += 1
-        uci, cp = self.cache[key]
-        return chess.Move.from_uci(uci), cp
-
-    def eval_after(self, board: chess.Board, move: chess.Move) -> int:
-        """Eval of `move` from the mover's POV (capped)."""
-        child = board.copy()
-        child.push(move)
-        key = "after:" + child.epd()
-        if key not in self.cache:
-            info = self.engine.analyse(child, chess.engine.Limit(time=0.25))
-            cp = info["score"].pov(not child.turn).score(mate_score=1000)
-            self.cache[key] = ("", max(-1000, min(1000, cp)))
-            self.calls += 1
-        return self.cache[key][1]
-
-    def quit(self) -> None:
-        self.engine.quit()
 
 
 def collect_games(pgn_path: Path, user: str, book: dict):
@@ -129,82 +97,49 @@ def reaches_family(sans: list[str], family: str, book: dict) -> bool:
     return False
 
 
-def build_counters(games: list[tuple[list[str], float]]):
-    moves: dict[tuple, Counter] = defaultdict(Counter)
-    stats: dict[tuple, list[float]] = defaultdict(lambda: [0, 0.0])
-    for sans, score in games:
-        for ply in range(len(sans)):
-            key = tuple(sans[:ply])
-            moves[key][sans[ply]] += 1
-            stats[key][0] += 1
-            stats[key][1] += score
-    return moves, stats
+def expand_theory(history, board, node, is_user_turn_fn, notes, lines):
+    """Grow one opening from the ECO book. No engine.
 
+    The book is curated theory: every line in it is something people play and
+    have written about. Evaluating it at generation time asked Stockfish to
+    re-decide what theory already settled, and the trainer measures every book
+    move as you play it anyway — so a prepared move that leaks is caught at the
+    board, where it means something, rather than silently swapped out here.
 
-def expand(history, board, is_user_turn_fn, moves, stats, memo, notes, lines):
-    """Depth-first expansion; appends (sans, notes) per finished line."""
+    At your turn one continuation is prepared: the one the most named
+    variations run through, which is the opening's main road. At the
+    opponent's turn every named continuation is kept, widest first — that is
+    the theory of what gets played at you. A line ends where the book ends.
+    """
     if len(lines) >= MAX_LINES_PER_DRILL or len(history) >= MAX_PLIES:
         lines.append((list(history), dict(notes)))
         return
-    key = tuple(history)
-    cnt = moves.get(key)
+
+    kids = sorted(node.kids.items(), key=lambda kv: -kv[1].weight) if node else []
+    if not kids:
+        lines.append((list(history), dict(notes)))
+        return
 
     if is_user_turn_fn(board):
-        best_move, best_cp = memo.best(board)
-        if abs(best_cp) > DECIDED_CP:
+        san, kid = kids[0]
+        try:
+            board.push_san(san)
+        except ValueError:
             lines.append((list(history), dict(notes)))
             return
-        chosen = None
-        if cnt:
-            own_san = cnt.most_common(1)[0][0]
-            try:
-                own_move = board.parse_san(own_san)
-            except ValueError:
-                own_move = None
-            if own_move == best_move:
-                chosen = own_san
-            elif own_move is not None and best_cp - memo.eval_after(board, own_move) <= EVAL_TOLERANCE:
-                chosen = own_san
-        if chosen is None:
-            chosen = board.san(best_move)
-        board.push_san(chosen)
-        expand(history + [chosen], board, is_user_turn_fn, moves, stats, memo, notes, lines)
+        expand_theory(history + [san], board, kid, is_user_turn_fn, notes, lines)
         board.pop()
         return
 
-    # opponent's turn: branch over real replies, else extend with the engine
-    branches = cnt.most_common(MAX_BRANCHES) if cnt else []
-    if not branches:
-        if len(history) >= TARGET_DEPTH:
-            lines.append((list(history), dict(notes)))
-            return
-        best_move, best_cp = memo.best(board)
-        if abs(best_cp) > DECIDED_CP:
-            lines.append((list(history), dict(notes)))
-            return
-        san = board.san(best_move)
-        move_no = board.fullmove_number
+    for san, kid in kids[:MAX_BRANCHES]:
         branch_notes = dict(notes)
-        if "engine" not in "".join(branch_notes.values()):
-            branch_notes[str(move_no)] = "Beyond your games — engine line from here."
-        board.push_san(san)
-        expand(history + [san], board, is_user_turn_fn, moves, stats, memo, branch_notes, lines)
-        board.pop()
-        return
-
-    for san, count in branches:
-        branch_notes = dict(notes)
-        child_key = tuple(history + [san])
-        n, pts = stats.get(child_key, [0, 0.0])
-        if count >= 3 and n:
-            branch_notes[str(board.fullmove_number)] = (
-                f"You've faced this {count} times (scoring {100.0 * pts / n:.0f}%)."
-            )
+        if kid.name:
+            branch_notes[str(board.fullmove_number)] = kid.name
         try:
             board.push_san(san)
         except ValueError:
             continue
-        expand(history + [san], board, is_user_turn_fn, moves, stats, memo, branch_notes, lines)
+        expand_theory(history + [san], board, kid, is_user_turn_fn, branch_notes, lines)
         board.pop()
 
 
@@ -218,58 +153,67 @@ def main() -> None:
         pgn_path = ROOT / "data" / "games.pgn"
     book = load_eco_book(ROOT / "data")
     grouped = collect_games(pgn_path, args.user, book)
+    # Your games decide WHICH openings to prepare — you play 1.e4, you meet the
+    # French. They no longer decide what the lines are: a family sampled from
+    # nineteen games is not a repertoire, and the ECO book holds hundreds of
+    # named variations for the same opening.
+    entries = load_eco_lines(ROOT / "data")
+    by_family: dict[str, list] = defaultdict(list)
+    for e in entries:
+        by_family[family_of(e[1])].append(e)
 
     out_dir = ROOT / "data" / "drills" / args.user
     out_dir.mkdir(parents=True, exist_ok=True)
-    memo = EngineMemo()
     manifest = []
-    try:
-        for (color_name, family), games in sorted(grouped.items(), key=lambda kv: -len(kv[1])):
-            if len(games) < MIN_FAMILY_GAMES:
-                continue
-            moves, stats = build_counters(games)
-            user_is_white = color_name == "white"
-            is_user_turn = lambda b: (b.turn == chess.WHITE) == user_is_white  # noqa: E731
-            lines: list[tuple[list[str], dict]] = []
-            expand([], chess.Board(), is_user_turn, moves, stats, memo, {}, lines)
-            spec_lines = [
-                {"line": " ".join(sans), "notes": notes}
-                for sans, notes in lines
-                if len(sans) >= 6 and reaches_family(sans, family, book)
-            ]
-            if not spec_lines:
-                continue
-            score = 100.0 * sum(s for _, s in games) / len(games)
-            name = f"{family} — {color_name.capitalize()}"
-            spec = {
-                "name": name,
-                "user_color": color_name,
-                "intro": (
-                    f"Built from {len(games)} of your games as {color_name} "
-                    f"(you score {score:.0f}%). Play your prepared moves."
-                ),
-                "lines": spec_lines,
+    for (color_name, family), games in sorted(grouped.items(), key=lambda kv: -len(kv[1])):
+        if len(games) < MIN_FAMILY_GAMES:
+            continue
+        theory = by_family.get(family)
+        if not theory:
+            print(f"skip {family} — not in the ECO book", flush=True)
+            continue
+        user_is_white = color_name == "white"
+        is_user_turn = lambda b: (b.turn == chess.WHITE) == user_is_white  # noqa: E731
+        lines: list[tuple[list[str], dict]] = []
+        expand_theory([], chess.Board(), build_tree(theory), is_user_turn,
+                      {}, lines)
+        spec_lines = [
+            {"line": " ".join(sans), "notes": notes}
+            for sans, notes in lines
+            if len(sans) >= 6 and reaches_family(sans, family, book)
+        ]
+        if not spec_lines:
+            continue
+        score = 100.0 * sum(s for _, s in games) / len(games)
+        name = f"{family} — {color_name.capitalize()}"
+        spec = {
+            "name": name,
+            "user_color": color_name,
+            "intro": (
+                f"{len(theory)} named variations of the {family}, "
+                f"from the ECO book. You have played it {len(games)} times, "
+                f"scoring {score:.0f}%."
+            ),
+            "lines": spec_lines,
+        }
+        fname = slug(f"{color_name}-{family}") + ".json"
+        (out_dir / fname).write_text(json.dumps(spec, indent=1), encoding="utf-8")
+        manifest.append(
+            {
+                "id": f"{args.user}/{slug(f'{color_name}-{family}')}",
+                "family": family,
+                "color": color_name,
+                "games": len(games),
+                "score_pct": round(score, 1),
+                "lines": len(spec_lines),
             }
-            fname = slug(f"{color_name}-{family}") + ".json"
-            (out_dir / fname).write_text(json.dumps(spec, indent=1), encoding="utf-8")
-            manifest.append(
-                {
-                    "id": f"{args.user}/{slug(f'{color_name}-{family}')}",
-                    "family": family,
-                    "color": color_name,
-                    "games": len(games),
-                    "score_pct": round(score, 1),
-                    "lines": len(spec_lines),
-                }
-            )
-            print(f"{name}: {len(games)} games, {len(spec_lines)} lines", flush=True)
-    finally:
-        memo.quit()
+        )
+        print(f"{name}: {len(games)} games, {len(spec_lines)} lines", flush=True)
 
     mpath = ROOT / "data" / "users" / args.user / "openings.json"
     mpath.parent.mkdir(parents=True, exist_ok=True)
     mpath.write_text(json.dumps({"drills": manifest}, indent=1), encoding="utf-8")
-    print(f"\n{len(manifest)} drills -> {out_dir}  ({memo.calls} engine evals)")
+    print(f"\n{len(manifest)} drills -> {out_dir}")
 
 
 if __name__ == "__main__":

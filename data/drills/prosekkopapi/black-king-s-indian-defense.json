@@ -1,135 +1,309 @@
 {
  "name": "King's Indian Defense \u2014 Black",
  "user_color": "black",
- "intro": "Built from 16 of your games as black (you score 56%). Play your prepared moves.",
+ "intro": "119 named variations of the King's Indian Defense, from the ECO book. You have played it 16 times, scoring 56%.",
  "lines": [
   {
-   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 d5 c6 O-O cxd5 cxd5 a6 Be3 b5 h3 b4 Na4 Nxe4 Nb6 Bb7",
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 O-O Nc6 d5 Ne7 Ne1 Nd7 Be3 f5 f3 f4 Bf2 g5 Rc1 Ng6",
    "notes": {
-    "1": "You've faced this 16 times (scoring 56%).",
-    "2": "You've faced this 15 times (scoring 53%).",
-    "3": "You've faced this 12 times (scoring 50%).",
-    "4": "You've faced this 10 times (scoring 50%).",
-    "5": "You've faced this 6 times (scoring 50%).",
-    "6": "You've faced this 4 times (scoring 50%).",
-    "7": "You've faced this 4 times (scoring 50%).",
-    "8": "You've faced this 4 times (scoring 50%).",
-    "9": "You've faced this 4 times (scoring 50%)."
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Rare Defenses",
+    "6": "King's Indian Defense: Orthodox Variation",
+    "7": "King's Indian Defense: Orthodox Variation",
+    "9": "King's Indian Defense: Orthodox Variation, Classical System",
+    "10": "King's Indian Defense: Orthodox Variation, Classical System, Neo-Classical Line"
    }
   },
   {
-   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 d5 c6 O-O cxd5 cxd5 a6 Bd3 b5 a3 Nbd7 Bd2 Nc5 Bc2 Bg4",
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 O-O Nc6 d5 Ne7 Ne1 Nd7 f3 f5 g4",
    "notes": {
-    "1": "You've faced this 16 times (scoring 56%).",
-    "2": "You've faced this 15 times (scoring 53%).",
-    "3": "You've faced this 12 times (scoring 50%).",
-    "4": "You've faced this 10 times (scoring 50%).",
-    "5": "You've faced this 6 times (scoring 50%).",
-    "6": "You've faced this 4 times (scoring 50%).",
-    "7": "You've faced this 4 times (scoring 50%).",
-    "8": "You've faced this 4 times (scoring 50%).",
-    "9": "You've faced this 4 times (scoring 50%)."
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Rare Defenses",
+    "6": "King's Indian Defense: Orthodox Variation",
+    "7": "King's Indian Defense: Orthodox Variation",
+    "9": "King's Indian Defense: Orthodox Variation, Classical System",
+    "11": "King's Indian Defense: Orthodox Variation, Classical System, Benko Attack"
    }
   },
   {
-   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O d5 e6 Bd3 exd5 cxd5 Re8 O-O Bg4 h3 Bxf3 Qxf3 Nbd7 Bg5 c6",
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 O-O Nc6 d5 Ne7 b4 Nh5 Re1",
    "notes": {
-    "1": "You've faced this 16 times (scoring 56%).",
-    "2": "You've faced this 15 times (scoring 53%).",
-    "3": "You've faced this 12 times (scoring 50%).",
-    "4": "You've faced this 10 times (scoring 50%).",
-    "5": "You've faced this 6 times (scoring 50%).",
-    "11": "Beyond your games \u2014 engine line from here."
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Rare Defenses",
+    "6": "King's Indian Defense: Orthodox Variation",
+    "7": "King's Indian Defense: Orthodox Variation",
+    "9": "King's Indian Defense: Orthodox Variation, Bayonet Attack",
+    "10": "King's Indian Defense: Orthodox Variation, Bayonet Attack, Sokolov's Line"
    }
   },
   {
-   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Bd3 e5 d5 c6 Bg5 Qb6 Qd2 cxd5 cxd5 Na6 Be3 Nc5 O-O Bd7",
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 O-O Nc6 d5 Ne7 b4 Nh5 Qc2",
    "notes": {
-    "1": "You've faced this 16 times (scoring 56%).",
-    "2": "You've faced this 15 times (scoring 53%).",
-    "3": "You've faced this 12 times (scoring 50%).",
-    "4": "You've faced this 10 times (scoring 50%).",
-    "5": "You've faced this 6 times (scoring 50%).",
-    "10": "Beyond your games \u2014 engine line from here."
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Rare Defenses",
+    "6": "King's Indian Defense: Orthodox Variation",
+    "7": "King's Indian Defense: Orthodox Variation",
+    "9": "King's Indian Defense: Orthodox Variation, Bayonet Attack",
+    "10": "King's Indian Defense: Orthodox Variation, Bayonet Attack, Yepishin's Line"
    }
   },
   {
-   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 h3 O-O Be3 c5 d5 e6 Qd2 exd5 exd5 Re8 O-O-O b5 cxb5 Nbd7 Nf3 Ne4",
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 O-O Nc6 d5 Ne7 Bd2",
    "notes": {
-    "1": "You've faced this 16 times (scoring 56%).",
-    "2": "You've faced this 15 times (scoring 53%).",
-    "3": "You've faced this 12 times (scoring 50%).",
-    "4": "You've faced this 10 times (scoring 50%).",
-    "11": "Beyond your games \u2014 engine line from here."
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Rare Defenses",
+    "6": "King's Indian Defense: Orthodox Variation",
+    "7": "King's Indian Defense: Orthodox Variation",
+    "9": "King's Indian Defense: Orthodox Variation, Korchnoi Attack"
    }
   },
   {
-   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 h3 O-O Nf3 e5 d5 Nbd7 Bd3 a6 O-O Nc5 Bc2 Ne8 b4 Nd7 Be3 Qe7",
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 O-O Nc6 d5 Ne7 Nd2",
    "notes": {
-    "1": "You've faced this 16 times (scoring 56%).",
-    "2": "You've faced this 15 times (scoring 53%).",
-    "3": "You've faced this 12 times (scoring 50%).",
-    "4": "You've faced this 10 times (scoring 50%)."
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Rare Defenses",
+    "6": "King's Indian Defense: Orthodox Variation",
+    "7": "King's Indian Defense: Orthodox Variation",
+    "9": "King's Indian Defense: Orthodox Variation, Modern System"
    }
   },
   {
-   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f4 O-O e5 dxe5 fxe5 Nfd7 Nf3 c5 e6 fxe6 d5 exd5 cxd5 Ne5 Nxe5 Bxe5",
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 d5 Nbd7 Bg5 h6 Bh4 g5 Bg3 Nh5 h4",
    "notes": {
-    "1": "You've faced this 16 times (scoring 56%).",
-    "2": "You've faced this 15 times (scoring 53%).",
-    "3": "You've faced this 12 times (scoring 50%).",
-    "4": "You've faced this 10 times (scoring 50%).",
-    "9": "Beyond your games \u2014 engine line from here."
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Rare Defenses",
+    "6": "King's Indian Defense: Orthodox Variation",
+    "7": "King's Indian Defense: Petrosian Variation",
+    "11": "King's Indian Defense: Petrosian Variation, Keres Defense"
    }
   },
   {
-   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Bg5 h6 Bh4 g5 Bg3 O-O h4 g4 h5 Nc6 Nge2 Nh7 Qd2 f5 O-O-O Ng5",
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 dxe5",
    "notes": {
-    "1": "You've faced this 16 times (scoring 56%).",
-    "2": "You've faced this 15 times (scoring 53%).",
-    "3": "You've faced this 12 times (scoring 50%).",
-    "4": "You've faced this 10 times (scoring 50%).",
-    "9": "Beyond your games \u2014 engine line from here."
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Rare Defenses",
+    "6": "King's Indian Defense: Orthodox Variation",
+    "7": "King's Indian Defense: Exchange Variation"
    }
   },
   {
-   "line": "d4 Nf6 c4 g6 Nc3 Bg7 Nf3 O-O b3 d5 c5 Ne4 Bb2 Bg4 h3 Bxf3 exf3 Nxc3 Bxc3 e5 dxe5 Bxe5 Bxe5 Re8 f4 f6",
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 Be3",
    "notes": {
-    "1": "You've faced this 16 times (scoring 56%).",
-    "2": "You've faced this 15 times (scoring 53%).",
-    "3": "You've faced this 12 times (scoring 50%)."
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Rare Defenses",
+    "6": "King's Indian Defense: Orthodox Variation",
+    "7": "King's Indian Defense: Orthodox Variation, Gligoric-Taimanov System"
    }
   },
   {
-   "line": "d4 Nf6 c4 g6 Nc3 Bg7 Nf3 O-O e4 d6 Bg5 h6 Bh4 g5 Nxg5 hxg5 Bxg5 Nh7 Be3 c5 d5 e6 Qd2 exd5",
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be3",
    "notes": {
-    "1": "You've faced this 16 times (scoring 56%).",
-    "2": "You've faced this 15 times (scoring 53%).",
-    "3": "You've faced this 12 times (scoring 50%).",
-    "11": "Beyond your games \u2014 engine line from here."
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Rare Defenses",
+    "6": "King's Indian Defense: Larsen Variation"
    }
   },
   {
-   "line": "d4 Nf6 c4 g6 Nf3 Bg7 g3 O-O Bg2 d6 O-O Bg4 Nc3 Qd7 e4 Bh3 Re1 Bxg2 Kxg2 Nc6 e5 dxe5 dxe5 Qxd1 Rxd1 Ng4",
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Bg5",
    "notes": {
-    "1": "You've faced this 16 times (scoring 56%).",
-    "2": "You've faced this 15 times (scoring 53%).",
-    "3": "You've faced this 3 times (scoring 67%)."
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Rare Defenses",
+    "6": "King's Indian Defense: Zinnowitz Variation"
    }
   },
   {
-   "line": "d4 Nf6 c4 g6 Nf3 Bg7 Nc3 O-O e4 d6 Be2 e5 dxe5 dxe5 Qxd8 Rxd8 Nxe5 Nxe4 Nxf7",
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f3 O-O Be3 e5 d5 Nh5 Qd2 Qh4+ g3 Nxg3 Qf2 Nxf1 Qxh4 Nxe3 Ke2 Nxc4",
    "notes": {
-    "1": "You've faced this 16 times (scoring 56%).",
-    "2": "You've faced this 15 times (scoring 53%).",
-    "3": "You've faced this 3 times (scoring 67%)."
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: S\u00e4misch Variation",
+    "7": "King's Indian Defense: S\u00e4misch Variation, Closed Variation",
+    "12": "King's Indian Defense: S\u00e4misch Variation, Bronstein Defense"
    }
   },
   {
-   "line": "d4 Nf6 Nf3 g6 c4 Bg7 Nc3 O-O e4 d6 Bg5 h6 Be3 e5 dxe5 Ng4 Bc1 Nxe5 Nxe5 dxe5 Qxd8 Rxd8 Nd5 Rd7",
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f3 O-O Be3 e5 Nge2 c6 d5 cxd5",
    "notes": {
-    "1": "You've faced this 16 times (scoring 56%).",
-    "9": "Beyond your games \u2014 engine line from here."
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: S\u00e4misch Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f3 O-O Bg5 c5 d5 e6 Qd2 exd5 Nxd5",
+   "notes": {
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: S\u00e4misch Variation",
+    "6": "King's Indian Defense: Steiner Attack",
+    "9": "King's Indian Defense: Steiner Attack"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f3 O-O Nge2",
+   "notes": {
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: S\u00e4misch Variation",
+    "6": "King's Indian Defense: S\u00e4misch Variation, Bobotsov-Korchnoi-Petrosian Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Be2 O-O Bg5 c5 d5 e6",
+   "notes": {
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Standard Development",
+    "6": "King's Indian Defense: Averbakh Variation",
+    "7": "King's Indian Defense: Averbakh Variation, Benoni Defense, Advance Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Be2 O-O Bg5 c5 dxc5",
+   "notes": {
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Standard Development",
+    "6": "King's Indian Defense: Averbakh Variation",
+    "7": "King's Indian Defense: Averbakh Variation, Benoni Defense, Exchange Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Be2 O-O Be3",
+   "notes": {
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Standard Development",
+    "6": "King's Indian Defense: Semi-Averbakh System"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Be2 O-O f4",
+   "notes": {
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Standard Development",
+    "6": "King's Indian Defense: Four Pawns Attack"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f4 O-O Nf3 c5 d5 e6 Be2 exd5 e5",
+   "notes": {
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Four Pawns Attack",
+    "7": "King's Indian Defense: Four Pawns Attack, Dynamic Attack",
+    "8": "King's Indian Defense: Four Pawns Attack, Normal Attack",
+    "9": "King's Indian Defense: Four Pawns Attack, Florentine Gambit"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f4 O-O Nf3 c5 Be2 cxd4 Nxd4 Nc6 Be3",
+   "notes": {
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Four Pawns Attack",
+    "7": "King's Indian Defense: Four Pawns Attack, Fluid Attack",
+    "9": "King's Indian Defense: Four Pawns Attack, Exchange Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f4 O-O Be2 c5 d5 e6 dxe6 fxe6 g4 Nc6 h4",
+   "notes": {
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Four Pawns Attack",
+    "10": "King's Indian Defense: Six Pawns Attack"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 h3 O-O Be3",
+   "notes": {
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Makogonov Variation",
+    "6": "King's Indian Defense: Karpov System"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 g3 O-O Bg2 e5 Nge2",
+   "notes": {
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Normal Variation, Deferred Fianchetto",
+    "7": "King's Indian Defense: Pomar System"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Bg5",
+   "notes": {
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Accelerated Averbakh Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nge2",
+   "notes": {
+    "3": "King's Indian Defense",
+    "4": "King's Indian Defense: Normal Variation",
+    "5": "King's Indian Defense: Kramer Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 Nf3 d6 g3 O-O Bg2 c6 O-O Qb6",
+   "notes": {
+    "3": "King's Indian Defense",
+    "5": "King's Indian Defense: Fianchetto Variation, Delayed Fianchetto"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nc3 Bg7 Nf3 d6 Bg5",
+   "notes": {
+    "3": "King's Indian Defense",
+    "5": "King's Indian Defense: Smyslov Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nf3 Bg7 g3 O-O Bg2 d6 O-O Nc6 Nc3 a6 d5 Na5 Nd2 c5 Qc2 e5",
+   "notes": {
+    "4": "King's Indian Defense: Fianchetto Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nf3 Bg7 g3 O-O Bg2 d6 O-O Nc6 Nc3 a6 h3 Rb8 Be3 b5 Nd2",
+   "notes": {
+    "4": "King's Indian Defense: Fianchetto Variation",
+    "10": "King's Indian Defense: Fianchetto Variation, Panno Variation, Korchnoi Line"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 Nf3 Bg7 b4",
+   "notes": {
+    "4": "King's Indian Defense: Santasiere Variation"
+   }
+  },
+  {
+   "line": "d4 Nf6 c4 g6 g3 Bg7 Bg2 O-O Nc3 d6 Nf3 Nc6 O-O Bf5",
+   "notes": {
+    "3": "King's Indian Defense: Fianchetto Variation, Immediate Fianchetto"
+   }
+  },
+  {
+   "line": "d4 Nf6 Nf3 g6 c4 Bg7 Nc3 O-O e3 d6 Be2 Nc6",
+   "notes": {
+    "3": "King's Indian Defense: Normal Variation, King's Knight Variation"
    }
   }
  ]

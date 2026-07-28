@@ -1,39 +1,67 @@
 {
  "name": "Modern Defense \u2014 White",
  "user_color": "white",
- "intro": "Built from 5 of your games as white (you score 60%). Play your prepared moves.",
+ "intro": "39 named variations of the Modern Defense, from the ECO book. You have played it 5 times, scoring 60%.",
  "lines": [
   {
-   "line": "e4 g6 d4 Bg7 Nf3 d6 Bc4 Bg4 Bxf7+ Kxf7 Ng5+ Ke8 Qxg4 Bxd4 Qe6 Nc6 c3 Bf6 Qf7+ Kd7 Qe6+ Ke8 Qf7+ Kd7 Qe6+",
+   "line": "e4 g6 d4 Bg7 Nc3 d6 Nf3 c6 Bg5 Qb6 Qd2 Qxb2",
    "notes": {
-    "1": "You've faced this 5 times (scoring 60%).",
-    "2": "You've faced this 5 times (scoring 60%).",
-    "3": "You've faced this 3 times (scoring 67%).",
-    "5": "Beyond your games \u2014 engine line from here."
+    "1": "Modern Defense",
+    "2": "Modern Defense",
+    "3": "Modern Defense: Standard Defense",
+    "6": "Modern Defense: Two Knights Variation, Suttles Variation, Tal Gambit"
    }
   },
   {
-   "line": "e4 g6 d4 Bg7 Nf3 d6 Bc4 a6 a4 e6 Nc3 Ne7 O-O O-O Bg5 h6 Be3 b6 Qd2 Kh7 Rad1 Bb7 Bd3 Nd7 Rfe1 Rc8",
+   "line": "e4 g6 d4 Bg7 Nc3 c6 Bc4 d6 Qe2",
    "notes": {
-    "1": "You've faced this 5 times (scoring 60%).",
-    "2": "You've faced this 5 times (scoring 60%).",
-    "3": "You've faced this 3 times (scoring 67%)."
+    "1": "Modern Defense",
+    "2": "Modern Defense"
    }
   },
   {
-   "line": "e4 g6 d4 Bg7 Nf3 d6 Bc4 Nf6 Qe2 O-O e5 dxe5 dxe5 Nd5 h3 Nb6 Bb3 c5 Nbd2 Nc6 O-O Na5 e6 f5 Re1",
+   "line": "e4 g6 d4 Bg7 Nc3 d5",
    "notes": {
-    "1": "You've faced this 5 times (scoring 60%).",
-    "2": "You've faced this 5 times (scoring 60%).",
-    "3": "You've faced this 3 times (scoring 67%).",
-    "5": "Beyond your games \u2014 engine line from here."
+    "1": "Modern Defense",
+    "2": "Modern Defense",
+    "3": "Modern Defense: Lizard Defense, Mittenberger Gambit"
    }
   },
   {
-   "line": "e4 g6 d4 Bg7 Nf3 e6 Bd3 Ne7 O-O h6 Be3 O-O Qd2 Kh7 Nc3 f6 Rad1 d5 exd5 exd5 Ne2 c6 Nf4 Bf5",
+   "line": "e4 g6 d4 Bg7 Nc3 c5",
    "notes": {
-    "1": "You've faced this 5 times (scoring 60%).",
-    "2": "You've faced this 5 times (scoring 60%)."
+    "1": "Modern Defense",
+    "2": "Modern Defense",
+    "3": "Modern Defense: Modern Pterodactyl"
+   }
+  },
+  {
+   "line": "e4 g6 d4 Bg7 Nc3 b6",
+   "notes": {
+    "1": "Modern Defense",
+    "2": "Modern Defense",
+    "3": "Modern Defense: Mongredien Defense, with Nc3"
+   }
+  },
+  {
+   "line": "e4 g6 d4 Nf6 e5 Nh5 Be2 d6",
+   "notes": {
+    "1": "Modern Defense",
+    "2": "Modern Defense: Norwegian Defense",
+    "4": "Modern Defense: Norwegian Defense, Norwegian Gambit"
+   }
+  },
+  {
+   "line": "e4 g6 d4 Nh6 Nc3 f5 Bxh6 Bxh6 exf5 O-O",
+   "notes": {
+    "1": "Modern Defense",
+    "5": "Modern Defense: Masur Gambit"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 g6 d4 Bg7 Nc3 Qa5",
+   "notes": {
+    "4": "Modern Defense: Pterodactyl Variation"
    }
   }
  ]

@@ -1,199 +1,646 @@
 {
  "name": "Sicilian Defense \u2014 White",
  "user_color": "white",
- "intro": "Built from 50 of your games as white (you score 57%). Play your prepared moves.",
+ "intro": "388 named variations of the Sicilian Defense, from the ECO book. You have played it 50 times, scoring 57%.",
  "lines": [
   {
-   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 e6 d5 exd5 exd5 Ne5 Nf3 Bb4+ Nc3 Qe7 Be2 Nxf3+ gxf3 Qe5 O-O Nf6 f4 Qe7 Re1",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5 e6 f4 Be7 Qf3 h6 Bh4 Qc7",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 12 times (scoring 67%).",
-    "3": "You've faced this 11 times (scoring 64%).",
-    "4": "You've faced this 5 times (scoring 60%).",
-    "5": "You've faced this 3 times (scoring 100%).",
-    "6": "You've faced this 3 times (scoring 100%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Najdorf Variation",
+    "6": "Sicilian Defense: Najdorf Variation",
+    "7": "Sicilian Defense: Najdorf Variation",
+    "9": "Sicilian Defense: Najdorf Variation, Browne Variation"
    }
   },
   {
-   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 e6 d5 Ne5 f4 Ng6 Nc3 Bb4 dxe6 fxe6 Nf3 Nf6 Bd3 O-O O-O Qb6+ Kh1 Bc5",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5 e6 f4 Be7 Qf3 h6 Bh4 g5",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 12 times (scoring 67%).",
-    "3": "You've faced this 11 times (scoring 64%).",
-    "4": "You've faced this 5 times (scoring 60%)."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Najdorf Variation",
+    "6": "Sicilian Defense: Najdorf Variation",
+    "7": "Sicilian Defense: Najdorf Variation",
+    "9": "Sicilian Defense: Najdorf Variation, Goteborg Variation"
    }
   },
   {
-   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 d5 exd5 Qxd5 Nf3 Nf6 Nc3 Qd8 d5 Nb4",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5 e6 f4 Be7 Qf3 Qc7 O-O-O Nbd7",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 12 times (scoring 67%).",
-    "3": "You've faced this 11 times (scoring 64%).",
-    "4": "You've faced this 3 times (scoring 67%)."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Najdorf Variation",
+    "6": "Sicilian Defense: Najdorf Variation",
+    "7": "Sicilian Defense: Najdorf Variation",
+    "8": "Sicilian Defense: Najdorf Variation, Traditional Line",
+    "9": "Sicilian Defense: Najdorf Variation, Main Line"
    }
   },
   {
-   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 d5 exd5 Qxd5 Nf3 Bg4 Nc3 Qe6+ Be3 Rd8",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5 e6 f4 b5 e5 dxe5 fxe5 Qc7 Qe2",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 12 times (scoring 67%).",
-    "3": "You've faced this 11 times (scoring 64%).",
-    "4": "You've faced this 3 times (scoring 67%)."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Najdorf Variation",
+    "6": "Sicilian Defense: Najdorf Variation",
+    "7": "Sicilian Defense: Najdorf Variation, Polugaevsky Variation"
    }
   },
   {
-   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 e5 d5 Nd4 Nf3 Bc5 Nxe5 Qe7 Nd3 Bb6 Nc3 Nf6 f3 d6 Nf2 a6 Ne2 Nxe2 Bxe2",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5 e6 f4 Qb6 Qd2 Qxb2 Rb1 Qa3",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 12 times (scoring 67%).",
-    "3": "You've faced this 11 times (scoring 64%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Najdorf Variation",
+    "6": "Sicilian Defense: Najdorf Variation",
+    "7": "Sicilian Defense: Najdorf Variation, Poisoned Pawn Variation",
+    "9": "Sicilian Defense: Najdorf Variation, Poisoned Pawn Accepted"
    }
   },
   {
-   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 g6 d5 Nb8 Qd4 Nf6 e5 Ng8 Nf3 Bg7 Qa4 Kf8 Be2 d6 exd6 Qxd6 O-O Na6 Nc3",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5 e6 f4 Nc6",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 12 times (scoring 67%).",
-    "3": "You've faced this 11 times (scoring 64%).",
-    "5": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Najdorf Variation",
+    "6": "Sicilian Defense: Najdorf Variation",
+    "7": "Sicilian Defense: Najdorf Variation, Neo-Classical Defense"
    }
   },
   {
-   "line": "e4 c5 c3 Nc6 d4 cxd4 cxd4 a6 Nf3 e6 d5 Bb4+ Nc3 Nce7 Qd4 Bxc3+ Qxc3 Nf6 d6 Nc6 Bd3 b5 Qc5 O-O O-O",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5 Nbd7 Bc4 Qa5 Qd2 e6 O-O-O b5 Bb3 Bb7 Rhe1 Nc5 e5",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 12 times (scoring 67%).",
-    "3": "You've faced this 11 times (scoring 64%).",
-    "6": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Najdorf Variation"
    }
   },
   {
-   "line": "e4 c5 c3 Nc6 d4 e6 d5 Ne5 f4 Ng6 d6 Qb6 e5 f6 Nf3 Qc6 Bd3 b5 O-O Bb7 Re1 a6 a4 Qb6 Be3",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 g6 Be3 Bg7 f3 O-O Qd2 Nc6 Bc4 Bd7 O-O-O Rc8 Bb3 Nxd4 Bxd4",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 12 times (scoring 67%).",
-    "11": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Dragon Variation",
+    "7": "Sicilian Defense: Dragon Variation, Yugoslav Attack",
+    "8": "Sicilian Defense: Dragon Variation, Yugoslav Attack",
+    "9": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Main Line",
+    "10": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Old Line"
    }
   },
   {
-   "line": "e4 c5 c3 d6 d4 cxd4 cxd4 Nc6 d5 Ne5 f4 Ng6 Nf3 e6 Nc3 Nf6 Bb5+ Bd7 dxe6 fxe6 Nd4 Bxb5 Ncxb5 d5 Qb3",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 g6 Be3 Bg7 f3 O-O Qd2 Nc6 Bc4 Bd7 O-O-O Rb8",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 6 times (scoring 50%).",
-    "3": "You've faced this 5 times (scoring 40%).",
-    "4": "You've faced this 3 times (scoring 33%).",
-    "9": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Dragon Variation",
+    "7": "Sicilian Defense: Dragon Variation, Yugoslav Attack",
+    "8": "Sicilian Defense: Dragon Variation, Yugoslav Attack",
+    "9": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Main Line",
+    "10": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Chinese Dragon"
    }
   },
   {
-   "line": "e4 c5 c3 d6 d4 cxd4 cxd4 Nc6 d5 Nb8 Nc3 g6 Be3 Bg7 Bd4 Nf6 f4 O-O Nf3 Bg4 h3 Bxf3 Qxf3 Nbd7 O-O-O",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 g6 Be3 Bg7 f3 O-O Qd2 Nc6 Bc4 Bd7 O-O-O Qa5 h4 Rfc8 Bb3 h5",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 6 times (scoring 50%).",
-    "3": "You've faced this 5 times (scoring 40%).",
-    "4": "You've faced this 3 times (scoring 33%)."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Dragon Variation",
+    "7": "Sicilian Defense: Dragon Variation, Yugoslav Attack",
+    "8": "Sicilian Defense: Dragon Variation, Yugoslav Attack",
+    "9": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Main Line",
+    "12": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Soltis Variation"
    }
   },
   {
-   "line": "e4 c5 c3 d6 d4 cxd4 cxd4 e6 Nf3 Nc6 Bb5 Bd7 O-O Be7 Nc3 Nf6 e5 dxe5 dxe5 Ng4 Qe2 a6 Ba4 b5 Bb3",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 g6 Be3 Bg7 f3 O-O Qd2 Nc6 Bc4 a5",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 6 times (scoring 50%).",
-    "3": "You've faced this 5 times (scoring 40%).",
-    "11": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Dragon Variation",
+    "7": "Sicilian Defense: Dragon Variation, Yugoslav Attack",
+    "8": "Sicilian Defense: Dragon Variation, Yugoslav Attack",
+    "9": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Byrne Variation"
    }
   },
   {
-   "line": "e4 c5 c3 d6 d4 cxd4 cxd4 Nf6 Nc3 e6 Nf3 Be7 Be2 O-O O-O Nc6 a3 Bd7 d5 Na5 Be3 Rc8 Nd2 h6 Rc1",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 g6 Be3 Bg7 f3 Nc6 Qd2 O-O Bc4 Nxd4 Bxd4 Be6 Bb3 Qa5",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 6 times (scoring 50%).",
-    "3": "You've faced this 5 times (scoring 40%).",
-    "10": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Dragon Variation",
+    "7": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Belezky Line",
+    "10": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Czerniak Variation",
+    "11": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Czerniak Variation"
    }
   },
   {
-   "line": "e4 c5 c3 d6 d4 Nc6 d5 Ne5 f4 Ng6 Nf3 e6 dxe6 fxe6 Bd3 Nf6 O-O Be7 e5 dxe5 Nxe5 O-O Nxg6 hxg6 Qe2",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 g6 Be3 Bg7 f3 Nc6 Qd2 O-O Bc4 Nd7",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 6 times (scoring 50%).",
-    "10": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Dragon Variation",
+    "7": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Belezky Line",
+    "9": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Sosonko Variation"
    }
   },
   {
-   "line": "e4 c5 c3 d5 exd5 Qxd5 d4 cxd4 cxd4 Nc6 Nf3 Bg4 Nc3 Bxf3 Nxd5 Bxd1 Nc7+ Kd8 Nxa8 Bh5 f3 e6 Bf4 Nge7 Bg3",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 g6 Be3 Nc6 f3 h5",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 3 times (scoring 33%).",
-    "3": "You've faced this 3 times (scoring 33%).",
-    "11": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Dragon Variation",
+    "7": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Hungarian Dragon"
    }
   },
   {
-   "line": "e4 c5 c3 d5 exd5 Qxd5 d4 Nf6 Nf3 e6 Bb5+ Nc6 c4 Qd6 O-O cxd4 Nxd4 Bd7 Nxc6 Bxc6 Nc3 Rc8 Qe2 Be7 Rd1",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 Nc6 Bg5 e6 Qd2 Be7 O-O-O O-O f4 Nxd4 Qxd4",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 3 times (scoring 33%).",
-    "3": "You've faced this 3 times (scoring 33%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Classical Variation",
+    "6": "Sicilian Defense: Richter-Rauzer Variation",
+    "7": "Sicilian Defense: Richter-Rauzer Variation, Classical Variation",
+    "9": "Sicilian Defense: Richter-Rauzer Variation, Rauzer Attack"
    }
   },
   {
-   "line": "e4 c5 c3 d5 exd5 Qxd5 d4 Nc6 Nf3 Bg4 dxc5 Qxd1+ Kxd1 O-O-O+ Ke1 e6 b4 Be7 a3 Bxf3 gxf3 Bf6 Ra2 Nge7 Rc2",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 Nc6 Bg5 e6 Qd2 Be7 O-O-O Nxd4 Qxd4 a6 f4 b5",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "2": "You've faced this 3 times (scoring 33%).",
-    "3": "You've faced this 3 times (scoring 33%).",
-    "6": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Classical Variation",
+    "6": "Sicilian Defense: Richter-Rauzer Variation",
+    "7": "Sicilian Defense: Richter-Rauzer Variation, Classical Variation",
+    "10": "Sicilian Defense: Richter-Rauzer Variation, Classical Variation, Kantscher Line"
    }
   },
   {
-   "line": "e4 c5 c3 e5 Nf3 Nc6 Bb5 d6 d4 a6 Bxc6+ bxc6 dxe5 Bg4 exd6 Qxd6 Qxd6 Bxd6 Be3 Bc7 Bxc5 Nf6 Nbd2 Bf4 h3",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 Nc6 Bg5 e6 Qd2 Qb6",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "10": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Classical Variation",
+    "6": "Sicilian Defense: Richter-Rauzer Variation",
+    "7": "Sicilian Defense: Richter-Rauzer Variation, Ivanov Variation"
    }
   },
   {
-   "line": "e4 c5 c3 e5 Nf3 d6 d4 cxd4 cxd4 exd4 Nxd4 Nc6 Bb5 Bd7 Nc3 Nxd4 Qxd4 Bxb5 Nxb5 Nf6 Qa4 Qd7 Nc7+ Kd8 Qxd7+",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 Nc6 Bg5 e6 Qd2 a6",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "11": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Classical Variation",
+    "6": "Sicilian Defense: Richter-Rauzer Variation",
+    "7": "Sicilian Defense: Richter-Rauzer Variation, Neo-Modern Variation, Early Deviations"
    }
   },
   {
-   "line": "e4 c5 c3 Nf6 e5 Nd5 Nf3 Nc6 d4 cxd4 cxd4 d6 Bc4 Nb6 Bb3 dxe5 d5 Nb4 Nc3 Bg4 h3 Bxf3 Qxf3 g6 Bg5",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 Nc6 Bg5 Bd7",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "11": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Classical Variation",
+    "6": "Sicilian Defense: Richter-Rauzer Variation, Modern Variation"
    }
   },
   {
-   "line": "e4 c5 c3 a6 d4 cxd4 cxd4 Nc6 Nf3 d6 Bc4 Nf6 Nc3 e6 Bd3 Be7 O-O O-O Bf4 Nxd4 Nxd4 e5 Be3 exd4 Bxd4",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 Bd7",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line",
+    "5": "Sicilian Defense: Kupreichik Variation"
    }
   },
   {
-   "line": "e4 c5 c3 g6 d4 Nc6 d5 Ne5",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 e5 Bb5+",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%)."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Modern Variations, Main Line"
    }
   },
   {
-   "line": "e4 c5 c3 e6 d4 cxd4 cxd4 d5 exd5 exd5 Nf3 Nf6 Bd3 Nc6 Nc3 Bg4 Be3 Be7 h3 Bh5 g4 Bg6 Ne5 O-O a3",
+   "line": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 g6",
    "notes": {
-    "1": "You've faced this 49 times (scoring 58%).",
-    "12": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense",
+    "4": "Sicilian Defense: Dragon Variation, Accelerated Dragon"
    }
   },
   {
-   "line": "e4 e6 Nf3 c5 c3 Nc6 d4 cxd4 cxd4 Qb6 d5 exd5 exd5 Nb4 a3 Na6 Nc3 Nf6 b4 Be7 Be3 Qd6 Qd2 Qb8 Nd4",
+   "line": "e4 c5 Nf3 d6 d4 Nf6 dxc5 Nxe4",
    "notes": {
-    "10": "Beyond your games \u2014 engine line from here."
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Modern Variations",
+    "3": "Sicilian Defense: Modern Variations, Anti-Qxd4 Move Order",
+    "4": "Sicilian Defense: Modern Variations, Anti-Qxd4 Move Order Accepted"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 Nf6 Nc3 d6 Bg5 e6 Qd2 a6 O-O-O Bd7 f4 Be7 Nf3 b5 Bxf6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "4": "Sicilian Defense: Open",
+    "8": "Sicilian Defense: Richter-Rauzer Variation, Neo-Modern Variation",
+    "9": "Sicilian Defense: Richter-Rauzer Variation, Neo-Modern Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 Nf6 Nc3 d6 Bg5 e6 Qd2 Be7 O-O-O O-O f4 e5",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "4": "Sicilian Defense: Open",
+    "9": "Sicilian Defense: Richter-Rauzer Variation, Classical Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 Nf6 Nc3 d6 Bg5 g6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "4": "Sicilian Defense: Open",
+    "6": "Sicilian Defense: Richter-Rauzer Variation, Dragon Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 Nf6 Nc3 d6 Bg5 Bd7 Qd2",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "4": "Sicilian Defense: Open"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 Nf6 Nc3 e5 Ndb5 d6 Bg5 a6 Na3 b5 Bxf6 gxf6 Nd5 f5 Bxb5",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "4": "Sicilian Defense: Open",
+    "5": "Sicilian Defense: Lasker-Pelikan Variation",
+    "8": "Sicilian Defense: Lasker-Pelikan Variation, Sveshnikov Variation",
+    "10": "Sicilian Defense: Lasker-Pelikan Variation, Sveshnikov Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 Nf6 Nc3 e5 Ndb5 d6 Bg5 a6 Na3 b5 Bxf6 gxf6 Nd5 Bg7",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "4": "Sicilian Defense: Open",
+    "5": "Sicilian Defense: Lasker-Pelikan Variation",
+    "8": "Sicilian Defense: Lasker-Pelikan Variation, Sveshnikov Variation",
+    "10": "Sicilian Defense: Lasker-Pelikan Variation, Sveshnikov Variation, Novosibirsk Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 Nf6 Nc3 e5 Ndb5 d6 Bg5 a6 Na3 Be6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "4": "Sicilian Defense: Open",
+    "5": "Sicilian Defense: Lasker-Pelikan Variation",
+    "8": "Sicilian Defense: Lasker-Pelikan Variation, Bird Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 g6 c4 Bg7 Be3 Nf6 Nc3 Ng4",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "4": "Sicilian Defense: Accelerated Dragon",
+    "5": "Sicilian Defense: Accelerated Dragon, Mar\u00f3czy Bind",
+    "7": "Sicilian Defense: Accelerated Dragon, Mar\u00f3czy Bind, Breyer Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 g6 c4 Nf6 Nc3 Nxd4 Qxd4 d6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "4": "Sicilian Defense: Accelerated Dragon",
+    "7": "Sicilian Defense: Accelerated Dragon, Mar\u00f3czy Bind, Gurgenidze Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 e5 Nb5 d6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "4": "Sicilian Defense: L\u00f6wenthal Variation",
+    "5": "Sicilian Defense: Kalashnikov Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 Qc7",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "4": "Sicilian Defense: Flohr Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 Qb6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "4": "Sicilian Defense: Godiva Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 d5",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "4": "Sicilian Defense: Nimzo-American Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 a6 c4 e5",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Open",
+    "5": "Sicilian Defense: O'Kelly Variation, Mar\u00f3czy Bind, Geller Line"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nc6 d4 e6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Old Sicilian",
+    "3": "Sicilian Defense: Franco-Sicilian Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nc6 Nc3 Qc7 Be2 a6 O-O Nf6 Be3 Be7 f4 d6 Qe1 O-O",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: Taimanov Variation",
+    "5": "Sicilian Defense: Taimanov Variation, Bastrikov Variation",
+    "10": "Sicilian Defense: Scheveningen Variation, Classical Main Line"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nc6 Nc3 Qc7 Be2 a6 O-O Nf6 Be3 d6 f4",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: Taimanov Variation",
+    "5": "Sicilian Defense: Taimanov Variation, Bastrikov Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nc6 Nc3 Nf6 Ndb5 Bb4 Nd6+",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: Taimanov Variation",
+    "5": "Sicilian Defense: Four Knights Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nc6 Nc3 Nf6 Ndb5 Bc5",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: Taimanov Variation",
+    "5": "Sicilian Defense: Four Knights Variation",
+    "6": "Sicilian Defense: Four Knights Variation, Cobra Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nc6 Nc3 Nf6 Ndb5 d6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: Taimanov Variation",
+    "5": "Sicilian Defense: Four Knights Variation",
+    "6": "Sicilian Defense: Four Knights Variation, Sveshnikov Transfer"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nc6 Nc3 a6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: Taimanov Variation",
+    "5": "Sicilian Defense: Taimanov Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nc6 Nc3 d6 Be2 Nf6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: Taimanov Variation",
+    "6": "Sicilian Defense: Scheveningen Variation, Modern Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nf6 Nc3 d6 Be2 Be7 O-O O-O f4 Nc6 Be3 Bd7 Nb3",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: French Variation, Normal",
+    "5": "Sicilian Defense: Scheveningen Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nf6 Nc3 Bb4 Bd3 e5",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: French Variation, Normal",
+    "5": "Sicilian Defense: Pin Variation",
+    "6": "Sicilian Defense: Pin Variation, Jaffe Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nf6 Nc3 Qb6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: French Variation, Normal",
+    "5": "Sicilian Defense: Gaw-Paw Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 a6 c4 Nf6 Nc3 Bb4 Bd3 Nc6 Bc2",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: Kan Variation",
+    "7": "Sicilian Defense: Kan Variation, Mar\u00f3czy Bind, Bronstein Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 a6 c4 g6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: Kan Variation",
+    "5": "Sicilian Defense: Kan Variation, Mar\u00f3czy Bind, Hedgehog Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Qb6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: Kveinis Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Bc5",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: French Variation, Open",
+    "4": "Sicilian Defense: Paulsen-Basman Defense"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 a6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: Drazic Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 e6 d4 d5",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: French Variation",
+    "3": "Sicilian Defense: Marshall Counterattack"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 a6 d4 cxd4 Bc4",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: O'Kelly Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 g6 d4 Bg7 dxc5 Qa5+ Nc3 Bxc3+ bxc3 Qxc3+",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Hyperaccelerated Dragon",
+    "3": "Sicilian Defense: Hyperaccelerated Pterodactyl",
+    "6": "Sicilian Defense: Hyperaccelerated Pterodactyl, Exchange Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 g6 d4 f5",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Hyperaccelerated Dragon",
+    "3": "Sicilian Defense: Frederico Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 g6 d4 cxd4 Nxd4 Nf6 Nc3 d6 Be2 Bg7 O-O O-O Be3 Nc6 Nb3 Be6 f4 Na5 f5 Bc4 Bd3 Bxd3 cxd3 d5",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Hyperaccelerated Dragon",
+    "13": "Sicilian Defense: Dragon Variation, Classical Variation, Bernard Defense"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nf6 e5 Nd5 Nc3 Nxc3",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Nimzowitsch Variation",
+    "4": "Sicilian Defense: Nimzowitsch Variation, Exchange Variation"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 Nf6 e5 Nd5 Nc3 e6 Nxd5 exd5 d4 Nc6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Nimzowitsch Variation",
+    "6": "Sicilian Defense: Nimzowitsch Variation, Main Line"
+   }
+  },
+  {
+   "line": "e4 c5 Nf3 f5 exf5 Nh6",
+   "notes": {
+    "1": "Sicilian Defense",
+    "2": "Sicilian Defense: Brussels Gambit",
+    "3": "Sicilian Defense: Double-Dutch Gambit"
    }
   }
  ]

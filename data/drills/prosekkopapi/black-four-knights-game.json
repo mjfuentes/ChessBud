@@ -1,95 +1,75 @@
 {
  "name": "Four Knights Game \u2014 Black",
  "user_color": "black",
- "intro": "Built from 15 of your games as black (you score 40%). Play your prepared moves.",
+ "intro": "49 named variations of the Four Knights Game, from the ECO book. You have played it 15 times, scoring 40%.",
  "lines": [
   {
-   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 d4 exd4 Nxd4 Bb4 Nxc6 bxc6 Bd3 O-O O-O d5 exd5 cxd5 h3 Bb7 Bg5 h6 Bh4 Re8",
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Bb4 O-O O-O d3 d6 Bg5 Bxc3 bxc3 Qe7 Re1 Nd8 d4 Bg4",
    "notes": {
-    "1": "You've faced this 15 times (scoring 40%).",
-    "2": "You've faced this 14 times (scoring 43%).",
-    "3": "You've faced this 7 times (scoring 29%).",
-    "4": "You've faced this 5 times (scoring 20%).",
-    "5": "You've faced this 5 times (scoring 20%).",
-    "6": "Beyond your games \u2014 engine line from here."
+    "4": "Four Knights Game: Spanish Variation",
+    "6": "Four Knights Game: Spanish Variation, Double Spanish"
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bc4 Bc5 O-O d6 Nd5 Nxe4 d3 Nxf2 Rxf2 Bxf2+ Kxf2 Na5 Bg5 f6 Nh4 fxg5 Qh5+ Kd7",
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Bb4 O-O O-O d3 d6 Ne2",
    "notes": {
-    "1": "You've faced this 15 times (scoring 40%).",
-    "2": "You've faced this 14 times (scoring 43%).",
-    "3": "You've faced this 7 times (scoring 29%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "4": "Four Knights Game: Spanish Variation",
+    "6": "Four Knights Game: Spanish Variation, Double Spanish",
+    "7": "Four Knights Game: Spanish Variation, Symmetrical Variation"
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 d3 d5 exd5 Nxd5 Nxd5 Qxd5 Be2 Bf5 O-O O-O-O Be3 Be7 a3 Qe6 c3 Qg6 Ne1 h5",
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Bb4 O-O O-O Bxc6",
    "notes": {
-    "1": "You've faced this 15 times (scoring 40%).",
-    "2": "You've faced this 14 times (scoring 43%).",
-    "3": "You've faced this 7 times (scoring 29%).",
-    "10": "Beyond your games \u2014 engine line from here."
+    "4": "Four Knights Game: Spanish Variation",
+    "6": "Four Knights Game: Spanish Variation, Nimzowitsch Variation"
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 Nc3 Bc5 O-O d6 d3 Bg4 Bg5 h6 Bh4 g5 Bg3 O-O Bxc6 bxc6 h3 Bh5 Na4 Bb6",
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 d4 exd4 Nxd4 Bb4 Nxc6 bxc6 Bd3 d5 exd5 O-O O-O",
    "notes": {
-    "1": "You've faced this 15 times (scoring 40%).",
-    "2": "You've faced this 14 times (scoring 43%).",
-    "3": "You've faced this 4 times (scoring 50%).",
-    "4": "You've faced this 4 times (scoring 50%).",
-    "9": "Beyond your games \u2014 engine line from here."
+    "4": "Four Knights Game: Scotch Variation",
+    "9": "Four Knights Game: Scotch Variation Accepted, Main Line"
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 Nc3 Bc5 O-O d6 d4 exd4 Nxd4 Bd7 Nxc6 bxc6 Bc4 O-O Bg5 Qe7 Qf3 Bd4 Rae1 h6",
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 d4 exd4 Nd5 Nxe4 Qe2 f5",
    "notes": {
-    "1": "You've faced this 15 times (scoring 40%).",
-    "2": "You've faced this 14 times (scoring 43%).",
-    "3": "You've faced this 4 times (scoring 50%).",
-    "4": "You've faced this 4 times (scoring 50%).",
-    "11": "Beyond your games \u2014 engine line from here."
+    "4": "Four Knights Game: Scotch Variation",
+    "5": "Four Knights Game: Scotch Variation, Belgrade Gambit"
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Bb5 Nf6 Nc3 Bc5 Nxe5 Nxe5 d4 a6 Be2 Bd6 dxe5 Bxe5 Bg5 h6 Bh4 c6 O-O Qc7 Kh1 O-O",
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Nxe5 Nxe5 d4 Ng6 e5 Ng8 Bc4 Bb4 Qf3 f5",
    "notes": {
-    "1": "You've faced this 15 times (scoring 40%).",
-    "2": "You've faced this 14 times (scoring 43%).",
-    "3": "You've faced this 4 times (scoring 50%).",
-    "4": "You've faced this 4 times (scoring 50%).",
-    "6": "Beyond your games \u2014 engine line from here."
+    "4": "Four Knights Game: Halloween Gambit"
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Nc3 Bc5 O-O d6 a3 Bg4 b4 Bb6 Nd5 Nxd5 exd5 Nd4 Be2 Nxe2+ Qxe2 O-O Bb2 f5",
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 g3 d5 exd5 Nxd5 Bg2 Nxc3 bxc3",
    "notes": {
-    "1": "You've faced this 15 times (scoring 40%).",
-    "2": "You've faced this 14 times (scoring 43%).",
-    "9": "Beyond your games \u2014 engine line from here."
+    "4": "Four Knights Game: Glek System",
+    "7": "Four Knights Game: Glek System"
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Nc3 Bc5 O-O d6 Na4 Bb6 Nxb6 axb6 c3 Nxe4 d4 exd4 Nxd4 O-O Re1 d5 Bb3 h6",
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 a3 d6 h3",
    "notes": {
-    "1": "You've faced this 15 times (scoring 40%).",
-    "2": "You've faced this 14 times (scoring 43%).",
-    "9": "Beyond your games \u2014 engine line from here."
+    "4": "Four Knights Game: Gunsberg Variation",
+    "5": "Four Knights Game: Gunsberg Variation, Provincial Opening"
    }
   },
   {
-   "line": "e4 e5 Nf3 Nc6 a3 Nf6 Nc3 d6 h3 a6 Bc4 Nxe4 Nxe4 d5 Bd3 f5 Nc3 e4 Be2 exf3 Bxf3 d4 Qe2+ Kf7",
+   "line": "e4 e5 Nf3 Nc6 Nc3 Nf6 Nd5",
    "notes": {
-    "1": "You've faced this 15 times (scoring 40%).",
-    "2": "You've faced this 14 times (scoring 43%).",
-    "7": "Beyond your games \u2014 engine line from here."
+    "4": "Four Knights Game: Naroditsky Variation"
    }
   },
   {
-   "line": "e4 e5 Nc3 Nf6 Nf3 Nc6 d3 Bc5 Bg5 h6 Bxf6 Qxf6 Nd5 Qd8 Be2 d6 c3 Ne7 b4 Bb6 Nxe7 Qxe7 O-O Bd7 Qb3 O-O",
+   "line": "e4 e5 Nf3 Nc6 Bc4 Nf6 Nc3 Nxe4 Bxf7+",
    "notes": {
-    "1": "You've faced this 15 times (scoring 40%)."
+    "4": "Four Knights Game: Italian Variation",
+    "5": "Four Knights Game: Italian Variation, Noa Gambit"
    }
   }
  ]
