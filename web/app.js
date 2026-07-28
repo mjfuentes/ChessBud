@@ -473,28 +473,58 @@ function showMessage(text, kind = 'note') {
 
 const scoreClass = (pct) => (pct < 45 ? 'bad' : pct > 55 ? 'good' : '')
 
+// The move verdict carries coloured chips, so the panel takes nodes; the notes
+// under it are plain text.
+function showLines(nodes, texts, kind = 'note') {
+  const el = document.getElementById('message')
+  el.className = `message ${kind}`
+  const blocks = []
+  if (nodes && nodes.length) {
+    const head = document.createElement('div')
+    head.append(...nodes)
+    blocks.push(head)
+  }
+  for (const t of texts || []) {
+    if (!t) continue
+    const line = document.createElement('div')
+    line.textContent = t
+    blocks.push(line)
+  }
+  el.replaceChildren(...blocks)
+}
+
 // What your move was, said plainly, and what the best move was when it wasn't
 // yours. The tie band means "best" is often several moves — name them all
 // rather than pretend there is one answer.
+// Moves are set in the colour of their own badge — the same brown for book,
+// green for best, paler green down through good — so the word and the mark on
+// the board say the same thing without having to be read.
+function moveChip(san, cls) {
+  const b = document.createElement('b')
+  b.className = 'mq'
+  b.style.color = BADGE_COLORS[cls] || 'inherit'
+  b.textContent = san
+  return b
+}
+
 function moveVerdict(san, cls, best) {
   const others = (best || []).filter((m) => m !== san)
-  const list = others.join(', ')
+  const bestChips = others.flatMap((m, i) => (i ? [', ', moveChip(m, 'best')]
+    : [moveChip(m, 'best')]))
+  const say = (...tail) => [moveChip(san, cls), ...tail]
+  const withBest = (lead, label) => (others.length
+    ? say(lead, label, ...bestChips, '.') : say(`${lead}.`))
   switch (cls) {
     // not a claim about strength: the engine often prefers something else
-    case 'book': return `${san} is a book move.`
-    case 'great': return `${san} is the best move, and the only one.`
-    case 'best': return `${san} is the best move.`
-    case 'excellent': return others.length
-      ? `${san} is excellent. Best was ${list}.` : `${san} is excellent.`
-    case 'good': return others.length
-      ? `${san} is good. Best was ${list}.` : `${san} is good.`
-    case 'inaccuracy': return others.length
-      ? `${san} is an inaccuracy. Best: ${list}.` : `${san} is an inaccuracy.`
-    case 'mistake': return others.length
-      ? `${san} is a mistake. Best: ${list}.` : `${san} is a mistake.`
-    case 'blunder': return others.length
-      ? `${san} is a blunder. Best: ${list}.` : `${san} is a blunder.`
-    default: return ''
+    case 'book': return say(' is a book move.')
+    case 'great': return say(' is the best move, and the only one.')
+    case 'best': return say(' is the best move.')
+    case 'excellent': return withBest(' is excellent', '. Best was ')
+    case 'good': return withBest(' is good', '. Best was ')
+    case 'inaccuracy': return withBest(' is an inaccuracy', '. Best: ')
+    case 'mistake': return withBest(' is a mistake', '. Best: ')
+    case 'blunder': return withBest(' is a blunder', '. Best: ')
+    default: return []
   }
 }
 
@@ -712,8 +742,7 @@ async function submitMove(uci) {
   // rewrites this if the reply proves the move worse than it probed.
   if (optimisticClass && state.mode === 'drill') {
     const san = classTable.sans[uci] || uci
-    const said = moveVerdict(san, optimisticClass, warm ? classTable.bestSans : [])
-    if (said) showMessage(said, 'note')
+    showLines(moveVerdict(san, optimisticClass, warm ? classTable.bestSans : []), [])
   }
 
   let data
@@ -889,13 +918,11 @@ async function submitMove(uci) {
     setActionLabels('Repeat', 'Next')
     setPuzzleActions(true)
   }
-  const verdictLine = moveVerdict(data.user_san, slotClass, data.best_sans)
-  if (verdictLine) lines.unshift(verdictLine)
   if (data.prep_note) lines.push(data.prep_note)
   if (data.note) lines.push(data.note)
   // not the opponent's move — it is on the board and in the move list
   if (data.game_over) lines.push(`Result: ${data.result}`)
-  showMessage(lines.join('\n'), kind)
+  showLines(moveVerdict(data.user_san, slotClass, data.best_sans), lines, kind)
 
   const positions = [...snapshot.positions, data.fen_after_user]
   const ucis = [...snapshot.ucis, uci]
@@ -1180,7 +1207,10 @@ async function showHome() {
   for (const color of ['white', 'black']) {
     const all = prepared
       .filter((d) => d.user_color === color)
-      .sort((a, b) => (b.games || 0) - (a.games || 0))
+      // by foliage: the list reads in the same order the tree grew, and games
+      // faced only breaks ties between openings you have taken equally far
+      .sort((a, b) => (b.ladder?.grown || 0) - (a.ladder?.grown || 0)
+        || (b.games || 0) - (a.games || 0))
     const rows = all
       .map((d, i) => {
         const li = document.createElement('li')

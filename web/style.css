@@ -729,3 +729,7 @@ cg-board {
   align-items: center;
 }
 .brand { width: 118px; height: auto; cursor: pointer; }
+
+/* a move named in the panel wears its own badge colour, set inline from
+   BADGE_COLORS so the word and the mark on the board cannot disagree */
+.message .mq { font-weight: 700; }
