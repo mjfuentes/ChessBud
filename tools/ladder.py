@@ -110,16 +110,24 @@ class Ladder:
 
     def summary(self, drill_id: str, lines: list[list[str]], is_white: bool) -> dict:
         """What this opening looks like as a whole — for the list, not for
-        gating anything."""
+        gating anything.
+
+        `grown` counts the leaves the tree actually draws, so the number on the
+        home screen and the foliage on the branch are the same thing. Counting
+        stored keys instead would include lines the book no longer has (the
+        regeneration replaced them) and rungs beyond where a line has reached.
+        """
         with self._lock:
             done = self._cleared(drill_id)
             depths = [self.depth_of(drill_id, ln, is_white, done) for ln in lines]
-        grown = sum(len(v) for v in done.values())
-        started = sum(1 for d in depths if d > MIN_DEPTH)
+
+        def leaves(nodes: list[dict]) -> int:
+            return sum((1 if n["on"] else 0) + leaves(n["kids"]) for n in nodes)
+
         return {
             "lines": len(lines),
-            "started": started,
-            "grown": grown,
+            "started": sum(1 for d in depths if d > MIN_DEPTH),
+            "grown": leaves(self.trie(drill_id, lines, is_white)),
             "deepest": max(depths, default=0) - 1,
             "average": round(sum(d - 1 for d in depths) / len(depths), 1) if lines else 0,
         }

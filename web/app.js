@@ -1096,13 +1096,13 @@ async function showHome() {
     const L = d.ladder
     if (!L?.lines) return acc
     return {
+      grown: acc.grown + L.grown,
       started: acc.started + L.started,
       lines: acc.lines + L.lines,
-      deepest: Math.max(acc.deepest, L.deepest),
     }
-  }, { started: 0, lines: 0, deepest: 0 })
+  }, { grown: 0, started: 0, lines: 0 })
   document.getElementById('practice-desc').textContent =
-    `${bloom.started} of ${bloom.lines} lines growing · deepest ${bloom.deepest} moves`
+    `${bloom.grown} leaves · ${bloom.started} of ${bloom.lines} lines going`
 
   const rowsById = new Map()
   const branches = renderTree(document.getElementById('tree'), prepared, {
@@ -1136,16 +1136,15 @@ async function showHome() {
         prac.className = 'o-meta o-prac'
         const L = d.ladder
         if (L && L.lines) {
-          const depth = document.createElement('b')
-          depth.className = L.deepest >= 8 ? 'good' : ''
-          depth.textContent = L.deepest ? `${L.deepest} moves` : 'new'
+          const leaves = document.createElement('b')
+          leaves.className = L.grown ? 'good' : ''
+          leaves.textContent = L.grown
           const bar = document.createElement('span')
           bar.className = 'o-rungs'
           bar.style.setProperty('--filled', `${Math.round(100 * L.started / L.lines)}%`)
-          prac.append(depth, ` · ${L.started}/${L.lines}`, bar)
-          prac.title = `${L.started} of ${L.lines} lines started\n`
-            + `deepest ${L.deepest} moves · ${L.average} on average\n`
-            + 'each line grows on its own — nothing is locked'
+          prac.append(leaves, ' leaves', bar)
+          prac.title = `${L.grown} leaves grown\n`
+            + `${L.started} of ${L.lines} lines going · deepest ${L.deepest} moves`
         } else {
           prac.textContent = '—'
         }
@@ -1182,8 +1181,7 @@ function focusOpening(id, drills, branches, rows) {
   if (!d) return
   const L = d.ladder
   name.textContent = d.name.replace(/ — (White|Black)$/, '')
-  detail.textContent = `${L.started} of ${L.lines} lines growing`
-    + ` · deepest ${L.deepest} moves, ${L.average} on average`
+  detail.textContent = `${L.grown} leaves · ${L.started} of ${L.lines} lines going`
     + (d.games ? ` · faced ${d.games} times` : '')
 }
 
