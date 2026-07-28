@@ -1126,8 +1126,21 @@ def compute_move_classes(fen: str, analysis: EngineWrapper) -> dict:
 
 
 def handle_classify(payload: dict, analysis: EngineWrapper) -> dict:
+    """Prefetched so the panel can name your move the instant you make it,
+    rather than after the opponent has answered."""
     table = compute_move_classes(payload["fen"], analysis)
-    return {"moves": {u: v["class"] for u, v in table["moves"].items()}}
+    board = chess.Board(payload["fen"])
+    sans = {}
+    for uci in table["moves"]:
+        try:
+            sans[uci] = board.san(chess.Move.from_uci(uci))
+        except (ValueError, AssertionError):
+            continue
+    return {
+        "moves": {u: v["class"] for u, v in table["moves"].items()},
+        "sans": sans,
+        "best_sans": best_move_sans(payload["fen"], []),
+    }
 
 
 def best_move_sans(fen: str, fallback_pv: list[chess.Move]) -> list[str]:

@@ -692,6 +692,10 @@ async function submitMove(uci) {
     sans: state.sans,
     bookUcis: state.bookUcis,
   }
+  const warm = classTable.fen === snapshot.fen
+  const optimisticClass = state.bookUcis.includes(uci)
+    ? 'book'
+    : warm ? classTable.moves[uci] : null
   // optimistic: the board already shows the move; align our review track now
   setState({
     positions: [...snapshot.positions, applyMoveToFen(snapshot.fen, uci)],
@@ -703,15 +707,19 @@ async function submitMove(uci) {
     legal: [],
     overlay: null,
     check: false,
-    badge: (() => {
-      const cls = state.bookUcis.includes(uci)
-        ? 'book'
-        : classTable.fen === snapshot.fen ? classTable.moves[uci] : null
-      return cls
-        ? { ply: snapshot.positions.length, square: uci.slice(2, 4), cls }
-        : state.badge
-    })(),
+    badge: optimisticClass
+      ? { ply: snapshot.positions.length, square: uci.slice(2, 4), cls: optimisticClass }
+      : state.badge,
   })
+  // Say what the move was now, from the prefetched table, rather than after
+  // the server has also worked out the opponent's reply. The move response
+  // rewrites this if the reply proves the move worse than it probed.
+  if (optimisticClass && state.mode === 'drill') {
+    const san = classTable.sans[uci] || uci
+    const said = moveVerdict(san, optimisticClass,
+      warm ? classTable.bestSans : [], state.drillFamily)
+    if (said) showMessage(said, 'note')
+  }
 
   let data
   try {
@@ -1030,13 +1038,16 @@ async function attemptPuzzle(uci) {
 }
 
 let hintedPuzzleId = null
-let classTable = { fen: null, moves: {} }
+let classTable = { fen: null, moves: {}, sans: {}, bestSans: [] }
 
 async function prefetchClasses(fen) {
   if (!fen) return
   try {
     const data = await api('/api/classify', { fen })
-    classTable = { fen, moves: data.moves || {} }
+    classTable = {
+      fen, moves: data.moves || {}, sans: data.sans || {},
+      bestSans: data.best_sans || [],
+    }
   } catch { /* badges fall back to arriving with the move response */ }
 }
 
