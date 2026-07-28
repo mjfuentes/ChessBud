@@ -830,7 +830,7 @@ async function submitMove(uci) {
   if (data.prep_note) lines.push(data.prep_note)
   if (data.line_note) lines.push(data.line_note)
   if (data.note) lines.push(data.note)
-  if (data.reply_san) lines.push(`Opponent (${data.source}): ${data.reply_san}`)
+  // not the opponent's move — it is on the board and in the move list
   if (data.game_over) lines.push(`Result: ${data.result}`)
   showMessage(lines.join('\n'), kind)
 

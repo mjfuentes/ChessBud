@@ -908,6 +908,61 @@ def handle_drills(drills: dict[str, Drill], user: str) -> dict:
     }
 
 
+_manifest_cache: dict = {}
+
+
+def opening_record(drill_id: str) -> dict:
+    """Your real-game record in this opening, from the prep manifest."""
+    if not _manifest_cache:
+        path = ROOT / "data" / "users" / USER / "openings.json"
+        if path.exists():
+            with open(path, encoding="utf-8") as fh:
+                _manifest_cache.update(
+                    {e["id"]: e for e in json.load(fh).get("drills", [])}
+                )
+    return _manifest_cache.get(drill_id, {})
+
+
+def run_intro(
+    drill: Drill | None, drill_id: str, script: list[str],
+    depth: int, mistake_index: MistakeIndex,
+) -> str:
+    """What is worth knowing as this run starts: your record in the opening,
+    your record in the line you are about to be shown, and how far you have
+    taken it. All of it measured from your own games — nothing generic."""
+    if drill is None:
+        return "Free play — you move for the side to play."
+    parts = []
+    rec = opening_record(drill_id)
+    if rec.get("games"):
+        parts.append(
+            f"You have played this {rec['games']} times, scoring "
+            f"{rec.get('score_pct', 0):.0f}%."
+        )
+    # deepest position along this line that you have actually reached in a game
+    stats = mistake_index.get().position_stats
+    board = chess.Board()
+    reached = None
+    for ply, san in enumerate(script[: 2 * depth]):
+        try:
+            board.push_san(san)
+        except ValueError:
+            break
+        seen = stats.get(board.epd())
+        if seen and seen[0] >= 2:
+            reached = (ply // 2 + 1, seen)
+    # move 1 is just the first move of the game — no line has been chosen yet,
+    # so reporting it says nothing about this line
+    if reached and reached[0] >= 2:
+        move_no, (games, points) = reached
+        parts.append(
+            f"You reach move {move_no} of this line in {int(games)} of them, "
+            f"scoring {100.0 * points / games:.0f}%."
+        )
+    parts.append(f"Graded over {depth} moves.")
+    return " ".join(parts)
+
+
 def handle_result(payload: dict, drills: dict[str, Drill]) -> dict:
     """The client reports a finished run. A pass grows the line it played by
     one rung; nothing else in the opening moves."""
@@ -1111,7 +1166,6 @@ def handle_new(
             drill_id = random.choices(options, weights=weights)[0]
     drill = drills.get(drill_id)
     board = chess.Board(payload["fen"]) if payload.get("fen") else chess.Board()
-    intro = drill.intro if drill else "Free play — you move for the side to play."
     start_fen = board.fen()
     pre_moves = []
     game_id = f"g{int(time.time() * 1000):x}{random.randrange(16 ** 4):04x}"
@@ -1124,6 +1178,10 @@ def handle_new(
         )
         if target_line:
             script = target_line
+    intro = run_intro(
+        drill, drill_id, script,
+        run_depth(drill_id, drill, script), mistake_index,
+    )
     if drill is not None and board.turn != drill.user_color:
         reply = None
         if script:
@@ -1270,8 +1328,9 @@ def handle_move(
                         best_pv[0].uci(), best_cp, history,
                     )
                     record_mistake_result(payload["fen"], False)
-            if prep and not in_prep:
-                prep_note = ((prep_note + " ") if prep_note else "") + f"Book here: {prep}."
+            # deliberately no "Book here: X" — naming the prepared move after
+            # every deviation hands you the answer you came to practise. The
+            # hint button is where the move lives if you want it.
     fixed_now = False
     if mistake_fen and move_class not in ("inaccuracy", "mistake", "blunder"):
         fixed_now = record_mistake_result(mistake_fen, True)
