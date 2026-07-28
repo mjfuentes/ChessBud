@@ -1110,7 +1110,14 @@ async function showHint() {
 
 function repeatGame() {
   if (state.mode !== 'drill' || !state.history.length) return
-  newGame({ drill: state.drill, script: state.history, repeat_of: state.gameId })
+  // the line, not the moves that happened to be played: a run cut short by an
+  // inaccuracy leaves a history of three or four plies, and replaying that as
+  // the line would grade the repeat over two moves and pass it instantly
+  newGame({
+    drill: state.drill,
+    script: state.script || state.history,
+    repeat_of: state.gameId,
+  })
 }
 
 function retryPuzzle() {

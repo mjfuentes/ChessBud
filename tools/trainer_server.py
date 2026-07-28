@@ -818,7 +818,7 @@ def seed_ladder_from_history(drills: dict[str, Drill]) -> None:
         is_white = res["orientation"] == "white"
         depth = ladder_mod.line_length(res["sans"], is_white)
         if depth:
-            ladder.record_pass(drill_id, res["sans"], is_white, depth)
+            ladder.record_pass(drill_id, res["sans"], is_white, depth, drill.lines)
             grown += 1
     print(f"ladder seeded from {grown} passed runs", flush=True)
 
@@ -1019,7 +1019,7 @@ def handle_result(payload: dict, drills: dict[str, Drill]) -> dict:
         log_event("run_result", drill=drill_id, game=payload.get("game"),
                   passed=False, depth=depth or None)
         return {"ladder": ladder_state(drill_id, drill), "grew": False}
-    grew = ladder.record_pass(drill_id, history, is_white, depth)
+    grew = ladder.record_pass(drill_id, history, is_white, depth, drill.lines)
     log_event("run_result", drill=drill_id, game=payload.get("game"), passed=True,
               depth=depth, marked=grew["marked"])
     return {
@@ -1239,6 +1239,11 @@ def handle_new(
     pre_moves = []
     game_id = f"g{int(time.time() * 1000):x}{random.randrange(16 ** 4):04x}"
     script = payload.get("script") or []
+    # a line too short to grade is not a line — fall through and pick a real one
+    if script and drill is not None and drill.lines and ladder_mod.line_length(
+        script, drill.user_color == chess.WHITE
+    ) < ladder_mod.MIN_DEPTH:
+        script = []
     if not script and drill is not None and drill.lines:
         # show a line, shallowest first, so the repertoire broadens before it
         # deepens. Nothing is locked: a line you decline simply waits.

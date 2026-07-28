@@ -133,13 +133,19 @@ class Ladder:
         }
 
     def record_pass(
-        self, drill_id: str, history: list[str], is_white: bool, depth: int
+        self, drill_id: str, history: list[str], is_white: bool, depth: int,
+        lines: list[list[str]] | None = None,
     ) -> dict:
         """Mark a line cleared to `depth`.
 
         Every shallower rung is marked too: reaching move 8 cleanly means the
         moves before it were played cleanly, and it keeps 'the shallowest rung
         not yet cleared' honest as the line's depth.
+
+        Only keys the book actually contains are recorded. A run where the
+        opponent left the book ends on a sequence no line has, and storing it
+        grew the state while the tree — which counts book lines — stayed
+        exactly the same.
         """
         with self._lock:
             self._load()
@@ -149,12 +155,15 @@ class Ladder:
                 key = line_key(history, d, is_white)
                 if key is None:
                     break
+                if lines is not None and key not in lines_at_depth(lines, d, is_white):
+                    continue
                 bucket = entry["cleared"].setdefault(str(d), [])
                 if key not in bucket:
                     bucket.append(key)
                     marked.append(d)
             self._save()
-        return {"depth": depth, "marked": marked, "next": depth + 1}
+        return {"depth": depth, "marked": marked, "next": depth + 1,
+                "off_book": lines is not None and not marked}
 
     def next_line(
         self, drill_id: str, lines: list[list[str]], is_white: bool
