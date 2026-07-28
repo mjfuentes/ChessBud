@@ -509,9 +509,9 @@ function showIntro(stats, fallback) {
     rows.push(row('this line', stats.line.games,
       `reached move ${stats.line.move}`, stats.line.score))
   }
-  rows.push(row('this run', stats.depth, 'of your moves, then a verdict'))
+  if (!rows.length) { el.textContent = fallback || ''; return }
   // one grid for all the rows — each row sizing its own columns is what put
-  // 127, 3 and 6 in three different places
+  // the counts in different places
   const grid = document.createElement('div')
   grid.className = 'i-grid'
   grid.append(...rows)
