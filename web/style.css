@@ -638,27 +638,31 @@ cg-board {
 /* one row for all three: the groups exist only so the run buttons can be
    hidden together, so they contribute their buttons and no box of their own.
    `[hidden]`'s display:none is !important, so hiding still works. */
-.panel-buttons { display: flex; gap: 8px; flex-wrap: wrap; }
-.puzzle-actions,
-.panel-actions { display: contents; }
-.panel-actions button,
-.puzzle-actions button {
+/* one row, never wrapping: the buttons share the width rather than dropping
+   Hint onto a line of its own */
+.panel-buttons { display: flex; gap: 8px; flex-wrap: nowrap; }
+.puzzle-actions { display: contents; }
+/* every button in the row is cut the same — only the colour differs */
+.panel-buttons button {
+  flex: 1 1 0;
   font-family: var(--sans);
   font-size: 0.78rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  white-space: nowrap;
+  text-align: center;
   color: var(--text-soft);
   background: none;
   border: 1px solid var(--line);
   border-radius: 3px;
-  padding: 7px 12px;
+  padding: 7px 10px;
   cursor: pointer;
   transition: color 0.15s ease-out, border-color 0.15s ease-out;
 }
-.puzzle-actions button:hover { color: var(--amber); border-color: var(--amber); }
-.panel-actions .hint-btn { color: var(--good); }
-.panel-actions .hint-btn:hover { color: var(--good); border-color: var(--good); }
+.panel-buttons button:hover { color: var(--amber); border-color: var(--amber); }
+.hint-btn { color: var(--good); }
+.hint-btn:hover { color: var(--good); border-color: var(--good); }
 
 .panel h2 {
   font-size: 0.72rem;
