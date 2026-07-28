@@ -842,6 +842,7 @@ async function submitMove(uci) {
     setPuzzleActions(true)
   }
   if (data.prep_note) lines.push(data.prep_note)
+  if (data.line_note) lines.push(data.line_note)
   if (data.note) lines.push(data.note)
   if (data.reply_san) lines.push(`Opponent (${data.source}): ${data.reply_san}`)
   if (data.game_over) lines.push(`Result: ${data.result}`)

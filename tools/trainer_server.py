@@ -1185,6 +1185,24 @@ def handle_move(
         return {"error": "illegal move", **game_state(board)}
     user_san = board.san(move)
 
+    # The run is steered at a line you have not cleared yet, and reaching it
+    # depends on you playing the move that line is built on. Leave it and the
+    # opponent's scripted reply usually stops being sound — the Italian's
+    # 4...Nxe4 is only playable after 4.Ng5 — so the line silently becomes
+    # unreachable and the rung stalls. Say so rather than let you guess.
+    line_note = None
+    script_now = payload.get("script") or []
+    if (
+        drill is not None
+        and len(script_now) > len(history)
+        and script_now[: len(history)] == history
+        and script_now[len(history)] != user_san
+    ):
+        line_note = (
+            f"The line still open here needs {script_now[len(history)]} — "
+            f"{user_san} is fine, but it will come back."
+        )
+
     prep_note = None
     mistake_fen = None
     in_prep = None
@@ -1270,6 +1288,7 @@ def handle_move(
             "fen_after_user": fen_after_user,
             "history": history,
             "prep_note": prep_note,
+            "line_note": line_note,
             "move_class": move_class,
         }
 
@@ -1304,6 +1323,7 @@ def handle_move(
                 "fen_after_user": fen_after_user,
                 "history": history,
                 "prep_note": prep_note,
+                "line_note": line_note,
                 "move_class": move_class,
                 "loss": round(move_loss, 4),
                 "move_verified": move_verified,
@@ -1367,6 +1387,7 @@ def handle_move(
         "fen_after_user": fen_after_user,
         "history": history,
         "prep_note": prep_note,
+        "line_note": line_note,
         "move_class": move_class,
         "loss": round(move_loss, 4),
         "move_verified": move_verified,
