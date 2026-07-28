@@ -105,11 +105,16 @@ main { flex: 1; min-height: 0; }
 .tw-branch.lit .tw-leaf { fill: oklch(0.85 0.17 138); }
 .tw-branch.lit .tw-bud { stroke: var(--amber); }
 
+/* Fixed height, not min-height: the caption sits in an `auto` grid row above a
+   `1fr` figure, so any change in its wrapping resizes the tree. The hover text
+   is one line and the resting text is two, which read as the tree zooming. */
 .canopy-caption {
   text-align: center;
   display: grid;
   gap: 4px;
-  min-height: 3.2em;
+  height: 4.4em;
+  align-content: start;
+  overflow: hidden;
 }
 .cap-name {
   font-size: 0.95rem;
