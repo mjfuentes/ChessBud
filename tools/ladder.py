@@ -15,6 +15,10 @@ be book, and the position you reach is still somewhere you played well — so it
 grows a leaf and the tree draws the branch that carries it, as yours rather
 than as published theory.
 
+The tree that gets drawn is not the whole book. It is what you have grown plus
+one ply of book past it, so the picture is a record of your practice with a
+frontier on it, and it fills out as you play rather than starting complete.
+
 State lives in data/ladder.json: the move paths you have grown, per drill.
 """
 
@@ -29,6 +33,9 @@ from pathlib import Path
 KEEPS_GOING = ("book", "best", "great", "excellent")
 # a move at or below this ends the run: "good" passes, the rest fail
 PASSES_AND_STOPS = ("good",)
+# how much book the tree draws past where you have reached: one ply, so every
+# position you have stood in shows the replies still waiting on it
+GROWTH_MARGIN = 1
 
 
 def path_key(history: list[str]) -> str:
@@ -168,7 +175,17 @@ class Ladder:
     def tree(
         self, drill_id: str, lines: list[list[str]], is_white: bool
     ) -> list[dict]:
-        """The move tree to draw: the book, plus anywhere you have grown.
+        """The move tree to draw: where you have been, and one ply past it.
+
+        The whole book is not a tree, it is a thicket — the ECO lines behind
+        these drills carry some eighteen thousand moves, and drawing them all
+        buries the few hundred you have actually played in wood that stands for
+        nothing. So the tree is cut back to the positions you have stood in,
+        the wood beneath them, and GROWTH_MARGIN plies of book past the point
+        each line has reached. That margin is what keeps it a tree rather than
+        a record: an opening you have never opened still shows a sprout, and
+        every position you have reached shows the replies still waiting on it,
+        so there is always somewhere visible to grow into.
 
         Nodes are moves. `on` marks a leaf, `book` marks an edge that is
         published theory — a node can be grown without being book, which is how
@@ -176,6 +193,12 @@ class Ladder:
         """
         with self._lock:
             grown = self.grown(drill_id)
+        # every position you have stood in: your leaves, and the wood under them
+        reached = {
+            path_key(key.split()[: i + 1])
+            for key in grown
+            for i in range(len(key.split()))
+        }
         roots: list[dict] = []
         index: dict[str, dict] = {}
 
@@ -192,7 +215,12 @@ class Ladder:
             return node
 
         for line in lines:
-            for i in range(len(line)):
+            # how far along this line you have got. `reached` is prefix-closed,
+            # so the covered plies are always the first ones
+            depth = 0
+            while depth < len(line) and path_key(line[: depth + 1]) in reached:
+                depth += 1
+            for i in range(min(len(line), depth + GROWTH_MARGIN)):
                 touch(line[: i + 1], True)
         # branches you made yourself: drawn from the last book position they
         # share with the tree, so they hang off the wood they actually left

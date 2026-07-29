@@ -2,7 +2,9 @@
 //
 // Nothing here is invented: your book already branches every time the opponent
 // has a choice, so each fork on screen is a fork in your preparation and each
-// leaf is a line you cleared.
+// leaf is a line you cleared. Nothing here is speculative either — the server
+// sends only the wood you have grown on plus a ply of book past it, so a bare
+// twig is a reply waiting for you rather than theory you may never meet.
 //
 // Openings that begin the same way share the same wood. All your defences to
 // 1.e4 as Black grow off one limb, because they ARE one position until White
