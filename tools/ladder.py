@@ -15,9 +15,16 @@ be book, and the position you reach is still somewhere you played well — so it
 grows a leaf and the tree draws the branch that carries it, as yours rather
 than as published theory.
 
-The tree that gets drawn is not the whole book. It is what you have grown plus
-one ply of book past it, so the picture is a record of your practice with a
+The tree that gets drawn is not the whole book. It is what you have grown plus a
+short margin of book past it, so the picture is a record of your practice with a
 frontier on it, and it fills out as you play rather than starting complete.
+
+Nothing backfills it. Growth is recorded as a move is played and never inferred
+afterwards from the activity log, because a leaf is a claim about the book in
+front of you and the book gets regenerated: replaying old practice grew 842
+nodes of which only 172 were still positions the current drills contain, and
+the tree read as four fifths finished before a move had been played against it.
+An empty tree is the honest starting point.
 
 State lives in data/ladder.json: the move paths you have grown, per drill.
 """
@@ -33,9 +40,17 @@ from pathlib import Path
 KEEPS_GOING = ("book", "best", "great", "excellent")
 # a move at or below this ends the run: "good" passes, the rest fail
 PASSES_AND_STOPS = ("good",)
-# how much book the tree draws past where you have reached: one ply, so every
-# position you have stood in shows the replies still waiting on it
-GROWTH_MARGIN = 1
+# How much book the tree draws past where you have reached. Three plies: the
+# reply waiting on you, your answer to it, and the reply to that.
+#
+# Not one, which is the tightest honest answer and draws wrong. A White drill's
+# first ply is e4 for all fifteen of them, so at a margin of one an untouched
+# repertoire collapses to a single stub — every White opening merged onto one
+# node, none of them distinguishable or clickable, and the taper has no depth to
+# run over so the limbs draw as planks. What identifies a White opening is the
+# opponent's reply at ply two, and the tree needs a third ply past that before
+# it reads as wood rather than as a diagram.
+GROWTH_MARGIN = 3
 
 
 def path_key(history: list[str]) -> str:
@@ -76,11 +91,6 @@ class Ladder:
         tmp = self.path.with_suffix(".tmp")
         tmp.write_text(json.dumps(self._state, indent=1, sort_keys=True), encoding="utf-8")
         tmp.rename(self.path)
-
-    def has_state(self) -> bool:
-        with self._lock:
-            self._load()
-            return bool(self._state)
 
     def grown(self, drill_id: str) -> set[str]:
         self._load()
@@ -175,7 +185,7 @@ class Ladder:
     def tree(
         self, drill_id: str, lines: list[list[str]], is_white: bool
     ) -> list[dict]:
-        """The move tree to draw: where you have been, and one ply past it.
+        """The move tree to draw: where you have been, and a little past it.
 
         The whole book is not a tree, it is a thicket — the ECO lines behind
         these drills carry some eighteen thousand moves, and drawing them all
@@ -183,9 +193,10 @@ class Ladder:
         nothing. So the tree is cut back to the positions you have stood in,
         the wood beneath them, and GROWTH_MARGIN plies of book past the point
         each line has reached. That margin is what keeps it a tree rather than
-        a record: an opening you have never opened still shows a sprout, and
+        a record: an opening you have never opened still shows a bare twig, and
         every position you have reached shows the replies still waiting on it,
-        so there is always somewhere visible to grow into.
+        so there is always somewhere visible to grow into. Bare at 290 nodes,
+        and 3,300 even at a thousand leaves — against 17,863 for the book.
 
         Nodes are moves. `on` marks a leaf, `book` marks an edge that is
         published theory — a node can be grown without being book, which is how

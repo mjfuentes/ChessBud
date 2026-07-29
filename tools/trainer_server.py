@@ -784,83 +784,6 @@ def ladder_trie(drill_id: str, drill: Drill) -> list[dict]:
     return ladder.tree(drill_id, drill.lines, drill.user_color == chess.WHITE)
 
 
-def _catch_up(board: chess.Board, history: list[str], fen: str) -> bool:
-    """Advance the board over whatever was played between the last move you
-    made and the position you were shown next.
-
-    The log records your moves, never the opponent's, so a replay built from
-    the log alone silently drops every reply — and with it the move played
-    before your first, which is the whole difference between 1...e5 and
-    1.e4 e5. The position you were shown next is the only record of those
-    moves, so the reply is recovered by asking which legal move reaches it.
-    """
-    if board.fen() == fen:
-        return True
-    for move in board.legal_moves:
-        after = board.copy(stack=False)
-        after.push(move)
-        if after.fen() == fen:
-            history.append(board.san(move))
-            board.push(move)
-            return True
-    return False
-
-
-def seed_ladder_from_history(drills: dict[str, Drill]) -> None:
-    """First run only: grow every node your log shows you playing well onto.
-
-    Replays each logged game on a board: the moves classified book, best,
-    great or excellent grew their position then and grow it now, so the tree
-    starts where your practice actually left it rather than empty. A game
-    whose position cannot be reached is dropped rather than guessed at — a
-    node is a position, and a path that is not a legal game is not one.
-    """
-    if ladder.has_state():
-        return
-    nodes = 0
-    dropped = 0
-    for gid, moves in _log_moves_by_game().items():
-        drill_id = moves[0].get("drill")
-        drill = drills.get(drill_id or "")
-        if drill is None or not drill.lines or drill_id.startswith("practice:"):
-            continue
-        board = chess.Board()
-        history: list[str] = []
-        for e in sorted(moves, key=lambda x: x.get("ts", 0)):
-            if e.get("rejected"):
-                continue
-            if not e.get("fen") or not _catch_up(board, history, e["fen"]):
-                dropped += 1
-                break
-            try:
-                move = board.parse_san(e["san"])
-            except ValueError:
-                dropped += 1
-                break
-            history.append(board.san(move))
-            board.push(move)
-            if e.get("move_class") in ladder_mod.KEEPS_GOING:
-                if ladder.grow(drill_id, history):
-                    nodes += 1
-    print(f"ladder seeded: {nodes} nodes grown from your practice log"
-          + (f" ({dropped} games unreplayable)" if dropped else ""), flush=True)
-
-
-def _log_moves_by_game() -> dict[str, list]:
-    out: dict[str, list] = {}
-    if not ACTIVITY_LOG.exists():
-        return out
-    with open(ACTIVITY_LOG, encoding="utf-8") as fh:
-        for line in fh:
-            try:
-                e = json.loads(line)
-            except json.JSONDecodeError:
-                continue
-            if e.get("kind") == "move" and e.get("game") and e.get("drill"):
-                out.setdefault(e["game"], []).append(e)
-    return out
-
-
 def hint_ucis(
     payload: dict, board: chess.Board, drill: Drill | None, analysis: EngineWrapper
 ) -> tuple[list[str], bool, int | None]:
@@ -1928,7 +1851,6 @@ def main() -> None:
     global USER
     USER = args.user
     drill_cache = DrillCache(args.user)
-    seed_ladder_from_history(drill_cache.get())
     engine = EngineWrapper(args.elo)
     analysis = EngineWrapper(None)
     mistake_index = MistakeIndex(args.user)
