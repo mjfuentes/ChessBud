@@ -1188,7 +1188,7 @@ def handle_new(
     # a line too short to grade is not a line — fall through and pick a real one
     if script and drill is not None and drill.lines and ladder_mod.line_length(
         script, drill.user_color == chess.WHITE
-    ) < ladder_mod.MIN_DEPTH:
+    ) < ladder_mod.MIN_LINE:
         script = []
     if not script and drill is not None and drill.lines:
         # show a line, shallowest first, so the repertoire broadens before it
@@ -1283,13 +1283,13 @@ def handle_move(
         # only steer while the drill's opening is still reachable from here —
         # once the opponent has left it for good there is no course to hold
         if focused and expected and not in_prep and tuple(history) in drill.on_family:
-            # enforce until the position IS this opening (ECO family). A
-            # non-book move is still fine if it lands in the family itself.
-            def fam(sans):
-                op = opening_name(sans)
-                return op["name"].split(":")[0].strip() if op else None
-            if fam(history) != drill.family and fam(history + [user_san]) != drill.family:
-                prep = " or ".join(sorted(expected))
+            # Steer only until the game HAS BEEN this opening. Once it has, a
+            # non-book move is an alternative within it and gets graded like any
+            # other; before that, a move that does not head for the opening is
+            # bounced, because the run is meant to be a run of this opening.
+            if not reached_family(history, drill.family) and not reached_family(
+                history + [user_san], drill.family
+            ):
                 log_event(
                     "move", game=payload.get("game"), drill=payload.get("drill"),
                     fen=payload["fen"], san=user_san, uci=move.uci(),
@@ -1299,9 +1299,11 @@ def handle_move(
                     **game_state(board),
                     "rejected": True,
                     "redirect": True,
+                    # names the opening, never the move: the answer lives behind
+                    # the hint button, which is the whole point of having one
                     "warning": (
-                        f"Not {article(drill.family)} {drill.family} yet — "
-                        f"play {prep} to stay on course."
+                        f"That does not head for {article(drill.family)} "
+                        f"{drill.family}."
                     ),
                 }
         in_opening = len(history) < OPENING_CHECK_PLIES
@@ -1543,6 +1545,30 @@ def eco_book() -> dict:
         from opening_report import load_eco_book
         _eco_book = load_eco_book(ROOT / "data")
     return _eco_book
+
+
+def reached_family(history: list[str], family: str) -> bool:
+    """Has the game been in this ECO family at any point along the way?
+
+    Asked of the whole history, never of its deepest name alone. ECO relabels a
+    position as the line runs deeper: 1.e4 e5 2.Nf3 Nc6 3.Bc4 is an Italian Game
+    and 3...Nf6 an Italian Game: Two Knights Defense, but 4.Nc3 is a Four Knights
+    Game: Italian Variation. A deepest-name test therefore concludes the Italian
+    never happened, and bounces all 28 alternatives at a position the Italian
+    drill itself served — telling you it is not an Italian Game yet while you are
+    standing in one.
+    """
+    book = eco_book()
+    board = chess.Board()
+    for san in history[:24]:
+        try:
+            board.push_san(san)
+        except ValueError:
+            return False
+        entry = book.get(board.epd())
+        if entry and entry[1].split(":")[0].strip() == family:
+            return True
+    return False
 
 
 def opening_name(history: list[str]) -> dict | None:

@@ -36,6 +36,10 @@ import random
 import threading
 from pathlib import Path
 
+# The fewest of your moves a line must hold to be worth replaying. Repeat sends
+# the line back to be served again, and a line shorter than this is over before
+# it has asked you anything — so a fresh one is picked instead.
+MIN_LINE = 3
 # moves that keep a run alive and earn the position they reach a leaf
 KEEPS_GOING = ("book", "best", "great", "excellent")
 # a move at or below this ends the run: "good" passes, the rest fail
