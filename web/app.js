@@ -1268,7 +1268,16 @@ async function showHome() {
 function focusOpening(id, drills, branches, rows) {
   const name = document.getElementById('cap-name')
   const detail = document.getElementById('cap-detail')
-  document.getElementById('tree').classList.toggle('focused', Boolean(id))
+  // An opening you have not grown anything on has no wood on the tree, so there
+  // is nothing to bring forward and the whole plate recedes behind a note
+  // instead. `branches` holds only the openings that got drawn, which makes it
+  // the authority on what is there to point at.
+  const onTree = Boolean(id) && branches.has(id)
+  const barren = Boolean(id) && !onTree
+  const tree = document.getElementById('tree')
+  tree.classList.toggle('focused', onTree)
+  tree.classList.toggle('barren', barren)
+  document.getElementById('tree-note').classList.toggle('shown', barren)
   for (const [key, parts] of branches) {
     for (const g of parts) g.classList.toggle('lit', key === id)
   }

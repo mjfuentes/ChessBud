@@ -71,8 +71,17 @@ main { flex: 1; min-height: 0; }
   min-height: 0;
   align-content: end;
 }
-.canopy-figure { min-height: 0; display: flex; justify-content: center; }
-.tw-svg { height: 100%; width: 100%; overflow: visible; }
+/* The stage exists only to give the note something to be absolute against. The
+   note cannot live inside the figure: renderTree owns the figure's children and
+   replaces all of them on every draw. */
+.canopy-stage { position: relative; min-height: 0; display: flex; }
+.canopy-figure { min-height: 0; flex: 1; display: flex; justify-content: center; }
+.tw-svg {
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+  transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
 
 /* wood is filled, never stroked — a constant-width line is exactly what makes
    a drawn tree look like bent wire */
@@ -97,6 +106,29 @@ main { flex: 1; min-height: 0; }
 /* focus: the hovered branch comes forward, the rest of the plate recedes */
 .canopy-figure.focused .tw-branch { opacity: 0.18; }
 .canopy-figure.focused .tw-branch.lit { opacity: 1; }
+
+/* An opening with nothing grown has no branch to bring forward. Dimming only
+   .tw-branch for it lit the TRUNK by omission — the trunk is not a branch, so it
+   never dims, and it was left as the single bright thing on the plate, reading as
+   the answer to the hover. So the whole specimen recedes instead, trunk included,
+   and the note carries the answer. */
+.canopy-figure.barren .tw-svg { opacity: 0.2; }
+.canopy-note {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 34%;
+  margin: 0;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.canopy-note.shown { opacity: 0.72; }
 .tw-branch { transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1); }
 .tw-branch.lit .tw-wood { fill: oklch(0.62 0.05 85); }
 /* wood several openings grow on stays neutral when one of them is hovered —
