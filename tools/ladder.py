@@ -40,17 +40,15 @@ from pathlib import Path
 KEEPS_GOING = ("book", "best", "great", "excellent")
 # a move at or below this ends the run: "good" passes, the rest fail
 PASSES_AND_STOPS = ("good",)
-# How much book the tree draws past where you have reached. Three plies: the
-# reply waiting on you, your answer to it, and the reply to that.
+# How much book the tree draws past where you have reached: none of it.
 #
-# Not one, which is the tightest honest answer and draws wrong. A White drill's
-# first ply is e4 for all fifteen of them, so at a margin of one an untouched
-# repertoire collapses to a single stub — every White opening merged onto one
-# node, none of them distinguishable or clickable, and the taper has no depth to
-# run over so the limbs draw as planks. What identifies a White opening is the
-# opponent's reply at ply two, and the tree needs a third ply past that before
-# it reads as wood rather than as a diagram.
-GROWTH_MARGIN = 3
+# A margin looks like generosity and draws as a lie. Any amount of it puts the
+# whole shape of the repertoire on screen from the first visit — a full crown of
+# bare branches with two leaves on it, which reads as a mature tree in winter
+# rather than a young one in spring, and cannot grow because it is already the
+# size it will ever be. With no margin the wood IS the practice: a tree that
+# starts as a shoot and puts out a branch only when you earn one.
+GROWTH_MARGIN = 0
 
 
 def path_key(history: list[str]) -> str:
@@ -185,18 +183,17 @@ class Ladder:
     def tree(
         self, drill_id: str, lines: list[list[str]], is_white: bool
     ) -> list[dict]:
-        """The move tree to draw: where you have been, and a little past it.
+        """The move tree to draw: exactly where you have been.
 
         The whole book is not a tree, it is a thicket — the ECO lines behind
         these drills carry some eighteen thousand moves, and drawing them all
-        buries the few hundred you have actually played in wood that stands for
-        nothing. So the tree is cut back to the positions you have stood in,
-        the wood beneath them, and GROWTH_MARGIN plies of book past the point
-        each line has reached. That margin is what keeps it a tree rather than
-        a record: an opening you have never opened still shows a bare twig, and
-        every position you have reached shows the replies still waiting on it,
-        so there is always somewhere visible to grow into. Bare at 290 nodes,
-        and 3,300 even at a thousand leaves — against 17,863 for the book.
+        buries the few hundred you have played in wood that stands for nothing.
+        So the tree is the positions you have stood in and the wood beneath
+        them, and (at GROWTH_MARGIN 0) nothing else: no branch appears before
+        you have played onto it. An opening you have not opened is not on the
+        tree, which is what makes putting it there mean something.
+
+        Empty means empty — no nodes at all until the first move is kept.
 
         Nodes are moves. `on` marks a leaf, `book` marks an edge that is
         published theory — a node can be grown without being book, which is how

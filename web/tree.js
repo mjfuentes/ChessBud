@@ -2,10 +2,11 @@
 //
 // Nothing here is invented: your book already branches every time the opponent
 // has a choice, so each fork on screen is a fork in your preparation and each
-// leaf is a line you cleared. Nothing here is speculative either — the server
-// sends only the wood you have grown on plus a short margin of book past it, so
-// a bare twig is a reply waiting for you rather than theory you may never meet.
-// A new repertoire is therefore a bare tree, and it thickens as you play.
+// leaf is a line you cleared. Nothing here is unearned either — the server sends
+// the wood you have grown on and nothing beyond it, so every branch on screen is
+// a position you have played onto. An empty repertoire is a shoot, not a bare
+// crown, and the tree gets bigger as the leaves accumulate rather than merely
+// filling in a silhouette it already had.
 //
 // Openings that begin the same way share the same wood. All your defences to
 // 1.e4 as Black grow off one limb, because they ARE one position until White
@@ -28,13 +29,39 @@ const VIEW = { w: 640, h: 680 }
 const GROUND = VIEW.h - 18
 const SVG_NS = 'http://www.w3.org/2000/svg'
 
-const TRUNK_LEN = 150
 const LIMB_DECAY = 0.80
-const MIN_SEG = 9
 const SPREAD = 44
 const UPWARD = 0.20
 const ARC_FROM = -158 // one crown, spanning left to right
 const ARC_TO = -22
+
+// The tree is the size of what you have grown. A repertoire with four leaves on
+// it is a shoot, and it thickens and lengthens as leaves accumulate — so the
+// picture changes between visits even when the shape of the wood does not, and
+// an empty ladder cannot be mistaken for a tree that dropped its leaves.
+//
+// Vigour is sqrt so early leaves show most: the first few visibly enlarge the
+// tree, and the hundredth barely does. Saturating at LEAVES_FULL keeps the
+// mature tree the size the layout was drawn for.
+// The floor is set by legibility, not by the data: a nothing-sized shoot reads
+// as a rendering artefact rather than as an empty repertoire.
+const LEAVES_FULL = 300
+const TRUNK_LEN = { min: 46, max: 150 }
+const TRUNK_HALF_W = { min: 3.4, max: 15 }
+const MIN_SEG = { min: 3.5, max: 9 }
+const lerp = (r, t) => r.min + (r.max - r.min) * t
+
+function countLeaves(drills) {
+  let n = 0
+  const walk = (nodes) => {
+    for (const node of nodes) {
+      if (node.on) n += 1
+      walk(node.kids || [])
+    }
+  }
+  for (const drill of drills) walk(drill.book || [])
+  return n
+}
 
 // Leaf silhouette (blade only) from green-leaves-svgrepo-com.svg. It is
 // symmetric about x=509.6, base at (509.6, 866.3), point at (509.6, 19.1),
@@ -146,11 +173,11 @@ function mergeForest(drills) {
 
 // Walk the merged skeleton once, recording where every node sits. Openings
 // then trace their own path through this map.
-function layout(level, ctx, geo, bounds) {
+function layout(level, ctx, geo, bounds, minSeg) {
   const kids = [...level.values()]
   kids.forEach((node, i) => {
     const noise = hashNoise(node.key)
-    const len = Math.max(MIN_SEG, ctx.len * LIMB_DECAY)
+    const len = Math.max(minSeg, ctx.len * LIMB_DECAY)
     const toVertical = (-90 - ctx.angle) * UPWARD
     const spread = SPREAD / Math.max(1, Math.pow(kids.length, 0.55))
     const offset = kids.length === 1
@@ -175,7 +202,8 @@ function layout(level, ctx, geo, bounds) {
     bounds.minX = Math.min(bounds.minX, bx)
     bounds.maxX = Math.max(bounds.maxX, bx)
     bounds.minY = Math.min(bounds.minY, by)
-    layout(node.kids, { x: bx, y: by, angle, len, w: w1, taper: 0.88 }, geo, bounds)
+    layout(node.kids, { x: bx, y: by, angle, len, w: w1, taper: 0.88 },
+           geo, bounds, minSeg)
   })
 }
 
@@ -261,14 +289,24 @@ export function renderTree(host, drills, handlers) {
   const order = []
   limbs.forEach((limb, i) => (i % 2 ? order.unshift(limb) : order.push(limb)))
 
-  const trunkTop = GROUND - TRUNK_LEN
+  const vigour = Math.min(1, Math.sqrt(countLeaves(playable) / LEAVES_FULL))
+  const trunkLen = lerp(TRUNK_LEN, vigour)
+  const trunkBaseW = lerp(TRUNK_HALF_W, vigour)
+  const trunkTopW = trunkBaseW * 0.47
+  const minSeg = lerp(MIN_SEG, vigour)
+
+  const trunkTop = GROUND - trunkLen
   const geo = new Map()
   const total = order.reduce((s, l) => s + l.weight, 0) || 1
   order.forEach((limb, i) => {
     const t = order.length > 1 ? i / (order.length - 1) : 0.5
     const angle = ARC_FROM + (ARC_TO - ARC_FROM) * t
-    // limbs leave the trunk over its whole upper length, not from one point
-    const rise = Math.sin(rad(180 * t)) * 34
+    // Limbs leave the trunk over its whole upper length, not from one point —
+    // measured DOWN from the top, so the highest of them starts exactly where
+    // the trunk ends. Measured up from a point part-way, as it was, they floated
+    // clear of the trunk: invisible in a dense crown, and a plain broken stem on
+    // a sapling with one limb on it.
+    const drop = (1 - Math.sin(rad(180 * t))) * trunkLen * 0.23
     // Width is a limb's SHARE of the repertoire, not its raw size: an
     // unbounded sqrt(games) turned the 1.e4 limb — which merges every defence
     // you meet — into a plank wider than the trunk. The first segment also
@@ -278,21 +316,22 @@ export function renderTree(host, drills, handlers) {
       new Map([[limb.san, limb]]),
       {
         x: VIEW.w / 2,
-        y: trunkTop + 18 - rise,
+        y: trunkTop + drop,
         angle,
-        len: TRUNK_LEN * (0.46 + Math.min(0.3, share * 1.2)),
-        // never as thick as the trunk it leaves (half-width 7 at the top), or
-        // a heavy limb — 214 of your games as Black answer 1.e4 — reads as a
-        // second trunk rather than as a branch
-        w: 2.4 + Math.min(3.2, share * 22),
+        len: trunkLen * (0.46 + Math.min(0.3, share * 1.2)),
+        // never as thick as the trunk it leaves, or a heavy limb — 214 of your
+        // games as Black answer 1.e4 — reads as a second trunk rather than as
+        // a branch
+        w: Math.min(trunkTopW * 0.92, 2.4 + Math.min(3.2, share * 22)),
         taper: 0.72,
       },
-      geo, bounds,
+      geo, bounds, minSeg,
     )
   })
 
   svg.append(el('path', {
-    d: ribbon(VIEW.w / 2, GROUND, VIEW.w / 2, trunkTop, 15, 7, 3),
+    d: ribbon(VIEW.w / 2, GROUND, VIEW.w / 2, trunkTop,
+              trunkBaseW, trunkTopW, trunkBaseW * 0.2),
     class: 'tw-wood tw-trunk',
   }))
 
@@ -314,11 +353,16 @@ export function renderTree(host, drills, handlers) {
   // every leaf in the tree sits above every limb in the tree
   for (const canopy of canopies) svg.append(canopy)
 
+  // The frame never shrinks below the full canvas. Fitting it to the wood would
+  // scale a shoot up until it filled the panel, and a shoot that fills the panel
+  // is just the old tree again — growth is only visible against a fixed frame.
+  // It still expands for a crown that outgrows the canvas.
   const pad = 22
-  svg.setAttribute('viewBox', `${(bounds.minX - pad).toFixed(0)} `
-    + `${(bounds.minY - pad).toFixed(0)} `
-    + `${(bounds.maxX - bounds.minX + pad * 2).toFixed(0)} `
-    + `${(GROUND - bounds.minY + pad * 2).toFixed(0)}`)
+  const x0 = Math.min(bounds.minX - pad, 0)
+  const x1 = Math.max(bounds.maxX + pad, VIEW.w)
+  const y0 = Math.min(bounds.minY - pad, 0)
+  svg.setAttribute('viewBox', `${x0.toFixed(0)} ${y0.toFixed(0)} `
+    + `${(x1 - x0).toFixed(0)} ${(GROUND + pad - y0).toFixed(0)}`)
   host.replaceChildren(svg)
   return groups
 }
