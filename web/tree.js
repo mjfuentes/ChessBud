@@ -152,11 +152,18 @@ function mergeForest(drills) {
       for (const kid of node.kids || []) add(level, kid.san, kid, drill)
       return null
     }
+    // Keyed by colour AND the moves that reach it, never by the move alone.
+    // Keyed by move alone, your 1.e4 as White and the 1.e4 you FACE as Black are
+    // the same slot: the Italian as White and the Italian as Black merge onto one
+    // limb, and since the slot keeps whichever colour reached it first, the other
+    // colour's branches then fail their own geometry lookup and silently vanish.
+    // The position after 1.e4 is the same position, but playing it and answering
+    // it are different practice, and this tree is a picture of practice.
     const key = `${drill.user_color}|${path}`
-    let slot = level.get(node.san)
+    let slot = level.get(key)
     if (!slot) {
       slot = { san: node.san, key, kids: new Map(), ids: new Set(), weight: 0 }
-      level.set(node.san, slot)
+      level.set(key, slot)
     }
     slot.ids.add(drill.id)
     slot.weight += drill.games || 1
