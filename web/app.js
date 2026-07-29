@@ -218,13 +218,16 @@ const signedPawns = (cp) => `${cp < 0 ? '−' : '+'}${pawns(cp)}`
 // The single source of truth for how a run is described. The modal and the
 // panel banner both render exactly this — they must never disagree. Plain
 // coach language: no "drift", no pawn arithmetic.
-function verdictCopy({ passed, lost, hintUsed, bounces, drift, userColor, flaws, depth }) {
+function verdictCopy({ passed, lost, hintUsed, bounces, drift, userColor, flaws, depth, won }) {
   const them = userColor === 'b' ? 'White' : 'Black'
   if (passed) {
     return {
       title: `${depth} moves deep`,
-      reason: drift >= 25 ? 'and you came out of the opening better'
-        : drift > -25 ? 'every move worth keeping' : 'though the position slipped a little',
+      // a run that ended because you are winning says so, rather than reporting
+      // the move it stopped on as though the move were what ran out
+      reason: won ? 'and the position is already won'
+        : drift >= 25 ? 'and you came out of the opening better'
+          : drift > -25 ? 'every move worth keeping' : 'though the position slipped a little',
     }
   }
   const inacc = flaws?.inaccuracy || 0
@@ -876,6 +879,7 @@ async function submitMove(uci) {
     const { title: vTitle, reason } = verdictCopy({
       passed, lost: lostNow, hintUsed: state.hintUsed, bounces: state.bounces,
       drift, userColor: state.userColor, flaws, depth: data.depth,
+      won: data.run_won === true,
     })
     // the verdict lives in the popup alone — repeating it in the panel said
     // the same sentence twice on the same screen

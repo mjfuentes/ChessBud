@@ -42,6 +42,9 @@ START_CP = 30
 # below the floor in absolute terms (mirrored in web/app.js)
 DRIFT_FAIL_CP = -75
 FLOOR_CP = -100
+# Once you are this far ahead the run is over and passed: the opening has done
+# its job, and what is left is a won game rather than preparation.
+WINNING_CP = 140
 # how much win probability a scripted reply may give up once you have left the
 # line it was written for, before the opponent abandons the script and plays
 SCRIPT_MAX_LOSS = 0.06
@@ -1051,7 +1054,11 @@ def compute_move_classes(fen: str, analysis: EngineWrapper) -> dict:
         loss = expected_points(best_cp) - expected_points(cp)
         cls = ("great" if only_move else "best") if loss <= TIE_LOSS \
             else classify_loss(loss)
-        moves[uci] = {"class": cls, "loss": round(loss, 4)}
+        # cp is kept as well as the loss: it is the eval the mover reaches by
+        # playing this move, from the mover's own side, which is what tells the
+        # run whether it has finished winning. Already computed here, so reading
+        # it off the table costs the run no engine time of its own.
+        moves[uci] = {"class": cls, "loss": round(loss, 4), "cp": cp}
     table = {
         "moves": moves,
         "best_uci": best_uci,
@@ -1106,6 +1113,23 @@ def best_move_sans(fen: str, fallback_pv: list[chess.Move]) -> list[str]:
         except (ValueError, AssertionError):
             continue
     return out
+
+
+def eval_after_move(
+    fen: str, move: chess.Move, after: chess.Board,
+    analysis: EngineWrapper, color: chess.Color,
+) -> int:
+    """Your eval once your move is on the board, from your own side.
+
+    Read off the classification table when it is warm, since that table already
+    scored every legal move from the mover's side — so the run's own check costs
+    no engine time on the common path."""
+    with classify_lock:
+        table = classify_cache.get(fen)
+    entry = (table or {}).get("moves", {}).get(move.uci())
+    if entry is not None and entry.get("cp") is not None:
+        return entry["cp"]
+    return analysis.eval_cp(after, color, movetime=0.3)
 
 
 def probe_move(
@@ -1376,8 +1400,21 @@ def handle_move(
         keeps_going = move_class in ladder_mod.KEEPS_GOING
         if keeps_going and drill.lines:
             ladder.grow(drill_id_now, history)
+        # A run also ends when you are simply winning. The opponent erred, you
+        # punished it, and there is nothing left in the position for an opening
+        # drill to ask — playing on only walks a won game into a middlegame the
+        # drill was never about. Runs reached 40 and 95 of your moves this way,
+        # into dead rook endings, and that is where the opponent's moves started
+        # to look absurd: it was lost, not broken.
+        run_won = False
+        if keeps_going:
+            ahead = eval_after_move(
+                payload["fen"], move, board, analysis, drill.user_color
+            )
+            run_won = ahead >= WINNING_CP
+            keeps_going = not run_won
         if not keeps_going:
-            run_passed = move_class in ladder_mod.PASSES_AND_STOPS
+            run_passed = run_won or move_class in ladder_mod.PASSES_AND_STOPS
             # the run ends here — no engine reply
             eval_cp = analysis.eval_cp(board, chess.WHITE, movetime=0.3)
             log_event(
@@ -1411,6 +1448,7 @@ def handle_move(
                 "eval_cp": eval_cp,
                 "opening_complete": True,
                 "run_passed": run_passed,
+                "run_won": run_won,
                 "family_record": family_record,
                 "ladder": ladder_state(drill_id_now, drill),
                 "depth": user_moves,
@@ -1451,13 +1489,25 @@ def handle_move(
         if fresh and len(fresh) > len(history):
             try:
                 mv = board.parse_san(fresh[len(history)])
+            except ValueError:
+                mv = None
+            # Held to the same standard as the script above, and for the same
+            # reason: resteer matches a line on the OPPONENT'S moves alone, so
+            # the line it finds is one where YOU played something else, and its
+            # next move was chosen for that position rather than for this one.
+            # Serving it unchecked is how the opponent came to give up a median
+            # 192cp and as much as 582 — Bc5 where the position needed exd4,
+            # O-O into a fork. Unsound here, and the opponent thinks instead.
+            if mv is not None:
+                _, loss, _, _ = probe_move(board, mv, analysis, board.fen())
+                if loss > SCRIPT_MAX_LOSS:
+                    mv = None
+            if mv is not None:
                 san = board.san(mv)
                 board.push(mv)
                 reply = {"reply_san": san, "reply_uci": mv.uci(),
                          "source": "book", "note": None}
                 scripted = fresh
-            except ValueError:
-                reply = None
     if reply is None:
         hot = practice_targets(mistake_index) if drill is not None else None
         fail_next = (
