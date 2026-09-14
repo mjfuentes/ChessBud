@@ -4,11 +4,19 @@ __pycache__/
 .DS_Store
 nohup.out
 reports/
+.claude/settings.local.json
+
+# your data — generated per chess.com user by tools/, never committed
+# (data/drills/*.json at the top level and data/eco_*.tsv are shared and tracked)
+data/games.pgn
+data/users/
+data/drills/*/
+data/puzzles.json
+data/puzzles_openings.json
+data/puzzles_live.json
+data/*.tmp
 
 # runtime state — changes on every session
 data/activity_log.jsonl
 data/puzzle_progress.json
-data/puzzles_live.json
-
-# ladder state — changes as you practice
 data/ladder.json

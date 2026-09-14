@@ -3,7 +3,7 @@
 Answers: where does the clock go, how does time usage differ in wins vs
 losses, and what actually happens in the games lost on time.
 
-Usage: .venv/bin/python tools/time_report.py [--pgn data/games.pgn] [--user prosekkopapi]
+Usage: .venv/bin/python tools/time_report.py --user <name> [--pgn <file>]
 """
 
 from __future__ import annotations
@@ -18,6 +18,7 @@ import chess.pgn
 
 from blunder_scan import phase_of
 from opening_report import load_eco_book, classify
+from userarg import ROOT, add_pgn_argument, add_user_argument, games_pgn
 
 LONG_THINK = 20.0
 CHECKPOINTS = (10, 20, 30)
@@ -182,13 +183,13 @@ def opening_family_table(games: list[GameTimes]) -> list[str]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--pgn", default="data/games.pgn")
-    parser.add_argument("--user", default="prosekkopapi")
+    add_pgn_argument(parser)
+    add_user_argument(parser)
     args = parser.parse_args()
 
-    book = load_eco_book(Path("data"))
+    book = load_eco_book(ROOT / "data")
     games = []
-    with open(args.pgn, encoding="utf-8", errors="replace") as fh:
+    with open(games_pgn(args.user, args.pgn), encoding="utf-8", errors="replace") as fh:
         while (g := chess.pgn.read_game(fh)) is not None:
             extracted = extract_game(g, args.user, book)
             if extracted is not None and extracted.moves:

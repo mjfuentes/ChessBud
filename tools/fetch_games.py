@@ -3,7 +3,7 @@
 Writes data/users/<user>/games.pgn. Works for any username — this is the
 entry point for preparing a new user's coaching data.
 
-Usage: .venv/bin/python tools/fetch_games.py [--user prosekkopapi] [--time-class blitz]
+Usage: .venv/bin/python tools/fetch_games.py --user <name> [--time-class blitz]
 """
 
 from __future__ import annotations
@@ -12,6 +12,8 @@ import argparse
 import json
 import urllib.request
 from pathlib import Path
+
+from userarg import add_user_argument
 
 ROOT = Path(__file__).resolve().parent.parent
 HEADERS = {"User-Agent": "chesscoach-local-trainer/1.0 (personal coaching tool)"}
@@ -25,7 +27,7 @@ def get_json(url: str) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--user", default="prosekkopapi")
+    add_user_argument(parser)
     parser.add_argument(
         "--time-class", default="blitz",
         help="comma-separated (blitz,rapid,bullet,daily) or 'all'",

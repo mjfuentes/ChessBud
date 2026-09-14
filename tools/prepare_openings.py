@@ -16,7 +16,7 @@ than silently swapped out here.
 Writes data/drills/<user>/*.json (trainer drill format) and a manifest at
 data/users/<user>/openings.json.
 
-Usage: .venv/bin/python tools/prepare_openings.py [--user prosekkopapi]
+Usage: .venv/bin/python tools/prepare_openings.py --user <name>
 """
 
 from __future__ import annotations
@@ -33,6 +33,7 @@ import chess.pgn
 from blunder_scan import user_color
 from opening_report import load_eco_book, classify
 from eco_tree import build_tree, entries_for, load_eco_lines
+from userarg import add_user_argument
 
 ROOT = Path(__file__).resolve().parent.parent
 # The ladder grades up to 15 of the user's moves (30 plies), and a rung is only
@@ -140,7 +141,7 @@ def expand_theory(history, board, node, is_user_turn_fn, notes, lines):
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--user", default="prosekkopapi")
+    add_user_argument(parser)
     args = parser.parse_args()
 
     pgn_path = ROOT / "data" / "users" / args.user / "games.pgn"

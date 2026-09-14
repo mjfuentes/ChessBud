@@ -18,6 +18,8 @@ import chess
 import chess.engine
 import chess.pgn
 
+from userarg import ROOT, add_pgn_argument, add_user_argument, games_pgn
+
 CAP = 1000
 
 
@@ -64,7 +66,7 @@ _ECO_CACHE: list[tuple[str, str]] = []
 def opening_matches(family: str, movetext: str) -> bool:
     if not _ECO_CACHE:
         import csv
-        for tsv in sorted(Path("data").glob("eco_*.tsv")):
+        for tsv in sorted((ROOT / "data").glob("eco_*.tsv")):
             with open(tsv, newline="", encoding="utf-8") as fh:
                 for row in csv.DictReader(fh, delimiter="\t"):
                     san = " ".join(
@@ -114,8 +116,8 @@ def scan_game(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--pgn", default="data/games.pgn")
-    parser.add_argument("--user", default="prosekkopapi")
+    add_pgn_argument(parser)
+    add_user_argument(parser)
     parser.add_argument("--color", choices=["white", "black"])
     parser.add_argument("--opening", help="ECO family name, e.g. 'French Defense'")
     parser.add_argument("--max-games", type=int, default=20)
@@ -127,7 +129,7 @@ def main() -> None:
     all_blunders = []
     scanned = 0
     try:
-        with open(args.pgn, encoding="utf-8", errors="replace") as fh:
+        with open(games_pgn(args.user, args.pgn), encoding="utf-8", errors="replace") as fh:
             while (game := chess.pgn.read_game(fh)) is not None:
                 if scanned >= args.max_games:
                     break

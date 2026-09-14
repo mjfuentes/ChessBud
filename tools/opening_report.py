@@ -3,7 +3,7 @@
 Classifies each game against the lichess ECO database by position matching
 (so transpositions are handled), then aggregates results by color and opening.
 
-Usage: python tools/opening_report.py [--pgn data/games.pgn] [--user prosekkopapi]
+Usage: .venv/bin/python tools/opening_report.py --user <name> [--pgn <file>]
 """
 
 from __future__ import annotations
@@ -17,6 +17,8 @@ from pathlib import Path
 
 import chess
 import chess.pgn
+
+from userarg import ROOT, add_pgn_argument, add_user_argument, games_pgn
 
 MAX_BOOK_PLIES = 24
 MIN_GAMES_FOR_LEADERBOARD = 3
@@ -145,12 +147,12 @@ def loss_terminations(records: list[GameRecord]) -> list[str]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--pgn", default="data/games.pgn")
-    parser.add_argument("--user", default="prosekkopapi")
+    add_pgn_argument(parser)
+    add_user_argument(parser)
     args = parser.parse_args()
 
-    book = load_eco_book(Path("data"))
-    records = read_games(Path(args.pgn), args.user, book)
+    book = load_eco_book(ROOT / "data")
+    records = read_games(games_pgn(args.user, args.pgn), args.user, book)
     total = sum(g.score for g in records)
     print(f"{args.user}: {len(records)} games, overall score {100.0 * total / len(records):.1f}%")
 

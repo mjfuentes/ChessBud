@@ -5,7 +5,7 @@ scripted drill replies (data/drills/*.json) while you are in book, warns
 when you deviate from your prep, and switches to strength-limited
 Stockfish once the book runs out.
 
-Usage: .venv/bin/python tools/trainer_server.py [--port 8420] [--elo 1320]
+Usage: .venv/bin/python tools/trainer_server.py --user <name> [--port 8420] [--elo 1320]
 """
 
 from __future__ import annotations
@@ -24,6 +24,7 @@ import chess.engine
 import chess.pgn
 
 import ladder as ladder_mod
+from userarg import add_user_argument
 
 ROOT = Path(__file__).resolve().parent.parent
 WEB_DIR = ROOT / "web"
@@ -51,7 +52,7 @@ SCRIPT_MAX_LOSS = 0.06
 PROGRESS_FILE = ROOT / "data" / "puzzle_progress.json"
 LADDER_FILE = ROOT / "data" / "ladder.json"
 ladder = ladder_mod.Ladder(LADDER_FILE)
-USER = "prosekkopapi"  # replaced by --user in main()
+USER = ""  # set from --user in main()
 PUZZLE_TOLERANCE_CP = 60
 PRACTICE_TOLERANCE_CP = 80
 BOOK_BLUNDER_CP = 150
@@ -1921,7 +1922,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--port", type=int, default=8420)
     parser.add_argument("--elo", type=int, default=3000)
-    parser.add_argument("--user", default="prosekkopapi")
+    add_user_argument(parser)
     args = parser.parse_args()
 
     global USER

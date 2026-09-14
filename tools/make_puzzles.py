@@ -21,6 +21,7 @@ import chess.engine
 import chess.pgn
 
 from blunder_scan import capped_cp, phase_of, user_color
+from userarg import add_pgn_argument, add_user_argument, games_pgn
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -88,8 +89,8 @@ def write_out(out: Path, puzzles: list[dict]) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--pgn", default=str(ROOT / "data" / "games.pgn"))
-    parser.add_argument("--user", default="prosekkopapi")
+    add_pgn_argument(parser)
+    add_user_argument(parser)
     parser.add_argument("--out", default=str(ROOT / "data" / "puzzles.json"))
     parser.add_argument("--threshold", type=int, default=250)
     parser.add_argument("--movetime", type=float, default=0.06)
@@ -103,7 +104,7 @@ def main() -> None:
     puzzles: list[dict] = []
     scanned = 0
     try:
-        with open(args.pgn, encoding="utf-8", errors="replace") as fh:
+        with open(games_pgn(args.user, args.pgn), encoding="utf-8", errors="replace") as fh:
             while (game := chess.pgn.read_game(fh)) is not None:
                 if scanned >= args.max_games:
                     break
