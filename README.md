@@ -37,7 +37,7 @@ only network calls are to the public chess.com API to fetch games and ratings.
 ## Quick start
 
 ```bash
-git clone <this repo> chesscoach && cd chesscoach
+git clone git@github.com:mjfuentes/ChessBud.git && cd ChessBud
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 
 export CHESSCOACH_USER=your_chesscom_name   # or pass --user to every script
