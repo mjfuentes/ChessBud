@@ -2,6 +2,8 @@
 
 A local opening trainer that is built from *your* chess.com games.
 
+![Home: your repertoire as a tree](docs/home.png)
+
 It pulls your archive, works out which openings you actually reach and where
 you leak, builds a drill book for each one (your sound moves kept, engine
 corrections for the leaks, the real replies your opponents play, engine
@@ -12,6 +14,8 @@ puzzles.
 
 Everything runs on your machine. No accounts, no server, no telemetry. The
 only network calls are to the public chess.com API to fetch games and ratings.
+
+![Opening practice: an inaccuracy flagged with the best moves](docs/practice.png)
 
 ## What it does
 
